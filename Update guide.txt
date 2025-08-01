@@ -1,9 +1,0 @@
-delete all json
-
-upload new files
-
-
-Open terminal/command prompt in your project folder
-Run: node generate-index.js
-
-then run "node server.js" to make it online

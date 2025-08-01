@@ -800,64 +800,96 @@ function generateNBT() {
         output.innerHTML = `<div style="color: red;">Error generating NBT: ${error.message}</div>`;
     }
 }
-
+// Generate Gear NBT
 function generateGearNBT() {
-    // Basic gear NBT generation
     const nbt = {
-        lvl: parseInt(document.getElementById('gearLvl')?.value || 1),
-        rar: document.getElementById('gearRar')?.value || 'common',
-        gtype: document.getElementById('gearType')?.value || ''
+        baseStats: {},
+        imp: {},
+        affixes: { suf: [], pre: [], cor: [] },
+        sockets: { so: [], sl: 0, rw: "", rp: 0 },
+        ench: {},
+        rar: document.getElementById('rar')?.value || 'common',
+        lvl: parseInt(document.getElementById('lvl')?.value || 1),
+        gtype: document.getElementById('gtype')?.value || ''
     };
 
-    // Add base stats if present
-    const baseStatP = parseInt(document.getElementById('baseStatP')?.value || 0);
-    if (baseStatP > 0) {
-        nbt.baseStats = { p: baseStatP };
+    // Base Stats
+    const baseStatsP = parseInt(document.getElementById('baseStatsP')?.value || 0);
+    if (baseStatsP > 0) {
+        nbt.baseStats.p = baseStatsP;
     }
 
-    // Add affixes
-    const affixes = { pre: [], suf: [], cor: [] };
+    // Implicit
+    const implicitId = document.getElementById('implicitId')?.value;
+    const implicitP = parseInt(document.getElementById('implicitP')?.value || 0);
+    if (implicitId) {
+        nbt.imp.imp = implicitId;
+        nbt.imp.p = implicitP;
+    }
 
-    // Add prefixes
+    // Enchantment
+    const enchantmentId = document.getElementById('enchantmentId')?.value;
+    const enchantmentRar = document.getElementById('enchantmentRar')?.value;
+    if (enchantmentId) {
+        nbt.ench.en = enchantmentId;
+        nbt.ench.rar = enchantmentRar || 'common';
+    }
+
+    // Sockets
+    const socketLimit = parseInt(document.getElementById('socketLimit')?.value || 0);
+    const runeword = document.getElementById('runeword')?.value || '';
+    const runewordPower = parseInt(document.getElementById('runewordPower')?.value || 0);
+
+    nbt.sockets.sl = socketLimit;
+    if (runeword) nbt.sockets.rw = runeword;
+    if (runewordPower > 0) nbt.sockets.rp = runewordPower;
+
+    // Prefixes
     document.querySelectorAll('#prefixList .affix-item').forEach(item => {
-        const type = item.querySelector('.prefix-type')?.value;
+        const type = item.querySelector('.prefix-type')?.value || 'prefix';
         const id = item.querySelector('.prefix-id')?.value;
         const p = parseInt(item.querySelector('.prefix-p')?.value || 100);
-        const rar = item.querySelector('.prefix-rar')?.value;
+        const rar = item.querySelector('.prefix-rar')?.value || 'common';
 
         if (id) {
-            affixes.pre.push({ id, p, rar, ty: type || 'prefix' });
+            nbt.affixes.pre.push({ p, id, rar, ty: type });
         }
     });
 
-    // Add suffixes
+    // Suffixes
     document.querySelectorAll('#suffixList .affix-item').forEach(item => {
-        const type = item.querySelector('.suffix-type')?.value;
+        const type = item.querySelector('.suffix-type')?.value || 'suffix';
         const id = item.querySelector('.suffix-id')?.value;
         const p = parseInt(item.querySelector('.suffix-p')?.value || 100);
-        const rar = item.querySelector('.suffix-rar')?.value;
+        const rar = item.querySelector('.suffix-rar')?.value || 'common';
 
         if (id) {
-            affixes.suf.push({ id, p, rar, ty: type || 'suffix' });
+            nbt.affixes.suf.push({ p, id, rar, ty: type });
         }
     });
-
-    nbt.affixes = affixes;
 
     return nbt;
 }
 
 function generateJewelNBT() {
     const nbt = {
+        cor: [],
+        affixes: [],
+        auraStats: [],
+        style: document.getElementById('jewelStyle')?.value || 'str',
         lvl: parseInt(document.getElementById('jewelLvl')?.value || 1),
-        style: 'rare',
-        affixes: []
+        rar: document.getElementById('jewelRar')?.value || 'mythic'
     };
 
-    // Add unique if selected
+    // Only add unique if selected
     const uniqId = document.getElementById('jewelUniqId')?.value;
+    const uniqPerc = parseInt(document.getElementById('jewelUniqPerc')?.value || 0);
     if (uniqId) {
-        nbt.uniq = uniqId;
+        nbt.uniq = {
+            t: 0,
+            id: uniqId,
+            perc: uniqPerc
+        };
     }
 
     // Add jewel affixes
@@ -868,7 +900,7 @@ function generateJewelNBT() {
         const rar = item.querySelector('.jewel-affix-rar')?.value;
 
         if (id) {
-            nbt.affixes.push({ id, p, rar, ty: type || 'jewel' });
+            nbt.affixes.push({ p, id, rar, ty: type || 'jewel' });
         }
     });
 

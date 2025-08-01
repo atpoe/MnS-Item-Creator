@@ -33,7 +33,7 @@ This creates combined-data.json which makes the website load much faster.
 ## Step 4: Test Locally
 Start your local server to test the updates:
 
-npx serve .
+node server.js
 
 Open http://localhost:3000 and verify:
 ✅ Data loads successfully
