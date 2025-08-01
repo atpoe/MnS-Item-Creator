@@ -16320,5 +16320,705 @@
       "style": "DEX",
       "weight": 1000
     }
+  },
+  "omen": {
+    "blood": {
+      "affix_types": [
+        "chaos_stat",
+        "jewel_corruption"
+      ],
+      "id": "blood",
+      "lvl_req": 0.5,
+      "mods": [
+        {
+          "type": "PERCENT",
+          "max": 25,
+          "min": 5,
+          "stat": "health"
+        },
+        {
+          "type": "PERCENT",
+          "max": 10,
+          "min": 2,
+          "stat": "armor"
+        },
+        {
+          "type": "PERCENT",
+          "max": 5,
+          "min": 1,
+          "stat": "strength"
+        }
+      ],
+      "weight": 1000
+    },
+    "echoes": {
+      "affix_types": [
+        "chaos_stat",
+        "jewel_corruption"
+      ],
+      "id": "echoes",
+      "lvl_req": 0.5,
+      "mods": [
+        {
+          "type": "PERCENT",
+          "max": 25,
+          "min": 5,
+          "stat": "magic_shield"
+        },
+        {
+          "type": "PERCENT",
+          "max": 10,
+          "min": 2,
+          "stat": "mana"
+        },
+        {
+          "type": "PERCENT",
+          "max": 5,
+          "min": 1,
+          "stat": "intelligence"
+        }
+      ],
+      "weight": 1000
+    },
+    "fangs": {
+      "affix_types": [
+        "chaos_stat",
+        "jewel_corruption"
+      ],
+      "id": "fangs",
+      "lvl_req": 0.5,
+      "mods": [
+        {
+          "type": "MORE",
+          "max": 10,
+          "min": 2,
+          "stat": "all_physical_damage"
+        },
+        {
+          "type": "PERCENT",
+          "max": 20,
+          "min": 4,
+          "stat": "accuracy"
+        },
+        {
+          "type": "FLAT",
+          "max": 5,
+          "min": 1,
+          "stat": "physical_resist"
+        }
+      ],
+      "weight": 1000
+    },
+    "flames": {
+      "affix_types": [
+        "chaos_stat",
+        "jewel_corruption"
+      ],
+      "id": "flames",
+      "lvl_req": 0.5,
+      "mods": [
+        {
+          "type": "MORE",
+          "max": 10,
+          "min": 2,
+          "stat": "all_fire_damage"
+        },
+        {
+          "type": "FLAT",
+          "max": 15,
+          "min": 3,
+          "stat": "fire_resist"
+        },
+        {
+          "type": "FLAT",
+          "max": 3,
+          "min": 0.6,
+          "stat": "max_fire_resist"
+        }
+      ],
+      "weight": 1000
+    },
+    "mirrors": {
+      "affix_types": [
+        "chaos_stat",
+        "jewel_corruption"
+      ],
+      "id": "mirrors",
+      "lvl_req": 0.5,
+      "mods": [
+        {
+          "type": "FLAT",
+          "max": 5,
+          "min": 1,
+          "stat": "dmg_reduction_chance"
+        },
+        {
+          "type": "PERCENT",
+          "max": 10,
+          "min": 2,
+          "stat": "dodge"
+        },
+        {
+          "type": "PERCENT",
+          "max": 5,
+          "min": 1,
+          "stat": "dexterity"
+        }
+      ],
+      "weight": 1000
+    },
+    "shadows": {
+      "affix_types": [
+        "chaos_stat",
+        "jewel_corruption"
+      ],
+      "id": "shadows",
+      "lvl_req": 0.5,
+      "mods": [
+        {
+          "type": "MORE",
+          "max": 10,
+          "min": 2,
+          "stat": "all_chaos_damage"
+        },
+        {
+          "type": "FLAT",
+          "max": 10,
+          "min": 2,
+          "stat": "chaos_resist"
+        },
+        {
+          "type": "FLAT",
+          "max": 3,
+          "min": 0.6,
+          "stat": "max_chaos_resist"
+        }
+      ],
+      "weight": 1000
+    },
+    "storms": {
+      "affix_types": [
+        "chaos_stat",
+        "jewel_corruption"
+      ],
+      "id": "storms",
+      "lvl_req": 0.5,
+      "mods": [
+        {
+          "type": "MORE",
+          "max": 10,
+          "min": 2,
+          "stat": "all_lightning_damage"
+        },
+        {
+          "type": "FLAT",
+          "max": 15,
+          "min": 3,
+          "stat": "lightning_resist"
+        },
+        {
+          "type": "FLAT",
+          "max": 3,
+          "min": 0.6,
+          "stat": "max_lightning_resist"
+        }
+      ],
+      "weight": 1000
+    },
+    "waves": {
+      "affix_types": [
+        "chaos_stat",
+        "jewel_corruption"
+      ],
+      "id": "waves",
+      "lvl_req": 0.5,
+      "mods": [
+        {
+          "type": "MORE",
+          "max": 10,
+          "min": 2,
+          "stat": "all_water_damage"
+        },
+        {
+          "type": "FLAT",
+          "max": 15,
+          "min": 3,
+          "stat": "water_resist"
+        },
+        {
+          "type": "FLAT",
+          "max": 3,
+          "min": 0.6,
+          "stat": "max_water_resist"
+        }
+      ],
+      "weight": 1000
+    }
+  },
+  "aura": {
+    "armor": {
+      "id": "armor",
+      "min_lvl": 10,
+      "reservation": 0.4,
+      "stats": [
+        {
+          "type": "MORE",
+          "max": 30,
+          "min": 6,
+          "stat": "armor"
+        }
+      ],
+      "style": "STR"
+    },
+    "back_to_basics": {
+      "id": "back_to_basics",
+      "min_lvl": 1,
+      "reservation": 0.4,
+      "stats": [
+        {
+          "type": "FLAT",
+          "max": 50,
+          "min": 10,
+          "stat": "basic_attack_dmg"
+        },
+        {
+          "type": "FLAT",
+          "max": 25,
+          "min": 5,
+          "stat": "attack_speed"
+        }
+      ],
+      "style": "DEX"
+    },
+    "block": {
+      "id": "block",
+      "min_lvl": 20,
+      "reservation": 0.4,
+      "stats": [
+        {
+          "type": "PERCENT",
+          "max": 50,
+          "min": 10,
+          "stat": "block_chance"
+        }
+      ],
+      "style": "INT"
+    },
+    "chaos_ailment": {
+      "id": "chaos_ailment",
+      "min_lvl": 10,
+      "reservation": 0.4,
+      "stats": [
+        {
+          "type": "FLAT",
+          "max": 30,
+          "min": 6,
+          "stat": "all_chaos_damage"
+        },
+        {
+          "type": "FLAT",
+          "max": 25,
+          "min": 5,
+          "stat": "poison_chance"
+        }
+      ],
+      "style": "DEX"
+    },
+    "chaos_damage": {
+      "id": "chaos_damage",
+      "min_lvl": 30,
+      "reservation": 0.4,
+      "stats": [
+        {
+          "type": "MORE",
+          "max": 20,
+          "min": 4,
+          "stat": "all_chaos_damage"
+        }
+      ],
+      "style": "DEX"
+    },
+    "chaos_res": {
+      "id": "chaos_res",
+      "min_lvl": 20,
+      "reservation": 0.35,
+      "stats": [
+        {
+          "type": "FLAT",
+          "max": 45,
+          "min": 9,
+          "stat": "chaos_resist"
+        }
+      ],
+      "style": "INT"
+    },
+    "cold_ailment": {
+      "id": "cold_ailment",
+      "min_lvl": 10,
+      "reservation": 0.4,
+      "stats": [
+        {
+          "type": "FLAT",
+          "max": 30,
+          "min": 6,
+          "stat": "all_water_damage"
+        },
+        {
+          "type": "FLAT",
+          "max": 25,
+          "min": 5,
+          "stat": "freeze_chance"
+        }
+      ],
+      "style": "DEX"
+    },
+    "cold_damage": {
+      "id": "cold_damage",
+      "min_lvl": 30,
+      "reservation": 0.4,
+      "stats": [
+        {
+          "type": "MORE",
+          "max": 20,
+          "min": 4,
+          "stat": "all_water_damage"
+        }
+      ],
+      "style": "DEX"
+    },
+    "cold_res": {
+      "id": "cold_res",
+      "min_lvl": 20,
+      "reservation": 0.35,
+      "stats": [
+        {
+          "type": "FLAT",
+          "max": 50,
+          "min": 10,
+          "stat": "water_resist"
+        },
+        {
+          "type": "FLAT",
+          "max": 5,
+          "min": 1,
+          "stat": "max_water_resist"
+        }
+      ],
+      "style": "DEX"
+    },
+    "critical_damage": {
+      "id": "critical_damage",
+      "min_lvl": 20,
+      "reservation": 0.4,
+      "stats": [
+        {
+          "type": "FLAT",
+          "max": 50,
+          "min": 10,
+          "stat": "critical_damage"
+        }
+      ],
+      "style": "STR"
+    },
+    "critical_hit": {
+      "id": "critical_hit",
+      "min_lvl": 10,
+      "reservation": 0.4,
+      "stats": [
+        {
+          "type": "FLAT",
+          "max": 1,
+          "min": 1,
+          "stat": "critical_hit"
+        },
+        {
+          "type": "PERCENT",
+          "max": 50,
+          "min": 10,
+          "stat": "critical_hit"
+        }
+      ],
+      "style": "DEX"
+    },
+    "dodge": {
+      "id": "dodge",
+      "min_lvl": 10,
+      "reservation": 0.4,
+      "stats": [
+        {
+          "type": "PERCENT",
+          "max": 40,
+          "min": 8,
+          "stat": "dodge"
+        },
+        {
+          "type": "FLAT",
+          "max": 7.5,
+          "min": 1.5,
+          "stat": "dodge"
+        }
+      ],
+      "style": "DEX"
+    },
+    "ele_res": {
+      "id": "ele_res",
+      "min_lvl": 20,
+      "reservation": 0.4,
+      "stats": [
+        {
+          "type": "FLAT",
+          "max": 25,
+          "min": 5,
+          "stat": "elemental_resist"
+        }
+      ],
+      "style": "INT"
+    },
+    "energy_reg": {
+      "id": "energy_reg",
+      "min_lvl": 1,
+      "reservation": 0.25,
+      "stats": [
+        {
+          "type": "FLAT",
+          "max": 5,
+          "min": 1,
+          "stat": "energy_regen"
+        }
+      ],
+      "style": "DEX"
+    },
+    "fire_ailment": {
+      "id": "fire_ailment",
+      "min_lvl": 10,
+      "reservation": 0.4,
+      "stats": [
+        {
+          "type": "FLAT",
+          "max": 30,
+          "min": 6,
+          "stat": "all_fire_damage"
+        },
+        {
+          "type": "FLAT",
+          "max": 25,
+          "min": 5,
+          "stat": "burn_chance"
+        }
+      ],
+      "style": "STR"
+    },
+    "fire_damage": {
+      "id": "fire_damage",
+      "min_lvl": 30,
+      "reservation": 0.4,
+      "stats": [
+        {
+          "type": "MORE",
+          "max": 20,
+          "min": 4,
+          "stat": "all_fire_damage"
+        }
+      ],
+      "style": "STR"
+    },
+    "fire_res": {
+      "id": "fire_res",
+      "min_lvl": 20,
+      "reservation": 0.35,
+      "stats": [
+        {
+          "type": "FLAT",
+          "max": 50,
+          "min": 10,
+          "stat": "fire_resist"
+        },
+        {
+          "type": "FLAT",
+          "max": 5,
+          "min": 1,
+          "stat": "max_fire_resist"
+        }
+      ],
+      "style": "STR"
+    },
+    "guardian": {
+      "id": "guardian",
+      "min_lvl": 20,
+      "reservation": 0.4,
+      "stats": [
+        {
+          "type": "PERCENT",
+          "max": 20,
+          "min": 4,
+          "stat": "health"
+        },
+        {
+          "type": "PERCENT",
+          "max": 20,
+          "min": 4,
+          "stat": "magic_shield"
+        }
+      ],
+      "style": "INT"
+    },
+    "health_reg": {
+      "id": "health_reg",
+      "min_lvl": 1,
+      "reservation": 0.25,
+      "stats": [
+        {
+          "type": "FLAT",
+          "max": 10,
+          "min": 2,
+          "stat": "health_regen"
+        }
+      ],
+      "style": "STR"
+    },
+    "lightning_ailment": {
+      "id": "lightning_ailment",
+      "min_lvl": 10,
+      "reservation": 0.4,
+      "stats": [
+        {
+          "type": "FLAT",
+          "max": 30,
+          "min": 6,
+          "stat": "all_lightning_damage"
+        },
+        {
+          "type": "FLAT",
+          "max": 25,
+          "min": 5,
+          "stat": "electrify_chance"
+        }
+      ],
+      "style": "INT"
+    },
+    "lightning_damage": {
+      "id": "lightning_damage",
+      "min_lvl": 30,
+      "reservation": 0.4,
+      "stats": [
+        {
+          "type": "MORE",
+          "max": 20,
+          "min": 4,
+          "stat": "all_lightning_damage"
+        }
+      ],
+      "style": "INT"
+    },
+    "light_res": {
+      "id": "light_res",
+      "min_lvl": 20,
+      "reservation": 0.35,
+      "stats": [
+        {
+          "type": "FLAT",
+          "max": 50,
+          "min": 10,
+          "stat": "lightning_resist"
+        },
+        {
+          "type": "FLAT",
+          "max": 5,
+          "min": 1,
+          "stat": "max_lightning_resist"
+        }
+      ],
+      "style": "INT"
+    },
+    "magic_shield": {
+      "id": "magic_shield",
+      "min_lvl": 10,
+      "reservation": 0.4,
+      "stats": [
+        {
+          "type": "FLAT",
+          "max": 25,
+          "min": 5,
+          "stat": "magic_shield"
+        }
+      ],
+      "style": "INT"
+    },
+    "magic_shield_reg": {
+      "id": "magic_shield_reg",
+      "min_lvl": 1,
+      "reservation": 0.25,
+      "stats": [
+        {
+          "type": "FLAT",
+          "max": 10,
+          "min": 2,
+          "stat": "magic_shield_regen"
+        }
+      ],
+      "style": "INT"
+    },
+    "mana_reg": {
+      "id": "mana_reg",
+      "min_lvl": 1,
+      "reservation": 0.25,
+      "stats": [
+        {
+          "type": "FLAT",
+          "max": 5,
+          "min": 1,
+          "stat": "mana_regen"
+        }
+      ],
+      "style": "INT"
+    },
+    "physical_ailment": {
+      "id": "physical_ailment",
+      "min_lvl": 10,
+      "reservation": 0.4,
+      "stats": [
+        {
+          "type": "FLAT",
+          "max": 30,
+          "min": 6,
+          "stat": "all_physical_damage"
+        },
+        {
+          "type": "FLAT",
+          "max": 25,
+          "min": 5,
+          "stat": "bleed_chance"
+        }
+      ],
+      "style": "STR"
+    },
+    "physical_damage": {
+      "id": "physical_damage",
+      "min_lvl": 30,
+      "reservation": 0.4,
+      "stats": [
+        {
+          "type": "MORE",
+          "max": 20,
+          "min": 4,
+          "stat": "all_physical_damage"
+        }
+      ],
+      "style": "STR"
+    },
+    "summon_dmg": {
+      "id": "summon_dmg",
+      "min_lvl": 20,
+      "reservation": 0.3,
+      "stats": [
+        {
+          "type": "MORE",
+          "max": 40,
+          "min": 8,
+          "stat": "summon_damage"
+        }
+      ],
+      "style": "INT"
+    }
   }
 }
