@@ -47,100 +47,87 @@ function updateDataStatus(status, message = '') {
     }
 }
 
-// Load all affix data from combined file (FASTER!)
-async function loadAllAffixData() {
-    updateDataStatus('loading');
-    console.log('🚀 Loading combined affix data...');
-
+// Load JSON file
+async function loadJSONFile(url) {
     try {
-        const response = await fetch('combined-data.json');
+        console.log(`🔄 Loading: ${url}`);
+        const response = await fetch(url);
         if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
+            console.log(`❌ Failed to load: ${url} (${response.status})`);
+            return null;
         }
-
-        const combinedData = await response.json();
-        console.log('✅ Combined data loaded successfully');
-
-        // Copy data to affixData
-        affixData = { ...combinedData };
-
-        // Update counters
-        let totalLoaded = 0;
-        for (const category of affixCategories) {
-            const count = Object.keys(affixData[category.key] || {}).length;
-            const countElement = document.getElementById(category.countId);
-            if (countElement) {
-                countElement.textContent = count;
-            }
-            totalLoaded += count;
-            console.log(`📊 ${category.name}: ${count} items`);
-        }
-
-        updateDataStatus('success', `Loaded ${totalLoaded} files in one request!`);
-        console.log(`🎉 Total items loaded: ${totalLoaded}`);
-
+        const data = await response.json();
+        console.log(`✅ Loaded: ${url}`);
+        return data;
     } catch (error) {
-        console.error('💥 Error loading combined data:', error);
-        updateDataStatus('error', 'Failed to load affix data');
-
-        // Fallback to individual file loading
-        console.log('🔄 Falling back to individual file loading...');
-        await loadAllAffixDataFallback();
+        console.log(`💥 Error loading ${url}:`, error);
+        return null;
     }
 }
 
-// Fallback: Load individual files (slower but works if combined-data.json doesn't exist)
-async function loadAllAffixDataFallback() {
+// Load all affix data
+async function loadAllAffixData() {
+    updateDataStatus('loading');
     let totalLoaded = 0;
     let totalFiles = 0;
 
-    console.log('🚀 Starting fallback data loading...');
+    console.log('🚀 Starting to load affix data...');
 
     for (const category of affixCategories) {
         console.log(`📂 Loading category: ${category.name}`);
 
         try {
+            // Load index file
             const indexUrl = `${category.folder}/index.json`;
-            const response = await fetch(indexUrl);
-            if (!response.ok) continue;
-
-            const indexData = await response.json();
+            const indexData = await loadJSONFile(indexUrl);
 
             if (indexData && indexData.files && Array.isArray(indexData.files)) {
+                console.log(`📋 Found ${indexData.files.length} files in ${category.name}`);
                 totalFiles += indexData.files.length;
 
+                // Load each file
                 for (const filename of indexData.files) {
                     const fileUrl = `${category.folder}/${filename}`;
-                    try {
-                        const fileResponse = await fetch(fileUrl);
-                        if (fileResponse.ok) {
-                            const data = await fileResponse.json();
-                            const key = data.id || filename.replace('.json', '');
-                            affixData[category.key][key] = data;
-                            totalLoaded++;
-                        }
-                    } catch (fileError) {
-                        console.log(`❌ Failed to load: ${fileUrl}`);
+                    const data = await loadJSONFile(fileUrl);
+
+                    if (data) {
+                        // Use filename without .json as key if no id exists
+                        const key = data.id || filename.replace('.json', '');
+                        affixData[category.key][key] = data;
+                        totalLoaded++;
+                        console.log(`✅ Stored: ${key} in ${category.key}`);
                     }
                 }
 
+                // Update counter immediately after loading each category
                 const countElement = document.getElementById(category.countId);
                 if (countElement) {
                     const count = Object.keys(affixData[category.key]).length;
                     countElement.textContent = count;
+                    console.log(`📊 Updated ${category.name}: ${count} items`);
                 }
+            } else {
+                console.log(`❌ No files found in index for ${category.name}`);
             }
         } catch (error) {
             console.error(`💥 Error loading ${category.name}:`, error);
         }
     }
 
+    console.log(`🎉 Loading complete! Loaded ${totalLoaded}/${totalFiles} files`);
     updateDataStatus('success', `Loaded ${totalLoaded}/${totalFiles} files successfully!`);
+
+    // Debug: Show what was loaded
+    console.log('📊 Final data summary:');
+    for (const category of affixCategories) {
+        const count = Object.keys(affixData[category.key]).length;
+        console.log(`${category.name}: ${count} items`);
+    }
 }
 
 // Create display name with stat info
 function createDisplayName(id, data) {
-    let displayName = id.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+    let displayName = id;
     if (data && data.stat) {
         displayName += ` (${data.stat})`;
     }
@@ -172,6 +159,8 @@ function fillDropdown(selectElement, data, showStat = true) {
         return;
     }
 
+    console.log(`🔄 Filling dropdown with ${Object.keys(data).length} options`);
+
     // Clear existing options except the first one
     while (selectElement.children.length > 1) {
         selectElement.removeChild(selectElement.lastChild);
@@ -184,19 +173,26 @@ function fillDropdown(selectElement, data, showStat = true) {
         option.textContent = showStat ? createDisplayName(key, value) : key;
         selectElement.appendChild(option);
     });
+
+    console.log(`✅ Dropdown filled with ${selectElement.children.length - 1} options`);
 }
 
 // Populate affix select based on available types
 function populateAffixSelect(selectElement, allowedTypes = null) {
-    if (!selectElement) return;
+    if (!selectElement) {
+        console.log('❌ Select element not found for affix population');
+        return;
+    }
 
     const typesToUse = allowedTypes || getAvailableAffixTypes();
+    console.log(`🔄 Populating affix select with types:`, typesToUse);
 
     // Clear existing options except first
     while (selectElement.children.length > 1) {
         selectElement.removeChild(selectElement.lastChild);
     }
 
+    let totalOptions = 0;
     // Add options from available types
     typesToUse.forEach(type => {
         if (affixData[type]) {
@@ -206,9 +202,12 @@ function populateAffixSelect(selectElement, allowedTypes = null) {
                 option.setAttribute('data-type', type);
                 option.textContent = createDisplayName(key, data);
                 selectElement.appendChild(option);
+                totalOptions++;
             });
         }
     });
+
+    console.log(`✅ Added ${totalOptions} options to affix select`);
 }
 
 // Select item type
@@ -260,6 +259,8 @@ function toggleMixedTypes() {
 
 // Populate dropdowns based on current item type
 function populateDropdownsForItemType() {
+    console.log('🔄 Populating dropdowns for item type:', currentItemType);
+
     if (currentItemType === 'gear') {
         populateGearDropdowns();
     } else if (currentItemType === 'jewel') {
@@ -271,6 +272,8 @@ function populateDropdownsForItemType() {
 
 // Populate gear dropdowns
 function populateGearDropdowns() {
+    console.log('⚙️ Populating gear dropdowns');
+
     // Gear type dropdown
     const gearTypeSelect = document.getElementById('gtype');
     if (gearTypeSelect && affixData.base_gear_types) {
@@ -284,17 +287,21 @@ function populateGearDropdowns() {
     }
 
     // Populate existing affix dropdowns
-    document.querySelectorAll('.prefix-id').forEach(select => {
+    const prefixSelects = document.querySelectorAll('.prefix-id, #prefixList select');
+    prefixSelects.forEach(select => {
         populateAffixSelect(select, allowMixedTypes ? getAvailableAffixTypes() : ['prefix']);
     });
 
-    document.querySelectorAll('.suffix-id').forEach(select => {
+    const suffixSelects = document.querySelectorAll('.suffix-id, #suffixList select');
+    suffixSelects.forEach(select => {
         populateAffixSelect(select, allowMixedTypes ? getAvailableAffixTypes() : ['suffix']);
     });
 }
 
 // Populate jewel dropdowns
 function populateJewelDropdowns() {
+    console.log('💎 Populating jewel dropdowns');
+
     // Unique jewel dropdown
     const jewelUniqSelect = document.getElementById('jewelUniqId');
     if (jewelUniqSelect && affixData.crafted_jewel_unique) {
@@ -302,13 +309,16 @@ function populateJewelDropdowns() {
     }
 
     // Populate existing jewel affix dropdowns
-    document.querySelectorAll('.jewel-affix-id').forEach(select => {
+    const jewelAffixSelects = document.querySelectorAll('.jewel-affix-id, #jewelAffixList select');
+    jewelAffixSelects.forEach(select => {
         populateAffixSelect(select, allowMixedTypes ? getAvailableAffixTypes() : ['jewel', 'jewel_corruption']);
     });
 }
 
 // Populate support gem dropdowns
 function populateSupportGemDropdowns() {
+    console.log('🔮 Populating support gem dropdowns');
+
     const supportGemSelect = document.getElementById('supportGemId');
     if (supportGemSelect && affixData.support_gem) {
         fillDropdown(supportGemSelect, affixData.support_gem);
@@ -326,7 +336,7 @@ function addPrefix() {
         <select class="prefix-id">
             <option value="">Select Prefix</option>
         </select>
-        <input type="number" class="prefix-p" placeholder="Power" value="100" min="0" max="1000">
+        <input type="number" class="prefix-p" placeholder="Power" value="50000" min="0">
         <select class="prefix-rar">
             <option value="common">Common</option>
             <option value="uncommon">Uncommon</option>
@@ -356,7 +366,7 @@ function addSuffix() {
         <select class="suffix-id">
             <option value="">Select Suffix</option>
         </select>
-        <input type="number" class="suffix-p" placeholder="Power" value="100" min="0" max="1000">
+        <input type="number" class="suffix-p" placeholder="Power" value="50000" min="0">
         <select class="suffix-rar">
             <option value="common">Common</option>
             <option value="uncommon">Uncommon</option>
@@ -393,7 +403,7 @@ function addJewelAffix() {
         <select class="jewel-affix-id">
             <option value="">Select Jewel Affix</option>
         </select>
-        <input type="number" class="jewel-affix-p" placeholder="Power" value="8" min="0" max="50">
+        <input type="number" class="jewel-affix-p" placeholder="Power" value="8" min="0">
         <select class="jewel-affix-rar">
             <option value="common" selected>Common</option>
             <option value="uncommon">Uncommon</option>
@@ -437,10 +447,6 @@ function generateJSON() {
         output.textContent = JSON.stringify(json, null, 2);
         output.style.display = 'block';
 
-        // Show copy button
-        const copyBtn = document.getElementById('copyBtn');
-        if (copyBtn) copyBtn.style.display = 'block';
-
         // Scroll to output
         output.scrollIntoView({ behavior: 'smooth' });
     }
@@ -450,7 +456,7 @@ function generateJSON() {
 function generateGearJSON() {
     const json = {
         baseStats: {
-            p: parseInt(document.getElementById('baseStatsP')?.value || 100)
+            p: parseInt(document.getElementById('baseStatsP')?.value || 10000)
         },
         affixes: {
             suf: [],
@@ -459,9 +465,9 @@ function generateGearJSON() {
         },
         sockets: {
             so: [],
-            sl: parseInt(document.getElementById('socketLimit')?.value || 1),
-            rw: document.getElementById('runeword')?.value || "",
-            rp: parseInt(document.getElementById('runewordPower')?.value || 0)
+            sl: 1,
+            rw: "",
+            rp: 0
         },
         rar: document.getElementById('rar')?.value || "mythic",
         lvl: parseInt(document.getElementById('lvl')?.value || 1),
@@ -473,7 +479,7 @@ function generateGearJSON() {
     const implicitP = document.getElementById('implicitP')?.value;
     if (implicitId) {
         json.imp = {
-            p: parseInt(implicitP || 100),
+            p: parseInt(implicitP || 10000),
             imp: implicitId
         };
     }
@@ -487,7 +493,7 @@ function generateGearJSON() {
 
         if (id) {
             json.affixes.pre.push({
-                p: parseInt(p || 100),
+                p: parseInt(p || 50000),
                 id: id,
                 rar: rar || "mythic",
                 ty: "prefix"
@@ -504,7 +510,7 @@ function generateGearJSON() {
 
         if (id) {
             json.affixes.suf.push({
-                p: parseInt(p || 100),
+                p: parseInt(p || 50000),
                 id: id,
                 rar: rar || "mythic",
                 ty: "suffix"
@@ -553,18 +559,15 @@ function generateJewelJSON() {
 
 // Generate support gem JSON
 function generateSupportGemJSON() {
-    const supportGemIdEl = document.getElementById('supportGemId');
-    const supportGemPercEl = document.getElementById('supportGemPerc');
-    const supportGemRarEl = document.getElementById('supportGemRar');
-    const supportGemLinksEl = document.getElementById('supportGemLinks');
-
-    return {
-        id: supportGemIdEl?.value || "",
+    const json = {
+        id: document.getElementById('supportGemId')?.value || "",
         type: "SUPPORT",
-        perc: parseInt(supportGemPercEl?.value || 100),
-        rar: supportGemRarEl?.value || "legendary",
-        links: parseInt(supportGemLinksEl?.value || 1)
+        perc: parseInt(document.getElementById('supportGemPerc')?.value || 50000),
+        rar: document.getElementById('supportGemRar')?.value || "legendary",
+        links: parseInt(document.getElementById('supportGemLinks')?.value || 1)
     };
+
+    return json;
 }
 
 // Copy JSON to clipboard
@@ -576,7 +579,7 @@ function copyToClipboard() {
     }
 
     navigator.clipboard.writeText(output.textContent).then(function() {
-        alert('JSON copied to clipboard! 📋');
+        alert('JSON copied to clipboard!');
     }, function(err) {
         console.error('Could not copy text: ', err);
         alert('Failed to copy to clipboard');
@@ -585,6 +588,6 @@ function copyToClipboard() {
 
 // Initialize when page loads
 document.addEventListener('DOMContentLoaded', function() {
-    console.log('🎮 Mine & Slash NBT Item Creator initialized');
+    console.log('🚀 Page loaded, starting data load...');
     loadAllAffixData();
 });
