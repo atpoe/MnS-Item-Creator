@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mine & Slash NBT Item Creator</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .container {
+            flex: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            color: white;
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .content {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+
+        /* Footer styles */
+        .footer {
+            background: rgba(0, 0, 0, 0.1);
+            color: white;
+            text-align: center;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+            backdrop-filter: blur(10px);
+        }
+
+        .footer-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .footer-logo {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .footer-text {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        /* Rest of your existing styles... */
+        .section {
+            background: white;
+            border-radius: 10px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            border: 1px solid #e2e8f0;
+        }
+
+        .section h3 {
+            margin-bottom: 20px;
+            color: #2d3748;
+            font-size: 1.3em;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .data-status {
+            background: #f0f9ff;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid #0ea5e9;
+            margin-bottom: 20px;
+        }
+
+        .data-status.loading {
+            background: #fffbeb;
+            border-left-color: #f59e0b;
+        }
+
+        .data-status.error {
+            background: #fef2f2;
+            border-left-color: #ef4444;
+        }
+
+        .affix-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 15px;
+            background: white;
+            border-radius: 8px;
+            border: 1px solid #e5e7eb;
+        }
+
+        .stat-item strong {
+            display: block;
+            font-size: 1.5em;
+            color: #059669;
+        }
+
+        .item-type-selection {
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        .item-type-selection h2 {
+            color: #374151;
+            margin-bottom: 30px;
+            font-size: 1.8em;
+        }
+
+        .item-type-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .item-type-card {
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            border: 2px solid #e2e8f0;
+            border-radius: 15px;
+            padding: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .item-type-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+            border-color: #667eea;
+        }
+
+        .item-type-card .icon {
+            font-size: 3rem;
+            display: block;
+            margin-bottom: 15px;
+        }
+
+        .item-type-card h3 {
+            color: #374151;
+            margin-bottom: 10px;
+            font-size: 1.4em;
+        }
+
+        .item-type-card p {
+            color: #6b7280;
+            line-height: 1.5;
+        }
+
+        .editor-content {
+            display: none;
+        }
+
+        .back-button {
+            background: #6b7280;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            margin-bottom: 25px;
+            font-size: 14px;
+            transition: background 0.3s ease;
+        }
+
+        .back-button:hover {
+            background: #4b5563;
+        }
+
+        .mixed-types-toggle {
+            background: #f3f4f6;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+            border-left: 4px solid #8b5cf6;
+        }
+
+        .mixed-types-toggle input[type="checkbox"] {
+            margin-right: 10px;
+            transform: scale(1.2);
+        }
+
+        .mixed-types-toggle label {
+            font-weight: 500;
+            color: #374151;
+            cursor: pointer;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #374151;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e5e7eb;
+            border-radius: 6px;
+            font-size: 14px;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .form-group small {
+            display: block;
+            margin-top: 5px;
+            color: #6b7280;
+            font-size: 12px;
+        }
+
+        .affix-list {
+            margin-bottom: 15px;
+        }
+
+        .affix-item {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr auto;
+            gap: 10px;
+            align-items: center;
+            margin-bottom: 15px;
+            padding: 15px;
+            background: #f9fafb;
+            border-radius: 8px;
+            border: 1px solid #e5e7eb;
+        }
+
+        .jewel-affix-item {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr auto;
+            gap: 10px;
+            align-items: center;
+            margin-bottom: 15px;
+            padding: 15px;
+            background: #f9fafb;
+            border-radius: 8px;
+            border: 1px solid #e5e7eb;
+        }
+
+        .affix-item select,
+        .affix-item input,
+        .jewel-affix-item select,
+        .jewel-affix-item input {
+            padding: 8px;
+            border: 1px solid #d1d5db;
+            border-radius: 4px;
+            font-size: 13px;
+        }
+
+        .remove-btn {
+            background: #ef4444;
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 12px;
+            transition: background 0.3s ease;
+        }
+
+        .remove-btn:hover {
+            background: #dc2626;
+        }
+
+        .add-btn {
+            background: #10b981;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+            transition: background 0.3s ease;
+        }
+
+        .add-btn:hover {
+            background: #059669;
+        }
+
+        .generate-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+            margin: 30px 0 20px 0;
+            transition: transform 0.3s ease;
+        }
+
+        .generate-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        .output {
+            background: #1a202c;
+            color: #e2e8f0;
+            padding: 15px;
+            border-radius: 6px;
+            font-family: 'Courier New', monospace;
+            font-size: 13px;
+            white-space: pre-wrap;
+            max-height: 400px;
+            overflow-y: auto;
+            margin-bottom: 15px;
+            border: 1px solid #4a5568;
+        }
+
+        .copy-btn {
+            background: #3182ce;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background 0.3s ease;
+        }
+
+        .copy-btn:hover {
+            background: #2c5aa0;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .grid-2,
+            .grid-3 {
+                grid-template-columns: 1fr;
+            }
+
+            .affix-item,
+            .jewel-affix-item {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="header">
+        <h1>Mine & Slash NBT Item Creator</h1>
+        <p>Create custom items with affixes and NBT data</p>
+    </div>
+
+    <div class="content">
+        <!-- Data Status Section -->
+        <div class="section">
+            <h3>📊 Affix Data Status</h3>
+            <div id="dataStatus" class="data-status loading">
+                <strong>🔄 Loading affix data...</strong>
+                <div id="loadingProgress">Initializing...</div>
+            </div>
+            <div id="affixStats" class="affix-stats">
+                <div class="stat-item">
+                    <strong id="chaosStatCount">0</strong>
+                    <div>Chaos Stats</div>
+                </div>
+                <div class="stat-item">
+                    <strong id="craftedJewelCount">0</strong>
+                    <div>Crafted Jewels</div>
+                </div>
+                <div class="stat-item">
+                    <strong id="enchantCount">0</strong>
+                    <div>Enchants</div>
+                </div>
+                <div class="stat-item">
+                    <strong id="implicitCount">0</strong>
+                    <div>Implicits</div>
+                </div>
+                <div class="stat-item">
+                    <strong id="jewelCount">0</strong>
+                    <div>Jewels</div>
+                </div>
+                <div class="stat-item">
+                    <strong id="jewelCorruptionCount">0</strong>
+                    <div>Jewel Corruptions</div>
+                </div>
+                <div class="stat-item">
+                    <strong id="prefixCount">0</strong>
+                    <div>Prefixes</div>
+                </div>
+                <div class="stat-item">
+                    <strong id="suffixCount">0</strong>
+                    <div>Suffixes</div>
+                </div>
+                <div class="stat-item">
+                    <strong id="toolCount">0</strong>
+                    <div>Tools</div>
+                </div>
+                <div class="stat-item">
+                    <strong id="gearTypeCount">0</strong>
+                    <div>Gear Types</div>
+                </div>
+                <div class="stat-item">
+                    <strong id="supportGemCount">0</strong>
+                    <div>Support Gems</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Item Type Selection -->
+        <div id="itemTypeSelection" class="item-type-selection">
+            <h2>What would you like to create?</h2>
+            <div class="item-type-cards">
+                <div class="item-type-card" onclick="selectItemType('gear')">
+                    <span class="icon">⚔️</span>
+                    <h3>Gear Item</h3>
+                    <p>Create weapons, armor, accessories with affixes and enchantments</p>
+                </div>
+                <div class="item-type-card" onclick="selectItemType('jewel')">
+                    <span class="icon">💎</span>
+                    <h3>Jewel</h3>
+                    <p>Create jewels with unique properties and multiple affixes</p>
+                </div>
+                <div class="item-type-card" onclick="selectItemType('support_gem')">
+                    <span class="icon">🔮</span>
+                    <h3>Support Gem</h3>
+                    <p>Create support gems with specific effects and properties</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Editor Content -->
+        <div id="editorContent" class="editor-content">
+            <button class="back-button" onclick="goBackToSelection()">← Back to Item Selection</button>
+
+            <!-- Mixed Types Toggle -->
+            <div class="mixed-types-toggle">
+                <input type="checkbox" id="allowMixedTypes" onchange="toggleMixedTypes()">
+                <label for="allowMixedTypes">🔄 Allow All Affix Types (Mix prefixes, suffixes, jewels, etc.)</label>
+            </div>
+
+            <!-- Gear Item Sections -->
+            <div id="gearSections" style="display: none;">
+                <div class="section">
+                    <h3>⚙️ Basic Properties</h3>
+                    <div class="grid-3">
+                        <div class="form-group">
+                            <label>Rarity:</label>
+                            <select id="rar">
+                                <option value="common">Common</option>
+                                <option value="uncommon">Uncommon</option>
+                                <option value="rare">Rare</option>
+                                <option value="epic">Epic</option>
+                                <option value="legendary">Legendary</option>
+                                <option value="mythic" selected>Mythic</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Level:</label>
+                            <input type="number" id="lvl" value="1" min="1" max="100">
+                        </div>
+                        <div class="form-group">
+                            <label>Gear Type:</label>
+                            <select id="gtype">
+                                <option value="necklace" selected>Necklace</option>
+                                <option value="ring">Ring</option>
+                                <option value="helmet">Helmet</option>
+                                <option value="chestplate">Chestplate</option>
+                                <option value="leggings">Leggings</option>
+                                <option value="boots">Boots</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h3>📈 Base Stats</h3>
+                    <div class="form-group">
+                        <label>Base Stats Power:</label>
+                        <input type="number" id="baseStatsP" value="100" min="0" max="1000">
+                        <small style="color: #718096;">Recommended: 50-200 for balanced gameplay</small>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h3>🔧 Implicit</h3>
+                    <div class="grid-2">
+                        <div class="form-group">
+                            <label>Implicit ID:</label>
+                            <select id="implicitId">
+                                <option value="">Select Implicit</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Implicit Power:</label>
+                            <input type="number" id="implicitP" value="50" min="0" max="500">
+                            <small style="color: #718096;">Recommended: 20-100</small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h3>📈 Prefixes</h3>
+                    <div id="prefixList" class="affix-list">
+                        <div class="affix-item">
+                            <select class="prefix-id">
+                                <option value="">Select Prefix</option>
+                            </select>
+                            <input type="number" class="prefix-p" placeholder="Power" value="25" min="0" max="200">
+                            <select class="prefix-rar">
+                                <option value="common">Common</option>
+                                <option value="uncommon">Uncommon</option>
+                                <option value="rare">Rare</option>
+                                <option value="epic">Epic</option>
+                                <option value="legendary">Legendary</option>
+                                <option value="mythic" selected>Mythic</option>
+                            </select>
+                            <button class="remove-btn" onclick="removeAffix(this)">❌</button>
+                        </div>
+                    </div>
+                    <button class="add-btn" onclick="addPrefix()">➕ Add Prefix</button>
+                    <small style="color: #718096; display: block; margin-top: 5px;">Recommended power: 10-50 per affix</small>
+                </div>
+
+                <div class="section">
+                    <h3>📉 Suffixes</h3>
+                    <div id="suffixList" class="affix-list">
+                        <div class="affix-item">
+                            <select class="suffix-id">
+                                <option value="">Select Suffix</option>
+                            </select>
+                            <input type="number" class="suffix-p" placeholder="Power" value="25" min="0" max="200">
+                            <select class="suffix-rar">
+                                <option value="common">Common</option>
+                                <option value="uncommon">Uncommon</option>
+                                <option value="rare">Rare</option>
+                                <option value="epic">Epic</option>
+                                <option value="legendary">Legendary</option>
+                                <option value="mythic" selected>Mythic</option>
+                            </select>
+                            <button class="remove-btn" onclick="removeAffix(this)">❌</button>
+                        </div>
+                    </div>
+                    <button class="add-btn" onclick="addSuffix()">➕ Add Suffix</button>
+                    <small style="color: #718096; display: block; margin-top: 5px;">Recommended power: 10-50 per affix</small>
+                </div>
+
+                <div class="section">
+                    <h3>🔌 Sockets</h3>
+                    <div class="grid-2">
+                        <div class="form-group">
+                            <label>Socket Limit:</label>
+                            <input type="number" id="socketLimit" value="1" min="0" max="6">
+                        </div>
+                        <div class="form-group">
+                            <label>Runeword:</label>
+                            <input type="text" id="runeword" value="" placeholder="Runeword ID">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Runeword Power:</label>
+                        <input type="number" id="runewordP" value="0" min="0" max="500">
+                        <small style="color: #718096;">Recommended: 50-150 for runewords</small>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Jewel Sections -->
+            <div id="jewelSections" style="display: none;">
+                <div class="section">
+                    <h3>💎 Basic Properties</h3>
+                    <div class="grid-3">
+                        <div class="form-group">
+                            <label>Rarity:</label>
+                            <select id="jewelRar">
+                                <option value="common">Common</option>
+                                <option value="uncommon" selected>Uncommon</option>
+                                <option value="rare">Rare</option>
+                                <option value="epic">Epic</option>
+                                <option value="legendary">Legendary</option>
+                                <option value="mythic">Mythic</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Level:</label>
+                            <input type="number" id="jewelLvl" value="1" min="1" max="100">
+                        </div>
+                        <div class="form-group">
+                            <label>Style:</label>
+                            <select id="jewelStyle">
+                                <option value="int" selected>Intelligence</option>
+                                <option value="str">Strength</option>
+                                <option value="dex">Dexterity</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="grid-3">
+                        <div class="form-group">
+                            <label>Unique Type:</label>
+                            <input type="number" id="jewelUniqT" value="0" min="0">
+                        </div>
+                        <div class="form-group">
+                            <label>Unique ID:</label>
+                            <input type="text" id="jewelUniqId" value="">
+                        </div>
+                        <div class="form-group">
+                            <label>Unique Percentage:</label>
+                            <input type="number" id="jewelUniqPerc" value="0" min="0" max="100">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h3>🔮 Jewel Affixes</h3>
+                    <div id="jewelAffixList" class="affix-list">
+                        <div class="jewel-affix-item">
+                            <select class="jewel-affix-id">
+                                <option value="">Select Jewel Affix</option>
+                            </select>
+                            <input type="number" class="jewel-affix-p" placeholder="Power" value="5" min="0" max="50">
+                            <select class="jewel-affix-rar">
+                                <option value="common" selected>Common</option>
+                                <option value="uncommon">Uncommon</option>
+                                <option value="rare">Rare</option>
+                                <option value="epic">Epic</option>
+                                <option value="legendary">Legendary</option>
+                                <option value="mythic">Mythic</option>
+                            </select>
+                            <button class="remove-btn" onclick="removeAffix(this)">❌</button>
+                        </div>
+                    </div>
+                    <button class="add-btn" onclick="addJewelAffix()">➕ Add Jewel Affix</button>
+                    <small style="color: #718096; display: block; margin-top: 5px;">Recommended power: 2-15 per affix (Max 7 affixes)</small>
+                </div>
+            </div>
+
+            <!-- Support Gem Sections -->
+            <div id="supportGemSections" style="display: none;">
+                <div class="section">
+                    <h3>🔮 Support Gem Properties</h3>
+                    <div class="grid-2">
+                        <div class="form-group">
+                            <label>Support Gem ID:</label>
+                            <select id="supportGemId">
+                                <option value="">Select Support Gem</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Percentage:</label>
+                            <input type="number" id="supportGemPerc" value="100" min="0" max="200">
+                        </div>
+                    </div>
+                    <div class="grid-2">
+                        <div class="form-group">
+                            <label>Rarity:</label>
+                            <select id="supportGemRar">
+                                <option value="common">Common</option>
+                                <option value="uncommon">Uncommon</option>
+                                <option value="rare">Rare</option>
+                                <option value="epic">Epic</option>
+                                <option value="legendary" selected>Legendary</option>
+                                <option value="mythic">Mythic</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Links:</label>
+                            <input type="number" id="supportGemLinks" value="1" min="1" max="6">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Generate Button -->
+            <button class="generate-btn" onclick="generateJSON()">🚀 Generate NBT JSON</button>
+
+            <!-- Output Section -->
+            <div class="section">
+                <h3>📋 Generated NBT JSON</h3>
+                <div id="output" class="output" style="display: none;"></div>
+                <button id="copyBtn" class="copy-btn" onclick="copyToClipboard()" style="display: none;">📋 Copy to Clipboard</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Footer -->
+<div class="footer">
+    <div class="footer-content">
+        <img src="logo.png" alt="Poe Logo" class="footer-logo">
+        <span class="footer-text">Created By - Poe</span>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
