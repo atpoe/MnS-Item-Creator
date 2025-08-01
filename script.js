@@ -800,6 +800,7 @@ function generateNBT() {
         output.innerHTML = `<div style="color: red;">Error generating NBT: ${error.message}</div>`;
     }
 }
+
 // Generate Gear NBT
 function generateGearNBT() {
     const nbt = {
@@ -807,7 +808,6 @@ function generateGearNBT() {
         imp: {},
         affixes: { suf: [], pre: [], cor: [] },
         sockets: { so: [], sl: 0, rw: "", rp: 0 },
-        ench: {},
         rar: document.getElementById('rar')?.value || 'common',
         lvl: parseInt(document.getElementById('lvl')?.value || 1),
         gtype: document.getElementById('gtype')?.value || ''
@@ -827,12 +827,14 @@ function generateGearNBT() {
         nbt.imp.p = implicitP;
     }
 
-    // Enchantment
+    // Enchantment - only add if there's an enchantment
     const enchantmentId = document.getElementById('enchantmentId')?.value;
     const enchantmentRar = document.getElementById('enchantmentRar')?.value;
     if (enchantmentId) {
-        nbt.ench.en = enchantmentId;
-        nbt.ench.rar = enchantmentRar || 'common';
+        nbt.ench = {
+            en: enchantmentId,
+            rar: enchantmentRar || 'common'
+        };
     }
 
     // Sockets
