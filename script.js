@@ -730,6 +730,269 @@ function addSuffix() {
     populateAffixSelect(newSelect, allowMixedTypes ? getAvailableAffixTypes() : ['suffix']);
 }
 
+// Add these missing functions to your script.js file:
+
+function addJewelAffix() {
+    const affixList = document.getElementById('jewelAffixList');
+    const affixItem = document.createElement('div');
+    affixItem.className = 'affix-item';
+
+    affixItem.innerHTML = `
+        <select class="jewel-affix-type" onchange="updateJewelAffixDropdown(this)">
+            <option value="">Select Type</option>
+            ${getAvailableAffixTypes().map(type => `<option value="${type}">${type.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase())}</option>`).join('')}
+        </select>
+        <select class="jewel-affix-id">
+            <option value="">Select Affix</option>
+        </select>
+        <input type="number" class="jewel-affix-p" placeholder="Percent" value="100" min="0" max="1000">
+        <select class="jewel-affix-rar">
+            <option value="common">Common</option>
+            <option value="uncommon">Uncommon</option>
+            <option value="rare">Rare</option>
+            <option value="epic">Epic</option>
+            <option value="legendary">Legendary</option>
+            <option value="mythic" selected>Mythic</option>
+        </select>
+        <button class="remove-btn" onclick="removeAffix(this)">❌</button>
+    `;
+
+    affixList.appendChild(affixItem);
+}
+
+function updateJewelAffixDropdown(typeSelect) {
+    const affixSelect = typeSelect.parentNode.querySelector('.jewel-affix-id');
+    const selectedType = typeSelect.value;
+
+    affixSelect.innerHTML = '<option value="">Select Affix</option>';
+
+    if (selectedType && affixData[selectedType]) {
+        Object.keys(affixData[selectedType]).forEach(id => {
+            const data = affixData[selectedType][id];
+            const displayName = createDisplayName(id, data);
+            affixSelect.innerHTML += `<option value="${id}">${displayName}</option>`;
+        });
+    }
+}
+
+function generateNBT() {
+    const output = document.getElementById('output');
+    let nbtData = {};
+
+    try {
+        if (currentItemType === 'gear') {
+            nbtData = generateGearNBT();
+        } else if (currentItemType === 'jewel') {
+            nbtData = generateJewelNBT();
+        } else if (currentItemType === 'support_gem') {
+            nbtData = generateSupportGemNBT();
+        } else if (currentItemType === 'aura') {
+            nbtData = generateAuraNBT();
+        } else if (currentItemType === 'omen') {
+            nbtData = generateOmenNBT();
+        }
+
+        const jsonOutput = JSON.stringify(nbtData, null, 2);
+        output.innerHTML = `<pre>${jsonOutput}</pre>`;
+
+    } catch (error) {
+        console.error('Error generating NBT:', error);
+        output.innerHTML = `<div style="color: red;">Error generating NBT: ${error.message}</div>`;
+    }
+}
+
+function generateGearNBT() {
+    // Basic gear NBT generation
+    const nbt = {
+        lvl: parseInt(document.getElementById('gearLvl')?.value || 1),
+        rar: document.getElementById('gearRar')?.value || 'common',
+        gtype: document.getElementById('gearType')?.value || ''
+    };
+
+    // Add base stats if present
+    const baseStatP = parseInt(document.getElementById('baseStatP')?.value || 0);
+    if (baseStatP > 0) {
+        nbt.baseStats = { p: baseStatP };
+    }
+
+    // Add affixes
+    const affixes = { pre: [], suf: [], cor: [] };
+
+    // Add prefixes
+    document.querySelectorAll('#prefixList .affix-item').forEach(item => {
+        const type = item.querySelector('.prefix-type')?.value;
+        const id = item.querySelector('.prefix-id')?.value;
+        const p = parseInt(item.querySelector('.prefix-p')?.value || 100);
+        const rar = item.querySelector('.prefix-rar')?.value;
+
+        if (id) {
+            affixes.pre.push({ id, p, rar, ty: type || 'prefix' });
+        }
+    });
+
+    // Add suffixes
+    document.querySelectorAll('#suffixList .affix-item').forEach(item => {
+        const type = item.querySelector('.suffix-type')?.value;
+        const id = item.querySelector('.suffix-id')?.value;
+        const p = parseInt(item.querySelector('.suffix-p')?.value || 100);
+        const rar = item.querySelector('.suffix-rar')?.value;
+
+        if (id) {
+            affixes.suf.push({ id, p, rar, ty: type || 'suffix' });
+        }
+    });
+
+    nbt.affixes = affixes;
+
+    return nbt;
+}
+
+function generateJewelNBT() {
+    const nbt = {
+        lvl: parseInt(document.getElementById('jewelLvl')?.value || 1),
+        style: 'rare',
+        affixes: []
+    };
+
+    // Add unique if selected
+    const uniqId = document.getElementById('jewelUniqId')?.value;
+    if (uniqId) {
+        nbt.uniq = uniqId;
+    }
+
+    // Add jewel affixes
+    document.querySelectorAll('#jewelAffixList .affix-item').forEach(item => {
+        const type = item.querySelector('.jewel-affix-type')?.value;
+        const id = item.querySelector('.jewel-affix-id')?.value;
+        const p = parseInt(item.querySelector('.jewel-affix-p')?.value || 100);
+        const rar = item.querySelector('.jewel-affix-rar')?.value;
+
+        if (id) {
+            nbt.affixes.push({ id, p, rar, ty: type || 'jewel' });
+        }
+    });
+
+    return nbt;
+}
+
+function generateSupportGemNBT() {
+    return {
+        type: 'SUPPORT',
+        id: document.getElementById('supportGemId')?.value || '',
+        perc: parseInt(document.getElementById('supportGemPerc')?.value || 100),
+        rar: document.getElementById('supportGemRar')?.value || 'mythic',
+        links: parseInt(document.getElementById('supportGemLinks')?.value || 0)
+    };
+}
+
+function generateAuraNBT() {
+    return {
+        type: 'AURA',
+        id: document.getElementById('auraId')?.value || '',
+        perc: parseInt(document.getElementById('auraPerc')?.value || 100),
+        rar: document.getElementById('auraRar')?.value || 'mythic',
+        links: parseInt(document.getElementById('auraLinks')?.value || 0)
+    };
+}
+
+function generateOmenNBT() {
+    const nbt = {
+        id: document.getElementById('omenId')?.value || '',
+        lvl: parseInt(document.getElementById('omenLvl')?.value || 1),
+        rar: document.getElementById('omenRar')?.value || 'common',
+        rarities: {
+            "RUNED": 1,
+            "NORMAL": 1,
+            "UNIQUE": 1
+        },
+        slot_req: [],
+        aff: []
+    };
+
+    // Add omen affixes
+    document.querySelectorAll('#omenAffixList .affix-item').forEach(item => {
+        const type = item.querySelector('.omen-affix-type')?.value;
+        const id = item.querySelector('.omen-affix-id')?.value;
+        const p = parseInt(item.querySelector('.omen-affix-p')?.value || 100);
+        const rar = item.querySelector('.omen-affix-rar')?.value;
+
+        if (id) {
+            nbt.aff.push({ p, id, rar, ty: type });
+        }
+    });
+
+    return nbt;
+}
+
+function removeAffix(button) {
+    button.parentNode.remove();
+}
+
+function copyToClipboard() {
+    const output = document.getElementById('output');
+    const text = output.textContent;
+
+    if (text && text !== 'Generated NBT will appear here...') {
+        navigator.clipboard.writeText(text).then(() => {
+            alert('✅ NBT data copied to clipboard!');
+        }).catch(() => {
+            // Fallback for older browsers
+            const textArea = document.createElement('textarea');
+            textArea.value = text;
+            document.body.appendChild(textArea);
+            textArea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textArea);
+            alert('✅ NBT data copied to clipboard!');
+        });
+    } else {
+        alert('⚠️ No NBT data to copy. Generate an item first!');
+    }
+}
+
+function addOmenAffix() {
+    const affixList = document.getElementById('omenAffixList');
+    const affixItem = document.createElement('div');
+    affixItem.className = 'affix-item';
+
+    affixItem.innerHTML = `
+        <select class="omen-affix-type" onchange="updateOmenAffixDropdown(this)">
+            <option value="">Select Type</option>
+            ${getAvailableAffixTypes().map(type => `<option value="${type}">${type.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase())}</option>`).join('')}
+        </select>
+        <select class="omen-affix-id">
+            <option value="">Select Affix</option>
+        </select>
+        <input type="number" class="omen-affix-p" placeholder="Power" value="100" min="0" max="1000">
+        <select class="omen-affix-rar">
+            <option value="common">Common</option>
+            <option value="uncommon">Uncommon</option>
+            <option value="rare">Rare</option>
+            <option value="epic">Epic</option>
+            <option value="legendary">Legendary</option>
+            <option value="mythic" selected>Mythic</option>
+        </select>
+        <button class="remove-btn" onclick="removeAffix(this)">❌</button>
+    `;
+
+    affixList.appendChild(affixItem);
+}
+
+function updateOmenAffixDropdown(typeSelect) {
+    const affixSelect = typeSelect.parentNode.querySelector('.omen-affix-id');
+    const selectedType = typeSelect.value;
+
+    affixSelect.innerHTML = '<option value="">Select Affix</option>';
+
+    if (selectedType && affixData[selectedType]) {
+        Object.keys(affixData[selectedType]).forEach(id => {
+            const data = affixData[selectedType][id];
+            const displayName = createDisplayName(id, data);
+            affixSelect.innerHTML += `<option value="${id}">${displayName}</option>`;
+        });
+    }
+}
+
 // Remove affix
 function removeAffix(button) {
     button.parentElement.remove();
