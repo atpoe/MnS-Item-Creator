@@ -1,5 +1,6 @@
+/* CSS Variables for Light and Dark Theme Support */
 :root {
-    /* Light theme variables */
+    /* Light theme color variables */
     --bg-primary: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
     --bg-secondary: rgba(255, 255, 255, 0.95);
     --bg-section: #ffffff;
@@ -22,7 +23,7 @@
     --warning-text: #744210;
 }
 
-/* Dark theme variables */
+/* Dark Theme Color Variables Override */
 body.dark-theme {
     --bg-primary: linear-gradient(135deg, #1a202c 0%, #2d3748 100%);
     --bg-secondary: rgba(26, 32, 44, 0.95);
@@ -46,12 +47,14 @@ body.dark-theme {
     --warning-text: #fef2f2;
 }
 
+/* Global Reset and Base Styles */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* Main Body Styling */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background: var(--bg-primary);
@@ -60,13 +63,14 @@ body {
     transition: all 0.3s ease;
 }
 
+/* Main Content Container */
 .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
 }
 
-/* Theme Toggle Button */
+/* Theme Toggle Button (Dark/Light Mode Switch) */
 .theme-toggle {
     position: fixed;
     top: 20px;
@@ -92,6 +96,7 @@ body {
     box-shadow: 0 6px 20px var(--shadow-medium);
 }
 
+/* Page Header Section */
 .header {
     text-align: center;
     background: var(--bg-secondary);
@@ -114,6 +119,7 @@ body {
     font-size: 1.2em;
 }
 
+/* Main Content Area */
 .content {
     background: var(--bg-secondary);
     border-radius: 15px;
@@ -122,6 +128,7 @@ body {
     border: 1px solid var(--border-color);
 }
 
+/* Generic Section Container */
 .section {
     background: var(--bg-section);
     border-radius: 10px;
@@ -140,7 +147,7 @@ body {
     gap: 10px;
 }
 
-/* Enhanced Data Status Section */
+/* Data Loading Status Display */
 .data-status {
     background: var(--bg-section);
     padding: 30px;
@@ -160,6 +167,7 @@ body {
     border-left-color: var(--status-error);
 }
 
+/* Affix Statistics Grid Display */
 .affix-stats {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
@@ -194,7 +202,7 @@ body {
     color: var(--text-secondary);
 }
 
-/* Import Section */
+/* JSON Import Section */
 .import-section {
     margin-bottom: 35px;
     padding: 25px;
@@ -213,6 +221,7 @@ body {
     gap: 10px;
 }
 
+/* JSON Input Textarea */
 .import-json-input {
     width: 100%;
     min-height: 200px;
@@ -233,6 +242,7 @@ body {
     box-shadow: 0 0 0 3px rgba(49, 130, 206, 0.2);
 }
 
+/* Import Action Buttons */
 .import-buttons {
     display: flex;
     gap: 10px;
@@ -269,7 +279,7 @@ body {
     background: var(--button-secondary-hover);
 }
 
-/* Item Type Selection */
+/* Item Type Selection Screen */
 .item-type-selection {
     text-align: center;
     padding: 40px 20px;
@@ -281,6 +291,7 @@ body {
     font-size: 1.8em;
 }
 
+/* Item Type Cards Grid Layout */
 .item-type-cards {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -289,6 +300,7 @@ body {
     margin: 0 auto;
 }
 
+/* Individual Item Type Card */
 .item-type-card {
     border: 2px solid var(--border-color);
     border-radius: 15px;
@@ -305,66 +317,79 @@ body {
     align-items: center;
 }
 
-/* Gear Item Card */
+/* Gear Item Card - Orange Gradient */
 .item-type-card:nth-child(1) {
-    background: linear-gradient(135deg, #ff9a56 0%, #ff6b35 100%);
+    background: linear-gradient(135deg, #e67e22 0%, #d35400 100%);
     color: white;
 }
 
 .item-type-card:nth-child(1):hover {
     transform: translateY(-8px);
-    box-shadow: 0 15px 35px rgba(255, 107, 53, 0.4);
-    border-color: #ff6b35;
+    box-shadow: 0 15px 35px rgba(211, 84, 0, 0.4);
+    border-color: #d35400;
 }
 
-/* Jewel Card */
+/* Jewel Card - Purple Gradient */
 .item-type-card:nth-child(2) {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #5b7bd5 0%, #5a4b9d 100%);
     color: white;
 }
 
 .item-type-card:nth-child(2):hover {
     transform: translateY(-8px);
-    box-shadow: 0 15px 35px rgba(102, 126, 234, 0.4);
-    border-color: #667eea;
+    box-shadow: 0 15px 35px rgba(91, 123, 213, 0.4);
+    border-color: #5b7bd5;
 }
 
-/* Support Gem Card */
+/* Tool Card - Green Gradient */
 .item-type-card:nth-child(3) {
-    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    background: linear-gradient(135deg, #27ae60 0%, #2c3e50 100%);
     color: white;
 }
 
 .item-type-card:nth-child(3):hover {
     transform: translateY(-8px);
-    box-shadow: 0 15px 35px rgba(240, 147, 251, 0.4);
-    border-color: #f093fb;
+    box-shadow: 0 15px 35px rgba(39, 174, 96, 0.4);
+    border-color: #27ae60;
 }
 
-/* Aura Card */
+/* Support Gem Card - Red Gradient */
 .item-type-card:nth-child(4) {
-    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
     color: white;
 }
 
 .item-type-card:nth-child(4):hover {
     transform: translateY(-8px);
-    box-shadow: 0 15px 35px rgba(79, 172, 254, 0.4);
-    border-color: #4facfe;
+    box-shadow: 0 15px 35px rgba(231, 76, 60, 0.4);
+    border-color: #e74c3c;
 }
 
-/* Omen Card */
+/* Aura Card - Blue Gradient */
 .item-type-card:nth-child(5) {
-    background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+    background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
     color: white;
 }
 
 .item-type-card:nth-child(5):hover {
     transform: translateY(-8px);
-    box-shadow: 0 15px 35px rgba(250, 112, 154, 0.4);
-    border-color: #fa709a;
+    box-shadow: 0 15px 35px rgba(52, 152, 219, 0.4);
+    border-color: #3498db;
 }
 
+/* Omen Card - Purple Gradient */
+.item-type-card:nth-child(6) {
+    background: linear-gradient(135deg, #9b59b6 0%, #8e44ad 100%);
+    color: white;
+}
+
+.item-type-card:nth-child(6):hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(155, 89, 182, 0.4);
+    border-color: #9b59b6;
+}
+
+/* Item Type Card Icon */
 .item-type-card .icon {
     font-size: 4rem;
     display: block;
@@ -374,6 +399,7 @@ body {
     flex-shrink: 0;
 }
 
+/* Item Type Card Title */
 .item-type-card h3 {
     margin-bottom: 10px;
     font-size: 1.5em;
@@ -381,6 +407,7 @@ body {
     flex-shrink: 0;
 }
 
+/* Item Type Card Description */
 .item-type-card p {
     line-height: 1.6;
     opacity: 0.9;
@@ -392,7 +419,7 @@ body {
     text-align: center;
 }
 
-/* Add subtle pattern overlay */
+/* Subtle Pattern Overlay for Cards */
 .item-type-card::before {
     content: '';
     position: absolute;
@@ -406,11 +433,12 @@ body {
     pointer-events: none;
 }
 
-/* Editor Content */
+/* Item Editor Content Area */
 .editor-content {
     display: none;
 }
 
+/* Back to Selection Button */
 .back-button {
     background: var(--button-secondary);
     color: var(--text-primary);
@@ -427,6 +455,7 @@ body {
     background: var(--button-secondary-hover);
 }
 
+/* Mixed Affix Types Toggle Section */
 .mixed-types-toggle {
     background: var(--bg-section);
     padding: 15px;
@@ -447,6 +476,7 @@ body {
     font-weight: bold;
 }
 
+/* Item Type Icons */
 .icon {
     width: 4rem;
     height: 4rem;
@@ -455,6 +485,7 @@ body {
     object-fit: contain;
 }
 
+/* Import Warning Message */
 .import-warning {
     background: var(--warning-bg);
     border: 1px solid var(--warning-border);
@@ -470,7 +501,7 @@ body {
     color: #f59e0b;
 }
 
-/* Footer */
+/* Footer Section */
 .footer {
     margin-top: 40px;
     text-align: center;
@@ -480,6 +511,7 @@ body {
     border: 1px solid var(--border-color);
 }
 
+/* Footer Content Layout */
 .footer-content {
     display: flex;
     align-items: center;
@@ -488,14 +520,318 @@ body {
     flex-wrap: wrap;
 }
 
+/* Footer Logo Images */
 .footer-logo {
     width: 32px;
     height: 32px;
     border-radius: 6px;
 }
 
+/* Footer Text Content */
 .footer-text {
     color: var(--text-secondary);
     font-size: 14px;
     margin: 0 10px;
+}
+
+/* Generate NBT Button - Green Theme */
+.generate-btn {
+    background: #28a745;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    width: auto;
+    min-width: 200px;
+}
+
+.generate-btn:hover {
+    background: #218838;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(40, 167, 69, 0.3);
+}
+
+/* Copy to Clipboard Button - Teal Theme */
+.copy-btn {
+    background: #17a2b8;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    width: 100%;
+    margin-top: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.copy-btn:hover {
+    background: #138496;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(23, 162, 184, 0.3);
+}
+
+/* Enhanced Dropdown Menu Styling */
+select {
+    background: var(--input-bg);
+    color: var(--text-primary);
+    border: 2px solid var(--input-border);
+    border-radius: 8px;
+    padding: 12px 16px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    appearance: none; /* Remove default arrow */
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6,9 12,15 18,9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-size: 16px;
+    padding-right: 45px;
+}
+
+select:focus {
+    outline: none;
+    border-color: #3182ce;
+    box-shadow: 0 0 0 3px rgba(49, 130, 206, 0.2);
+    transform: translateY(-1px);
+}
+
+select:hover {
+    border-color: #3182ce;
+    box-shadow: 0 4px 12px var(--shadow-light);
+}
+
+/* Dropdown Options Styling */
+select option {
+    background: var(--bg-section);
+    color: var(--text-primary);
+    padding: 8px;
+    font-weight: 500;
+}
+
+select option:hover {
+    background: #3182ce;
+    color: white;
+}
+
+/* Enhanced Rarity Dropdown Styling - Applied to ALL Rarity Selects */
+select[id*="rar"],
+select[class*="rar"],
+select.enchant-rar,
+select.prefix-rar,
+select.suffix-rar,
+select.jewel-affix-rar,
+select.tool-affix-rar,
+select.omen-affix-rar {
+    transition: all 0.3s ease;
+}
+
+/* Rarity Option Colors in Dropdowns */
+select[id*="rar"] option[value="common"],
+select[class*="rar"] option[value="common"],
+select option[value="common"] {
+    background-color: #6b7280 !important;
+    color: white !important;
+}
+
+select[id*="rar"] option[value="uncommon"],
+select[class*="rar"] option[value="uncommon"],
+select option[value="uncommon"] {
+    background-color: #10b981 !important;
+    color: white !important;
+}
+
+select[id*="rar"] option[value="rare"],
+select[class*="rar"] option[value="rare"],
+select option[value="rare"] {
+    background-color: #3b82f6 !important;
+    color: white !important;
+}
+
+select[id*="rar"] option[value="epic"],
+select[class*="rar"] option[value="epic"],
+select option[value="epic"] {
+    background-color: #ec4899 !important;
+    color: white !important;
+}
+
+select[id*="rar"] option[value="legendary"],
+select[class*="rar"] option[value="legendary"],
+select option[value="legendary"] {
+    background-color: #f59e0b !important;
+    color: white !important;
+}
+
+select[id*="rar"] option[value="mythic"],
+select[class*="rar"] option[value="mythic"],
+select option[value="mythic"] {
+    background-color: #8b5cf6 !important;
+    color: white !important;
+}
+
+/* Rarity Select Background Colors When Selected - Universal */
+select[id*="rar"][value="common"],
+select[class*="rar"][value="common"] {
+    background-color: #6b7280 !important;
+    color: white !important;
+}
+
+select[id*="rar"][value="uncommon"],
+select[class*="rar"][value="uncommon"] {
+    background-color: #10b981 !important;
+    color: white !important;
+}
+
+select[id*="rar"][value="rare"],
+select[class*="rar"][value="rare"] {
+    background-color: #3b82f6 !important;
+    color: white !important;
+}
+
+select[id*="rar"][value="epic"],
+select[class*="rar"][value="epic"] {
+    background-color: #ec4899 !important;
+    color: white !important;
+}
+
+select[id*="rar"][value="legendary"],
+select[class*="rar"][value="legendary"] {
+    background-color: #f59e0b !important;
+    color: white !important;
+}
+
+select[id*="rar"][value="mythic"],
+select[class*="rar"][value="mythic"] {
+    background-color: #8b5cf6 !important;
+    color: white !important;
+}
+
+/* Enhanced Input Field Styling to Match Dropdowns */
+input[type="text"],
+input[type="number"],
+input[type="email"],
+input[type="password"],
+textarea {
+    background: var(--input-bg);
+    color: var(--text-primary);
+    border: 2px solid var(--input-border);
+    border-radius: 8px;
+    padding: 12px 16px;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    font-family: inherit;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+textarea:focus {
+    outline: none;
+    border-color: #3182ce;
+    box-shadow: 0 0 0 3px rgba(49, 130, 206, 0.2);
+    transform: translateY(-1px);
+}
+
+input[type="text"]:hover,
+input[type="number"]:hover,
+input[type="email"]:hover,
+input[type="password"]:hover,
+textarea:hover {
+    border-color: #3182ce;
+    box-shadow: 0 4px 12px var(--shadow-light);
+}
+
+/* Placeholder Text Styling */
+input::placeholder,
+textarea::placeholder {
+    color: var(--text-muted);
+    opacity: 0.7;
+}
+
+/* Enhanced Add Button Styling */
+.add-btn {
+    background: linear-gradient(135deg, #4f46e5 0%, #3730a3 100%);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 20px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    box-shadow: 0 2px 4px rgba(79, 70, 229, 0.2);
+}
+
+.add-btn:hover {
+    background: linear-gradient(135deg, #3730a3 0%, #312e81 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(79, 70, 229, 0.4);
+}
+
+.add-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(79, 70, 229, 0.2);
+}
+
+/* Remove Button Styling */
+.remove-btn {
+    background: linear-gradient(135deg, #ef4444 0%, #dc2626 90%);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 8px 12px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.remove-btn:hover {
+    background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
+}
+
+.remove-btn:active {
+    transform: translateY(0);
+}
+
+/* Affix Item Layout - Horizontal Layout */
+.affix-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+    padding: 15px;
+    background: var(--bg-section);
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+}
+
+.affix-item select,
+.affix-item input {
+    flex: 1;
+    min-width: 120px;
+}
+
+.affix-item .remove-btn {
+    flex-shrink: 0;
+    margin-left: 10px;
 }

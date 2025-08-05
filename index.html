@@ -95,6 +95,8 @@
             </div>
 
             <textarea id="importJson" class="import-json-input" placeholder='Paste your JSON here, for example:
+
+Gear items:
 {
   "baseStats": { "p": 100 },
   "imp": { "p": 50, "imp": "shiny_amulet" },
@@ -108,6 +110,17 @@
   "rar": "mythic",
   "lvl": 1,
   "gtype": "necklace"
+}
+
+Or for tools:
+{
+  "prof": "fishing",
+  "affixes": [
+    { "id": "fishing_core_exp", "rar": "mythic", "p": 1004 },
+    { "id": "fishing_exp", "rar": "rare", "p": 38 }
+  ],
+  "lvl": 67,
+  "xp": 760
 }'></textarea>
             <div class="import-buttons">
                 <button class="import-btn" onclick="loadFromJson()">📥 Load & Edit Item</button>
@@ -128,6 +141,11 @@
                     <img src="jewel.png" alt="Jewel" class="icon">
                     <h3>Jewel</h3>
                     <p>Create jewels with unique properties and multiple affixes</p>
+                </div>
+                <div class="item-type-card" onclick="selectItemType('tool')">
+                    <img src="tool.png" alt="Tool" class="icon">
+                    <h3>Tool</h3>
+                    <p>Create profession tools like fishing rods, pickaxes, and farming tools</p>
                 </div>
                 <div class="item-type-card" onclick="selectItemType('support_gem')">
                     <img src="support.png" alt="Support" class="icon">
@@ -270,6 +288,37 @@
                 </div>
             </div>
 
+            <!-- Tool Sections -->
+            <div id="toolSections" style="display: none;">
+                <div class="section">
+                    <h3>🔨 Tool Properties</h3>
+                    <div class="grid-3">
+                        <div class="form-group">
+                            <label>Profession:</label>
+                            <select id="toolProf" onchange="updateToolAffixDropdowns()">
+                                <option value="fishing">Fishing</option>
+                                <option value="mining">Mining</option>
+                                <option value="farming">Farming</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Level:</label>
+                            <input type="number" id="toolLvl" value="1" min="1" max="100">
+                        </div>
+                        <div class="form-group">
+                            <label>Experience:</label>
+                            <input type="number" id="toolXp" value="0" min="0" max="999999">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h3>🔧 Tool Affixes</h3>
+                    <div id="toolAffixList" class="affix-list"></div>
+                    <button class="add-btn" onclick="addToolAffix()">+ Add Tool Affix</button>
+                </div>
+            </div>
+
             <!-- Jewel Sections -->
             <div id="jewelSections" style="display: none;">
                 <div class="section">
@@ -405,7 +454,7 @@
             </div>
 
             <!-- Generate Button -->
-            <button class="generate-btn" onclick="generateNBT()">🎯 Generate NBT Command</button>
+            <button class="generate-btn" onclick="generateNBT()">🎯 Generate NBT Data</button>
 
             <!-- Output Section -->
             <div class="section">
