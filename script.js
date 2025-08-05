@@ -15,6 +15,28 @@ let affixData = {
     aura: {}
 };
 
+// Hardcoded tool affixes by profession
+const toolAffixes = {
+    fishing: {
+        'fishing_core_exp': { name: 'Fishing Tiered Drop' },
+        'fishing_exp': { name: 'Fishing Experience' },
+        'fishing_double': { name: 'Fishing Double Drop' },
+        'fishing_triple': { name: 'Fishing Triple Drop' }
+    },
+    mining: {
+        'mining_core_exp': { name: 'Mining Tiered Drop' },
+        'mining_exp': { name: 'Mining Experience' },
+        'mining_double': { name: 'Mining Double Drop' },
+        'mining_triple': { name: 'Mining Triple Drop' }
+    },
+    farming: {
+        'farming_core_exp': { name: 'Farming Tiered Drop' },
+        'farming_exp': { name: 'Farming Experience' },
+        'farming_double': { name: 'Farming Double Drop' },
+        'farming_triple': { name: 'Farming Triple Drop' }
+    }
+};
+
 let currentItemType = '';
 let allowMixedTypes = false;
 
@@ -196,6 +218,10 @@ function loadFromJson() {
                 }
             }
 
+        } else if (json.prof && json.affixes && Array.isArray(json.affixes)) {
+            // This is a tool - CHECK THIS FIRST before jewel
+            detectedItemType = 'tool';
+
         } else if (json.uniq || json.style || (json.affixes && Array.isArray(json.affixes))) {
             // This is a jewel
             detectedItemType = 'jewel';
@@ -253,6 +279,8 @@ function loadFromJson() {
                 loadGearFromJson(json);
             } else if (detectedItemType === 'jewel') {
                 loadJewelFromJson(json);
+            } else if (detectedItemType === 'tool') {
+                loadToolFromJson(json);
             } else if (detectedItemType === 'support_gem') {
                 loadSupportGemFromJson(json);
             } else if (detectedItemType === 'omen') {
@@ -260,19 +288,20 @@ function loadFromJson() {
             } else if (detectedItemType === 'aura') {
                 loadAuraFromJson(json);
             }
+
         }, 200);
 
-        // Clear import textarea
-        importJsonTextarea.value = '';
+    // Clear import textarea
+    importJsonTextarea.value = '';
 
-        const message = needsMixedTypes ?
-            '✅ Item loaded successfully! Mixed types automatically enabled due to imported affix types.' :
-            '✅ Item loaded successfully for editing!';
-        alert(message);
+    const message = needsMixedTypes ?
+    '✅ Item loaded successfully! Mixed types automatically enabled due to imported affix types.' :
+    '✅ Item loaded successfully for editing!';
+    showNotification(message);
 
     } catch (error) {
-        console.error('💥 Error parsing JSON:', error);
-        alert('Invalid JSON format! Please check your input.');
+       console.error('💥 Error parsing JSON:', error);
+       showNotification('❌ Invalid JSON format! Please check your input.');
     }
 }
 
@@ -505,43 +534,100 @@ function populateAffixSelect(selectElement, allowedTypes = null) {
 // Select item type and show appropriate sections
 function selectItemType(type) {
     currentItemType = type;
-    console.log('🎯 Selected item type:', type);
 
-    // Hide item type selection
+    // Hide item type selection screen
     document.getElementById('itemTypeSelection').style.display = 'none';
 
     // Show editor content
     document.getElementById('editorContent').style.display = 'block';
 
-    // Hide all sections first
+    // Hide ALL sections first
     document.getElementById('gearSections').style.display = 'none';
     document.getElementById('jewelSections').style.display = 'none';
+    document.getElementById('toolSections').style.display = 'none';
     document.getElementById('supportGemSections').style.display = 'none';
-    document.getElementById('omenSections').style.display = 'none';
     document.getElementById('auraSections').style.display = 'none';
+    document.getElementById('omenSections').style.display = 'none';
 
-    // Show appropriate sections
+    // Show the correct sections based on type
     if (type === 'gear') {
         document.getElementById('gearSections').style.display = 'block';
         populateGearDropdowns();
+
+        // Add event listeners for gear rarity selects
+        const gearRaritySelect = document.getElementById('itemRar');
+        const enchantRaritySelect = document.getElementById('enchantmentRar');
+
+        if (gearRaritySelect) {
+            gearRaritySelect.addEventListener('change', function() {
+                updateRaritySelectColor(this);
+            });
+            updateRaritySelectColor(gearRaritySelect);
+        }
+
+        if (enchantRaritySelect) {
+            enchantRaritySelect.addEventListener('change', function() {
+                updateRaritySelectColor(this);
+            });
+            updateRaritySelectColor(enchantRaritySelect);
+        }
+
     } else if (type === 'jewel') {
         document.getElementById('jewelSections').style.display = 'block';
         populateJewelDropdowns();
+
+        // Add event listener for jewel rarity
+        const jewelRaritySelect = document.getElementById('jewelRar');
+        if (jewelRaritySelect) {
+            jewelRaritySelect.addEventListener('change', function() {
+                updateRaritySelectColor(this);
+            });
+            updateRaritySelectColor(jewelRaritySelect);
+        }
+
+    } else if (type === 'tool') {
+        document.getElementById('toolSections').style.display = 'block';
+        updateToolAffixDropdowns();
+
     } else if (type === 'support_gem') {
         document.getElementById('supportGemSections').style.display = 'block';
         populateSupportGemDropdowns();
-    } else if (type === 'omen') {
-        document.getElementById('omenSections').style.display = 'block';
-        populateOmenDropdowns();
+
+        // Add event listener for support gem rarity
+        const supportGemRaritySelect = document.getElementById('supportGemRar');
+        if (supportGemRaritySelect) {
+            supportGemRaritySelect.addEventListener('change', function() {
+                updateRaritySelectColor(this);
+            });
+            updateRaritySelectColor(supportGemRaritySelect);
+        }
+
     } else if (type === 'aura') {
         document.getElementById('auraSections').style.display = 'block';
         populateAuraDropdowns();
-    }
 
-    // Populate dropdowns after a short delay to ensure DOM is ready
-    setTimeout(() => {
-        populateDropdownsForItemType();
-    }, 100);
+        // Add event listener for aura rarity
+        const auraRaritySelect = document.getElementById('auraRar');
+        if (auraRaritySelect) {
+            auraRaritySelect.addEventListener('change', function() {
+                updateRaritySelectColor(this);
+            });
+            updateRaritySelectColor(auraRaritySelect);
+        }
+
+    } else if (type === 'omen') {
+        document.getElementById('omenSections').style.display = 'block';
+        populateOmenDropdowns();
+
+        // Add event listener for omen rarity
+        const omenRaritySelect = document.getElementById('omenRar');
+        if (omenRaritySelect) {
+            omenRaritySelect.addEventListener('change', function() {
+                updateRaritySelectColor(this);
+            });
+            updateRaritySelectColor(omenRaritySelect);
+        }
+    }
 }
 
 // Go back to item selection
@@ -698,6 +784,14 @@ function addPrefix() {
     // Populate the new dropdown
     const newSelect = affixItem.querySelector('.prefix-id');
     populateAffixSelect(newSelect, allowMixedTypes ? getAvailableAffixTypes() : ['prefix']);
+
+    // Add event listener to the new rarity select and set initial color
+    const raritySelect = affixItem.querySelector('.prefix-rar');
+    raritySelect.addEventListener('change', function() {
+        updateRaritySelectColor(this);
+    });
+    // Set initial color (mythic is selected by default)
+    updateRaritySelectColor(raritySelect);
 }
 
 // Add suffix
@@ -725,12 +819,17 @@ function addSuffix() {
 
     suffixList.appendChild(affixItem);
 
+    // Add the rarity event listener at the end
+    const raritySelect = affixItem.querySelector('.suffix-rar');
+    raritySelect.addEventListener('change', function() {
+        updateRaritySelectColor(this);
+    });
+    updateRaritySelectColor(raritySelect);
+
     // Populate the new dropdown
     const newSelect = affixItem.querySelector('.suffix-id');
     populateAffixSelect(newSelect, allowMixedTypes ? getAvailableAffixTypes() : ['suffix']);
 }
-
-// Add these missing functions to your script.js file:
 
 function addJewelAffix() {
     const affixList = document.getElementById('jewelAffixList');
@@ -758,8 +857,16 @@ function addJewelAffix() {
     `;
 
     affixList.appendChild(affixItem);
+
+    // Add the rarity event listener at the end
+    const raritySelect = affixItem.querySelector('.jewel-affix-rar');
+    raritySelect.addEventListener('change', function() {
+        updateRaritySelectColor(this);
+    });
+    updateRaritySelectColor(raritySelect);
 }
 
+    // Update the jewel affix dropdown based on the selected type
 function updateJewelAffixDropdown(typeSelect) {
     const affixSelect = typeSelect.parentNode.querySelector('.jewel-affix-id');
     const selectedType = typeSelect.value;
@@ -790,6 +897,8 @@ function generateNBT() {
             nbtData = generateAuraNBT();
         } else if (currentItemType === 'omen') {
             nbtData = generateOmenNBT();
+        } else if (currentItemType === 'tool') {
+            nbtData = generateToolNBT();
         }
 
         const jsonOutput = JSON.stringify(nbtData, null, 2);
@@ -962,13 +1071,14 @@ function removeAffix(button) {
     button.parentNode.remove();
 }
 
+// Copy to clipboard
 function copyToClipboard() {
     const output = document.getElementById('output');
     const text = output.textContent;
 
     if (text && text !== 'Generated NBT will appear here...') {
         navigator.clipboard.writeText(text).then(() => {
-            alert('✅ NBT data copied to clipboard!');
+            showNotification('✅ NBT data copied to clipboard!');
         }).catch(() => {
             // Fallback for older browsers
             const textArea = document.createElement('textarea');
@@ -977,11 +1087,58 @@ function copyToClipboard() {
             textArea.select();
             document.execCommand('copy');
             document.body.removeChild(textArea);
-            alert('✅ NBT data copied to clipboard!');
+            showNotification('✅ NBT data copied to clipboard!');
         });
     } else {
-        alert('⚠️ No NBT data to copy. Generate an item first!');
+        showNotification('⚠️ No NBT data to copy. Generate an item first!');
     }
+}
+
+// Show temporary notification
+function showNotification(message) {
+    // Remove existing notification if present
+    const existingNotification = document.querySelector('.notification');
+    if (existingNotification) {
+        existingNotification.remove();
+    }
+
+    // Create notification element
+    const notification = document.createElement('div');
+    notification.className = 'notification';
+    notification.textContent = message;
+    notification.style.cssText = `
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background: #4CAF50;
+        color: white;
+        padding: 12px 20px;
+        border-radius: 6px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+        z-index: 10000;
+        font-weight: bold;
+        opacity: 0;
+        transform: translateY(-20px);
+        transition: all 0.3s ease;
+    `;
+
+    // Add to page
+    document.body.appendChild(notification);
+
+    // Animate in
+    setTimeout(() => {
+        notification.style.opacity = '1';
+        notification.style.transform = 'translateY(0)';
+    }, 10);
+
+    // Remove after 3 seconds
+    setTimeout(() => {
+        notification.style.opacity = '0';
+        notification.style.transform = 'translateY(-20px)';
+        setTimeout(() => {
+            notification.remove();
+        }, 300);
+    }, 3000);
 }
 
 function addOmenAffix() {
@@ -1010,6 +1167,13 @@ function addOmenAffix() {
     `;
 
     affixList.appendChild(affixItem);
+
+    // Add the rarity event listener at the end
+    const raritySelect = affixItem.querySelector('.omen-affix-rar');
+    raritySelect.addEventListener('change', function() {
+        updateRaritySelectColor(this);
+    });
+    updateRaritySelectColor(raritySelect);
 }
 
 function updateOmenAffixDropdown(typeSelect) {
@@ -1081,6 +1245,123 @@ function loadOmenFromJson(json) {
     }
 }
 
+// Load tool data from JSON
+function loadToolFromJson(json) {
+    // Set profession FIRST
+    if (json.prof) {
+        document.getElementById('toolProf').value = json.prof;
+    }
+
+    if (json.lvl) document.getElementById('toolLvl').value = json.lvl;
+    if (json.xp) document.getElementById('toolXp').value = json.xp;
+
+    // Clear existing affixes
+    document.getElementById('toolAffixList').innerHTML = '';
+
+    // Load tool affixes
+    if (json.affixes && Array.isArray(json.affixes)) {
+        json.affixes.forEach(affix => {
+            addToolAffix();
+            const toolAffixItems = document.querySelectorAll('#toolAffixList .affix-item');
+            const lastItem = toolAffixItems[toolAffixItems.length - 1];
+
+            // Populate the dropdown based on current profession FIRST
+            updateToolAffixFromProfession(lastItem.querySelector('.tool-affix-id'));
+
+            // THEN set the values
+            setTimeout(() => {
+                lastItem.querySelector('.tool-affix-id').value = affix.id;
+                lastItem.querySelector('.tool-affix-p').value = affix.p;
+                lastItem.querySelector('.tool-affix-rar').value = affix.rar;
+            }, 50);
+        });
+    }
+}
+
+// Generate tool NBT
+function generateToolNBT() {
+    const nbt = {
+        prof: document.getElementById('toolProf')?.value || 'fishing',
+        lvl: parseInt(document.getElementById('toolLvl')?.value || 1),
+        xp: parseInt(document.getElementById('toolXp')?.value || 0),
+        affixes: []
+    };
+
+    // Add tool affixes
+    document.querySelectorAll('#toolAffixList .affix-item').forEach(item => {
+        const id = item.querySelector('.tool-affix-id')?.value;
+        const p = parseInt(item.querySelector('.tool-affix-p')?.value || 100);
+        const rar = item.querySelector('.tool-affix-rar')?.value;
+
+        if (id) {
+            nbt.affixes.push({ id, p, rar });
+        }
+    });
+
+    return nbt;
+}
+
+// Populate tool dropdowns
+function populateToolDropdowns() {
+    updateToolAffixDropdowns();
+}
+
+// Add tool affix
+function addToolAffix() {
+    const affixList = document.getElementById('toolAffixList');
+    const affixItem = document.createElement('div');
+    affixItem.className = 'affix-item';
+
+    affixItem.innerHTML = `
+        <select class="tool-affix-id">
+            <option value="">Select Tool Affix</option>
+        </select>
+        <input type="number" class="tool-affix-p" placeholder="Percent" value="100" min="0" max="1000">
+        <select class="tool-affix-rar">
+            <option value="common">Common</option>
+            <option value="uncommon">Uncommon</option>
+            <option value="rare">Rare</option>
+            <option value="epic">Epic</option>
+            <option value="legendary">Legendary</option>
+            <option value="mythic" selected>Mythic</option>
+        </select>
+        <button class="remove-btn" onclick="removeAffix(this)">❌</button>
+    `;
+
+    affixList.appendChild(affixItem);
+
+    // Add the rarity event listener at the end
+    const raritySelect = affixItem.querySelector('.tool-affix-rar');
+    raritySelect.addEventListener('change', function() {
+        updateRaritySelectColor(this);
+    });
+    updateRaritySelectColor(raritySelect);
+
+    // Update the dropdown for this new item
+    updateToolAffixFromProfession(affixItem.querySelector('.tool-affix-id'));
+}
+
+// Update tool affix dropdowns when profession changes
+function updateToolAffixDropdowns() {
+    document.querySelectorAll('.tool-affix-id').forEach(select => {
+        updateToolAffixFromProfession(select);
+    });
+}
+
+// Update individual tool affix dropdown based on profession
+function updateToolAffixFromProfession(select) {
+    const profession = document.getElementById('toolProf')?.value || 'fishing';
+
+    select.innerHTML = '<option value="">Select Tool Affix</option>';
+
+    if (toolAffixes[profession]) {
+        Object.keys(toolAffixes[profession]).forEach(id => {
+            const data = toolAffixes[profession][id];
+            select.innerHTML += `<option value="${id}">${data.name}</option>`;
+        });
+    }
+}
+
 // Initialize the application
 function initializeApp() {
     console.log('✅ Application initialized');
@@ -1100,6 +1381,39 @@ function initializeApp() {
         populateAuraDropdowns();
     }
 }
+
+// Function to update rarity select colors
+function updateRaritySelectColor(selectElement) {
+    const value = selectElement.value;
+    const rarityColors = {
+        'common': '#6b7280',
+        'uncommon': '#10b981',
+        'rare': '#3b82f6',
+        'epic': '#ec4899',
+        'legendary': '#f59e0b',
+        'mythic': '#8b5cf6'
+    };
+
+    if (rarityColors[value]) {
+        selectElement.style.backgroundColor = rarityColors[value];
+        selectElement.style.color = 'white';
+    } else {
+        selectElement.style.backgroundColor = 'var(--input-bg)';
+        selectElement.style.color = 'var(--text-primary)';
+    }
+}
+
+// Add event listeners to all rarity selects when page loads
+document.addEventListener('DOMContentLoaded', function() {
+    // Update existing rarity selects
+    document.querySelectorAll('select[id*="rar"], select[class*="rar"]').forEach(select => {
+        select.addEventListener('change', function() {
+            updateRaritySelectColor(this);
+        });
+        // Set initial color
+        updateRaritySelectColor(select);
+    });
+});
 
 // Load the application when DOM is ready
 document.addEventListener('DOMContentLoaded', function() {
