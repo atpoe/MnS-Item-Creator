@@ -15,7 +15,9 @@ const folders = [
     { key: 'base_gear_types', folder: 'mmorpg_base_gear_types' },
     { key: 'support_gem', folder: 'mmorpg_support_gem' },
     { key: 'omen', folder: 'mmorpg_omen' },
-    { key: 'aura', folder: 'mmorpg_aura' }
+    { key: 'aura', folder: 'mmorpg_aura' },
+    { key: 'mobAffixes', folder: 'mmorpg_mob_affix' },
+    { key: 'mobRarity', folder: 'mmorpg_mob_rarity' }
 ];
 
 console.log('🚀 Combining all JSON files into one...');

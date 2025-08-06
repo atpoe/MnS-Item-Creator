@@ -63,6 +63,31 @@ body {
     transition: all 0.3s ease;
 }
 
+/* Universal Input Styling - Ensures ALL inputs match */
+input, select, textarea {
+    background: var(--input-bg) !important;
+    color: var(--text-primary) !important;
+    border: 2px solid var(--input-border) !important;
+    border-radius: 8px;
+    padding: 12px 16px;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    font-family: inherit;
+}
+
+input:focus, select:focus, textarea:focus {
+    outline: none;
+    border-color: #3182ce !important;
+    box-shadow: 0 0 0 3px rgba(49, 130, 206, 0.2) !important;
+    transform: translateY(-1px);
+}
+
+input:hover, select:hover, textarea:hover {
+    border-color: #3182ce !important;
+    box-shadow: 0 4px 12px var(--shadow-light);
+}
+
 /* Main Content Container */
 .container {
     max-width: 1200px;
@@ -226,20 +251,9 @@ body {
     width: 100%;
     min-height: 200px;
     padding: 15px;
-    border: 2px solid var(--input-border);
-    border-radius: 8px;
     font-family: 'Courier New', monospace;
     font-size: 13px;
     resize: vertical;
-    background: var(--input-bg);
-    color: var(--text-primary);
-    transition: border-color 0.3s ease;
-}
-
-.import-json-input:focus {
-    outline: none;
-    border-color: #3182ce;
-    box-shadow: 0 0 0 3px rgba(49, 130, 206, 0.2);
 }
 
 /* Import Action Buttons */
@@ -383,10 +397,22 @@ body {
     color: white;
 }
 
+/* Spirit Card - Green Gradient */
+.item-type-card:nth-child(7) {
+    background: linear-gradient(135deg, #069e02 0%, #076305 100%);
+    color: white;
+}
+
 .item-type-card:nth-child(6):hover {
     transform: translateY(-8px);
     box-shadow: 0 15px 35px rgba(155, 89, 182, 0.4);
     border-color: #9b59b6;
+}
+
+.item-type-card:nth-child(7):hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(6, 158, 2, 0.4);
+    border-color: #069e02;
 }
 
 /* Item Type Card Icon */
@@ -580,46 +606,26 @@ body {
 
 /* Enhanced Dropdown Menu Styling */
 select {
-    background: var(--input-bg);
-    color: var(--text-primary);
-    border: 2px solid var(--input-border);
-    border-radius: 8px;
-    padding: 12px 16px;
-    font-size: 14px;
-    font-weight: 500;
     cursor: pointer;
-    transition: all 0.3s ease;
     appearance: none; /* Remove default arrow */
-    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6,9 12,15 18,9'%3e%3c/polyline%3e%3c/svg%3e");
-    background-repeat: no-repeat;
-    background-position: right 12px center;
-    background-size: 16px;
-    padding-right: 45px;
-}
-
-select:focus {
-    outline: none;
-    border-color: #3182ce;
-    box-shadow: 0 0 0 3px rgba(49, 130, 206, 0.2);
-    transform: translateY(-1px);
-}
-
-select:hover {
-    border-color: #3182ce;
-    box-shadow: 0 4px 12px var(--shadow-light);
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6,9 12,15 18,9'%3e%3c/polyline%3e%3c/svg%3e") !important;
+    background-repeat: no-repeat !important;
+    background-position: right 12px center !important;
+    background-size: 16px !important;
+    padding-right: 45px !important;
 }
 
 /* Dropdown Options Styling */
 select option {
-    background: var(--bg-section);
-    color: var(--text-primary);
+    background: var(--bg-section) !important;
+    color: var(--text-primary) !important;
     padding: 8px;
     font-weight: 500;
 }
 
 select option:hover {
-    background: #3182ce;
-    color: white;
+    background: #3182ce !important;
+    color: white !important;
 }
 
 /* Enhanced Rarity Dropdown Styling - Applied to ALL Rarity Selects */
@@ -714,47 +720,10 @@ select[class*="rar"][value="mythic"] {
     color: white !important;
 }
 
-/* Enhanced Input Field Styling to Match Dropdowns */
-input[type="text"],
-input[type="number"],
-input[type="email"],
-input[type="password"],
-textarea {
-    background: var(--input-bg);
-    color: var(--text-primary);
-    border: 2px solid var(--input-border);
-    border-radius: 8px;
-    padding: 12px 16px;
-    font-size: 14px;
-    font-weight: 500;
-    transition: all 0.3s ease;
-    font-family: inherit;
-}
-
-input[type="text"]:focus,
-input[type="number"]:focus,
-input[type="email"]:focus,
-input[type="password"]:focus,
-textarea:focus {
-    outline: none;
-    border-color: #3182ce;
-    box-shadow: 0 0 0 3px rgba(49, 130, 206, 0.2);
-    transform: translateY(-1px);
-}
-
-input[type="text"]:hover,
-input[type="number"]:hover,
-input[type="email"]:hover,
-input[type="password"]:hover,
-textarea:hover {
-    border-color: #3182ce;
-    box-shadow: 0 4px 12px var(--shadow-light);
-}
-
 /* Placeholder Text Styling */
 input::placeholder,
 textarea::placeholder {
-    color: var(--text-muted);
+    color: var(--text-muted) !important;
     opacity: 0.7;
 }
 
@@ -834,4 +803,34 @@ textarea::placeholder {
 .affix-item .remove-btn {
     flex-shrink: 0;
     margin-left: 10px;
+}
+
+/* Fix color input styling */
+input[type="color"] {
+    width: 60px !important;
+    height: 40px !important;
+    padding: 0 !important;
+    border: 2px solid var(--border-color) !important;
+    border-radius: 6px !important;
+    background: transparent !important;
+    cursor: pointer !important;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+input[type="color"]::-webkit-color-swatch-wrapper {
+    padding: 0;
+    border: none;
+    border-radius: 4px;
+}
+
+input[type="color"]::-webkit-color-swatch {
+    border: none;
+    border-radius: 4px;
+}
+
+input[type="color"]::-moz-color-swatch {
+    border: none;
+    border-radius: 4px;
 }

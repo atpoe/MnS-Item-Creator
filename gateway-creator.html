@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gateway Creator - Mine & Slash NBT Item Creator</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <style>
+        .gateway-preview {
+            text-align: center;
+            margin-top: 20px;
+            padding: 20px;
+            background: var(--bg-section);
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+
+        .preview-item {
+            width: 64px;
+            height: 64px;
+            margin: 0 auto 10px;
+            image-rendering: pixelated;
+            image-rendering: -moz-crisp-edges;
+            image-rendering: crisp-edges;
+            transition: all 0.3s ease;
+        }
+
+        .preview-item:hover {
+            transform: scale(1.1);
+        }
+
+        .preview-label {
+            color: var(--text-secondary);
+            font-size: 14px;
+            display: block;
+            margin-top: 8px;
+        }
+    </style>
+</head>
+<body>
+<!-- Theme Toggle -->
+<div class="theme-toggle" onclick="toggleTheme()">
+    <span id="themeIcon">🌙</span>
+    <span id="themeText">Dark Mode</span>
+</div>
+
+<div class="container">
+    <!-- Header -->
+    <div class="header">
+        <h1>🌀 Gateway Creator</h1>
+        <p>Create custom gateways with waves and mob configurations for Gateways to Eternity</p>
+    </div>
+
+    <!-- Navigation -->
+    <div class="section">
+        <button class="back-button" onclick="backToItemCreator()">← Back to Item Creator</button>
+    </div>
+
+    <!-- Data Status -->
+    <div class="section">
+        <div id="dataStatus" class="import-warning">
+            <strong>🔄 Loading gateway data...</strong>
+            <div id="loadingProgress">Initializing...</div>
+        </div>
+    </div>
+
+    <!-- Gateway Properties -->
+    <div class="section">
+        <h3>🌀 Gateway Properties</h3>
+        <div class="grid-3">
+            <div class="form-group">
+                <label for="gatewaySize">Gateway Size:</label>
+                <select id="gatewaySize" onchange="updateGatewaySize()">
+                    <option value="small" selected>Small</option>
+                    <option value="medium">Medium</option>
+                    <option value="large">Large</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="gatewayColor">Gateway Color:</label>
+                <input type="color" id="gatewayColor" value="#00f7ff">
+            </div>
+            <div class="form-group">
+                <label for="gatewaySpacing">Gateway Spacing:</label>
+                <input type="number" id="gatewaySpacing" value="100" min="1" max="1000" onchange="updateGatewaySpacing()">
+            </div>
+        </div>
+
+    <!-- Waves Section -->
+    <div class="section">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+            <h3>⚔️ Gateway Waves</h3>
+            <button class="generate-btn" onclick="addWave()" style="width: auto; min-width: 120px;">+ Add Wave</button>
+        </div>
+        <div id="wavesList" class="waves-list">
+            <!-- Waves will be dynamically added here -->
+        </div>
+    </div>
+
+    <!-- Global Gateway Rewards -->
+    <div class="section">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+            <h3>🏆 Global Gateway Rewards</h3>
+            <button class="generate-btn" onclick="addGlobalReward()" style="width: auto; min-width: 150px;">+ Add Reward</button>
+        </div>
+        <div id="globalRewardsList" class="rewards-list">
+            <!-- Global rewards will be dynamically added here -->
+        </div>
+    </div>
+
+    <!-- Gateway Rules Section -->
+    <div class="section">
+        <h3>⚙️ Gateway Rules</h3>
+        <div class="grid-3">
+            <div class="form-group">
+                <label for="spawnRange">Spawn Range:</label>
+                <input type="number" id="spawnRange" value="4" min="1" onchange="updateSpawnRange()">
+            </div>
+            <div class="form-group">
+                <label for="leashRange">Leash Range:</label>
+                <input type="number" id="leashRange" value="16" min="1" onchange="updateLeashRange()">
+            </div>
+            <div class="form-group">
+                <label for="playerDamageOnly">Player Damage Only:</label>
+                <select id="playerDamageOnly">
+                    <option value="false" selected>No</option>
+                    <option value="true">Yes</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <!-- Gateway Failures Section -->
+    <div class="section">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+            <h3>⚠️ Gateway Failures</h3>
+            <button class="generate-btn" onclick="addGatewayFailure()" style="width: auto; min-width: 140px;">+ Add Failure</button>
+        </div>
+        <div id="gatewayFailuresList" class="failures-list">
+            <!-- Failures will be dynamically added here -->
+        </div>
+    </div>
+
+    <!-- Import Section -->
+    <div class="section">
+        <h3>📥 Import Gateway</h3>
+        <div class="import-warning">
+            <strong>⚠️ Import Notice:</strong> Paste a gateway JSON to load it for editing. This will replace all current settings.
+        </div>
+        <textarea id="importJson" placeholder="Paste your gateway JSON here..." style="width: 100%; height: 120px; margin: 10px 0; padding: 10px; border: 1px solid var(--border-color); border-radius: 4px; background: var(--bg-input); color: var(--text-primary); font-family: monospace; resize: vertical;"></textarea>
+        <div class="grid-2">
+            <button class="copy-btn" onclick="importGateway()">📥 Load Gateway</button>
+            <button class="back-button" onclick="document.getElementById('importJson').value = ''">🗑️ Clear</button>
+        </div>
+    </div>
+
+    <!-- Output Section -->
+    <div class="section">
+        <h3>📤 Generated Gateway</h3>
+        <button class="generate-btn" onclick="generateGatewayJson()">🔮 Generate Gateway JSON</button>
+        <div id="output" class="output">Generated gateway will appear here...</div>
+        <button class="copy-btn" onclick="copyOutput()">📋 Copy to Clipboard</button>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <div class="footer-content">
+            <div class="footer-logo">⛏️</div>
+            <div class="footer-text">Gateway Creator for Gateways to Eternity</div>
+            <div class="footer-text">Create custom gateway configurations with ease</div>
+        </div>
+    </div>
+</div>
+
+<script src="gateway-script.js"></script>
+<script>
+    // Initialize the gateway creator when page loads
+    document.addEventListener('DOMContentLoaded', function() {
+        loadAllAffixData();
+        updateGatewaySize(); // Set initial preview
+    });
+
+    // Theme toggle functionality
+    function toggleTheme() {
+        const body = document.body;
+        const themeIcon = document.getElementById('themeIcon');
+        const themeText = document.getElementById('themeText');
+
+        body.classList.toggle('dark-theme');
+
+        if (body.classList.contains('dark-theme')) {
+            themeIcon.textContent = '☀️';
+            themeText.textContent = 'Light Mode';
+            localStorage.setItem('theme', 'dark');
+        } else {
+            themeIcon.textContent = '🌙';
+            themeText.textContent = 'Dark Mode';
+            localStorage.setItem('theme', 'light');
+        }
+    }
+
+    // Copy output to clipboard function
+    function copyOutput() {
+        const output = document.getElementById('output');
+        if (output && output.textContent !== 'Generated gateway will appear here...') {
+            navigator.clipboard.writeText(output.textContent).then(() => {
+                showNotification('Gateway JSON copied to clipboard!', 'success');
+            }).catch(() => {
+                showNotification('Failed to copy to clipboard', 'error');
+            });
+        } else {
+            showNotification('No gateway data to copy', 'error');
+        }
+    }
+
+    // Load saved theme
+    document.addEventListener('DOMContentLoaded', function() {
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'dark') {
+            document.body.classList.add('dark-theme');
+            document.getElementById('themeIcon').textContent = '☀️';
+            document.getElementById('themeText').textContent = 'Light Mode';
+        }
+    });
+</script>
+</body>
+</html>

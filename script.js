@@ -1403,6 +1403,11 @@ function updateRaritySelectColor(selectElement) {
     }
 }
 
+// Navigate to Gateway Creator
+function goToGatewayCreator() {
+    window.location.href = 'gateway-creator.html';
+}
+
 // Add event listeners to all rarity selects when page loads
 document.addEventListener('DOMContentLoaded', function() {
     // Update existing rarity selects
