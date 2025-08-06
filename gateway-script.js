@@ -377,9 +377,9 @@ function generateGatewayJson() {
         const jsonOutput = JSON.stringify(gatewayData, null, 2);
 
         // Display the result
-        const outputArea = document.getElementById('jsonOutput');
-        if (outputArea) {
-            outputArea.value = jsonOutput;
+        const outputDiv = document.getElementById('output');
+        if (outputDiv) {
+            outputDiv.innerHTML = `<pre style="background: var(--bg-input); padding: 12px; border-radius: 4px; overflow-x: auto; white-space: pre-wrap; color: var(--text-primary);">${jsonOutput}</pre>`;
         }
 
         console.log('✅ Gateway JSON generated successfully');
@@ -1240,29 +1240,39 @@ function collectRewardData(rewardElement) {
 
 function collectFailureData(failureElement) {
     const failureType = failureElement.querySelector('.failure-type')?.value;
-
     if (!failureType) return null;
 
-    const failureData = {
-        type: failureType
-    };
+    const failureData = { type: failureType };
 
     switch (failureType) {
         case 'gateways:command':
-            const command = failureElement.querySelector('.failure-command')?.value;
+            const command = failureElement.querySelector('.failure-command')?.value?.trim();
             if (command) failureData.command = command;
             break;
+
         case 'gateways:explosion':
-            const power = parseInt(failureElement.querySelector('.failure-power')?.value);
-            const breaksBlocks = failureElement.querySelector('.failure-breaks-blocks')?.value === 'true';
-            if (power) failureData.power = power;
-            failureData.breaks_blocks = breaksBlocks;
+            const power = failureElement.querySelector('.failure-power')?.value;
+            const breaksBlocks = failureElement.querySelector('.failure-breaks-blocks')?.value;
+            if (power) failureData.power = parseInt(power);
+            if (breaksBlocks !== undefined) failureData.breaks_blocks = breaksBlocks === 'true';
             break;
-        case 'gateways:spawn':
-            const entity = failureElement.querySelector('.failure-entity')?.value;
-            const count = parseInt(failureElement.querySelector('.failure-count')?.value);
-            if (entity) failureData.entity = entity;
-            if (count) failureData.count = count;
+
+        case 'gateways:mob_effect':
+            const effect = failureElement.querySelector('.failure-effect')?.value?.trim();
+            const duration = failureElement.querySelector('.failure-duration')?.value;
+            if (effect) failureData.effect = effect;
+            if (duration) failureData.duration = parseInt(duration);
+            break;
+
+        case 'gateways:summon':
+            const entity = failureElement.querySelector('.failure-entity')?.value?.trim();
+            const count = failureElement.querySelector('.failure-count')?.value;
+            if (entity) {
+                failureData.entity = {
+                    entity: entity,
+                    count: count ? parseInt(count) : 1
+                };
+            }
             break;
     }
 
