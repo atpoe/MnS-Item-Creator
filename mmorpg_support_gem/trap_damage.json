@@ -14,7 +14,7 @@
       "type": "FLAT",
       "max": -10.0,
       "min": -10.0,
-      "stat": "trap_cdr"
+      "stat": "charge_recovery_rate"
     }
   ],
   "style": "DEX",

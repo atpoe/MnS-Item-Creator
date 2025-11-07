@@ -12,8 +12,7 @@
         "included": [
           "shield",
 		  "pants",
-		  "jewelry_family",
-          "jewel_str"
+		  "jewelry_family"
         ],
         "req_type": "INCLUDES_ANY"
       }
@@ -22,8 +21,8 @@
   "stats": [
     {
       "type": "FLAT",
-      "max": 6.0,
-      "min": 1.2,
+      "max": 5.0,
+      "min": 1.0,
       "stat": "health_regen"
     }
   ],

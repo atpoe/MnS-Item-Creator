@@ -18,9 +18,9 @@
   },
   "stats": [
     {
-      "type": "FLAT",
-      "max": 3.0,
-      "min": 1.0,
+      "type": "PERCENT",
+      "max": 20.0,
+      "min": 4.0,
       "stat": "critical_hit"
     }
   ],

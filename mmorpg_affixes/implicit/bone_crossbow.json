@@ -21,7 +21,7 @@
       "type": "FLAT",
       "max": 8.0,
       "min": 4.0,
-      "stat": "trap_cdr"
+      "stat": "charge_recovery_rate"
     }
   ],
   "weight": 1000

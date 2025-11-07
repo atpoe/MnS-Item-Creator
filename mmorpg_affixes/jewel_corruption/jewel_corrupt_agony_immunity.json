@@ -22,10 +22,10 @@
       "stat": "agony_immunity"
     },
     {
-      "type": "FLAT",
-      "max": 5.0,
-      "min": 1.0,
-      "stat": "attack_speed"
+      "type": "PERCENT",
+      "max": 10.0,
+      "min": 2.0,
+      "stat": "energy"
     }
   ],
   "weight": 1000

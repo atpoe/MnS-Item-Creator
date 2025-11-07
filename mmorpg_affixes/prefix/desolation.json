@@ -10,8 +10,7 @@
         "type": "GearSlot",
         "excluded": [],
         "included": [
-          "mage_weapon",
-          "jewel_str"
+          "mage_weapon"
         ],
         "req_type": "INCLUDES_ANY"
       }

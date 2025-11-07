@@ -1,5 +1,33 @@
 {
   "chaos_stat": {
+    "gear_corruptattack_speed": {
+      "type": "chaos_stat",
+      "eye_aura_req": "",
+      "guid": "gear_corruptattack_speed",
+      "one_of_a_kind": "",
+      "only_one_per_item": true,
+      "requirements": {
+        "tag_requirements": [
+          {
+            "type": "GearSlot",
+            "excluded": [],
+            "included": [
+              "weapon_family"
+            ],
+            "req_type": "INCLUDES_ANY"
+          }
+        ]
+      },
+      "stats": [
+        {
+          "type": "FLAT",
+          "max": 20,
+          "min": 20,
+          "stat": "attack_speed"
+        }
+      ],
+      "weight": 1000
+    },
     "gear_corruptaura_effect": {
       "type": "chaos_stat",
       "eye_aura_req": "",
@@ -22,8 +50,8 @@
       "stats": [
         {
           "type": "FLAT",
-          "max": 3,
-          "min": 3,
+          "max": 5,
+          "min": 5,
           "stat": "aura_effect"
         }
       ],
@@ -56,9 +84,9 @@
           "stat": "bleed_chance"
         },
         {
-          "type": "FLAT",
-          "max": 10,
-          "min": 10,
+          "type": "MORE",
+          "max": 5,
+          "min": 5,
           "stat": "bleed_damage"
         }
       ],
@@ -92,9 +120,9 @@
           "stat": "plus_lvl_trap_spells"
         },
         {
-          "type": "FLAT",
-          "max": 8,
-          "min": 8,
+          "type": "MORE",
+          "max": 4,
+          "min": 4,
           "stat": "trap_spell_dmg"
         }
       ],
@@ -127,9 +155,9 @@
           "stat": "burn_chance"
         },
         {
-          "type": "FLAT",
-          "max": 10,
-          "min": 10,
+          "type": "MORE",
+          "max": 5,
+          "min": 5,
           "stat": "burn_damage"
         }
       ],
@@ -157,8 +185,8 @@
       "stats": [
         {
           "type": "FLAT",
-          "max": 3,
-          "min": 3,
+          "max": 8,
+          "min": 8,
           "stat": "cast_speed"
         }
       ],
@@ -186,8 +214,8 @@
       "stats": [
         {
           "type": "FLAT",
-          "max": 3,
-          "min": 3,
+          "max": 5,
+          "min": 5,
           "stat": "cdr"
         }
       ],
@@ -241,9 +269,9 @@
       },
       "stats": [
         {
-          "type": "PERCENT",
-          "max": 10,
-          "min": 10,
+          "type": "MORE",
+          "max": 4,
+          "min": 4,
           "stat": "magic_shield"
         }
       ],
@@ -360,9 +388,9 @@
           "stat": "electrify_chance"
         },
         {
-          "type": "FLAT",
-          "max": 10,
-          "min": 10,
+          "type": "MORE",
+          "max": 5,
+          "min": 5,
           "stat": "electrify_damage"
         }
       ],
@@ -445,8 +473,8 @@
       "stats": [
         {
           "type": "FLAT",
-          "max": 8,
-          "min": 8,
+          "max": 20,
+          "min": 20,
           "stat": "fire_resist"
         }
       ],
@@ -479,9 +507,9 @@
           "stat": "freeze_chance"
         },
         {
-          "type": "FLAT",
-          "max": 10,
-          "min": 10,
+          "type": "MORE",
+          "max": 5,
+          "min": 5,
           "stat": "freeze_damage"
         }
       ],
@@ -514,9 +542,9 @@
           "stat": "plus_lvl_totem_spells"
         },
         {
-          "type": "FLAT",
-          "max": 8,
-          "min": 8,
+          "type": "MORE",
+          "max": 4,
+          "min": 4,
           "stat": "totem_spell_dmg"
         }
       ],
@@ -548,7 +576,7 @@
           "stat": "max_total_summons"
         },
         {
-          "type": "FLAT",
+          "type": "MORE",
           "max": 4,
           "min": 4,
           "stat": "summon_damage"
@@ -632,9 +660,9 @@
       },
       "stats": [
         {
-          "type": "PERCENT",
-          "max": 10,
-          "min": 10,
+          "type": "MORE",
+          "max": 4,
+          "min": 4,
           "stat": "dodge"
         }
       ],
@@ -689,8 +717,8 @@
       "stats": [
         {
           "type": "FLAT",
-          "max": 8,
-          "min": 8,
+          "max": 20,
+          "min": 20,
           "stat": "lightning_resist"
         }
       ],
@@ -774,8 +802,8 @@
       "stats": [
         {
           "type": "FLAT",
-          "max": 1,
-          "min": 1,
+          "max": 3,
+          "min": 3,
           "stat": "max_fire_resist"
         }
       ],
@@ -831,8 +859,8 @@
       "stats": [
         {
           "type": "FLAT",
-          "max": 1,
-          "min": 1,
+          "max": 3,
+          "min": 3,
           "stat": "max_lightning_resist"
         }
       ],
@@ -888,8 +916,8 @@
       "stats": [
         {
           "type": "FLAT",
-          "max": 1,
-          "min": 1,
+          "max": 3,
+          "min": 3,
           "stat": "max_water_resist"
         }
       ],
@@ -916,8 +944,8 @@
       "stats": [
         {
           "type": "flat",
-          "max": 1,
-          "min": 1,
+          "max": 2,
+          "min": 2,
           "stat": "plus_lvl_all_spells"
         }
       ],
@@ -972,8 +1000,8 @@
       "stats": [
         {
           "type": "FLAT",
-          "max": 1,
-          "min": 1,
+          "max": 3,
+          "min": 3,
           "stat": "physical_resist"
         }
       ],
@@ -1135,9 +1163,9 @@
       },
       "stats": [
         {
-          "type": "PERCENT",
-          "max": 10,
-          "min": 10,
+          "type": "MORE",
+          "max": 4,
+          "min": 4,
           "stat": "armor"
         }
       ],
@@ -1170,9 +1198,9 @@
           "stat": "poison_chance"
         },
         {
-          "type": "FLAT",
-          "max": 10,
-          "min": 10,
+          "type": "MORE",
+          "max": 5,
+          "min": 5,
           "stat": "poison_damage"
         }
       ],
@@ -1227,8 +1255,8 @@
       "stats": [
         {
           "type": "FLAT",
-          "max": 3,
-          "min": 3,
+          "max": 10,
+          "min": 10,
           "stat": "spirit_cost"
         }
       ],
@@ -1311,8 +1339,8 @@
       "stats": [
         {
           "type": "FLAT",
-          "max": 10,
-          "min": 10,
+          "max": 15,
+          "min": 15,
           "stat": "weapon_skill_cdr_per_attack_speed"
         }
       ],
@@ -1367,8 +1395,8 @@
       "stats": [
         {
           "type": "FLAT",
-          "max": 8,
-          "min": 8,
+          "max": 20,
+          "min": 20,
           "stat": "water_resist"
         }
       ],
@@ -1397,8 +1425,8 @@
       "stats": [
         {
           "type": "PERCENT",
-          "max": 24,
-          "min": 8,
+          "max": 10,
+          "min": 2,
           "stat": "armor"
         }
       ],
@@ -1425,8 +1453,8 @@
       "stats": [
         {
           "type": "FLAT",
-          "max": 9,
-          "min": 3,
+          "max": 10,
+          "min": 2,
           "stat": "spirit_cost"
         }
       ],
@@ -1453,8 +1481,8 @@
       "stats": [
         {
           "type": "FLAT",
-          "max": 9,
-          "min": 3,
+          "max": 10,
+          "min": 2,
           "stat": "aura_effect"
         }
       ],
@@ -1482,7 +1510,7 @@
         {
           "type": "FLAT",
           "max": 6,
-          "min": 2,
+          "min": 1.2,
           "stat": "cdr"
         }
       ],
@@ -1510,7 +1538,7 @@
         {
           "type": "FLAT",
           "max": 3,
-          "min": 1,
+          "min": 0.6,
           "stat": "max_chaos_resist"
         }
       ],
@@ -1536,9 +1564,9 @@
       },
       "stats": [
         {
-          "type": "FLAT",
-          "max": 3,
-          "min": 1,
+          "type": "PERCENT",
+          "max": 20,
+          "min": 4,
           "stat": "critical_hit"
         }
       ],
@@ -1565,8 +1593,8 @@
       "stats": [
         {
           "type": "FLAT",
-          "max": 24,
-          "min": 8,
+          "max": 10,
+          "min": 2,
           "stat": "critical_damage"
         }
       ],
@@ -1593,8 +1621,8 @@
       "stats": [
         {
           "type": "PERCENT",
-          "max": 24,
-          "min": 8,
+          "max": 10,
+          "min": 2,
           "stat": "dodge"
         }
       ],
@@ -1622,7 +1650,7 @@
         {
           "type": "FLAT",
           "max": 3,
-          "min": 1,
+          "min": 0.6,
           "stat": "max_fire_resist"
         }
       ],
@@ -1649,8 +1677,8 @@
       "stats": [
         {
           "type": "PERCENT",
-          "max": 15,
-          "min": 5,
+          "max": 10,
+          "min": 2,
           "stat": "health"
         }
       ],
@@ -1678,7 +1706,7 @@
         {
           "type": "FLAT",
           "max": 3,
-          "min": 1,
+          "min": 0.6,
           "stat": "max_lightning_resist"
         }
       ],
@@ -1705,8 +1733,8 @@
       "stats": [
         {
           "type": "PERCENT",
-          "max": 15,
-          "min": 5,
+          "max": 10,
+          "min": 2,
           "stat": "magic_shield"
         }
       ],
@@ -1734,7 +1762,7 @@
         {
           "type": "FLAT",
           "max": 3,
-          "min": 1,
+          "min": 0.6,
           "stat": "max_water_resist"
         }
       ],
@@ -1761,8 +1789,8 @@
       "stats": [
         {
           "type": "FLAT",
-          "max": 30,
-          "min": 10,
+          "max": 15,
+          "min": 3,
           "stat": "fire_resist"
         }
       ],
@@ -1789,8 +1817,8 @@
       "stats": [
         {
           "type": "FLAT",
-          "max": 30,
-          "min": 10,
+          "max": 15,
+          "min": 3,
           "stat": "lightning_resist"
         }
       ],
@@ -1817,8 +1845,8 @@
       "stats": [
         {
           "type": "FLAT",
-          "max": 30,
-          "min": 10,
+          "max": 15,
+          "min": 3,
           "stat": "water_resist"
         }
       ],
@@ -2260,8 +2288,8 @@
       "stats": [
         {
           "type": "FLAT",
-          "max": 75,
-          "min": 25,
+          "max": 15,
+          "min": 5,
           "stat": "proc_frost_nova_when_hit"
         },
         {
@@ -3628,8 +3656,8 @@
       "stats": [
         {
           "type": "FLAT",
-          "max": 6,
-          "min": 2,
+          "max": 4.5,
+          "min": 1.5,
           "stat": "health_regen"
         }
       ],
@@ -3785,8 +3813,8 @@
       "stats": [
         {
           "type": "FLAT",
-          "max": 6,
-          "min": 2,
+          "max": 4.5,
+          "min": 1.5,
           "stat": "magic_shield_regen"
         }
       ],
@@ -5126,8 +5154,8 @@
       "stats": [
         {
           "type": "FLAT",
-          "max": 6,
-          "min": 3,
+          "max": 5,
+          "min": 2.5,
           "stat": "strength"
         }
       ],
@@ -5294,8 +5322,8 @@
       "stats": [
         {
           "type": "FLAT",
-          "max": 4,
-          "min": 2,
+          "max": 3,
+          "min": 1.5,
           "stat": "health_regen"
         }
       ],
@@ -5352,7 +5380,7 @@
           "type": "FLAT",
           "max": 8,
           "min": 4,
-          "stat": "trap_cdr"
+          "stat": "charge_recovery_rate"
         }
       ],
       "weight": 1000
@@ -6027,8 +6055,8 @@
       "stats": [
         {
           "type": "FLAT",
-          "max": 6,
-          "min": 3,
+          "max": 5,
+          "min": 2.5,
           "stat": "dexterity"
         }
       ],
@@ -6055,8 +6083,8 @@
       "stats": [
         {
           "type": "FLAT",
-          "max": 6,
-          "min": 3,
+          "max": 5,
+          "min": 2.5,
           "stat": "intelligence"
         }
       ],
@@ -6949,12 +6977,40 @@
       "stats": [
         {
           "type": "FLAT",
-          "max": 10,
-          "min": 2,
+          "max": 5,
+          "min": 1,
           "stat": "chaos_resist"
         }
       ],
-      "weight": 5000
+      "weight": 1000
+    },
+    "ele_jewel_res": {
+      "type": "jewel",
+      "eye_aura_req": "",
+      "guid": "ele_jewel_res",
+      "one_of_a_kind": "",
+      "only_one_per_item": true,
+      "requirements": {
+        "tag_requirements": [
+          {
+            "type": "GearSlot",
+            "excluded": [],
+            "included": [
+              "any_jewel"
+            ],
+            "req_type": "INCLUDES_ANY"
+          }
+        ]
+      },
+      "stats": [
+        {
+          "type": "FLAT",
+          "max": 3,
+          "min": 0.6,
+          "stat": "elemental_resist"
+        }
+      ],
+      "weight": 1000
     },
     "fire_jewel_res": {
       "type": "jewel",
@@ -6977,17 +7033,17 @@
       "stats": [
         {
           "type": "FLAT",
-          "max": 15,
-          "min": 3,
+          "max": 7.5,
+          "min": 1.5,
           "stat": "fire_resist"
         }
       ],
-      "weight": 5000
+      "weight": 1000
     },
-    "jewel_armor": {
+    "fire_lightning_jewel_res": {
       "type": "jewel",
       "eye_aura_req": "",
-      "guid": "jewel_armor",
+      "guid": "fire_lightning_jewel_res",
       "one_of_a_kind": "",
       "only_one_per_item": true,
       "requirements": {
@@ -7004,10 +7060,192 @@
       },
       "stats": [
         {
-          "type": "PERCENT",
+          "type": "FLAT",
+          "max": 5,
+          "min": 1,
+          "stat": "fire_resist"
+        },
+        {
+          "type": "FLAT",
+          "max": 5,
+          "min": 1,
+          "stat": "lightning_resist"
+        }
+      ],
+      "weight": 1000
+    },
+    "fire_water_jewel_res": {
+      "type": "jewel",
+      "eye_aura_req": "",
+      "guid": "fire_water_jewel_res",
+      "one_of_a_kind": "",
+      "only_one_per_item": true,
+      "requirements": {
+        "tag_requirements": [
+          {
+            "type": "GearSlot",
+            "excluded": [],
+            "included": [
+              "any_jewel"
+            ],
+            "req_type": "INCLUDES_ANY"
+          }
+        ]
+      },
+      "stats": [
+        {
+          "type": "FLAT",
+          "max": 5,
+          "min": 1,
+          "stat": "fire_resist"
+        },
+        {
+          "type": "FLAT",
+          "max": 5,
+          "min": 1,
+          "stat": "water_resist"
+        }
+      ],
+      "weight": 1000
+    },
+    "jewel_accuracy": {
+      "type": "jewel",
+      "eye_aura_req": "",
+      "guid": "jewel_accuracy",
+      "one_of_a_kind": "",
+      "only_one_per_item": true,
+      "requirements": {
+        "tag_requirements": [
+          {
+            "type": "GearSlot",
+            "excluded": [],
+            "included": [
+              "any_jewel"
+            ],
+            "req_type": "INCLUDES_ANY"
+          }
+        ]
+      },
+      "stats": [
+        {
+          "type": "FLAT",
+          "max": 1.5,
+          "min": 0.3,
+          "stat": "accuracy"
+        }
+      ],
+      "weight": 1000
+    },
+    "jewel_ailment_damage": {
+      "type": "jewel",
+      "eye_aura_req": "",
+      "guid": "jewel_ailment_damage",
+      "one_of_a_kind": "",
+      "only_one_per_item": true,
+      "requirements": {
+        "tag_requirements": [
+          {
+            "type": "GearSlot",
+            "excluded": [],
+            "included": [
+              "any_jewel"
+            ],
+            "req_type": "INCLUDES_ANY"
+          }
+        ]
+      },
+      "stats": [
+        {
+          "type": "FLAT",
           "max": 10,
           "min": 2,
+          "stat": "ailment_damage"
+        }
+      ],
+      "weight": 1000
+    },
+    "jewel_armor": {
+      "type": "jewel",
+      "eye_aura_req": "",
+      "guid": "jewel_armor",
+      "one_of_a_kind": "",
+      "only_one_per_item": true,
+      "requirements": {
+        "tag_requirements": [
+          {
+            "type": "GearSlot",
+            "excluded": [],
+            "included": [
+              "jewel_str"
+            ],
+            "req_type": "INCLUDES_ANY"
+          }
+        ]
+      },
+      "stats": [
+        {
+          "type": "PERCENT",
+          "max": 5,
+          "min": 1,
           "stat": "armor"
+        }
+      ],
+      "weight": 1000
+    },
+    "jewel_attack_dmg": {
+      "type": "jewel",
+      "eye_aura_req": "",
+      "guid": "jewel_attack_dmg",
+      "one_of_a_kind": "",
+      "only_one_per_item": true,
+      "requirements": {
+        "tag_requirements": [
+          {
+            "type": "GearSlot",
+            "excluded": [],
+            "included": [
+              "jewel_str",
+              "jewel_dex"
+            ],
+            "req_type": "INCLUDES_ANY"
+          }
+        ]
+      },
+      "stats": [
+        {
+          "type": "FLAT",
+          "max": 5,
+          "min": 1,
+          "stat": "attack_damage"
+        }
+      ],
+      "weight": 1000
+    },
+    "jewel_attack_speed": {
+      "type": "jewel",
+      "eye_aura_req": "",
+      "guid": "jewel_attack_speed",
+      "one_of_a_kind": "",
+      "only_one_per_item": true,
+      "requirements": {
+        "tag_requirements": [
+          {
+            "type": "GearSlot",
+            "excluded": [],
+            "included": [
+              "jewel_str",
+              "jewel_dex"
+            ],
+            "req_type": "INCLUDES_ANY"
+          }
+        ]
+      },
+      "stats": [
+        {
+          "type": "FLAT",
+          "max": 7.5,
+          "min": 1.5,
+          "stat": "attack_speed"
         }
       ],
       "weight": 1000
@@ -7068,6 +7306,118 @@
       ],
       "weight": 1000
     },
+    "jewel_bleed_chance": {
+      "type": "jewel",
+      "eye_aura_req": "",
+      "guid": "jewel_bleed_chance",
+      "one_of_a_kind": "",
+      "only_one_per_item": true,
+      "requirements": {
+        "tag_requirements": [
+          {
+            "type": "GearSlot",
+            "excluded": [],
+            "included": [
+              "any_jewel"
+            ],
+            "req_type": "INCLUDES_ANY"
+          }
+        ]
+      },
+      "stats": [
+        {
+          "type": "FLAT",
+          "max": 7.5,
+          "min": 1.5,
+          "stat": "bleed_chance"
+        }
+      ],
+      "weight": 1000
+    },
+    "jewel_block_chance": {
+      "type": "jewel",
+      "eye_aura_req": "",
+      "guid": "jewel_block_chance",
+      "one_of_a_kind": "",
+      "only_one_per_item": true,
+      "requirements": {
+        "tag_requirements": [
+          {
+            "type": "GearSlot",
+            "excluded": [],
+            "included": [
+              "jewel_str"
+            ],
+            "req_type": "INCLUDES_ANY"
+          }
+        ]
+      },
+      "stats": [
+        {
+          "type": "PERCENT",
+          "max": 10,
+          "min": 2,
+          "stat": "block_chance"
+        }
+      ],
+      "weight": 1000
+    },
+    "jewel_burn_chance": {
+      "type": "jewel",
+      "eye_aura_req": "",
+      "guid": "jewel_burn_chance",
+      "one_of_a_kind": "",
+      "only_one_per_item": true,
+      "requirements": {
+        "tag_requirements": [
+          {
+            "type": "GearSlot",
+            "excluded": [],
+            "included": [
+              "any_jewel"
+            ],
+            "req_type": "INCLUDES_ANY"
+          }
+        ]
+      },
+      "stats": [
+        {
+          "type": "FLAT",
+          "max": 7.5,
+          "min": 1.5,
+          "stat": "burn_chance"
+        }
+      ],
+      "weight": 1000
+    },
+    "jewel_cast_speed": {
+      "type": "jewel",
+      "eye_aura_req": "",
+      "guid": "jewel_cast_speed",
+      "one_of_a_kind": "",
+      "only_one_per_item": true,
+      "requirements": {
+        "tag_requirements": [
+          {
+            "type": "GearSlot",
+            "excluded": [],
+            "included": [
+              "jewel_int"
+            ],
+            "req_type": "INCLUDES_ANY"
+          }
+        ]
+      },
+      "stats": [
+        {
+          "type": "FLAT",
+          "max": 5,
+          "min": 1,
+          "stat": "cast_speed"
+        }
+      ],
+      "weight": 1000
+    },
     "jewel_cdr": {
       "type": "jewel",
       "eye_aura_req": "",
@@ -7089,12 +7439,69 @@
       "stats": [
         {
           "type": "FLAT",
-          "max": 5,
-          "min": 1,
+          "max": 3,
+          "min": 0.6,
           "stat": "cdr"
         }
       ],
-      "weight": 500
+      "weight": 1000
+    },
+    "jewel_chaos_dmg": {
+      "type": "jewel",
+      "eye_aura_req": "",
+      "guid": "jewel_chaos_dmg",
+      "one_of_a_kind": "",
+      "only_one_per_item": true,
+      "requirements": {
+        "tag_requirements": [
+          {
+            "type": "GearSlot",
+            "excluded": [],
+            "included": [
+              "any_jewel"
+            ],
+            "req_type": "INCLUDES_ANY"
+          }
+        ]
+      },
+      "stats": [
+        {
+          "type": "FLAT",
+          "max": 5,
+          "min": 1,
+          "stat": "all_chaos_damage"
+        }
+      ],
+      "weight": 1000
+    },
+    "jewel_charge_recovery_rate": {
+      "type": "jewel",
+      "eye_aura_req": "",
+      "guid": "jewel_charge_recovery_rate",
+      "one_of_a_kind": "",
+      "only_one_per_item": true,
+      "requirements": {
+        "tag_requirements": [
+          {
+            "type": "GearSlot",
+            "excluded": [],
+            "included": [
+              "jewel_int",
+              "jewel_dex"
+            ],
+            "req_type": "INCLUDES_ANY"
+          }
+        ]
+      },
+      "stats": [
+        {
+          "type": "FLAT",
+          "max": 3,
+          "min": 0.6,
+          "stat": "charge_recovery_rate"
+        }
+      ],
+      "weight": 1000
     },
     "jewel_crit": {
       "type": "jewel",
@@ -7117,12 +7524,12 @@
       "stats": [
         {
           "type": "PERCENT",
-          "max": 15,
-          "min": 3,
+          "max": 10,
+          "min": 2,
           "stat": "critical_hit"
         }
       ],
-      "weight": 500
+      "weight": 1000
     },
     "jewel_critdmg": {
       "type": "jewel",
@@ -7145,17 +7552,17 @@
       "stats": [
         {
           "type": "FLAT",
-          "max": 15,
-          "min": 3,
+          "max": 5,
+          "min": 1,
           "stat": "critical_damage"
         }
       ],
-      "weight": 500
+      "weight": 1000
     },
-    "jewel_dodge": {
+    "jewel_dex": {
       "type": "jewel",
       "eye_aura_req": "",
-      "guid": "jewel_dodge",
+      "guid": "jewel_dex",
       "one_of_a_kind": "",
       "only_one_per_item": true,
       "requirements": {
@@ -7172,10 +7579,249 @@
       },
       "stats": [
         {
+          "type": "FLAT",
+          "max": 1.5,
+          "min": 0.3,
+          "stat": "dexterity"
+        }
+      ],
+      "weight": 1000
+    },
+    "jewel_dodge": {
+      "type": "jewel",
+      "eye_aura_req": "",
+      "guid": "jewel_dodge",
+      "one_of_a_kind": "",
+      "only_one_per_item": true,
+      "requirements": {
+        "tag_requirements": [
+          {
+            "type": "GearSlot",
+            "excluded": [],
+            "included": [
+              "jewel_dex"
+            ],
+            "req_type": "INCLUDES_ANY"
+          }
+        ]
+      },
+      "stats": [
+        {
           "type": "PERCENT",
-          "max": 10,
-          "min": 2,
+          "max": 5,
+          "min": 1,
           "stat": "dodge"
+        }
+      ],
+      "weight": 1000
+    },
+    "jewel_electrify_chance": {
+      "type": "jewel",
+      "eye_aura_req": "",
+      "guid": "jewel_electrify_chance",
+      "one_of_a_kind": "",
+      "only_one_per_item": true,
+      "requirements": {
+        "tag_requirements": [
+          {
+            "type": "GearSlot",
+            "excluded": [],
+            "included": [
+              "any_jewel"
+            ],
+            "req_type": "INCLUDES_ANY"
+          }
+        ]
+      },
+      "stats": [
+        {
+          "type": "FLAT",
+          "max": 5,
+          "min": 1,
+          "stat": "electrify_chance"
+        },
+        {
+          "type": "FLAT",
+          "max": 5,
+          "min": 1,
+          "stat": "electrify_proc_chance"
+        }
+      ],
+      "weight": 1000
+    },
+    "jewel_ele_dmg": {
+      "type": "jewel",
+      "eye_aura_req": "",
+      "guid": "jewel_ele_dmg",
+      "one_of_a_kind": "",
+      "only_one_per_item": true,
+      "requirements": {
+        "tag_requirements": [
+          {
+            "type": "GearSlot",
+            "excluded": [],
+            "included": [
+              "jewel_str",
+              "jewel_dex"
+            ],
+            "req_type": "INCLUDES_ANY"
+          }
+        ]
+      },
+      "stats": [
+        {
+          "type": "FLAT",
+          "max": 7.5,
+          "min": 1.5,
+          "stat": "elemental_attack_damage"
+        }
+      ],
+      "weight": 1000
+    },
+    "jewel_energy": {
+      "type": "jewel",
+      "eye_aura_req": "",
+      "guid": "jewel_energy",
+      "one_of_a_kind": "",
+      "only_one_per_item": true,
+      "requirements": {
+        "tag_requirements": [
+          {
+            "type": "GearSlot",
+            "excluded": [],
+            "included": [
+              "jewel_str",
+              "jewel_dex"
+            ],
+            "req_type": "INCLUDES_ANY"
+          }
+        ]
+      },
+      "stats": [
+        {
+          "type": "PERCENT",
+          "max": 7.5,
+          "min": 1.5,
+          "stat": "energy"
+        }
+      ],
+      "weight": 1000
+    },
+    "jewel_energy_regen": {
+      "type": "jewel",
+      "eye_aura_req": "",
+      "guid": "jewel_energy_regen",
+      "one_of_a_kind": "",
+      "only_one_per_item": true,
+      "requirements": {
+        "tag_requirements": [
+          {
+            "type": "GearSlot",
+            "excluded": [],
+            "included": [
+              "jewel_str",
+              "jewel_dex"
+            ],
+            "req_type": "INCLUDES_ANY"
+          }
+        ]
+      },
+      "stats": [
+        {
+          "type": "FLAT",
+          "max": 1.5,
+          "min": 0.3,
+          "stat": "energy_regen"
+        }
+      ],
+      "weight": 1000
+    },
+    "jewel_fire_dmg": {
+      "type": "jewel",
+      "eye_aura_req": "",
+      "guid": "jewel_fire_dmg",
+      "one_of_a_kind": "",
+      "only_one_per_item": true,
+      "requirements": {
+        "tag_requirements": [
+          {
+            "type": "GearSlot",
+            "excluded": [],
+            "included": [
+              "any_jewel"
+            ],
+            "req_type": "INCLUDES_ANY"
+          }
+        ]
+      },
+      "stats": [
+        {
+          "type": "FLAT",
+          "max": 5,
+          "min": 1,
+          "stat": "all_fire_damage"
+        }
+      ],
+      "weight": 1000
+    },
+    "jewel_freeze_chance": {
+      "type": "jewel",
+      "eye_aura_req": "",
+      "guid": "jewel_freeze_chance",
+      "one_of_a_kind": "",
+      "only_one_per_item": true,
+      "requirements": {
+        "tag_requirements": [
+          {
+            "type": "GearSlot",
+            "excluded": [],
+            "included": [
+              "any_jewel"
+            ],
+            "req_type": "INCLUDES_ANY"
+          }
+        ]
+      },
+      "stats": [
+        {
+          "type": "FLAT",
+          "max": 5,
+          "min": 1,
+          "stat": "freeze_chance"
+        },
+        {
+          "type": "FLAT",
+          "max": 5,
+          "min": 1,
+          "stat": "freeze_proc_chance"
+        }
+      ],
+      "weight": 1000
+    },
+    "jewel_health_regen": {
+      "type": "jewel",
+      "eye_aura_req": "",
+      "guid": "jewel_health_regen",
+      "one_of_a_kind": "",
+      "only_one_per_item": true,
+      "requirements": {
+        "tag_requirements": [
+          {
+            "type": "GearSlot",
+            "excluded": [],
+            "included": [
+              "any_jewel"
+            ],
+            "req_type": "INCLUDES_ANY"
+          }
+        ]
+      },
+      "stats": [
+        {
+          "type": "FLAT",
+          "max": 1.5,
+          "min": 0.3,
+          "stat": "health_regen"
         }
       ],
       "weight": 1000
@@ -7208,10 +7854,10 @@
       ],
       "weight": 1000
     },
-    "jewel_ms": {
+    "jewel_int": {
       "type": "jewel",
       "eye_aura_req": "",
-      "guid": "jewel_ms",
+      "guid": "jewel_int",
       "one_of_a_kind": "",
       "only_one_per_item": true,
       "requirements": {
@@ -7228,10 +7874,467 @@
       },
       "stats": [
         {
+          "type": "FLAT",
+          "max": 1.5,
+          "min": 0.3,
+          "stat": "intelligence"
+        }
+      ],
+      "weight": 1000
+    },
+    "jewel_lightning_dmg": {
+      "type": "jewel",
+      "eye_aura_req": "",
+      "guid": "jewel_lightning_dmg",
+      "one_of_a_kind": "",
+      "only_one_per_item": true,
+      "requirements": {
+        "tag_requirements": [
+          {
+            "type": "GearSlot",
+            "excluded": [],
+            "included": [
+              "any_jewel"
+            ],
+            "req_type": "INCLUDES_ANY"
+          }
+        ]
+      },
+      "stats": [
+        {
+          "type": "FLAT",
+          "max": 5,
+          "min": 1,
+          "stat": "all_lightning_damage"
+        }
+      ],
+      "weight": 1000
+    },
+    "jewel_mana": {
+      "type": "jewel",
+      "eye_aura_req": "",
+      "guid": "jewel_mana",
+      "one_of_a_kind": "",
+      "only_one_per_item": true,
+      "requirements": {
+        "tag_requirements": [
+          {
+            "type": "GearSlot",
+            "excluded": [],
+            "included": [
+              "jewel_int"
+            ],
+            "req_type": "INCLUDES_ANY"
+          }
+        ]
+      },
+      "stats": [
+        {
+          "type": "PERCENT",
+          "max": 5,
+          "min": 1,
+          "stat": "mana"
+        }
+      ],
+      "weight": 1000
+    },
+    "jewel_mana_cost": {
+      "type": "jewel",
+      "eye_aura_req": "",
+      "guid": "jewel_mana_cost",
+      "one_of_a_kind": "",
+      "only_one_per_item": true,
+      "requirements": {
+        "tag_requirements": [
+          {
+            "type": "GearSlot",
+            "excluded": [],
+            "included": [
+              "any_jewel"
+            ],
+            "req_type": "INCLUDES_ANY"
+          }
+        ]
+      },
+      "stats": [
+        {
+          "type": "FLAT",
+          "max": -3,
+          "min": -0.6,
+          "stat": "mana_cost"
+        }
+      ],
+      "weight": 1000
+    },
+    "jewel_mana_regen": {
+      "type": "jewel",
+      "eye_aura_req": "",
+      "guid": "jewel_mana_regen",
+      "one_of_a_kind": "",
+      "only_one_per_item": true,
+      "requirements": {
+        "tag_requirements": [
+          {
+            "type": "GearSlot",
+            "excluded": [],
+            "included": [
+              "jewel_int"
+            ],
+            "req_type": "INCLUDES_ANY"
+          }
+        ]
+      },
+      "stats": [
+        {
+          "type": "FLAT",
+          "max": 1.5,
+          "min": 0.3,
+          "stat": "mana_regen"
+        }
+      ],
+      "weight": 1000
+    },
+    "jewel_mf": {
+      "type": "jewel",
+      "eye_aura_req": "",
+      "guid": "jewel_mf",
+      "one_of_a_kind": "",
+      "only_one_per_item": true,
+      "requirements": {
+        "tag_requirements": [
+          {
+            "type": "GearSlot",
+            "excluded": [],
+            "included": [
+              "any_jewel"
+            ],
+            "req_type": "INCLUDES_ANY"
+          }
+        ]
+      },
+      "stats": [
+        {
+          "type": "FLAT",
+          "max": 5,
+          "min": 1,
+          "stat": "magic_find"
+        }
+      ],
+      "weight": 1000
+    },
+    "jewel_ms": {
+      "type": "jewel",
+      "eye_aura_req": "",
+      "guid": "jewel_ms",
+      "one_of_a_kind": "",
+      "only_one_per_item": true,
+      "requirements": {
+        "tag_requirements": [
+          {
+            "type": "GearSlot",
+            "excluded": [],
+            "included": [
+              "jewel_int"
+            ],
+            "req_type": "INCLUDES_ANY"
+          }
+        ]
+      },
+      "stats": [
+        {
           "type": "PERCENT",
           "max": 5,
           "min": 1,
           "stat": "magic_shield"
+        }
+      ],
+      "weight": 1000
+    },
+    "jewel_ms_regen": {
+      "type": "jewel",
+      "eye_aura_req": "",
+      "guid": "jewel_ms_regen",
+      "one_of_a_kind": "",
+      "only_one_per_item": true,
+      "requirements": {
+        "tag_requirements": [
+          {
+            "type": "GearSlot",
+            "excluded": [],
+            "included": [
+              "jewel_int"
+            ],
+            "req_type": "INCLUDES_ANY"
+          }
+        ]
+      },
+      "stats": [
+        {
+          "type": "FLAT",
+          "max": 1.5,
+          "min": 0.3,
+          "stat": "magic_shield_regen"
+        }
+      ],
+      "weight": 1000
+    },
+    "jewel_phys_dmg": {
+      "type": "jewel",
+      "eye_aura_req": "",
+      "guid": "jewel_phys_dmg",
+      "one_of_a_kind": "",
+      "only_one_per_item": true,
+      "requirements": {
+        "tag_requirements": [
+          {
+            "type": "GearSlot",
+            "excluded": [],
+            "included": [
+              "any_jewel"
+            ],
+            "req_type": "INCLUDES_ANY"
+          }
+        ]
+      },
+      "stats": [
+        {
+          "type": "FLAT",
+          "max": 5,
+          "min": 1,
+          "stat": "all_physical_damage"
+        }
+      ],
+      "weight": 1000
+    },
+    "jewel_poison_chance": {
+      "type": "jewel",
+      "eye_aura_req": "",
+      "guid": "jewel_poison_chance",
+      "one_of_a_kind": "",
+      "only_one_per_item": true,
+      "requirements": {
+        "tag_requirements": [
+          {
+            "type": "GearSlot",
+            "excluded": [],
+            "included": [
+              "any_jewel"
+            ],
+            "req_type": "INCLUDES_ANY"
+          }
+        ]
+      },
+      "stats": [
+        {
+          "type": "FLAT",
+          "max": 5,
+          "min": 1,
+          "stat": "poison_chance"
+        },
+        {
+          "type": "FLAT",
+          "max": 10,
+          "min": 2,
+          "stat": "poison_duration"
+        }
+      ],
+      "weight": 1000
+    },
+    "jewel_projectile_speed": {
+      "type": "jewel",
+      "eye_aura_req": "",
+      "guid": "jewel_projectile_speed",
+      "one_of_a_kind": "",
+      "only_one_per_item": true,
+      "requirements": {
+        "tag_requirements": [
+          {
+            "type": "GearSlot",
+            "excluded": [],
+            "included": [
+              "any_jewel"
+            ],
+            "req_type": "INCLUDES_ANY"
+          }
+        ]
+      },
+      "stats": [
+        {
+          "type": "FLAT",
+          "max": 10,
+          "min": 2,
+          "stat": "faster_projectiles"
+        }
+      ],
+      "weight": 1000
+    },
+    "jewel_str": {
+      "type": "jewel",
+      "eye_aura_req": "",
+      "guid": "jewel_str",
+      "one_of_a_kind": "",
+      "only_one_per_item": true,
+      "requirements": {
+        "tag_requirements": [
+          {
+            "type": "GearSlot",
+            "excluded": [],
+            "included": [
+              "any_jewel"
+            ],
+            "req_type": "INCLUDES_ANY"
+          }
+        ]
+      },
+      "stats": [
+        {
+          "type": "FLAT",
+          "max": 1.5,
+          "min": 0.3,
+          "stat": "strength"
+        }
+      ],
+      "weight": 1000
+    },
+    "jewel_summon_damage": {
+      "type": "jewel",
+      "eye_aura_req": "",
+      "guid": "jewel_summon_damage",
+      "one_of_a_kind": "",
+      "only_one_per_item": true,
+      "requirements": {
+        "tag_requirements": [
+          {
+            "type": "GearSlot",
+            "excluded": [],
+            "included": [
+              "jewel_str",
+              "jewel_int"
+            ],
+            "req_type": "INCLUDES_ANY"
+          }
+        ]
+      },
+      "stats": [
+        {
+          "type": "FLAT",
+          "max": 5,
+          "min": 1,
+          "stat": "summon_damage"
+        }
+      ],
+      "weight": 1000
+    },
+    "jewel_summon_health": {
+      "type": "jewel",
+      "eye_aura_req": "",
+      "guid": "jewel_summon_health",
+      "one_of_a_kind": "",
+      "only_one_per_item": true,
+      "requirements": {
+        "tag_requirements": [
+          {
+            "type": "GearSlot",
+            "excluded": [],
+            "included": [
+              "jewel_str",
+              "jewel_int"
+            ],
+            "req_type": "INCLUDES_ANY"
+          }
+        ]
+      },
+      "stats": [
+        {
+          "type": "FLAT",
+          "max": 10,
+          "min": 2,
+          "stat": "summon_health"
+        }
+      ],
+      "weight": 1000
+    },
+    "jewel_totem_dmg": {
+      "type": "jewel",
+      "eye_aura_req": "",
+      "guid": "jewel_totem_dmg",
+      "one_of_a_kind": "",
+      "only_one_per_item": true,
+      "requirements": {
+        "tag_requirements": [
+          {
+            "type": "GearSlot",
+            "excluded": [],
+            "included": [
+              "any_jewel"
+            ],
+            "req_type": "INCLUDES_ANY"
+          }
+        ]
+      },
+      "stats": [
+        {
+          "type": "FLAT",
+          "max": 5,
+          "min": 1,
+          "stat": "totem_spell_dmg"
+        }
+      ],
+      "weight": 1000
+    },
+    "jewel_trap_damage": {
+      "type": "jewel",
+      "eye_aura_req": "",
+      "guid": "jewel_trap_damage",
+      "one_of_a_kind": "",
+      "only_one_per_item": true,
+      "requirements": {
+        "tag_requirements": [
+          {
+            "type": "GearSlot",
+            "excluded": [],
+            "included": [
+              "jewel_int",
+              "jewel_dex"
+            ],
+            "req_type": "INCLUDES_ANY"
+          }
+        ]
+      },
+      "stats": [
+        {
+          "type": "FLAT",
+          "max": 5,
+          "min": 1,
+          "stat": "trap_spell_dmg"
+        }
+      ],
+      "weight": 1000
+    },
+    "jewel_water_dmg": {
+      "type": "jewel",
+      "eye_aura_req": "",
+      "guid": "jewel_water_dmg",
+      "one_of_a_kind": "",
+      "only_one_per_item": true,
+      "requirements": {
+        "tag_requirements": [
+          {
+            "type": "GearSlot",
+            "excluded": [],
+            "included": [
+              "any_jewel"
+            ],
+            "req_type": "INCLUDES_ANY"
+          }
+        ]
+      },
+      "stats": [
+        {
+          "type": "FLAT",
+          "max": 5,
+          "min": 1,
+          "stat": "all_water_damage"
         }
       ],
       "weight": 1000
@@ -7257,12 +8360,40 @@
       "stats": [
         {
           "type": "FLAT",
-          "max": 15,
-          "min": 3,
+          "max": 7.5,
+          "min": 1.5,
           "stat": "lightning_resist"
         }
       ],
-      "weight": 5000
+      "weight": 1000
+    },
+    "phys_jewel_res": {
+      "type": "jewel",
+      "eye_aura_req": "",
+      "guid": "phys_jewel_res",
+      "one_of_a_kind": "",
+      "only_one_per_item": true,
+      "requirements": {
+        "tag_requirements": [
+          {
+            "type": "GearSlot",
+            "excluded": [],
+            "included": [
+              "any_jewel"
+            ],
+            "req_type": "INCLUDES_ANY"
+          }
+        ]
+      },
+      "stats": [
+        {
+          "type": "FLAT",
+          "max": 3,
+          "min": 0.6,
+          "stat": "physical_resist"
+        }
+      ],
+      "weight": 1000
     },
     "water_jewel_res": {
       "type": "jewel",
@@ -7285,12 +8416,46 @@
       "stats": [
         {
           "type": "FLAT",
-          "max": 15,
-          "min": 3,
+          "max": 7.5,
+          "min": 1.5,
           "stat": "water_resist"
         }
       ],
-      "weight": 5000
+      "weight": 1000
+    },
+    "water_lightning_jewel_res": {
+      "type": "jewel",
+      "eye_aura_req": "",
+      "guid": "water_lightning_jewel_res",
+      "one_of_a_kind": "",
+      "only_one_per_item": true,
+      "requirements": {
+        "tag_requirements": [
+          {
+            "type": "GearSlot",
+            "excluded": [],
+            "included": [
+              "any_jewel"
+            ],
+            "req_type": "INCLUDES_ANY"
+          }
+        ]
+      },
+      "stats": [
+        {
+          "type": "FLAT",
+          "max": 5,
+          "min": 1,
+          "stat": "water_resist"
+        },
+        {
+          "type": "FLAT",
+          "max": 5,
+          "min": 1,
+          "stat": "lightning_resist"
+        }
+      ],
+      "weight": 1000
     }
   },
   "jewel_corruption": {
@@ -7318,10 +8483,10 @@
           "stat": "agony_immunity"
         },
         {
-          "type": "FLAT",
-          "max": 5,
-          "min": 1,
-          "stat": "attack_speed"
+          "type": "PERCENT",
+          "max": 10,
+          "min": 2,
+          "stat": "energy"
         }
       ],
       "weight": 1000
@@ -7345,8 +8510,8 @@
       "stats": [
         {
           "type": "FLAT",
-          "max": 5,
-          "min": 1,
+          "max": 10,
+          "min": 2,
           "stat": "aura_effect"
         }
       ],
@@ -7371,8 +8536,8 @@
       "stats": [
         {
           "type": "FLAT",
-          "max": 5,
-          "min": 1,
+          "max": 10,
+          "min": 2,
           "stat": "cast_speed"
         }
       ],
@@ -7397,8 +8562,8 @@
       "stats": [
         {
           "type": "FLAT",
-          "max": 5,
-          "min": 1,
+          "max": 6,
+          "min": 1.2,
           "stat": "cdr"
         }
       ],
@@ -7448,9 +8613,9 @@
       },
       "stats": [
         {
-          "type": "FLAT",
-          "max": 2.5,
-          "min": 0.5,
+          "type": "PERCENT",
+          "max": 20,
+          "min": 4,
           "stat": "critical_hit"
         }
       ],
@@ -7481,8 +8646,8 @@
         },
         {
           "type": "PERCENT",
-          "max": 5,
-          "min": 1,
+          "max": 10,
+          "min": 2,
           "stat": "magic_shield"
         }
       ],
@@ -7539,8 +8704,8 @@
       "stats": [
         {
           "type": "FLAT",
-          "max": 5,
-          "min": 1,
+          "max": 3,
+          "min": 0.6,
           "stat": "max_fire_resist"
         }
       ],
@@ -7565,8 +8730,8 @@
       "stats": [
         {
           "type": "FLAT",
-          "max": 5,
-          "min": 1,
+          "max": 3,
+          "min": 0.6,
           "stat": "max_lightning_resist"
         }
       ],
@@ -7591,8 +8756,8 @@
       "stats": [
         {
           "type": "FLAT",
-          "max": 5,
-          "min": 1,
+          "max": 3,
+          "min": 0.6,
           "stat": "max_water_resist"
         }
       ],
@@ -7623,9 +8788,41 @@
         },
         {
           "type": "PERCENT",
+          "max": 10,
+          "min": 2,
+          "stat": "energy"
+        }
+      ],
+      "weight": 1000
+    },
+    "jewel_corrupt_speed": {
+      "type": "jewel_corruption",
+      "eye_aura_req": "",
+      "guid": "jewel_corrupt_speed",
+      "one_of_a_kind": "",
+      "only_one_per_item": true,
+      "requirements": {
+        "tag_requirements": [
+          {
+            "type": "GearSlot",
+            "excluded": [],
+            "included": [],
+            "req_type": "INCLUDES_ANY"
+          }
+        ]
+      },
+      "stats": [
+        {
+          "type": "FLAT",
+          "max": 10,
+          "min": 2,
+          "stat": "attack_speed"
+        },
+        {
+          "type": "FLAT",
           "max": 5,
           "min": 1,
-          "stat": "energy"
+          "stat": "move_speed"
         }
       ],
       "weight": 1000
@@ -7649,8 +8846,8 @@
       "stats": [
         {
           "type": "FLAT",
-          "max": 5,
-          "min": 1,
+          "max": 10,
+          "min": 2,
           "stat": "spirit_cost"
         }
       ],
@@ -7681,8 +8878,8 @@
         },
         {
           "type": "PERCENT",
-          "max": 5,
-          "min": 1,
+          "max": 10,
+          "min": 2,
           "stat": "mana"
         }
       ],
@@ -7713,8 +8910,8 @@
         },
         {
           "type": "PERCENT",
-          "max": 5,
-          "min": 1,
+          "max": 10,
+          "min": 2,
           "stat": "health"
         }
       ],
@@ -7791,7 +8988,7 @@
             "type": "GearSlot",
             "excluded": [],
             "included": [
-              "jewel_int"
+              "jewelry_family"
             ],
             "req_type": "INCLUDES_ANY"
           }
@@ -7886,8 +9083,7 @@
             "included": [
               "tome",
               "pants",
-              "jewelry_family",
-              "jewel_int"
+              "jewelry_family"
             ],
             "req_type": "INCLUDES_ANY"
           }
@@ -7944,7 +9140,6 @@
             "excluded": [],
             "included": [
               "weapon_family",
-              "jewel_dex",
               "jewelry_family"
             ],
             "req_type": "INCLUDES_ANY"
@@ -7973,8 +9168,7 @@
             "type": "GearSlot",
             "excluded": [],
             "included": [
-              "weapon_family",
-              "jewel_dex"
+              "weapon_family"
             ],
             "req_type": "INCLUDES_ANY"
           }
@@ -8030,8 +9224,7 @@
             "type": "GearSlot",
             "excluded": [],
             "included": [
-              "mage_weapon",
-              "jewel_str"
+              "mage_weapon"
             ],
             "req_type": "INCLUDES_ANY"
           }
@@ -8058,7 +9251,7 @@
       "eye_aura_req": "",
       "guid": "efficient",
       "one_of_a_kind": "",
-      "only_one_per_item": false,
+      "only_one_per_item": true,
       "requirements": {
         "tag_requirements": [
           {
@@ -8096,8 +9289,7 @@
             "included": [
               "totem",
               "pants",
-              "jewelry_family",
-              "jewel_dex"
+              "jewelry_family"
             ],
             "req_type": "INCLUDES_ANY"
           }
@@ -8125,8 +9317,7 @@
             "type": "GearSlot",
             "excluded": [],
             "included": [
-              "ring",
-              "jewel_dex"
+              "ring"
             ],
             "req_type": "INCLUDES_ANY"
           }
@@ -8135,8 +9326,8 @@
       "stats": [
         {
           "type": "PERCENT",
-          "max": 40,
-          "min": 8,
+          "max": 30,
+          "min": 6,
           "stat": "energy_regen"
         }
       ],
@@ -8224,7 +9415,6 @@
             "excluded": [],
             "included": [
               "mage_weapon",
-              "jewel_int",
               "tome"
             ],
             "req_type": "INCLUDES_ANY"
@@ -8253,8 +9443,7 @@
             "type": "GearSlot",
             "excluded": [],
             "included": [
-              "weapon_family",
-              "jewel_dex"
+              "weapon_family"
             ],
             "req_type": "INCLUDES_ANY"
           }
@@ -8488,8 +9677,7 @@
             "included": [
               "shield",
               "pants",
-              "jewelry_family",
-              "jewel_str"
+              "jewelry_family"
             ],
             "req_type": "INCLUDES_ANY"
           }
@@ -8498,8 +9686,8 @@
       "stats": [
         {
           "type": "FLAT",
-          "max": 6,
-          "min": 1.2,
+          "max": 5,
+          "min": 1,
           "stat": "health_regen"
         }
       ],
@@ -8917,9 +10105,11 @@
         "tag_requirements": [
           {
             "type": "GearSlot",
-            "excluded": [],
+            "excluded": [
+              "dual_stat"
+            ],
             "included": [
-              "armor_stat_half"
+              "armor_family"
             ],
             "req_type": "INCLUDES_ANY"
           }
@@ -8961,7 +10151,7 @@
           "stat": "gear_defense"
         }
       ],
-      "weight": 1000
+      "weight": 0
     },
     "item_perc_ms": {
       "type": "prefix",
@@ -8975,7 +10165,7 @@
             "type": "GearSlot",
             "excluded": [],
             "included": [
-              "magic_shield_stat"
+              "dual_stat"
             ],
             "req_type": "INCLUDES_ANY"
           }
@@ -9033,7 +10223,6 @@
             "excluded": [],
             "included": [
               "mage_weapon",
-              "jewel_int",
               "tome"
             ],
             "req_type": "INCLUDES_ANY"
@@ -9062,8 +10251,7 @@
             "type": "GearSlot",
             "excluded": [],
             "included": [
-              "ring",
-              "jewel_int"
+              "ring"
             ],
             "req_type": "INCLUDES_ANY"
           }
@@ -9072,8 +10260,8 @@
       "stats": [
         {
           "type": "PERCENT",
-          "max": 40,
-          "min": 8,
+          "max": 30,
+          "min": 6,
           "stat": "mana_regen"
         }
       ],
@@ -9119,8 +10307,7 @@
             "type": "GearSlot",
             "excluded": [],
             "included": [
-              "ring",
-              "jewel_int"
+              "ring"
             ],
             "req_type": "INCLUDES_ANY"
           }
@@ -9129,8 +10316,8 @@
       "stats": [
         {
           "type": "PERCENT",
-          "max": 30,
-          "min": 6,
+          "max": 25,
+          "min": 5,
           "stat": "magic_shield_regen"
         }
       ],
@@ -9177,7 +10364,6 @@
             "excluded": [],
             "included": [
               "weapon_family",
-              "jewel_dex",
               "shield",
               "totem"
             ],
@@ -9237,8 +10423,7 @@
             "included": [
               "tome",
               "cloth_pants",
-              "jewelry_family",
-              "jewel_int"
+              "jewelry_family"
             ],
             "req_type": "INCLUDES_ANY"
           }
@@ -9247,8 +10432,8 @@
       "stats": [
         {
           "type": "FLAT",
-          "max": 6,
-          "min": 1.2,
+          "max": 5,
+          "min": 1,
           "stat": "magic_shield_regen"
         }
       ],
@@ -9295,8 +10480,7 @@
             "type": "GearSlot",
             "excluded": [],
             "included": [
-              "armor_family",
-              "jewel_int"
+              "armor_family"
             ],
             "req_type": "INCLUDES_ANY"
           }
@@ -9382,8 +10566,7 @@
             "type": "GearSlot",
             "excluded": [],
             "included": [
-              "armor_family",
-              "jewel_int"
+              "armor_family"
             ],
             "req_type": "INCLUDES_ANY"
           }
@@ -9409,7 +10592,7 @@
           "stat": "energy"
         }
       ],
-      "weight": 1000
+      "weight": 500
     },
     "tempest_kings": {
       "type": "prefix",
@@ -9574,7 +10757,6 @@
             "excluded": [],
             "included": [
               "mage_weapon",
-              "jewel_int",
               "tome"
             ],
             "req_type": "INCLUDES_ANY"
@@ -9603,8 +10785,7 @@
             "type": "GearSlot",
             "excluded": [],
             "included": [
-              "weapon_family",
-              "jewel_dex"
+              "weapon_family"
             ],
             "req_type": "INCLUDES_ANY"
           }
@@ -10031,8 +11212,8 @@
       "stats": [
         {
           "type": "PERCENT",
-          "max": 25,
-          "min": 5,
+          "max": 20,
+          "min": 4,
           "stat": "magic_shield_regen"
         }
       ],
@@ -10320,8 +11501,7 @@
             "type": "GearSlot",
             "excluded": [],
             "included": [
-              "jewelry_family",
-              "jewel_dex"
+              "jewelry_family"
             ],
             "req_type": "INCLUDES_ANY"
           }
@@ -10333,6 +11513,36 @@
           "max": 5,
           "min": 1,
           "stat": "energy"
+        }
+      ],
+      "weight": 1000
+    },
+    "of_escape": {
+      "type": "suffix",
+      "eye_aura_req": "",
+      "guid": "of_escape",
+      "one_of_a_kind": "",
+      "only_one_per_item": true,
+      "requirements": {
+        "tag_requirements": [
+          {
+            "type": "GearSlot",
+            "excluded": [],
+            "included": [
+              "leather",
+              "brigandine",
+              "vest"
+            ],
+            "req_type": "INCLUDES_ANY"
+          }
+        ]
+      },
+      "stats": [
+        {
+          "type": "FLAT",
+          "max": 3,
+          "min": 0.6,
+          "stat": "dmg_reduction_chance"
         }
       ],
       "weight": 1000
@@ -10453,6 +11663,36 @@
           "max": 5,
           "min": 1,
           "stat": "health_on_kill"
+        }
+      ],
+      "weight": 1000
+    },
+    "of_hardening": {
+      "type": "suffix",
+      "eye_aura_req": "",
+      "guid": "of_hardening",
+      "one_of_a_kind": "",
+      "only_one_per_item": true,
+      "requirements": {
+        "tag_requirements": [
+          {
+            "type": "GearSlot",
+            "excluded": [],
+            "included": [
+              "plate",
+              "chainmail",
+              "birgandine"
+            ],
+            "req_type": "INCLUDES_ANY"
+          }
+        ]
+      },
+      "stats": [
+        {
+          "type": "FLAT",
+          "max": 3,
+          "min": 0.6,
+          "stat": "physical_resist"
         }
       ],
       "weight": 1000
@@ -10594,8 +11834,7 @@
             "type": "GearSlot",
             "excluded": [],
             "included": [
-              "jewelry_family",
-              "jewel_int"
+              "jewelry_family"
             ],
             "req_type": "INCLUDES_ANY"
           }
@@ -11082,8 +12321,7 @@
             "type": "GearSlot",
             "excluded": [],
             "included": [
-              "jewelry_family",
-              "jewel_str"
+              "jewelry_family"
             ],
             "req_type": "INCLUDES_ANY"
           }
@@ -11109,12 +12347,12 @@
         "tag_requirements": [
           {
             "type": "GearSlot",
-            "excluded": [
-              "weapon_family"
-            ],
+            "excluded": [],
             "included": [
               "jewelry_family",
-              "armor_family"
+              "cloth",
+              "chainmail",
+              "vest"
             ],
             "req_type": "INCLUDES_ANY"
           }
@@ -11123,8 +12361,8 @@
       "stats": [
         {
           "type": "FLAT",
-          "max": 5,
-          "min": 1,
+          "max": 3,
+          "min": 0.6,
           "stat": "intelligence"
         }
       ],
@@ -11230,12 +12468,12 @@
         "tag_requirements": [
           {
             "type": "GearSlot",
-            "excluded": [
-              "weapon_family"
-            ],
+            "excluded": [],
             "included": [
               "jewelry_family",
-              "armor_family"
+              "plate",
+              "chainmail",
+              "birgandine"
             ],
             "req_type": "INCLUDES_ANY"
           }
@@ -11244,8 +12482,8 @@
       "stats": [
         {
           "type": "FLAT",
-          "max": 5,
-          "min": 1,
+          "max": 3,
+          "min": 0.6,
           "stat": "strength"
         }
       ],
@@ -11274,8 +12512,8 @@
       "stats": [
         {
           "type": "PERCENT",
-          "max": 25,
-          "min": 5,
+          "max": 15,
+          "min": 3,
           "stat": "health_regen"
         }
       ],
@@ -11291,12 +12529,12 @@
         "tag_requirements": [
           {
             "type": "GearSlot",
-            "excluded": [
-              "weapon_family"
-            ],
+            "excluded": [],
             "included": [
               "jewelry_family",
-              "armor_family"
+              "leather",
+              "brigandine",
+              "vest"
             ],
             "req_type": "INCLUDES_ANY"
           }
@@ -11305,8 +12543,8 @@
       "stats": [
         {
           "type": "FLAT",
-          "max": 5,
-          "min": 1,
+          "max": 3,
+          "min": 0.6,
           "stat": "dexterity"
         }
       ],
@@ -11398,6 +12636,36 @@
           "max": 5,
           "min": 1,
           "stat": "lifesteal"
+        }
+      ],
+      "weight": 1000
+    },
+    "of_will": {
+      "type": "suffix",
+      "eye_aura_req": "",
+      "guid": "of_will",
+      "one_of_a_kind": "",
+      "only_one_per_item": true,
+      "requirements": {
+        "tag_requirements": [
+          {
+            "type": "GearSlot",
+            "excluded": [],
+            "included": [
+              "cloth",
+              "chainmail",
+              "vest"
+            ],
+            "req_type": "INCLUDES_ANY"
+          }
+        ]
+      },
+      "stats": [
+        {
+          "type": "FLAT",
+          "max": 3,
+          "min": 0.6,
+          "stat": "dmg_taken_to_mana"
         }
       ],
       "weight": 1000
@@ -11634,7 +12902,9 @@
             "type": "GearSlot",
             "excluded": [],
             "included": [
-              "armor_family"
+              "leather",
+              "brigandine",
+              "vest"
             ],
             "req_type": "INCLUDES_ANY"
           }
@@ -11662,7 +12932,9 @@
             "type": "GearSlot",
             "excluded": [],
             "included": [
-              "armor_family"
+              "cloth",
+              "chainmail",
+              "vest"
             ],
             "req_type": "INCLUDES_ANY"
           }
@@ -11690,7 +12962,9 @@
             "type": "GearSlot",
             "excluded": [],
             "included": [
-              "armor_family"
+              "plate",
+              "chainmail",
+              "birgandine"
             ],
             "req_type": "INCLUDES_ANY"
           }
@@ -11920,8 +13194,8 @@
       "base_stats": [
         {
           "type": "FLAT",
-          "max": 8,
-          "min": 4,
+          "max": 12,
+          "min": 6,
           "stat": "weapon_damage"
         }
       ],
@@ -14874,15 +16148,15 @@
       "stats": [
         {
           "type": "FLAT",
-          "max": 30,
-          "min": 10,
+          "max": 60,
+          "min": 20,
           "stat": "burn_chance"
         },
         {
           "type": "FLAT",
           "max": 30,
           "min": 10,
-          "stat": "phys_to_fire"
+          "stat": "burn_damage"
         }
       ],
       "style": "STR",
@@ -14944,8 +16218,8 @@
       "stats": [
         {
           "type": "FLAT",
-          "max": 24,
-          "min": 8,
+          "max": 18,
+          "min": 6,
           "stat": "chaos_penetration"
         }
       ],
@@ -15134,15 +16408,15 @@
       "stats": [
         {
           "type": "FLAT",
-          "max": 30,
-          "min": 10,
+          "max": 60,
+          "min": 20,
           "stat": "electrify_chance"
         },
         {
           "type": "FLAT",
           "max": 30,
           "min": 10,
-          "stat": "phys_to_lightning"
+          "stat": "electrify_damage"
         }
       ],
       "style": "INT",
@@ -15270,8 +16544,8 @@
       "stats": [
         {
           "type": "FLAT",
-          "max": 24,
-          "min": 8,
+          "max": 18,
+          "min": 6,
           "stat": "fire_penetration"
         }
       ],
@@ -15358,18 +16632,40 @@
       "stats": [
         {
           "type": "FLAT",
-          "max": 30,
-          "min": 10,
+          "max": 60,
+          "min": 20,
           "stat": "freeze_chance"
         },
         {
           "type": "FLAT",
           "max": 30,
           "min": 10,
-          "stat": "phys_to_water"
+          "stat": "freeze_damage"
         }
       ],
       "style": "INT",
+      "weight": 1000
+    },
+    "frenzy_on_crit": {
+      "id": "frenzy_on_crit",
+      "manaMulti": 1.2,
+      "min_lvl": 10,
+      "one_of_a_kind": "",
+      "stats": [
+        {
+          "type": "FLAT",
+          "max": 4,
+          "min": 4,
+          "stat": "dmg_per_frenzy_charge"
+        },
+        {
+          "type": "FLAT",
+          "max": 50,
+          "min": 30,
+          "stat": "frenzy_charge_on_crit"
+        }
+      ],
+      "style": "DEX",
       "weight": 1000
     },
     "gmp": {
@@ -15572,8 +16868,8 @@
       "stats": [
         {
           "type": "FLAT",
-          "max": 24,
-          "min": 8,
+          "max": 18,
+          "min": 6,
           "stat": "lightning_penetration"
         }
       ],
@@ -15791,8 +17087,14 @@
         {
           "type": "FLAT",
           "max": 100,
-          "min": 33,
+          "min": 100,
           "stat": "phys_to_water"
+        },
+        {
+          "type": "FLAT",
+          "max": 21,
+          "min": 7,
+          "stat": "all_water_damage"
         }
       ],
       "style": "DEX",
@@ -15807,8 +17109,14 @@
         {
           "type": "FLAT",
           "max": 100,
-          "min": 33,
+          "min": 100,
           "stat": "phys_to_fire"
+        },
+        {
+          "type": "FLAT",
+          "max": 21,
+          "min": 7,
+          "stat": "all_fire_damage"
         }
       ],
       "style": "STR",
@@ -15823,8 +17131,14 @@
         {
           "type": "FLAT",
           "max": 100,
-          "min": 33,
+          "min": 100,
           "stat": "phys_to_lightning"
+        },
+        {
+          "type": "FLAT",
+          "max": 21,
+          "min": 7,
+          "stat": "all_lightning_damage"
         }
       ],
       "style": "INT",
@@ -15854,15 +17168,15 @@
       "stats": [
         {
           "type": "FLAT",
-          "max": 30,
-          "min": 10,
+          "max": 60,
+          "min": 20,
           "stat": "poison_chance"
         },
         {
           "type": "FLAT",
           "max": 30,
           "min": 10,
-          "stat": "phys_to_chaos"
+          "stat": "poison_damage"
         }
       ],
       "style": "DEX",
@@ -16254,7 +17568,7 @@
           "type": "FLAT",
           "max": -10,
           "min": -10,
-          "stat": "trap_cdr"
+          "stat": "charge_recovery_rate"
         }
       ],
       "style": "DEX",
@@ -16312,8 +17626,8 @@
       "stats": [
         {
           "type": "FLAT",
-          "max": 24,
-          "min": 8,
+          "max": 18,
+          "min": 6,
           "stat": "water_penetration"
         }
       ],
@@ -16324,8 +17638,7 @@
   "omen": {
     "blood": {
       "affix_types": [
-        "chaos_stat",
-        "jewel_corruption"
+        "chaos_stat"
       ],
       "id": "blood",
       "lvl_req": 0.5,
@@ -16353,8 +17666,7 @@
     },
     "echoes": {
       "affix_types": [
-        "chaos_stat",
-        "jewel_corruption"
+        "chaos_stat"
       ],
       "id": "echoes",
       "lvl_req": 0.5,
@@ -16382,8 +17694,7 @@
     },
     "fangs": {
       "affix_types": [
-        "chaos_stat",
-        "jewel_corruption"
+        "chaos_stat"
       ],
       "id": "fangs",
       "lvl_req": 0.5,
@@ -16411,8 +17722,7 @@
     },
     "flames": {
       "affix_types": [
-        "chaos_stat",
-        "jewel_corruption"
+        "chaos_stat"
       ],
       "id": "flames",
       "lvl_req": 0.5,
@@ -16440,8 +17750,7 @@
     },
     "mirrors": {
       "affix_types": [
-        "chaos_stat",
-        "jewel_corruption"
+        "chaos_stat"
       ],
       "id": "mirrors",
       "lvl_req": 0.5,
@@ -16469,8 +17778,7 @@
     },
     "shadows": {
       "affix_types": [
-        "chaos_stat",
-        "jewel_corruption"
+        "chaos_stat"
       ],
       "id": "shadows",
       "lvl_req": 0.5,
@@ -16498,8 +17806,7 @@
     },
     "storms": {
       "affix_types": [
-        "chaos_stat",
-        "jewel_corruption"
+        "chaos_stat"
       ],
       "id": "storms",
       "lvl_req": 0.5,
@@ -16527,8 +17834,7 @@
     },
     "waves": {
       "affix_types": [
-        "chaos_stat",
-        "jewel_corruption"
+        "chaos_stat"
       ],
       "id": "waves",
       "lvl_req": 0.5,
@@ -16848,15 +18154,15 @@
       "reservation": 0.4,
       "stats": [
         {
-          "type": "PERCENT",
-          "max": 20,
-          "min": 4,
+          "type": "MORE",
+          "max": 10,
+          "min": 2,
           "stat": "health"
         },
         {
-          "type": "PERCENT",
-          "max": 20,
-          "min": 4,
+          "type": "MORE",
+          "max": 10,
+          "min": 2,
           "stat": "magic_shield"
         }
       ],
@@ -17021,6 +18327,805 @@
       "style": "INT"
     }
   },
-  "mobAffixes": {},
-  "mobRarity": {}
+  "mobAffixes": {
+    "accurate": {
+      "type": "prefix",
+      "format": "GREEN",
+      "icon": "",
+      "id": "accurate",
+      "stats": [
+        {
+          "type": "FLAT",
+          "max": 8,
+          "min": 8,
+          "stat": "accuracy"
+        },
+        {
+          "type": "MORE",
+          "max": 20,
+          "min": 20,
+          "stat": "accuracy"
+        }
+      ],
+      "weight": 1000
+    },
+    "armored": {
+      "type": "prefix",
+      "format": "GRAY",
+      "icon": "",
+      "id": "armored",
+      "stats": [
+        {
+          "type": "FLAT",
+          "max": 10,
+          "min": 10,
+          "stat": "armor"
+        },
+        {
+          "type": "MORE",
+          "max": 20,
+          "min": 20,
+          "stat": "armor"
+        }
+      ],
+      "weight": 1000
+    },
+    "chaos_mob_affix": {
+      "type": "suffix",
+      "format": "DARK_PURPLE",
+      "icon": "",
+      "id": "chaos_mob_affix",
+      "stats": [
+        {
+          "type": "FLAT",
+          "max": 50,
+          "min": 50,
+          "stat": "plus_phys_to_chaos"
+        },
+        {
+          "type": "FLAT",
+          "max": 15,
+          "min": 15,
+          "stat": "all_chaos_damage"
+        },
+        {
+          "type": "FLAT",
+          "max": 100,
+          "min": 100,
+          "stat": "proc_chaos_id"
+        }
+      ],
+      "weight": 1000
+    },
+    "critical": {
+      "type": "prefix",
+      "format": "GOLD",
+      "icon": "",
+      "id": "critical",
+      "stats": [
+        {
+          "type": "FLAT",
+          "max": 20,
+          "min": 20,
+          "stat": "critical_hit"
+        }
+      ],
+      "weight": 1000
+    },
+    "fire_lord": {
+      "type": "prefix",
+      "format": "RED",
+      "icon": "§c☀",
+      "id": "fire_lord",
+      "stats": [
+        {
+          "type": "FLAT",
+          "max": 15,
+          "min": 15,
+          "stat": "health"
+        },
+        {
+          "type": "FLAT",
+          "max": 5,
+          "min": 5,
+          "stat": "burn_chance"
+        },
+        {
+          "type": "FLAT",
+          "max": 75,
+          "min": 75,
+          "stat": "phys_to_fire"
+        },
+        {
+          "type": "FLAT",
+          "max": 50,
+          "min": 50,
+          "stat": "plus_phys_to_fire"
+        },
+        {
+          "type": "FLAT",
+          "max": 20,
+          "min": 20,
+          "stat": "extra_mob_drops"
+        },
+        {
+          "type": "FLAT",
+          "max": 100,
+          "min": 100,
+          "stat": "proc_fire_id"
+        }
+      ],
+      "weight": 0
+    },
+    "fire_mob_affix": {
+      "type": "suffix",
+      "format": "RED",
+      "icon": "",
+      "id": "fire_mob_affix",
+      "stats": [
+        {
+          "type": "FLAT",
+          "max": 50,
+          "min": 50,
+          "stat": "plus_phys_to_fire"
+        },
+        {
+          "type": "FLAT",
+          "max": 15,
+          "min": 15,
+          "stat": "all_fire_damage"
+        },
+        {
+          "type": "FLAT",
+          "max": 100,
+          "min": 100,
+          "stat": "proc_fire_id"
+        }
+      ],
+      "weight": 1000
+    },
+    "full_chaos": {
+      "type": "suffix",
+      "format": "DARK_PURPLE",
+      "icon": "",
+      "id": "full_chaos",
+      "stats": [
+        {
+          "type": "FLAT",
+          "max": 100,
+          "min": 100,
+          "stat": "phys_to_chaos"
+        },
+        {
+          "type": "FLAT",
+          "max": 75,
+          "min": 75,
+          "stat": "chaos_resist"
+        }
+      ],
+      "weight": 0
+    },
+    "full_fire": {
+      "type": "suffix",
+      "format": "RED",
+      "icon": "",
+      "id": "full_fire",
+      "stats": [
+        {
+          "type": "FLAT",
+          "max": 100,
+          "min": 100,
+          "stat": "phys_to_fire"
+        },
+        {
+          "type": "FLAT",
+          "max": 75,
+          "min": 75,
+          "stat": "fire_resist"
+        }
+      ],
+      "weight": 0
+    },
+    "full_lightning": {
+      "type": "suffix",
+      "format": "YELLOW",
+      "icon": "",
+      "id": "full_lightning",
+      "stats": [
+        {
+          "type": "FLAT",
+          "max": 100,
+          "min": 100,
+          "stat": "phys_to_lightning"
+        },
+        {
+          "type": "FLAT",
+          "max": 75,
+          "min": 75,
+          "stat": "fire_resist"
+        }
+      ],
+      "weight": 0
+    },
+    "full_water": {
+      "type": "suffix",
+      "format": "AQUA",
+      "icon": "",
+      "id": "full_water",
+      "stats": [
+        {
+          "type": "FLAT",
+          "max": 100,
+          "min": 100,
+          "stat": "phys_to_water"
+        },
+        {
+          "type": "FLAT",
+          "max": 75,
+          "min": 75,
+          "stat": "water_resist"
+        }
+      ],
+      "weight": 0
+    },
+    "lightning_lord": {
+      "type": "prefix",
+      "format": "RED",
+      "icon": "§c☀",
+      "id": "lightning_lord",
+      "stats": [
+        {
+          "type": "FLAT",
+          "max": 15,
+          "min": 15,
+          "stat": "health"
+        },
+        {
+          "type": "FLAT",
+          "max": 5,
+          "min": 5,
+          "stat": "electrify_chance"
+        },
+        {
+          "type": "FLAT",
+          "max": 75,
+          "min": 75,
+          "stat": "phys_to_lightning"
+        },
+        {
+          "type": "FLAT",
+          "max": 50,
+          "min": 50,
+          "stat": "plus_phys_to_lightning"
+        },
+        {
+          "type": "FLAT",
+          "max": 20,
+          "min": 20,
+          "stat": "extra_mob_drops"
+        },
+        {
+          "type": "FLAT",
+          "max": 100,
+          "min": 100,
+          "stat": "proc_lightning_id"
+        }
+      ],
+      "weight": 0
+    },
+    "lightning_mob_affix": {
+      "type": "suffix",
+      "format": "YELLOW",
+      "icon": "",
+      "id": "lightning_mob_affix",
+      "stats": [
+        {
+          "type": "FLAT",
+          "max": 50,
+          "min": 50,
+          "stat": "plus_phys_to_lightning"
+        },
+        {
+          "type": "FLAT",
+          "max": 15,
+          "min": 15,
+          "stat": "all_lightning_damage"
+        },
+        {
+          "type": "FLAT",
+          "max": 100,
+          "min": 100,
+          "stat": "proc_lightning_id"
+        }
+      ],
+      "weight": 1000
+    },
+    "massive": {
+      "type": "prefix",
+      "format": "RED",
+      "icon": "",
+      "id": "massive",
+      "stats": [
+        {
+          "type": "MORE",
+          "max": 25,
+          "min": 25,
+          "stat": "health"
+        },
+        {
+          "type": "FLAT",
+          "max": 50,
+          "min": 50,
+          "stat": "knockback_resist"
+        }
+      ],
+      "weight": 1000
+    },
+    "nature_lord": {
+      "type": "prefix",
+      "format": "DARK_PURPLE",
+      "icon": "§5☀",
+      "id": "nature_lord",
+      "stats": [
+        {
+          "type": "FLAT",
+          "max": 15,
+          "min": 15,
+          "stat": "health"
+        },
+        {
+          "type": "FLAT",
+          "max": 5,
+          "min": 5,
+          "stat": "poison_chance"
+        },
+        {
+          "type": "FLAT",
+          "max": 75,
+          "min": 75,
+          "stat": "phys_to_chaos"
+        },
+        {
+          "type": "FLAT",
+          "max": 50,
+          "min": 50,
+          "stat": "plus_phys_to_chaos"
+        },
+        {
+          "type": "FLAT",
+          "max": 20,
+          "min": 20,
+          "stat": "extra_mob_drops"
+        },
+        {
+          "type": "FLAT",
+          "max": 100,
+          "min": 100,
+          "stat": "proc_chaos_id"
+        }
+      ],
+      "weight": 0
+    },
+    "of_elemental_resistance": {
+      "type": "suffix",
+      "format": "BLUE",
+      "icon": "",
+      "id": "of_elemental_resistance",
+      "stats": [
+        {
+          "type": "FLAT",
+          "max": 40,
+          "min": 40,
+          "stat": "elemental_resist"
+        }
+      ],
+      "weight": 1000
+    },
+    "of_evasion": {
+      "type": "suffix",
+      "format": "YELLOW",
+      "icon": "",
+      "id": "of_evasion",
+      "stats": [
+        {
+          "type": "FLAT",
+          "max": 20,
+          "min": 20,
+          "stat": "dodge"
+        },
+        {
+          "type": "MORE",
+          "max": 10,
+          "min": 10,
+          "stat": "dodge"
+        },
+        {
+          "type": "FLAT",
+          "max": 10,
+          "min": 10,
+          "stat": "spell_dodge"
+        },
+        {
+          "type": "MORE",
+          "max": 10,
+          "min": 10,
+          "stat": "spell_dodge"
+        }
+      ],
+      "weight": 1000
+    },
+    "of_the_vampire": {
+      "type": "suffix",
+      "format": "DARK_RED",
+      "icon": "",
+      "id": "of_the_vampire",
+      "stats": [
+        {
+          "type": "FLAT",
+          "max": 15,
+          "min": 15,
+          "stat": "lifesteal"
+        }
+      ],
+      "weight": 1000
+    },
+    "of_wealth": {
+      "type": "suffix",
+      "format": "GOLD",
+      "icon": "",
+      "id": "of_wealth",
+      "stats": [
+        {
+          "type": "FLAT",
+          "max": 500,
+          "min": 500,
+          "stat": "extra_mob_drops"
+        }
+      ],
+      "weight": 10
+    },
+    "penetrating": {
+      "type": "prefix",
+      "format": "BLUE",
+      "icon": "",
+      "id": "penetrating",
+      "stats": [
+        {
+          "type": "FLAT",
+          "max": 6,
+          "min": 6,
+          "stat": "armor_penetration"
+        },
+        {
+          "type": "FLAT",
+          "max": 25,
+          "min": 25,
+          "stat": "elemental_penetration"
+        },
+        {
+          "type": "FLAT",
+          "max": 25,
+          "min": 25,
+          "stat": "chaos_penetration"
+        }
+      ],
+      "weight": 1000
+    },
+    "phys_lord": {
+      "type": "prefix",
+      "format": "GRAY",
+      "icon": "",
+      "id": "phys_lord",
+      "stats": [
+        {
+          "type": "FLAT",
+          "max": 15,
+          "min": 15,
+          "stat": "health"
+        },
+        {
+          "type": "FLAT",
+          "max": 50,
+          "min": 50,
+          "stat": "plus_phys_to_physical"
+        },
+        {
+          "type": "FLAT",
+          "max": 20,
+          "min": 20,
+          "stat": "extra_mob_drops"
+        }
+      ],
+      "weight": 0
+    },
+    "savage": {
+      "type": "prefix",
+      "format": "DARK_AQUA",
+      "icon": "",
+      "id": "savage",
+      "stats": [
+        {
+          "type": "FLAT",
+          "max": 25,
+          "min": 25,
+          "stat": "total_damage"
+        }
+      ],
+      "weight": 1000
+    },
+    "swift": {
+      "type": "prefix",
+      "format": "AQUA",
+      "icon": "",
+      "id": "swift",
+      "stats": [
+        {
+          "type": "FLAT",
+          "max": 50,
+          "min": 50,
+          "stat": "move_speed"
+        }
+      ],
+      "weight": 1000
+    },
+    "vampire": {
+      "type": "prefix",
+      "format": "DARK_RED",
+      "icon": "",
+      "id": "vampire",
+      "stats": [
+        {
+          "type": "FLAT",
+          "max": 0.5,
+          "min": 0.5,
+          "stat": "health_per_sec"
+        },
+        {
+          "type": "FLAT",
+          "max": 10,
+          "min": 5,
+          "stat": "health_on_hit_hit"
+        }
+      ],
+      "weight": 1000
+    },
+    "water_mob_affix": {
+      "type": "suffix",
+      "format": "AQUA",
+      "icon": "",
+      "id": "water_mob_affix",
+      "stats": [
+        {
+          "type": "FLAT",
+          "max": 50,
+          "min": 50,
+          "stat": "plus_phys_to_water"
+        },
+        {
+          "type": "FLAT",
+          "max": 15,
+          "min": 15,
+          "stat": "all_water_damage"
+        },
+        {
+          "type": "FLAT",
+          "max": 100,
+          "min": 100,
+          "stat": "proc_cold_id"
+        }
+      ],
+      "weight": 1000
+    },
+    "winter": {
+      "type": "prefix",
+      "format": "AQUA",
+      "icon": "§b☀",
+      "id": "winter",
+      "stats": [
+        {
+          "type": "FLAT",
+          "max": 15,
+          "min": 15,
+          "stat": "health"
+        },
+        {
+          "type": "FLAT",
+          "max": 5,
+          "min": 5,
+          "stat": "freeze_chance"
+        },
+        {
+          "type": "FLAT",
+          "max": 75,
+          "min": 75,
+          "stat": "phys_to_water"
+        },
+        {
+          "type": "FLAT",
+          "max": 50,
+          "min": 50,
+          "stat": "plus_phys_to_water"
+        },
+        {
+          "type": "FLAT",
+          "max": 20,
+          "min": 20,
+          "stat": "extra_mob_drops"
+        },
+        {
+          "type": "FLAT",
+          "max": 100,
+          "min": 100,
+          "stat": "proc_cold_id"
+        }
+      ],
+      "weight": 0
+    }
+  },
+  "mobRarity": {
+    "boss": {
+      "affixes": 1,
+      "dmg_multi": 1.9,
+      "exp_multi": 10.5,
+      "extra_hp_multi": 4,
+      "force_custom_hp": 200,
+      "id": "boss",
+      "is_elite": false,
+      "is_special": true,
+      "loot_multi": 10.5,
+      "max_slow_from_chill": 25,
+      "min_lvl": 1,
+      "name": "Boss",
+      "spells": [],
+      "stat_multi": 3.5,
+      "text_format": "RED",
+      "weight": 0
+    },
+    "common": {
+      "affixes": 0,
+      "dmg_multi": 1,
+      "exp_multi": 1,
+      "extra_hp_multi": 1,
+      "force_custom_hp": -1,
+      "id": "common",
+      "is_elite": false,
+      "is_special": false,
+      "loot_multi": 1,
+      "max_slow_from_chill": 100,
+      "min_lvl": 0,
+      "name": "Common",
+      "spells": [],
+      "stat_multi": 1,
+      "text_format": "GRAY",
+      "weight": 1024
+    },
+    "epic": {
+      "affixes": 2,
+      "dmg_multi": 1.45,
+      "exp_multi": 2.75,
+      "extra_hp_multi": 2.5,
+      "force_custom_hp": -1,
+      "id": "epic",
+      "is_elite": true,
+      "is_special": false,
+      "loot_multi": 2.75,
+      "max_slow_from_chill": 50,
+      "min_lvl": 10,
+      "name": "Epic",
+      "spells": [],
+      "stat_multi": 1.9,
+      "text_format": "LIGHT_PURPLE",
+      "weight": 16
+    },
+    "legendary": {
+      "affixes": 2,
+      "dmg_multi": 1.6,
+      "exp_multi": 4.75,
+      "extra_hp_multi": 3,
+      "force_custom_hp": -1,
+      "id": "legendary",
+      "is_elite": true,
+      "is_special": false,
+      "loot_multi": 4.75,
+      "max_slow_from_chill": 25,
+      "min_lvl": 25,
+      "name": "Legendary",
+      "spells": [],
+      "stat_multi": 2.4,
+      "text_format": "GOLD",
+      "weight": 4
+    },
+    "mythic": {
+      "affixes": 2,
+      "dmg_multi": 1.75,
+      "exp_multi": 8.75,
+      "extra_hp_multi": 3.5,
+      "force_custom_hp": -1,
+      "id": "mythic",
+      "is_elite": true,
+      "is_special": false,
+      "loot_multi": 8.75,
+      "max_slow_from_chill": 25,
+      "min_lvl": 50,
+      "name": "Mythic",
+      "spells": [],
+      "stat_multi": 3,
+      "text_format": "DARK_PURPLE",
+      "weight": 1
+    },
+    "rare": {
+      "affixes": 1,
+      "dmg_multi": 1.3,
+      "exp_multi": 1.75,
+      "extra_hp_multi": 2,
+      "force_custom_hp": -1,
+      "id": "rare",
+      "is_elite": true,
+      "is_special": false,
+      "loot_multi": 1.75,
+      "max_slow_from_chill": 50,
+      "min_lvl": 0,
+      "name": "Rare",
+      "spells": [],
+      "stat_multi": 1.5,
+      "text_format": "AQUA",
+      "weight": 64
+    },
+    "summon": {
+      "affixes": 0,
+      "dmg_multi": 1.3,
+      "exp_multi": 1.5,
+      "extra_hp_multi": 2,
+      "force_custom_hp": -1,
+      "id": "summon",
+      "is_elite": false,
+      "is_special": true,
+      "loot_multi": 1.5,
+      "max_slow_from_chill": 100,
+      "min_lvl": 0,
+      "name": "Summon",
+      "spells": [],
+      "stat_multi": 1.75,
+      "text_format": "YELLOW",
+      "weight": 0
+    },
+    "uber": {
+      "affixes": 1,
+      "dmg_multi": 2.05,
+      "exp_multi": 15.5,
+      "extra_hp_multi": 8,
+      "force_custom_hp": 250,
+      "id": "uber",
+      "is_elite": false,
+      "is_special": true,
+      "loot_multi": 15.5,
+      "max_slow_from_chill": 25,
+      "min_lvl": 1,
+      "name": "Uber",
+      "spells": [
+        "boss_cc_resist"
+      ],
+      "stat_multi": 4,
+      "text_format": "RED",
+      "weight": 0
+    },
+    "uncommon": {
+      "affixes": 1,
+      "dmg_multi": 1.15,
+      "exp_multi": 1.25,
+      "extra_hp_multi": 1.5,
+      "force_custom_hp": -1,
+      "id": "uncommon",
+      "is_elite": false,
+      "is_special": false,
+      "loot_multi": 1.25,
+      "max_slow_from_chill": 100,
+      "min_lvl": 0,
+      "name": "Uncommon",
+      "spells": [],
+      "stat_multi": 1.2,
+      "text_format": "GREEN",
+      "weight": 256
+    }
+  }
 }

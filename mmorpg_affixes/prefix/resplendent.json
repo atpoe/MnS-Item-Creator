@@ -10,8 +10,7 @@
         "type": "GearSlot",
         "excluded": [],
         "included": [
-          "armor_family",
-          "jewel_int"
+          "armor_family"
         ],
         "req_type": "INCLUDES_ANY"
       }

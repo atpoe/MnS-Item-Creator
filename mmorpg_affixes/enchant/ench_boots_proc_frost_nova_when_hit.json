@@ -20,8 +20,8 @@
   "stats": [
     {
       "type": "FLAT",
-      "max": 75,
-      "min": 25,
+      "max": 15,
+      "min": 5,
       "stat": "proc_frost_nova_when_hit"
     },
     {

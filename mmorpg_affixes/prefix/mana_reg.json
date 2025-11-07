@@ -10,8 +10,7 @@
         "type": "GearSlot",
         "excluded": [],
         "included": [
-          "ring",
-          "jewel_int"
+          "ring"
         ],
         "req_type": "INCLUDES_ANY"
       }
@@ -20,8 +19,8 @@
   "stats": [
     {
       "type": "PERCENT",
-      "max": 40.0,
-      "min": 8.0,
+      "max": 30.0,
+      "min": 6.0,
       "stat": "mana_regen"
     }
   ],

@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mine & Slash Spell Creator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="theme-toggle" onclick="toggleTheme()">
+    <span id="themeIcon">🌙</span>
+    <span id="themeText">Dark Mode</span>
+</div>
+
+<div class="container">
+    <div class="header">
+        <h1>🔮 Mine & Slash Spell Creator</h1>
+        <p>Create custom spells with complex behaviors and effects</p>
+        <div class="nav-buttons">
+            <button class="back-button" onclick="goBackToMain()">← Back to Main Creator</button>
+        </div>
+    </div>
+
+    <div class="content">
+        <!-- Import Existing Spell Section -->
+        <div class="import-section">
+            <h3>📥 Import Existing Spell JSON</h3>
+            <p style="margin-bottom: 15px; color: #6c757d;">Paste your existing spell JSON here to edit it:</p>
+            <textarea id="importSpellJson" class="import-json-input" placeholder='Paste your spell JSON here...'></textarea>
+            <div class="import-buttons">
+                <button class="import-btn" onclick="loadSpellFromJson()">📥 Load & Edit Spell</button>
+                <button class="clear-btn" onclick="clearImportSpellJson()">🗑️ Clear</button>
+            </div>
+        </div>
+
+        <!-- Basic Spell Properties -->
+        <div class="section">
+            <h3>⚙️ Basic Spell Properties</h3>
+            <div class="grid-3">
+                <div class="form-group">
+                    <label>Spell Identifier:</label>
+                    <input type="text" id="spellId" placeholder="my_custom_spell" value="">
+                </div>
+                <div class="form-group">
+                    <label>Display Name:</label>
+                    <input type="text" id="locName" placeholder="My Custom Spell" value="">
+                </div>
+                <div class="form-group">
+                    <label>Weight:</label>
+                    <input type="number" id="weight" value="1000" min="1">
+                </div>
+            </div>
+            <div class="grid-3">
+                <div class="form-group">
+                    <label>Min Level:</label>
+                    <input type="number" id="minLvl" value="1" min="0" max="100">
+                </div>
+                <div class="form-group">
+                    <label>Max Level:</label>
+                    <input type="number" id="maxLvl" value="16" min="1" max="100">
+                </div>
+                <div class="form-group">
+                    <label>Default Level:</label>
+                    <input type="number" id="defaultLvl" value="0" min="0" max="100">
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Effect Tip:</label>
+                <textarea id="effectTip" placeholder="Custom tooltip description..." rows="2"></textarea>
+            </div>
+            <div class="form-group checkbox-group">
+                <input type="checkbox" id="manualTip">
+                <label for="manualTip">Manual Tip</label>
+            </div>
+        </div>
+
+        <!-- Config Section -->
+        <div class="section">
+            <h3>⚙️ Spell Configuration</h3>
+            <div class="grid-3">
+                <div class="form-group">
+                    <label>Cast Time (ticks):</label>
+                    <input type="number" id="castTimeTicks" value="10" min="0" max="200">
+                </div>
+                <div class="form-group">
+                    <label>Cooldown (ticks):</label>
+                    <input type="number" id="cooldownTicks" value="40" min="0" max="2400">
+                </div>
+                <div class="form-group">
+                    <label>Times to Cast:</label>
+                    <input type="number" id="timesToCast" value="1" min="1" max="10">
+                </div>
+            </div>
+            <div class="grid-3">
+                <div class="form-group">
+                    <label>Casting Weapon:</label>
+                    <select id="castingWeapon">
+                        <option value="ANY_WEAPON">Any Weapon</option>
+                        <option value="MELEE_WEAPON">Melee Weapon</option>
+                        <option value="MAGE_WEAPON">Mage Weapon</option>
+                        <option value="RANGED_WEAPON">Ranged Weapon</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Spell Style:</label>
+                    <select id="spellStyle">
+                        <option value="int">Intelligence</option>
+                        <option value="str">Strength</option>
+                        <option value="dex">Dexterity</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Summon Type:</label>
+                    <select id="summonType">
+                        <option value="NONE">None</option>
+                        <option value="TEMPORARY">Temporary</option>
+                        <option value="PERMANENT">Permanent</option>
+                    </select>
+                </div>
+            </div>
+            <div class="grid-2">
+                <div class="form-group">
+                    <label>Mana Cost Min:</label>
+                    <input type="number" id="manaCostMin" value="25" min="0" max="200" step="0.1">
+                </div>
+                <div class="form-group">
+                    <label>Mana Cost Max:</label>
+                    <input type="number" id="manaCostMax" value="25" min="0" max="200" step="0.1">
+                </div>
+            </div>
+            <div class="grid-2">
+                <div class="form-group">
+                    <label>Energy Cost Min:</label>
+                    <input type="number" id="eneCostMin" value="0" min="0" max="200" step="0.1">
+                </div>
+                <div class="form-group">
+                    <label>Energy Cost Max:</label>
+                    <input type="number" id="eneCostMax" value="0" min="0" max="200" step="0.1">
+                </div>
+            </div>
+            <div class="grid-3">
+                <div class="form-group">
+                    <label>Charges:</label>
+                    <input type="number" id="charges" value="0" min="0" max="10">
+                </div>
+                <div class="form-group">
+                    <label>Charge Regen:</label>
+                    <input type="number" id="chargeRegen" value="0" min="0" max="100">
+                </div>
+                <div class="form-group">
+                    <label>Imbues:</label>
+                    <input type="number" id="imbues" value="0" min="0" max="5">
+                </div>
+            </div>
+            <div class="grid-3">
+                <div class="form-group">
+                    <label>Tracking Radius:</label>
+                    <input type="number" id="trackingRadius" value="5" min="0" max="50">
+                </div>
+                <div class="form-group">
+                    <label>Tracks:</label>
+                    <select id="tracks">
+                        <option value="enemies">Enemies</option>
+                        <option value="allies">Allies</option>
+                        <option value="all">All</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Aggro Radius:</label>
+                    <input type="number" id="aggroRadius" value="10" min="0" max="50">
+                </div>
+            </div>
+            <div class="grid-2">
+                <div class="form-group">
+                    <label>Charge Name:</label>
+                    <input type="text" id="chargeName" placeholder="charge_name" value="">
+                </div>
+                <div class="form-group">
+                    <label>Summon Basic Attack:</label>
+                    <input type="text" id="summonBasicAtk" value="pet_basic">
+                </div>
+            </div>
+            <div class="grid-2">
+                <div class="form-group">
+                    <label>Use Support Gems From:</label>
+                    <input type="text" id="useSupportGemsFrom" placeholder="spell_identifier" value="">
+                </div>
+                <div class="form-group">
+                    <label>Level Based On Spell:</label>
+                    <input type="text" id="lvlBasedOnSpell" placeholder="spell_identifier" value="">
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Show Other Spell Tooltip:</label>
+                <input type="text" id="showOtherSpellTooltip" placeholder="spell_identifier" value="">
+            </div>
+            <div class="form-group checkbox-group">
+                <input type="checkbox" id="slowsWhenCasting" checked>
+                <label for="slowsWhenCasting">Slows When Casting</label>
+            </div>
+            <div class="form-group checkbox-group">
+                <input type="checkbox" id="swingArm">
+                <label for="swingArm">Swing Arm</label>
+            </div>
+        </div>
+
+        <!-- Animation Section -->
+        <div class="section">
+            <h3>🎭 Animations</h3>
+            <div class="grid-2">
+                <div class="form-group">
+                    <label>Cast Animation:</label>
+                    <select id="castAnimation">
+                        <option value="steady_cast">Steady Cast</option>
+                        <option value="staff_ground">Staff Ground</option>
+                        <option value="hand_up_cast">Hand Up Cast</option>
+                        <option value="sword_slash_single">Sword Slash Single</option>
+                        <option value="sword_spin">Sword Spin</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Cast Finish Animation:</label>
+                    <select id="castFinishAnimation">
+                        <option value="cast_finish">Cast Finish</option>
+                        <option value="staff_ground">Staff Ground</option>
+                        <option value="spell_taunt">Spell Taunt</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tags Section -->
+        <div class="section">
+            <h3>🏷️ Spell Tags</h3>
+            <div class="form-group">
+                <label>Tags (comma-separated):</label>
+                <input type="text" id="spellTags" placeholder="magic, damage, projectile" value="">
+                <small>Common tags: magic, damage, projectile, area, buff, debuff, melee, ranged, lightning, fire, physical</small>
+            </div>
+        </div>
+
+        <!-- On Cast Actions -->
+        <div class="section">
+            <h3>✨ On Cast Actions</h3>
+            <div id="onCastList" class="actions-list"></div>
+            <div class="action-type-buttons">
+                <button class="add-btn" onclick="addOnCastAction('damage')">🔥 Add Damage</button>
+                <button class="add-btn" onclick="addOnCastAction('projectile')">🏹 Add Projectile</button>
+                <button class="add-btn" onclick="addOnCastAction('sound')">🔊 Add Sound</button>
+                <button class="add-btn" onclick="addOnCastAction('particles_in_radius')">✨ Add Particles</button>
+                <button class="add-btn" onclick="addOnCastAction('exile_effect')">💫 Add Effect</button>
+                <button class="add-btn" onclick="addOnCastAction('sword_sweep_particles')">⚔️ Add Sword Sweep</button>
+            </div>
+        </div>
+
+        <!-- Entity Components -->
+        <div class="section">
+            <h3>🤖 Entity Components</h3>
+            <div id="entityComponentsList" class="entity-components-list"></div>
+            <div class="entity-buttons">
+                <button class="add-btn" onclick="addEntityComponent('default_entity_name')">🎯 Add Default Entity</button>
+                <button class="add-btn" onclick="addEntityComponent('arrow')">🏹 Add Arrow Entity</button>
+                <button class="add-btn" onclick="addEntityComponent('block')">🧱 Add Block Entity</button>
+            </div>
+        </div>
+
+        <!-- Skill Gem Stats -->
+        <div class="section">
+            <h3>💎 Skill Gem Stats</h3>
+            <div id="skillGemStatsList" class="skill-gem-stats-list"></div>
+            <button class="add-btn" onclick="addSkillGemStat()">➕ Add Skill Gem Stat</button>
+        </div>
+
+        <!-- Generate Button -->
+        <button class="generate-btn" onclick="generateSpellJson()">🎯 Generate Spell JSON</button>
+
+        <!-- Output Section -->
+        <div class="section">
+            <h3>📤 Generated Spell JSON</h3>
+            <div id="spellOutput" class="output">Generated spell JSON will appear here...</div>
+            <div class="output-buttons">
+                <button class="copy-btn" onclick="copySpellToClipboard()">📋 Copy to Clipboard</button>
+                <button class="save-btn" onclick="downloadSpellJson()">💾 Download JSON File</button>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <div class="footer-content">
+                <img src="logo.png" alt="Logo" class="footer-logo">
+                <div class="footer-text">Mine & Slash Spell Creator - Created by Poe [Discord: AtPoe]</div>
+                <img src="cte2-icon.png" alt="CTE2 Icon" class="footer-logo">
+                <div class="footer-text">CTE2 Version 1.0.7</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Theme toggle functionality
+    function toggleTheme() {
+        const body = document.body;
+        const themeIcon = document.getElementById('themeIcon');
+        const themeText = document.getElementById('themeText');
+
+        body.classList.toggle('dark-theme');
+
+        if (body.classList.contains('dark-theme')) {
+            themeIcon.textContent = '☀️';
+            themeText.textContent = 'Light Mode';
+            localStorage.setItem('theme', 'dark');
+        } else {
+            themeIcon.textContent = '🌙';
+            themeText.textContent = 'Dark Mode';
+            localStorage.setItem('theme', 'light');
+        }
+    }
+
+    // Load saved theme
+    document.addEventListener('DOMContentLoaded', function() {
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'dark') {
+            document.body.classList.add('dark-theme');
+            document.getElementById('themeIcon').textContent = '☀️';
+            document.getElementById('themeText').textContent = 'Light Mode';
+        }
+    });
+
+    // Navigate back to main creator
+    function goBackToMain() {
+        window.location.href = 'index.html';
+    }
+</script>
+<script src="spell-creator.js"></script>
+</body>
+</html>

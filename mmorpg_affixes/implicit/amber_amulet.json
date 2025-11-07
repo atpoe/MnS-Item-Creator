@@ -19,8 +19,8 @@
   "stats": [
     {
       "type": "FLAT",
-      "max": 6.0,
-      "min": 3.0,
+      "max": 5.0,
+      "min": 2.5,
       "stat": "strength"
     }
   ],

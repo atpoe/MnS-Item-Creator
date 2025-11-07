@@ -19,8 +19,8 @@
   "stats": [
     {
       "type": "FLAT",
-      "max": 8.0,
-      "min": 8.0,
+      "max": 20.0,
+      "min": 20.0,
       "stat": "lightning_resist"
     }
   ],

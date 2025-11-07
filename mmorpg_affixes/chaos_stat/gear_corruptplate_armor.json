@@ -18,9 +18,9 @@
   },
   "stats": [
     {
-      "type": "PERCENT",
-      "max": 10.0,
-      "min": 10.0,
+      "type": "MORE",
+      "max": 4.0,
+      "min": 4.0,
       "stat": "armor"
     }
   ],

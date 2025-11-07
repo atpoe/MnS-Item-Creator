@@ -20,7 +20,7 @@
     {
       "type": "FLAT",
       "max": 3.0,
-      "min": 1.0,
+      "min": 0.6,
       "stat": "max_fire_resist"
     }
   ],

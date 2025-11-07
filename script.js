@@ -1408,6 +1408,10 @@ function goToGatewayCreator() {
     window.location.href = 'gateway-creator.html';
 }
 
+function goToSpellCreator() {
+    window.location.href = 'spell-creator.html';
+}
+
 // Add event listeners to all rarity selects when page loads
 document.addEventListener('DOMContentLoaded', function() {
     // Update existing rarity selects

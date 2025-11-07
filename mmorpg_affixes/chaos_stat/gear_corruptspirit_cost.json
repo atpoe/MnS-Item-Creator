@@ -19,8 +19,8 @@
   "stats": [
     {
       "type": "FLAT",
-      "max": 3.0,
-      "min": 3.0,
+      "max": 10.0,
+      "min": 10.0,
       "stat": "spirit_cost"
     }
   ],

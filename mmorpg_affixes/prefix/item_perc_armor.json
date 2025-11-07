@@ -8,9 +8,11 @@
     "tag_requirements": [
       {
         "type": "GearSlot",
-        "excluded": [],
+        "excluded": [
+          "dual_stat"
+        ],
         "included": [
-          "armor_stat_half"
+          "armor_family"
         ],
         "req_type": "INCLUDES_ANY"
       }

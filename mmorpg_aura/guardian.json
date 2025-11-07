@@ -4,15 +4,15 @@
   "reservation": 0.4,
   "stats": [
     {
-      "type": "PERCENT",
-      "max": 20.0,
-      "min": 4.0,
+      "type": "MORE",
+      "max": 10.0,
+      "min": 2.0,
       "stat": "health"
     },
     {
-      "type": "PERCENT",
-      "max": 20.0,
-      "min": 4.0,
+      "type": "MORE",
+      "max": 10.0,
+      "min": 2.0,
       "stat": "magic_shield"
     }
   ],

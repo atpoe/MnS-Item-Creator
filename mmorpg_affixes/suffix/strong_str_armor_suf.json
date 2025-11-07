@@ -10,7 +10,9 @@
         "type": "GearSlot",
         "excluded": [],
         "included": [
-          "armor_family"
+          "plate",
+          "chainmail",
+          "birgandine"
         ],
         "req_type": "INCLUDES_ANY"
       }

@@ -19,8 +19,8 @@
   "stats": [
     {
       "type": "PERCENT",
-      "max": 24.0,
-      "min": 8.0,
+      "max": 10.0,
+      "min": 2.0,
       "stat": "dodge"
     }
   ],

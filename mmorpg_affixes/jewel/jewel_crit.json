@@ -19,10 +19,10 @@
   "stats": [
     {
       "type": "PERCENT",
-      "max": 15.0,
-      "min": 3.0,
+      "max": 10.0,
+      "min": 2.0,
       "stat": "critical_hit"
     }
   ],
-  "weight": 500
+  "weight": 1000
 }

@@ -10,7 +10,7 @@
         "type": "GearSlot",
         "excluded": [],
         "included": [
-          "magic_shield_stat"
+		  "dual_stat"
         ],
         "req_type": "INCLUDES_ANY"
       }

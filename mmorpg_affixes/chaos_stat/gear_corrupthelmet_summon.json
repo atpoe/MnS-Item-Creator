@@ -24,7 +24,7 @@
       "stat": "max_total_summons"
     },
     {
-      "type": "FLAT",
+      "type": "MORE",
       "max": 4.0,
       "min": 4.0,
       "stat": "summon_damage"

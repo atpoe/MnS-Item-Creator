@@ -1,7 +1,6 @@
 {
   "affix_types": [
-    "chaos_stat",
-    "jewel_corruption"
+    "chaos_stat"
   ],
   "id": "echoes",
   "lvl_req": 0.5,

@@ -6,8 +6,8 @@
   "stats": [
     {
       "type": "FLAT",
-      "max": 24.0,
-      "min": 8.0,
+      "max": 18.0,
+      "min": 6.0,
       "stat": "chaos_penetration"
     }
   ],

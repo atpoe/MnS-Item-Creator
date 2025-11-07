@@ -7,8 +7,14 @@
     {
       "type": "FLAT",
       "max": 100.0,
-      "min": 33.0,
+      "min": 100.0,
       "stat": "phys_to_lightning"
+    },
+    {
+      "type": "FLAT",
+      "max": 21.0,
+      "min": 7.0,
+      "stat": "all_lightning_damage"
     }
   ],
   "style": "INT",

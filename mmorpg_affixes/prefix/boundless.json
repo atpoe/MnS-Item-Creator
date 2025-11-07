@@ -12,8 +12,7 @@
         "included": [
           "tome",
 		  "pants",
-		  "jewelry_family",
-          "jewel_int"
+		  "jewelry_family"
         ],
         "req_type": "INCLUDES_ANY"
       }

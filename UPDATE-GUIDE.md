@@ -20,7 +20,7 @@ When Mine & Slash mod gets updated with new items/affixes, follow these steps to
 ## Step 2: Regenerate Index Files
 Open Command Prompt/Terminal in your project folder and run:
 
-node generate-index.js
+node combine-data.js
 
 This will scan all folders and create new index.json files with the updated file lists.
 ## Step 3: Create Combined Data File

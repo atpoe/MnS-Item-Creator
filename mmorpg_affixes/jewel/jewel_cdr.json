@@ -19,10 +19,10 @@
   "stats": [
     {
       "type": "FLAT",
-      "max": 5.0,
-      "min": 1.0,
+      "max": 3.0,
+      "min": 0.6,
       "stat": "cdr"
     }
   ],
-  "weight": 500
+  "weight": 1000
 }

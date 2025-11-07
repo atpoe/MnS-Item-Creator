@@ -10,8 +10,7 @@
         "type": "GearSlot",
         "excluded": [],
         "included": [
-          "ring",
-          "jewel_int"
+          "ring"
         ],
         "req_type": "INCLUDES_ANY"
       }
@@ -20,8 +19,8 @@
   "stats": [
     {
       "type": "PERCENT",
-      "max": 30.0,
-      "min": 6.0,
+      "max": 25.0,
+      "min": 5.0,
       "stat": "magic_shield_regen"
     }
   ],

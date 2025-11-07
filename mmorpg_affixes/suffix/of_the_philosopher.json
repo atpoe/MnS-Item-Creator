@@ -8,12 +8,12 @@
     "tag_requirements": [
       {
         "type": "GearSlot",
-        "excluded": [
-          "weapon_family"
-        ],
+        "excluded": [],
         "included": [
           "jewelry_family",
-          "armor_family"
+          "cloth",
+          "chainmail",
+          "vest"
         ],
         "req_type": "INCLUDES_ANY"
       }
@@ -22,8 +22,8 @@
   "stats": [
     {
       "type": "FLAT",
-      "max": 5.0,
-      "min": 1.0,
+      "max": 3.0,
+      "min": 0.6,
       "stat": "intelligence"
     }
   ],

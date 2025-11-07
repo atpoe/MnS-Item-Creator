@@ -10,7 +10,9 @@
         "type": "GearSlot",
         "excluded": [],
         "included": [
-          "armor_family"
+          "cloth",
+          "chainmail",
+          "vest"
         ],
         "req_type": "INCLUDES_ANY"
       }

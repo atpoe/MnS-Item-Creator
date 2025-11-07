@@ -10,7 +10,7 @@
         "type": "GearSlot",
         "excluded": [],
         "included": [
-          "any_jewel"
+          "jewel_int"
         ],
         "req_type": "INCLUDES_ANY"
       }

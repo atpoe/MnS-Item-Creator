@@ -899,11 +899,11 @@ function addWave() {
 
             <div class="wave-settings" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin-bottom: 16px;">
                 <div class="form-group">
-                    <label style="font-weight: bold; color: var(--text-primary);">Max Wave Time (seconds):</label>
+                    <label style="font-weight: bold; color: var(--text-primary);">Max Wave Time (Seconds):</label>
                     <input type="number" class="wave-max-time" value="300" min="1" style="width: 100%; padding: 6px; border: 1px solid var(--border-color); border-radius: 4px; background: var(--bg-input); color: var(--text-primary);">
                 </div>
                 <div class="form-group">
-                    <label style="font-weight: bold; color: var(--text-primary);">Setup Time (seconds):</label>
+                    <label style="font-weight: bold; color: var(--text-primary);">Setup Time (Seconds):</label>
                     <input type="number" class="wave-setup-time" value="5" min="0" style="width: 100%; padding: 6px; border: 1px solid var(--border-color); border-radius: 4px; background: var(--bg-input); color: var(--text-primary);">
                 </div>
             </div>
@@ -1145,12 +1145,17 @@ function updateFailureFields(select) {
 
 // Data collection functions
 function collectWaveData(waveElement) {
+    // Get values in seconds from the UI
+    const maxWaveTimeSeconds = parseInt(waveElement.querySelector('.wave-max-time')?.value) || 300;
+    const setupTimeSeconds = parseInt(waveElement.querySelector('.wave-setup-time')?.value) || 5;
+
     const waveData = {
         entities: [],
-        rewards: [],
         modifiers: [],
-        max_wave_time: parseInt(waveElement.querySelector('.wave-max-time')?.value) || 300,
-        setup_time: parseInt(waveElement.querySelector('.wave-setup-time')?.value) || 5
+        rewards: [],
+        // Convert seconds to ticks (1 second = 20 ticks)
+        max_wave_time: maxWaveTimeSeconds * 20,
+        setup_time: setupTimeSeconds * 20
     };
 
     // Collect entities
@@ -1281,8 +1286,15 @@ function collectFailureData(failureElement) {
 
 // Load data into forms
 function loadWaveData(waveElement, waveData) {
-    if (waveData.max_wave_time) waveElement.querySelector('.wave-max-time').value = waveData.max_wave_time;
-    if (waveData.setup_time) waveElement.querySelector('.wave-setup-time').value = waveData.setup_time;
+    // Convert ticks back to seconds for display (1 tick = 1/20 second)
+    if (waveData.max_wave_time) {
+        const maxWaveTimeSeconds = Math.round(waveData.max_wave_time / 20);
+        waveElement.querySelector('.wave-max-time').value = maxWaveTimeSeconds;
+    }
+    if (waveData.setup_time) {
+        const setupTimeSeconds = Math.round(waveData.setup_time / 20);
+        waveElement.querySelector('.wave-setup-time').value = setupTimeSeconds;
+    }
 
     // Load entities
     if (waveData.entities) {
