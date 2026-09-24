@@ -12,7 +12,8 @@
         "included": [
           "mage_weapon",
           "jewelry_family",
-		  "tome"
+		  "tome",
+		  "ingenuity"
         ],
         "req_type": "INCLUDES_ANY"
       }
@@ -21,8 +22,8 @@
   "stats": [
     {
       "type": "FLAT",
-      "max": 15.0,
-      "min": 3.0,
+      "max": 20.0,
+      "min": 4.0,
       "stat": "spell_damage"
     }
   ],

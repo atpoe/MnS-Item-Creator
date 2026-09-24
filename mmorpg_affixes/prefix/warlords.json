@@ -13,7 +13,8 @@
 		  "crossbow"
 		],
         "included": [
-          "weapon_family"
+          "weapon_family",
+		  "finesse"
         ],
         "req_type": "INCLUDES_ANY"
       }
@@ -22,14 +23,14 @@
   "stats": [
     {
       "type": "PERCENT",
-      "max": 20.0,
-      "min": 4.0,
+      "max": 7.5,
+      "min": 1.5,
       "stat": "gear_weapon_damage"
     },
     {
       "type": "FLAT",
-      "max": 20.0,
-      "min": 4.0,
+      "max": 30.0,
+      "min": 6.0,
       "stat": "attack_speed"
     }
   ],

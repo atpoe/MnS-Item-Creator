@@ -12,10 +12,12 @@ const folders = [
     { key: 'prefix', folder: 'mmorpg_affixes/prefix' },
     { key: 'suffix', folder: 'mmorpg_affixes/suffix' },
     { key: 'tool', folder: 'mmorpg_affixes/tool' },
+    { key: 'watcher_eye', folder: 'mmorpg_affixes/watcher_eye' },
     { key: 'base_gear_types', folder: 'mmorpg_base_gear_types' },
     { key: 'support_gem', folder: 'mmorpg_support_gem' },
     { key: 'omen', folder: 'mmorpg_omen' },
     { key: 'aura', folder: 'mmorpg_aura' },
+    { key: 'map_affix', folder: 'mmorpg_map_affix' },
     { key: 'mobAffixes', folder: 'mmorpg_mob_affix' },
     { key: 'mobRarity', folder: 'mmorpg_mob_rarity' }
 ];
@@ -38,7 +40,7 @@ folders.forEach(({ key, folder }) => {
             try {
                 const filePath = path.join(folder, filename);
                 const data = JSON.parse(fs.readFileSync(filePath, 'utf8'));
-                const itemKey = data.id || filename.replace('.json', '');
+                const itemKey = data.id || data.guid || filename.replace('.json', '');
                 combinedData[key][itemKey] = data;
             } catch (error) {
                 console.error(`❌ Error reading ${filename}:`, error.message);

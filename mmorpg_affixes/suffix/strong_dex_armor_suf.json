@@ -12,7 +12,8 @@
         "included": [
           "leather",
           "brigandine",
-          "vest"
+          "vest",
+		  "finesse"
         ],
         "req_type": "INCLUDES_ANY"
       }
@@ -26,5 +27,5 @@
       "stat": "dexterity"
     }
   ],
-  "weight": 500
+  "weight": 1000
 }

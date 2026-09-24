@@ -17,8 +17,8 @@
   "stats": [
     {
       "type": "FLAT",
-      "max": 20.0,
-      "min": 10.0,
+      "max": 18.0,
+      "min": 9.0,
       "stat": "inc_effect_of_defensive_buff_given"
     }
   ],

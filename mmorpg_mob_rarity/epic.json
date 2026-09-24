@@ -8,10 +8,11 @@
   "is_elite": true,
   "is_special": false,
   "loot_multi": 2.75,
-  "max_slow_from_chill": 50,
+  "max_slow_from_chill": 5,
   "min_lvl": 10,
   "name": "Epic",
   "spells": [],
+  "stats": [],
   "stat_multi": 1.9,
   "text_format": "LIGHT_PURPLE",
   "weight": 16

@@ -12,7 +12,8 @@
 		  "dual_stat"
 		],
         "included": [
-          "armor_stat_half"
+          "armor_stat_half",
+		  "might"
         ],
         "req_type": "INCLUDES_ANY"
       }
@@ -21,8 +22,8 @@
   "stats": [
     {
       "type": "FLAT",
-      "max": 1.5,
-      "min": 0.3,
+      "max": 0.75,
+      "min": 0.15,
       "stat": "gear_defense"
     }
   ],

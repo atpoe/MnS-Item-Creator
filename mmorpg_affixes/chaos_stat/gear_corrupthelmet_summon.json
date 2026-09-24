@@ -17,16 +17,10 @@
     ]
   },
   "stats": [
-	{
-      "type": "flat",
-      "max": 1.0,
-      "min": 1.0,
-      "stat": "max_total_summons"
-    },
     {
       "type": "MORE",
-      "max": 4.0,
-      "min": 4.0,
+      "max": 8.0,
+      "min": 8.0,
       "stat": "summon_damage"
     }
   ],

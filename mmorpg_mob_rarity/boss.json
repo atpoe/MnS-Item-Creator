@@ -8,10 +8,18 @@
   "is_elite": false,
   "is_special": true,
   "loot_multi": 10.5,
-  "max_slow_from_chill": 25,
+  "max_slow_from_chill": 3,
   "min_lvl": 1,
   "name": "Boss",
   "spells": [
+  ],
+  "stats": [
+    {
+      "type": "FLAT",
+      "max": -30.0,
+      "min": -30.0,
+      "stat": "inc_effect_of_negative_buff_on_you"
+    }
   ],
   "stat_multi": 3.5,
   "text_format": "RED",

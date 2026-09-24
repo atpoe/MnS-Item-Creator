@@ -11,7 +11,8 @@
         "excluded": [],
         "included": [
           "crossbow",
-          "bow"
+          "bow",
+		  "finesse"
         ],
         "req_type": "INCLUDES_ANY"
       }
@@ -20,8 +21,8 @@
   "stats": [
     {
       "type": "FLAT",
-      "max": 20.0,
-      "min": 4.0,
+      "max": 30.0,
+      "min": 6.0,
       "stat": "faster_projectiles"
     }
   ],

@@ -20,8 +20,8 @@
   "stats": [
     {
       "type": "FLAT",
-      "max": 6.75,
-      "min": 2.25,
+      "max": 9.0,
+      "min": 3.0,
       "stat": "energy"
     }
   ],

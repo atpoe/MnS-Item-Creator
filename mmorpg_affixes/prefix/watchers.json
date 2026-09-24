@@ -10,7 +10,8 @@
         "type": "GearSlot",
         "excluded": [],
         "included": [
-          "totem"
+          "totem",
+		  "finesse"
         ],
         "req_type": "INCLUDES_ANY"
       }

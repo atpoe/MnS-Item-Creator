@@ -10,7 +10,8 @@
         "type": "GearSlot",
         "excluded": [],
         "included": [
-          "gauntlet"
+          "gauntlet",
+		  "might"
         ],
         "req_type": "INCLUDES_ANY"
       }
@@ -25,8 +26,8 @@
     },
     {
       "type": "FLAT",
-      "max": 10.0,
-      "min": 2.0,
+      "max": 22.5,
+      "min": 4.5,
       "stat": "attack_speed"
     }
   ],

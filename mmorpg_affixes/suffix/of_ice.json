@@ -10,7 +10,8 @@
         "type": "GearSlot",
         "excluded": [],
         "included": [
-          "weapon_family"
+          "weapon_family",
+		  "finesse"
         ],
         "req_type": "INCLUDES_ANY"
       }
@@ -30,5 +31,5 @@
       "stat": "freeze_proc_chance"
     }
   ],
-  "weight": 250
+  "weight": 500
 }

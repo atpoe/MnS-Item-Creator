@@ -12,7 +12,8 @@
         "included": [
           "staff",
 		  "hammer",
-		  "tome"
+		  "tome",
+		  "ingenuity"
         ],
         "req_type": "INCLUDES_ANY"
       }

@@ -20,8 +20,8 @@
   "stats": [
     {
       "type": "FLAT",
-      "max": 5.0,
-      "min": 5.0,
+      "max": 3.0,
+      "min": 3.0,
       "stat": "aura_effect"
     }
   ],

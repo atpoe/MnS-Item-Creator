@@ -8,10 +8,18 @@
   "is_elite": true,
   "is_special": false,
   "loot_multi": 4.75,
-  "max_slow_from_chill": 25,
+  "max_slow_from_chill": 4,
   "min_lvl": 25,
   "name": "Legendary",
   "spells": [],
+  "stats": [
+    {
+      "type": "FLAT",
+      "max": -15.0,
+      "min": -15.0,
+      "stat": "inc_effect_of_negative_buff_on_you"
+    }
+  ],
   "stat_multi": 2.4,
   "text_format": "GOLD",
   "weight": 4

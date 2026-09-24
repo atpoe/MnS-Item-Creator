@@ -2,10 +2,16 @@
   "base_stats": [
     {
       "type": "FLAT",
-      "max": 12.0,
-      "min": 6.0,
+      "max": 16.2,
+      "min": 8.1,
       "stat": "weapon_damage"
-    }
+    },
+	{
+	  "type": "FLAT",
+	  "max": 7.5,
+	  "min": 3.75,
+	  "stat": "resource_on_basic_hit"
+	}
   ],
   "gear_slot": "spear",
   "guid": "spear",

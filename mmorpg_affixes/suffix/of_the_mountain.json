@@ -10,7 +10,8 @@
         "type": "GearSlot",
         "excluded": [],
         "included": [
-          "jewelry_family"
+          "jewelry_family",
+		  "might"
         ],
         "req_type": "INCLUDES_ANY"
       }

@@ -5,9 +5,15 @@
   "stats": [
     {
       "type": "PERCENT",
-      "max": 50.0,
-      "min": 10.0,
+      "max": 30.0,
+      "min": 6.0,
       "stat": "block_chance"
+    },
+    {
+      "type": "FLAT",
+      "max": 25.0,
+      "min": 6.0,
+      "stat": "block_recovery"
     }
   ],
   "style": "INT"

@@ -9,10 +9,12 @@ let affixData = {
     prefix: {},
     suffix: {},
     tool: {},
+    watcher_eye: {},
     base_gear_types: {},
     support_gem: {},
     omen: {},
-    aura: {}
+    aura: {},
+    map_affix: {}
 };
 
 // Hardcoded tool affixes by profession
@@ -51,10 +53,12 @@ const affixCategories = [
     { key: 'prefix', folder: 'mmorpg_affixes/prefix', name: 'Prefixes', countId: 'prefixCount' },
     { key: 'suffix', folder: 'mmorpg_affixes/suffix', name: 'Suffixes', countId: 'suffixCount' },
     { key: 'tool', folder: 'mmorpg_affixes/tool', name: 'Tools', countId: 'toolCount' },
-    { key: 'base_gear_types', folder: 'mmorpg_affixes/base_gear_types', name: 'Gear Types', countId: 'gearTypeCount' },
-    { key: 'support_gem', folder: 'mmorpg_affixes/support_gem', name: 'Support Gems', countId: 'supportGemCount' },
-    { key: 'omen', folder: 'mmorpg_affixes/omen', name: 'Omens', countId: 'omenCount' },
-    { key: 'aura', folder: 'mmorpg_aura', name: 'Auras', countId: 'auraCount' }
+    { key: 'watcher_eye', folder: 'mmorpg_affixes/watcher_eye', name: 'Watcher Eyes', countId: 'watcherEyeCount' },
+    { key: 'base_gear_types', folder: 'mmorpg_base_gear_types', name: 'Gear Types', countId: 'gearTypeCount' },
+    { key: 'support_gem', folder: 'mmorpg_support_gem', name: 'Support Gems', countId: 'supportGemCount' },
+    { key: 'omen', folder: 'mmorpg_omen', name: 'Omens', countId: 'omenCount' },
+    { key: 'aura', folder: 'mmorpg_aura', name: 'Auras', countId: 'auraCount' },
+    { key: 'map_affix', folder: 'mmorpg_map_affix', name: 'Map Affixes', countId: 'mapAffixCount' }
 ];
 
 // Update data status
@@ -104,6 +108,7 @@ async function loadAllAffixData() {
 
         updateDataStatus('success', `Loaded ${totalLoaded} files in one request!`);
         console.log(`🎉 Total items loaded: ${totalLoaded}`);
+        renderStatSearchResults();
 
     } catch (error) {
         console.error('💥 Error loading combined data:', error);
@@ -222,6 +227,9 @@ function loadFromJson() {
             // This is a tool - CHECK THIS FIRST before jewel
             detectedItemType = 'tool';
 
+        } else if (json.tier !== undefined || json.uuid || isMapAffixList(json.affixes)) {
+            detectedItemType = 'map';
+
         } else if (json.uniq || json.style || (json.affixes && Array.isArray(json.affixes))) {
             // This is a jewel
             detectedItemType = 'jewel';
@@ -287,6 +295,8 @@ function loadFromJson() {
                 loadOmenFromJson(json);
             } else if (detectedItemType === 'aura') {
                 loadAuraFromJson(json);
+            } else if (detectedItemType === 'map') {
+                loadMapFromJson(json);
             }
 
         }, 200);
@@ -454,26 +464,58 @@ function loadOmenFromJson(json) {
     }
 }
 
-// Create display name with stat info
+function getAffixStats(data) {
+    if (!data) return [];
+    const lists = [data.stats, data.mods, data.base_stats].filter(Array.isArray);
+    const stats = [];
+    lists.forEach(list => {
+        list.forEach(entry => {
+            if (entry && entry.stat) stats.push(entry.stat);
+        });
+    });
+    return stats;
+}
+
+function getAffixSearchText(id, data) {
+    const extras = [];
+    if (data?.affected) extras.push(data.affected);
+    if (data?.req) extras.push(data.req);
+    if (data?.prophecy_type) extras.push(data.prophecy_type);
+    if (data?.type) extras.push(data.type);
+    extras.push(...getAffixStats(data));
+    return `${id} ${extras.join(' ')}`.toLowerCase();
+}
+
 function createDisplayName(id, data) {
-    let displayName = id.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
-    if (data && data.stats && data.stats.length > 0 && data.stats[0].stat) {
-        displayName += ` (${data.stats[0].stat})`;
-    }
+    let displayName = String(id || '').replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+    const extras = [];
+    if (data?.affected) extras.push(data.affected);
+    if (data?.req) extras.push(data.req);
+    const stats = getAffixStats(data);
+    if (stats.length) extras.push(stats.join(', '));
+    if (extras.length) displayName += ` (${extras.join(' | ')})`;
     return displayName;
+}
+
+function isMapAffixList(affixes) {
+    return Array.isArray(affixes) && affixes.length > 0 && affixes.every(affix =>
+        affix && affix.id && affix.p !== undefined && !affix.ty && !affix.rar
+    );
 }
 
 // Get available affix types based on current item type and mixed mode
 function getAvailableAffixTypes() {
     if (allowMixedTypes) {
-        return ['chaos_stat', 'crafted_jewel_unique', 'enchant', 'implicit', 'jewel', 'jewel_corruption', 'prefix', 'suffix', 'tool'];
+        return ['chaos_stat', 'crafted_jewel_unique', 'enchant', 'implicit', 'jewel', 'jewel_corruption', 'prefix', 'suffix', 'tool', 'watcher_eye', 'map_affix'];
     }
 
     switch (currentItemType) {
         case 'gear':
             return ['prefix', 'suffix', 'enchant'];
         case 'jewel':
-            return ['jewel', 'jewel_corruption'];
+            return ['jewel', 'jewel_corruption', 'watcher_eye'];
+        case 'map':
+            return ['map_affix'];
         case 'support_gem':
             return [];
         case 'omen':
@@ -498,12 +540,15 @@ function fillDropdown(selectElement, data, showStat = true) {
     }
 
     // Add options from data
-    Object.entries(data).forEach(([key, value]) => {
+    Object.entries(data || {}).forEach(([key, value]) => {
         const option = document.createElement('option');
         option.value = key;
+        option.dataset.stats = getAffixStats(value).join(' ');
+        option.dataset.search = getAffixSearchText(key, value);
         option.textContent = showStat ? createDisplayName(key, value) : key;
         selectElement.appendChild(option);
     });
+    applyStatSearchToSelect(selectElement);
 }
 
 // Populate affix select based on available types
@@ -524,11 +569,14 @@ function populateAffixSelect(selectElement, allowedTypes = null) {
                 const option = document.createElement('option');
                 option.value = key;
                 option.setAttribute('data-type', type);
+                option.dataset.stats = getAffixStats(data).join(' ');
+                option.dataset.search = getAffixSearchText(key, data);
                 option.textContent = createDisplayName(key, data);
                 selectElement.appendChild(option);
             });
         }
     });
+    applyStatSearchToSelect(selectElement);
 }
 
 // Select item type and show appropriate sections
@@ -548,6 +596,7 @@ function selectItemType(type) {
     document.getElementById('supportGemSections').style.display = 'none';
     document.getElementById('auraSections').style.display = 'none';
     document.getElementById('omenSections').style.display = 'none';
+    document.getElementById('mapSections').style.display = 'none';
 
     // Show the correct sections based on type
     if (type === 'gear') {
@@ -627,6 +676,21 @@ function selectItemType(type) {
             });
             updateRaritySelectColor(omenRaritySelect);
         }
+
+    } else if (type === 'map') {
+        document.getElementById('mapSections').style.display = 'block';
+        populateMapAffixDropdowns();
+        if (!document.getElementById('mapUuid')?.value) {
+            regenerateMapUuid();
+        }
+
+        const mapRaritySelect = document.getElementById('mapRar');
+        if (mapRaritySelect) {
+            mapRaritySelect.addEventListener('change', function() {
+                updateRaritySelectColor(this);
+            });
+            updateRaritySelectColor(mapRaritySelect);
+        }
     }
 }
 
@@ -685,6 +749,8 @@ function populateDropdownsForItemType() {
         });
     } else if (currentItemType === 'aura') {
         populateAuraDropdowns();
+    } else if (currentItemType === 'map') {
+        populateMapAffixDropdowns();
     }
 }
 
@@ -754,6 +820,273 @@ function populateAuraDropdowns() {
     if (auraIdSelect && affixData.aura) {
         fillDropdown(auraIdSelect, affixData.aura, true); // Changed from false to true
     }
+}
+
+function getCurrentStatSearchQuery() {
+    return (document.getElementById('statSearch')?.value || '').trim().toLowerCase();
+}
+
+function applyStatSearchToSelect(selectElement) {
+    if (!selectElement) return;
+    const query = getCurrentStatSearchQuery();
+    Array.from(selectElement.options).forEach((option, index) => {
+        if (index === 0 && !option.value) {
+            option.hidden = false;
+            return;
+        }
+        const haystack = `${option.value} ${option.textContent} ${option.dataset.search || ''} ${option.dataset.stats || ''}`.toLowerCase();
+        option.hidden = Boolean(query) && !haystack.includes(query);
+    });
+}
+
+function applyStatSearchToAllSelects() {
+    document.querySelectorAll('.prefix-id, .suffix-id, .jewel-affix-id, .omen-affix-id, .map-affix-id, #implicitId, #enchantmentId, #supportGemId, #auraId, #omenId').forEach(applyStatSearchToSelect);
+}
+
+function matchesMapAffixFilter(data, filter) {
+    if (!filter || filter === 'all') return true;
+    if (filter === 'prophecy') return Boolean(data?.req);
+    return data?.affected === filter;
+}
+
+function getFilteredMapAffixes() {
+    const filter = document.getElementById('mapAffixFilter')?.value || 'all';
+    const results = {};
+    Object.entries(affixData.map_affix || {}).forEach(([id, data]) => {
+        if (!matchesMapAffixFilter(data, filter)) return;
+        results[id] = data;
+    });
+    return results;
+}
+
+function populateMapAffixDropdowns() {
+    document.querySelectorAll('.map-affix-id').forEach(select => {
+        const current = select.value;
+        fillDropdown(select, getFilteredMapAffixes());
+        if (current) select.value = current;
+    });
+}
+
+function regenerateMapUuid() {
+    const input = document.getElementById('mapUuid');
+    if (!input) return;
+    if (window.crypto && crypto.randomUUID) {
+        input.value = crypto.randomUUID();
+    } else {
+        input.value = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, c => {
+            const r = Math.random() * 16 | 0;
+            const v = c === 'x' ? r : (r & 0x3 | 0x8);
+            return v.toString(16);
+        });
+    }
+}
+
+function addMapAffix(preselectedId = '') {
+    const affixList = document.getElementById('mapAffixList');
+    if (!affixList) return;
+
+    const affixItem = document.createElement('div');
+    affixItem.className = 'affix-item';
+    affixItem.innerHTML = `
+        <select class="map-affix-id">
+            <option value="">Select Map Affix</option>
+        </select>
+        <input type="number" class="map-affix-p" placeholder="Power" value="100" min="0" max="1000">
+        <button class="remove-btn" onclick="removeAffix(this)">❌</button>
+    `;
+
+    affixList.appendChild(affixItem);
+    const select = affixItem.querySelector('.map-affix-id');
+    fillDropdown(select, getFilteredMapAffixes());
+    if (preselectedId) select.value = preselectedId;
+}
+
+function generateMapNBT() {
+    const nbt = {
+        lvl: parseInt(document.getElementById('mapLvl')?.value || 1),
+        tier: parseInt(document.getElementById('mapTier')?.value || 0),
+        rar: document.getElementById('mapRar')?.value || 'common',
+        affixes: [],
+        uuid: document.getElementById('mapUuid')?.value || ''
+    };
+
+    if (!nbt.uuid) {
+        regenerateMapUuid();
+        nbt.uuid = document.getElementById('mapUuid')?.value || '';
+    }
+
+    document.querySelectorAll('#mapAffixList .affix-item').forEach(item => {
+        const id = item.querySelector('.map-affix-id')?.value;
+        const p = parseInt(item.querySelector('.map-affix-p')?.value || 100);
+        if (id) nbt.affixes.push({ id, p });
+    });
+
+    return nbt;
+}
+
+function loadMapFromJson(json) {
+    if (json.rar) document.getElementById('mapRar').value = json.rar;
+    if (json.lvl !== undefined) document.getElementById('mapLvl').value = json.lvl;
+    if (json.tier !== undefined) document.getElementById('mapTier').value = json.tier;
+    document.getElementById('mapUuid').value = json.uuid || '';
+    if (!json.uuid) regenerateMapUuid();
+
+    const raritySelect = document.getElementById('mapRar');
+    if (raritySelect) updateRaritySelectColor(raritySelect);
+
+    document.getElementById('mapAffixList').innerHTML = '';
+    const affixes = Array.isArray(json.affixes) ? json.affixes : (Array.isArray(json.aff) ? json.aff : []);
+    affixes.forEach(affix => {
+        addMapAffix(affix.id);
+        const items = document.querySelectorAll('#mapAffixList .affix-item');
+        const lastItem = items[items.length - 1];
+        if (affix.p !== undefined) lastItem.querySelector('.map-affix-p').value = affix.p;
+    });
+}
+
+const STAT_SEARCH_CATEGORIES = [
+    { key: 'prefix', label: 'Prefix' },
+    { key: 'suffix', label: 'Suffix' },
+    { key: 'implicit', label: 'Implicit' },
+    { key: 'enchant', label: 'Enchant' },
+    { key: 'jewel', label: 'Jewel' },
+    { key: 'jewel_corruption', label: 'Jewel Corruption' },
+    { key: 'watcher_eye', label: 'Watcher Eye' },
+    { key: 'chaos_stat', label: 'Chaos Stat' },
+    { key: 'map_affix', label: 'Map Affix' },
+    { key: 'support_gem', label: 'Support Gem' },
+    { key: 'aura', label: 'Aura' },
+    { key: 'omen', label: 'Omen' },
+    { key: 'tool', label: 'Tool' }
+];
+
+function searchAffixesByStat(query) {
+    const q = query.trim().toLowerCase();
+    if (!q) return [];
+
+    const matches = [];
+    STAT_SEARCH_CATEGORIES.forEach(({ key, label }) => {
+        Object.entries(affixData[key] || {}).forEach(([id, data]) => {
+            if (getAffixSearchText(id, data).includes(q)) {
+                matches.push({ key, label, id, data, stats: getAffixStats(data) });
+            }
+        });
+    });
+    return matches;
+}
+
+function renderStatSearchResults() {
+    const resultsEl = document.getElementById('statSearchResults');
+    if (!resultsEl) return;
+
+    const query = document.getElementById('statSearch')?.value || '';
+    applyStatSearchToAllSelects();
+
+    if (!query.trim()) {
+        resultsEl.innerHTML = '';
+        return;
+    }
+
+    const matches = searchAffixesByStat(query);
+    if (!matches.length) {
+        resultsEl.innerHTML = `<div class="stat-search-empty">No affixes found for "${query}"</div>`;
+        return;
+    }
+
+    const grouped = {};
+    matches.forEach(match => {
+        if (!grouped[match.label]) grouped[match.label] = [];
+        grouped[match.label].push(match);
+    });
+
+    resultsEl.innerHTML = Object.entries(grouped).map(([label, items]) => `
+        <div class="stat-search-group">
+            <h4>${label} <span>${items.length}</span></h4>
+            ${items.map(item => `
+                <button type="button" class="stat-search-result" onclick="useStatSearchResult('${item.key}', '${item.id}')">
+                    <strong>${createDisplayName(item.id, item.data)}</strong>
+                    <span>${item.id}${item.data?.affected ? ' · ' + item.data.affected : ''}</span>
+                </button>
+            `).join('')}
+        </div>
+    `).join('');
+}
+
+function useStatSearchResult(type, id) {
+    if (currentItemType === 'map' && type === 'map_affix') {
+        addMapAffix(id);
+        showNotification(`Added map affix: ${id}`);
+        return;
+    }
+
+    if (currentItemType === 'gear') {
+        if (type === 'suffix') {
+            addSuffix();
+            const items = document.querySelectorAll('#suffixList .affix-item');
+            const last = items[items.length - 1];
+            if (last) last.querySelector('.suffix-id').value = id;
+            showNotification(`Added suffix: ${id}`);
+            return;
+        }
+        addPrefix();
+        const items = document.querySelectorAll('#prefixList .affix-item');
+        const last = items[items.length - 1];
+        if (last) last.querySelector('.prefix-id').value = id;
+        showNotification(`Added prefix: ${id}`);
+        return;
+    }
+
+    if (currentItemType === 'jewel') {
+        addJewelAffix();
+        const items = document.querySelectorAll('#jewelAffixList .affix-item');
+        const last = items[items.length - 1];
+        if (last) {
+            const typeSelect = last.querySelector('.jewel-affix-type');
+            if (typeSelect) {
+                typeSelect.value = type;
+                updateJewelAffixDropdown(typeSelect);
+            }
+            last.querySelector('.jewel-affix-id').value = id;
+        }
+        showNotification(`Added jewel affix: ${id}`);
+        return;
+    }
+
+    if (currentItemType === 'omen') {
+        addOmenAffix();
+        const items = document.querySelectorAll('#omenAffixList .affix-item');
+        const last = items[items.length - 1];
+        if (last) {
+            const typeSelect = last.querySelector('.omen-affix-type');
+            if (typeSelect) {
+                typeSelect.value = type;
+                updateOmenAffixDropdown(typeSelect);
+            }
+            last.querySelector('.omen-affix-id').value = id;
+        }
+        showNotification(`Added omen affix: ${id}`);
+        return;
+    }
+
+    if (currentItemType === 'support_gem' && type === 'support_gem') {
+        const select = document.getElementById('supportGemId');
+        if (select) select.value = id;
+        showNotification(`Selected support gem: ${id}`);
+        return;
+    }
+
+    if (currentItemType === 'aura' && type === 'aura') {
+        const select = document.getElementById('auraId');
+        if (select) select.value = id;
+        showNotification(`Selected aura: ${id}`);
+        return;
+    }
+
+    navigator.clipboard.writeText(id).then(() => {
+        showNotification(`Copied affix id: ${id}`);
+    }).catch(() => {
+        showNotification(`Affix id: ${id}`);
+    });
 }
 
 // Add prefix
@@ -877,9 +1210,10 @@ function updateJewelAffixDropdown(typeSelect) {
         Object.keys(affixData[selectedType]).forEach(id => {
             const data = affixData[selectedType][id];
             const displayName = createDisplayName(id, data);
-            affixSelect.innerHTML += `<option value="${id}">${displayName}</option>`;
+            affixSelect.innerHTML += `<option value="${id}" data-stats="${getAffixStats(data).join(' ')}" data-search="${getAffixSearchText(id, data)}">${displayName}</option>`;
         });
     }
+    applyStatSearchToSelect(affixSelect);
 }
 
 function generateNBT() {
@@ -899,6 +1233,8 @@ function generateNBT() {
             nbtData = generateOmenNBT();
         } else if (currentItemType === 'tool') {
             nbtData = generateToolNBT();
+        } else if (currentItemType === 'map') {
+            nbtData = generateMapNBT();
         }
 
         const jsonOutput = JSON.stringify(nbtData, null, 2);
@@ -1186,9 +1522,10 @@ function updateOmenAffixDropdown(typeSelect) {
         Object.keys(affixData[selectedType]).forEach(id => {
             const data = affixData[selectedType][id];
             const displayName = createDisplayName(id, data);
-            affixSelect.innerHTML += `<option value="${id}">${displayName}</option>`;
+            affixSelect.innerHTML += `<option value="${id}" data-stats="${getAffixStats(data).join(' ')}" data-search="${getAffixSearchText(id, data)}">${displayName}</option>`;
         });
     }
+    applyStatSearchToSelect(affixSelect);
 }
 
 // Remove affix
@@ -1429,4 +1766,9 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log('NBT Item Creator starting up...');
     loadAllAffixData();
     initializeApp();
+
+    const statSearch = document.getElementById('statSearch');
+    if (statSearch) {
+        statSearch.addEventListener('input', renderStatSearchResults);
+    }
 });

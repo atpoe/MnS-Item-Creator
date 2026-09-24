@@ -1,0 +1,32 @@
+{
+  "type": "prefix",
+  "eye_aura_req": "",
+  "guid": "fire_wep_flat_dmg",
+  "one_of_a_kind": "",
+  "only_one_per_item": true,
+  "requirements": {
+    "tag_requirements": [
+      {
+        "type": "GearSlot",
+        "excluded": [
+          "two_handed"
+        ],
+        "included": [
+          "weapon_family",
+          "totem",
+		  "might"
+        ],
+        "req_type": "INCLUDES_ANY"
+      }
+    ]
+  },
+  "stats": [
+    {
+      "type": "FLAT",
+      "max": 2.0,
+      "min": 0.4,
+      "stat": "flat_fire_added_attack_damage"
+    }
+  ],
+  "weight": 500
+}

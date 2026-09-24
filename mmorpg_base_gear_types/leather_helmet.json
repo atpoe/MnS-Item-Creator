@@ -2,8 +2,8 @@
   "base_stats": [
     {
       "type": "FLAT",
-      "max": 6.0,
-      "min": 3.0,
+      "max": 8.1,
+      "min": 4.05,
       "stat": "dodge"
     },
     {

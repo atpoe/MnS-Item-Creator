@@ -21,8 +21,8 @@
       "stats": [
         {
           "type": "FLAT",
-          "max": 20,
-          "min": 20,
+          "max": 30,
+          "min": 30,
           "stat": "attack_speed"
         }
       ],
@@ -50,8 +50,8 @@
       "stats": [
         {
           "type": "FLAT",
-          "max": 5,
-          "min": 5,
+          "max": 3,
+          "min": 3,
           "stat": "aura_effect"
         }
       ],
@@ -84,9 +84,9 @@
           "stat": "bleed_chance"
         },
         {
-          "type": "MORE",
-          "max": 5,
-          "min": 5,
+          "type": "FLAT",
+          "max": 10,
+          "min": 10,
           "stat": "bleed_damage"
         }
       ],
@@ -155,9 +155,9 @@
           "stat": "burn_chance"
         },
         {
-          "type": "MORE",
-          "max": 5,
-          "min": 5,
+          "type": "FLAT",
+          "max": 10,
+          "min": 10,
           "stat": "burn_damage"
         }
       ],
@@ -185,8 +185,8 @@
       "stats": [
         {
           "type": "FLAT",
-          "max": 8,
-          "min": 8,
+          "max": 24,
+          "min": 24,
           "stat": "cast_speed"
         }
       ],
@@ -214,9 +214,9 @@
       "stats": [
         {
           "type": "FLAT",
-          "max": 5,
-          "min": 5,
-          "stat": "cdr"
+          "max": 15,
+          "min": 15,
+          "stat": "skill_speed"
         }
       ],
       "weight": 1000
@@ -245,6 +245,35 @@
           "max": 5,
           "min": 5,
           "stat": "all_chaos_damage"
+        }
+      ],
+      "weight": 1000
+    },
+    "gear_corruptcharge_recovery": {
+      "type": "chaos_stat",
+      "eye_aura_req": "",
+      "guid": "gear_corruptcharge_recovery",
+      "one_of_a_kind": "",
+      "only_one_per_item": true,
+      "requirements": {
+        "tag_requirements": [
+          {
+            "type": "GearSlot",
+            "excluded": [],
+            "included": [
+              "weapon_family",
+              "jewelry_family"
+            ],
+            "req_type": "INCLUDES_ANY"
+          }
+        ]
+      },
+      "stats": [
+        {
+          "type": "FLAT",
+          "max": 10,
+          "min": 10,
+          "stat": "charge_recovery_rate"
         }
       ],
       "weight": 1000
@@ -388,9 +417,9 @@
           "stat": "electrify_chance"
         },
         {
-          "type": "MORE",
-          "max": 5,
-          "min": 5,
+          "type": "FLAT",
+          "max": 10,
+          "min": 10,
           "stat": "electrify_damage"
         }
       ],
@@ -507,9 +536,9 @@
           "stat": "freeze_chance"
         },
         {
-          "type": "MORE",
-          "max": 5,
-          "min": 5,
+          "type": "FLAT",
+          "max": 10,
+          "min": 10,
           "stat": "freeze_damage"
         }
       ],
@@ -570,15 +599,9 @@
       },
       "stats": [
         {
-          "type": "flat",
-          "max": 1,
-          "min": 1,
-          "stat": "max_total_summons"
-        },
-        {
           "type": "MORE",
-          "max": 4,
-          "min": 4,
+          "max": 8,
+          "min": 8,
           "stat": "summon_damage"
         }
       ],
@@ -923,7 +946,7 @@
       ],
       "weight": 1000
     },
-    "gear_corruptneckalce_all": {
+    "gear_corruptnecklace_all": {
       "type": "chaos_stat",
       "eye_aura_req": "",
       "guid": "gear_corruptnecklace_all",
@@ -1198,9 +1221,9 @@
           "stat": "poison_chance"
         },
         {
-          "type": "MORE",
-          "max": 5,
-          "min": 5,
+          "type": "FLAT",
+          "max": 10,
+          "min": 10,
           "stat": "poison_damage"
         }
       ],
@@ -1339,8 +1362,8 @@
       "stats": [
         {
           "type": "FLAT",
-          "max": 15,
-          "min": 15,
+          "max": 20,
+          "min": 20,
           "stat": "weapon_skill_cdr_per_attack_speed"
         }
       ],
@@ -1481,8 +1504,8 @@
       "stats": [
         {
           "type": "FLAT",
-          "max": 10,
-          "min": 2,
+          "max": 5,
+          "min": 1,
           "stat": "aura_effect"
         }
       ],
@@ -1509,9 +1532,9 @@
       "stats": [
         {
           "type": "FLAT",
-          "max": 6,
-          "min": 1.2,
-          "stat": "cdr"
+          "max": 18,
+          "min": 3.6,
+          "stat": "skill_speed"
         }
       ],
       "weight": 1000
@@ -1543,6 +1566,34 @@
         }
       ],
       "weight": 500
+    },
+    "crafted_jewel_charge_recovery_rate": {
+      "type": "crafted_jewel_unique",
+      "eye_aura_req": "",
+      "guid": "crafted_jewel_charge_recovery_rate",
+      "one_of_a_kind": "",
+      "only_one_per_item": true,
+      "requirements": {
+        "tag_requirements": [
+          {
+            "type": "GearSlot",
+            "excluded": [],
+            "included": [
+              "crafted_jewel_unique"
+            ],
+            "req_type": "INCLUDES_ANY"
+          }
+        ]
+      },
+      "stats": [
+        {
+          "type": "FLAT",
+          "max": 6,
+          "min": 1.2,
+          "stat": "charge_recovery_rate"
+        }
+      ],
+      "weight": 1000
     },
     "crafted_jewel_crit": {
       "type": "crafted_jewel_unique",
@@ -2476,7 +2527,42 @@
       ],
       "weight": 1000
     },
-    "ench_chest_stat_armor_energy_flat": {
+    "ench_boots_proc_tailwind_sweep_when_hit": {
+      "type": "enchant",
+      "eye_aura_req": "",
+      "guid": "ench_boots_proc_tailwind_sweep_when_hit",
+      "one_of_a_kind": "",
+      "only_one_per_item": true,
+      "requirements": {
+        "tag_requirements": [
+          {
+            "type": "GearSlot",
+            "excluded": [],
+            "included": [
+              "enchantment",
+              "boots"
+            ],
+            "req_type": "INCLUDES_ANY"
+          }
+        ]
+      },
+      "stats": [
+        {
+          "type": "FLAT",
+          "max": 12,
+          "min": 4,
+          "stat": "proc_tailwind_sweep_when_hit"
+        },
+        {
+          "type": "FLAT",
+          "max": 1,
+          "min": 1,
+          "stat": "learn_tailwind_sweep"
+        }
+      ],
+      "weight": 1000
+    },
+    "ench_chest_armor_energy_flat": {
       "type": "enchant",
       "eye_aura_req": "",
       "guid": "ench_chest_armor_energy_flat",
@@ -2504,14 +2590,14 @@
         },
         {
           "type": "FLAT",
-          "max": 4.5,
-          "min": 1.5,
+          "max": 6,
+          "min": 2,
           "stat": "energy"
         }
       ],
       "weight": 1000
     },
-    "ench_chest_stat_armor_flat": {
+    "ench_chest_armor_flat": {
       "type": "enchant",
       "eye_aura_req": "",
       "guid": "ench_chest_armor_flat",
@@ -2540,7 +2626,7 @@
       ],
       "weight": 1000
     },
-    "ench_chest_stat_armor_hp_flat": {
+    "ench_chest_armor_hp_flat": {
       "type": "enchant",
       "eye_aura_req": "",
       "guid": "ench_chest_armor_hp_flat",
@@ -2575,7 +2661,7 @@
       ],
       "weight": 1000
     },
-    "ench_chest_stat_armor_mana_flat": {
+    "ench_chest_armor_mana_flat": {
       "type": "enchant",
       "eye_aura_req": "",
       "guid": "ench_chest_armor_mana_flat",
@@ -2610,7 +2696,7 @@
       ],
       "weight": 1000
     },
-    "ench_chest_stat_armor_ms_flat": {
+    "ench_chest_armor_ms_flat": {
       "type": "enchant",
       "eye_aura_req": "",
       "guid": "ench_chest_armor_ms_flat",
@@ -2645,7 +2731,7 @@
       ],
       "weight": 1000
     },
-    "ench_chest_stat_dodge_armor_flat": {
+    "ench_chest_dodge_armor_flat": {
       "type": "enchant",
       "eye_aura_req": "",
       "guid": "ench_chest_dodge_armor_flat",
@@ -2680,7 +2766,7 @@
       ],
       "weight": 1000
     },
-    "ench_chest_stat_dodge_energy_flat": {
+    "ench_chest_dodge_energy_flat": {
       "type": "enchant",
       "eye_aura_req": "",
       "guid": "ench_chest_dodge_energy_flat",
@@ -2708,14 +2794,14 @@
         },
         {
           "type": "FLAT",
-          "max": 4.5,
-          "min": 1.5,
+          "max": 6,
+          "min": 2,
           "stat": "energy"
         }
       ],
       "weight": 1000
     },
-    "ench_chest_stat_dodge_flat": {
+    "ench_chest_dodge_flat": {
       "type": "enchant",
       "eye_aura_req": "",
       "guid": "ench_chest_dodge_flat",
@@ -2744,7 +2830,7 @@
       ],
       "weight": 1000
     },
-    "ench_chest_stat_dodge_hp_flat": {
+    "ench_chest_dodge_hp_flat": {
       "type": "enchant",
       "eye_aura_req": "",
       "guid": "ench_chest_dodge_hp_flat",
@@ -2779,7 +2865,7 @@
       ],
       "weight": 1000
     },
-    "ench_chest_stat_dodge_mana_flat": {
+    "ench_chest_dodge_mana_flat": {
       "type": "enchant",
       "eye_aura_req": "",
       "guid": "ench_chest_dodge_mana_flat",
@@ -2814,7 +2900,7 @@
       ],
       "weight": 1000
     },
-    "ench_chest_stat_dodge_ms_flat": {
+    "ench_chest_dodge_ms_flat": {
       "type": "enchant",
       "eye_aura_req": "",
       "guid": "ench_chest_dodge_ms_flat",
@@ -2849,7 +2935,7 @@
       ],
       "weight": 1000
     },
-    "ench_chest_stat_energy_flat": {
+    "ench_chest_energy_flat": {
       "type": "enchant",
       "eye_aura_req": "",
       "guid": "ench_chest_energy_flat",
@@ -2871,14 +2957,14 @@
       "stats": [
         {
           "type": "FLAT",
-          "max": 6.75,
-          "min": 2.25,
+          "max": 9,
+          "min": 3,
           "stat": "energy"
         }
       ],
       "weight": 1000
     },
-    "ench_chest_stat_hp_flat": {
+    "ench_chest_hp_flat": {
       "type": "enchant",
       "eye_aura_req": "",
       "guid": "ench_chest_hp_flat",
@@ -2907,7 +2993,7 @@
       ],
       "weight": 1000
     },
-    "ench_chest_stat_mana_flat": {
+    "ench_chest_mana_flat": {
       "type": "enchant",
       "eye_aura_req": "",
       "guid": "ench_chest_mana_flat",
@@ -2936,7 +3022,7 @@
       ],
       "weight": 1000
     },
-    "ench_chest_stat_ms_energy_flat": {
+    "ench_chest_ms_energy_flat": {
       "type": "enchant",
       "eye_aura_req": "",
       "guid": "ench_chest_ms_energy_flat",
@@ -2964,14 +3050,14 @@
         },
         {
           "type": "FLAT",
-          "max": 4.5,
-          "min": 1.5,
+          "max": 6,
+          "min": 2,
           "stat": "energy"
         }
       ],
       "weight": 1000
     },
-    "ench_chest_stat_ms_flat": {
+    "ench_chest_ms_flat": {
       "type": "enchant",
       "eye_aura_req": "",
       "guid": "ench_chest_ms_flat",
@@ -3000,7 +3086,7 @@
       ],
       "weight": 1000
     },
-    "ench_chest_stat_ms_hp_flat": {
+    "ench_chest_ms_hp_flat": {
       "type": "enchant",
       "eye_aura_req": "",
       "guid": "ench_chest_ms_hp_flat",
@@ -3035,7 +3121,7 @@
       ],
       "weight": 1000
     },
-    "ench_chest_stat_ms_mana_flat": {
+    "ench_chest_ms_mana_flat": {
       "type": "enchant",
       "eye_aura_req": "",
       "guid": "ench_chest_ms_mana_flat",
@@ -3296,8 +3382,8 @@
       "stats": [
         {
           "type": "FLAT",
-          "max": 1.5,
-          "min": 0.5,
+          "max": 3,
+          "min": 1,
           "stat": "armor_penetration"
         }
       ],
@@ -3419,7 +3505,7 @@
       ],
       "weight": 1000
     },
-    "ench_necklace_stat_all_flat": {
+    "ench_necklace_all_flat": {
       "type": "enchant",
       "eye_aura_req": "",
       "guid": "ench_necklace_all_flat",
@@ -3441,14 +3527,14 @@
       "stats": [
         {
           "type": "FLAT",
-          "max": 6,
-          "min": 2,
+          "max": 3,
+          "min": 1,
           "stat": "all_attributes"
         }
       ],
       "weight": 1000
     },
-    "ench_necklace_stat_all_percent": {
+    "ench_necklace_all_percent": {
       "type": "enchant",
       "eye_aura_req": "",
       "guid": "ench_necklace_all_percent",
@@ -3477,7 +3563,7 @@
       ],
       "weight": 1000
     },
-    "ench_necklace_stat_dex_flat": {
+    "ench_necklace_dex_flat": {
       "type": "enchant",
       "eye_aura_req": "",
       "guid": "ench_necklace_dex_flat",
@@ -3499,14 +3585,14 @@
       "stats": [
         {
           "type": "FLAT",
-          "max": 9,
-          "min": 3,
+          "max": 4.5,
+          "min": 1.5,
           "stat": "dexterity"
         }
       ],
       "weight": 1000
     },
-    "ench_necklace_stat_dex_percent": {
+    "ench_necklace_dex_percent": {
       "type": "enchant",
       "eye_aura_req": "",
       "guid": "ench_necklace_dex_percent",
@@ -3535,7 +3621,7 @@
       ],
       "weight": 1000
     },
-    "ench_necklace_stat_dex_str_flat": {
+    "ench_necklace_dex_str_flat": {
       "type": "enchant",
       "eye_aura_req": "",
       "guid": "ench_necklace_dex_str_flat",
@@ -3557,20 +3643,20 @@
       "stats": [
         {
           "type": "FLAT",
-          "max": 6,
-          "min": 2,
+          "max": 3,
+          "min": 1,
           "stat": "dexterity"
         },
         {
           "type": "FLAT",
-          "max": 6,
-          "min": 2,
+          "max": 3,
+          "min": 1,
           "stat": "strength"
         }
       ],
       "weight": 1000
     },
-    "ench_necklace_stat_dex_str_percent": {
+    "ench_necklace_dex_str_percent": {
       "type": "enchant",
       "eye_aura_req": "",
       "guid": "ench_necklace_dex_str_percent",
@@ -3605,7 +3691,7 @@
       ],
       "weight": 1000
     },
-    "ench_necklace_stat_energy_regen": {
+    "ench_necklace_energy_regen": {
       "type": "enchant",
       "eye_aura_req": "",
       "guid": "ench_necklace_energy_regen",
@@ -3634,7 +3720,7 @@
       ],
       "weight": 1000
     },
-    "ench_necklace_stat_health_regen": {
+    "ench_necklace_health_regen": {
       "type": "enchant",
       "eye_aura_req": "",
       "guid": "ench_necklace_health_regen",
@@ -3663,7 +3749,7 @@
       ],
       "weight": 1000
     },
-    "ench_necklace_stat_int_dex_flat": {
+    "ench_necklace_int_dex_flat": {
       "type": "enchant",
       "eye_aura_req": "",
       "guid": "ench_necklace_int_dex_flat",
@@ -3685,20 +3771,20 @@
       "stats": [
         {
           "type": "FLAT",
-          "max": 6,
-          "min": 2,
+          "max": 3,
+          "min": 1,
           "stat": "intelligence"
         },
         {
           "type": "FLAT",
-          "max": 6,
-          "min": 2,
+          "max": 3,
+          "min": 1,
           "stat": "dexterity"
         }
       ],
       "weight": 1000
     },
-    "ench_necklace_stat_int_dex_percent": {
+    "ench_necklace_int_dex_percent": {
       "type": "enchant",
       "eye_aura_req": "",
       "guid": "ench_necklace_int_dex_percent",
@@ -3733,7 +3819,7 @@
       ],
       "weight": 1000
     },
-    "ench_necklace_stat_int_flat": {
+    "ench_necklace_int_flat": {
       "type": "enchant",
       "eye_aura_req": "",
       "guid": "ench_necklace_int_flat",
@@ -3755,14 +3841,14 @@
       "stats": [
         {
           "type": "FLAT",
-          "max": 9,
-          "min": 3,
+          "max": 4.5,
+          "min": 1.5,
           "stat": "intelligence"
         }
       ],
       "weight": 1000
     },
-    "ench_necklace_stat_int_percent": {
+    "ench_necklace_int_percent": {
       "type": "enchant",
       "eye_aura_req": "",
       "guid": "ench_necklace_int_percent",
@@ -3791,7 +3877,7 @@
       ],
       "weight": 1000
     },
-    "ench_necklace_stat_magic_shield_regen": {
+    "ench_necklace_magic_shield_regen": {
       "type": "enchant",
       "eye_aura_req": "",
       "guid": "ench_necklace_magic_shield_regen",
@@ -3820,7 +3906,7 @@
       ],
       "weight": 1000
     },
-    "ench_necklace_stat_mana_regen": {
+    "ench_necklace_mana_regen": {
       "type": "enchant",
       "eye_aura_req": "",
       "guid": "ench_necklace_mana_regen",
@@ -3849,7 +3935,7 @@
       ],
       "weight": 1000
     },
-    "ench_necklace_stat_str_flat": {
+    "ench_necklace_str_flat": {
       "type": "enchant",
       "eye_aura_req": "",
       "guid": "ench_necklace_str_flat",
@@ -3871,14 +3957,14 @@
       "stats": [
         {
           "type": "FLAT",
-          "max": 9,
-          "min": 3,
+          "max": 4.5,
+          "min": 1.5,
           "stat": "strength"
         }
       ],
       "weight": 1000
     },
-    "ench_necklace_stat_str_int_dex_flat": {
+    "ench_necklace_str_int_dex_flat": {
       "type": "enchant",
       "eye_aura_req": "",
       "guid": "ench_necklace_str_int_dex_flat",
@@ -3900,26 +3986,26 @@
       "stats": [
         {
           "type": "FLAT",
-          "max": 3,
-          "min": 1,
+          "max": 1.5,
+          "min": 0.5,
           "stat": "strength"
         },
         {
           "type": "FLAT",
-          "max": 3,
-          "min": 1,
+          "max": 1.5,
+          "min": 0.5,
           "stat": "intelligence"
         },
         {
           "type": "FLAT",
-          "max": 3,
-          "min": 1,
+          "max": 1.5,
+          "min": 0.5,
           "stat": "dexterity"
         }
       ],
       "weight": 0
     },
-    "ench_necklace_stat_str_int_dex_percent": {
+    "ench_necklace_str_int_dex_percent": {
       "type": "enchant",
       "eye_aura_req": "",
       "guid": "ench_necklace_str_int_dex_percent",
@@ -3960,7 +4046,7 @@
       ],
       "weight": 0
     },
-    "ench_necklace_stat_str_int_flat": {
+    "ench_necklace_str_int_flat": {
       "type": "enchant",
       "eye_aura_req": "",
       "guid": "ench_necklace_str_int_flat",
@@ -3982,20 +4068,20 @@
       "stats": [
         {
           "type": "FLAT",
-          "max": 6,
-          "min": 2,
+          "max": 3,
+          "min": 1,
           "stat": "strength"
         },
         {
           "type": "FLAT",
-          "max": 6,
-          "min": 2,
+          "max": 3,
+          "min": 1,
           "stat": "intelligence"
         }
       ],
       "weight": 1000
     },
-    "ench_necklace_stat_str_int_percent": {
+    "ench_necklace_str_int_percent": {
       "type": "enchant",
       "eye_aura_req": "",
       "guid": "ench_necklace_str_int_percent",
@@ -4030,7 +4116,7 @@
       ],
       "weight": 1000
     },
-    "ench_necklace_stat_str_percent": {
+    "ench_necklace_str_percent": {
       "type": "enchant",
       "eye_aura_req": "",
       "guid": "ench_necklace_str_percent",
@@ -4059,7 +4145,7 @@
       ],
       "weight": 1000
     },
-    "ench_offh_stat_physres_flat": {
+    "ench_offh_physres_flat": {
       "type": "enchant",
       "eye_aura_req": "",
       "guid": "ench_offh_physres_flat",
@@ -4291,7 +4377,7 @@
       ],
       "weight": 1000
     },
-    "ench_ring_offh_stat_coldres_lightres_flat": {
+    "ench_ring_offh_coldres_lightres_flat": {
       "type": "enchant",
       "eye_aura_req": "",
       "guid": "ench_ring_offh_coldres_lightres_flat",
@@ -4327,7 +4413,7 @@
       ],
       "weight": 1000
     },
-    "ench_ring_offh_stat_fireres_coldres_flat": {
+    "ench_ring_offh_fireres_coldres_flat": {
       "type": "enchant",
       "eye_aura_req": "",
       "guid": "ench_ring_offh_fireres_coldres_flat",
@@ -4363,7 +4449,7 @@
       ],
       "weight": 1000
     },
-    "ench_ring_offh_stat_fireres_coldres_lightres_flat": {
+    "ench_ring_offh_fireres_coldres_lightres_flat": {
       "type": "enchant",
       "eye_aura_req": "",
       "guid": "ench_ring_offh_fireres_coldres_lightres_flat",
@@ -4392,7 +4478,7 @@
       ],
       "weight": 1000
     },
-    "ench_ring_offh_stat_lightres_fireres_flat": {
+    "ench_ring_offh_lightres_fireres_flat": {
       "type": "enchant",
       "eye_aura_req": "",
       "guid": "ench_ring_offh_lightres_fireres_flat",
@@ -4428,7 +4514,7 @@
       ],
       "weight": 1000
     },
-    "ench_ring_offh_stat_physres_chaosres_flat": {
+    "ench_ring_offh_physres_chaosres_flat": {
       "type": "enchant",
       "eye_aura_req": "",
       "guid": "ench_ring_offh_physres_chaosres_flat",
@@ -4464,7 +4550,7 @@
       ],
       "weight": 1000
     },
-    "ench_ring_offh_stat_physres_flat": {
+    "ench_ring_offh_physres_flat": {
       "type": "enchant",
       "eye_aura_req": "",
       "guid": "ench_ring_offh_physres_flat",
@@ -4493,7 +4579,7 @@
       ],
       "weight": 1000
     },
-    "ench_ring_stat_chaosres_flat": {
+    "ench_ring_chaosres_flat": {
       "type": "enchant",
       "eye_aura_req": "",
       "guid": "ench_ring_chaosres_flat",
@@ -4522,7 +4608,7 @@
       ],
       "weight": 1000
     },
-    "ench_ring_stat_coldres_flat": {
+    "ench_ring_coldres_flat": {
       "type": "enchant",
       "eye_aura_req": "",
       "guid": "ench_ring_coldres_flat",
@@ -4551,7 +4637,7 @@
       ],
       "weight": 1000
     },
-    "ench_ring_stat_fireres_flat": {
+    "ench_ring_fireres_flat": {
       "type": "enchant",
       "eye_aura_req": "",
       "guid": "ench_ring_fireres_flat",
@@ -4580,7 +4666,7 @@
       ],
       "weight": 1000
     },
-    "ench_ring_stat_lightres_flat": {
+    "ench_ring_lightres_flat": {
       "type": "enchant",
       "eye_aura_req": "",
       "guid": "ench_ring_lightres_flat",
@@ -4609,7 +4695,7 @@
       ],
       "weight": 1000
     },
-    "ench_weapon_family_stat_areadam_flat": {
+    "ench_weapon_family_areadam_flat": {
       "type": "enchant",
       "eye_aura_req": "",
       "guid": "ench_weapon_family_areadam_flat",
@@ -4638,7 +4724,7 @@
       ],
       "weight": 1000
     },
-    "ench_weapon_family_stat_basicdam_flat": {
+    "ench_weapon_family_basicdam_flat": {
       "type": "enchant",
       "eye_aura_req": "",
       "guid": "ench_weapon_family_basicdam_flat",
@@ -4667,7 +4753,7 @@
       ],
       "weight": 1000
     },
-    "ench_weapon_family_stat_chaosdam_flat": {
+    "ench_weapon_family_chaosdam_flat": {
       "type": "enchant",
       "eye_aura_req": "",
       "guid": "ench_weapon_family_chaosdam_flat",
@@ -4696,7 +4782,7 @@
       ],
       "weight": 1000
     },
-    "ench_weapon_family_stat_colddam_flat": {
+    "ench_weapon_family_colddam_flat": {
       "type": "enchant",
       "eye_aura_req": "",
       "guid": "ench_weapon_family_colddam_flat",
@@ -4725,7 +4811,7 @@
       ],
       "weight": 1000
     },
-    "ench_weapon_family_stat_critdam_flat": {
+    "ench_weapon_family_critdam_flat": {
       "type": "enchant",
       "eye_aura_req": "",
       "guid": "ench_weapon_family_critdam_flat",
@@ -4754,7 +4840,7 @@
       ],
       "weight": 1000
     },
-    "ench_weapon_family_stat_dotdam_flat": {
+    "ench_weapon_family_dotdam_flat": {
       "type": "enchant",
       "eye_aura_req": "",
       "guid": "ench_weapon_family_dotdam_flat",
@@ -4783,7 +4869,7 @@
       ],
       "weight": 1000
     },
-    "ench_weapon_family_stat_eledam_flat": {
+    "ench_weapon_family_eledam_flat": {
       "type": "enchant",
       "eye_aura_req": "",
       "guid": "ench_weapon_family_eledam_flat",
@@ -4812,7 +4898,7 @@
       ],
       "weight": 1000
     },
-    "ench_weapon_family_stat_firedam_flat": {
+    "ench_weapon_family_firedam_flat": {
       "type": "enchant",
       "eye_aura_req": "",
       "guid": "ench_weapon_family_firedam_flat",
@@ -4841,7 +4927,7 @@
       ],
       "weight": 1000
     },
-    "ench_weapon_family_stat_lightdam_flat": {
+    "ench_weapon_family_lightdam_flat": {
       "type": "enchant",
       "eye_aura_req": "",
       "guid": "ench_weapon_family_lightdam_flat",
@@ -4870,7 +4956,7 @@
       ],
       "weight": 1000
     },
-    "ench_weapon_family_stat_magicdam_flat": {
+    "ench_weapon_family_magicdam_flat": {
       "type": "enchant",
       "eye_aura_req": "",
       "guid": "ench_weapon_family_magicdam_flat",
@@ -4899,7 +4985,7 @@
       ],
       "weight": 1000
     },
-    "ench_weapon_family_stat_meleedam_flat": {
+    "ench_weapon_family_meleedam_flat": {
       "type": "enchant",
       "eye_aura_req": "",
       "guid": "ench_weapon_family_meleedam_flat",
@@ -4928,7 +5014,7 @@
       ],
       "weight": 1000
     },
-    "ench_weapon_family_stat_noncritdam_flat": {
+    "ench_weapon_family_noncritdam_flat": {
       "type": "enchant",
       "eye_aura_req": "",
       "guid": "ench_weapon_family_noncritdam_flat",
@@ -4957,7 +5043,7 @@
       ],
       "weight": 1000
     },
-    "ench_weapon_family_stat_physdam_flat": {
+    "ench_weapon_family_physdam_flat": {
       "type": "enchant",
       "eye_aura_req": "",
       "guid": "ench_weapon_family_physdam_flat",
@@ -4986,7 +5072,7 @@
       ],
       "weight": 1000
     },
-    "ench_weapon_family_stat_projdam_flat": {
+    "ench_weapon_family_projdam_flat": {
       "type": "enchant",
       "eye_aura_req": "",
       "guid": "ench_weapon_family_projdam_flat",
@@ -5015,7 +5101,7 @@
       ],
       "weight": 1000
     },
-    "ench_weapon_family_stat_songdam_flat": {
+    "ench_weapon_family_songdam_flat": {
       "type": "enchant",
       "eye_aura_req": "",
       "guid": "ench_weapon_family_songdam_flat",
@@ -5044,7 +5130,7 @@
       ],
       "weight": 1000
     },
-    "ench_weapon_family_stat_summondam_flat": {
+    "ench_weapon_family_summondam_flat": {
       "type": "enchant",
       "eye_aura_req": "",
       "guid": "ench_weapon_family_summondam_flat",
@@ -5073,7 +5159,7 @@
       ],
       "weight": 1000
     },
-    "ench_weapon_family_stat_totaldam_flat": {
+    "ench_weapon_family_totaldam_flat": {
       "type": "enchant",
       "eye_aura_req": "",
       "guid": "ench_weapon_family_totaldam_flat",
@@ -5102,7 +5188,7 @@
       ],
       "weight": 1000
     },
-    "ench_weapon_family_stat_totemdam_flat": {
+    "ench_weapon_family_totemdam_flat": {
       "type": "enchant",
       "eye_aura_req": "",
       "guid": "ench_weapon_family_totemdam_flat",
@@ -5434,8 +5520,8 @@
       "stats": [
         {
           "type": "FLAT",
-          "max": 30,
-          "min": 15,
+          "max": 45,
+          "min": 22.5,
           "stat": "attack_speed"
         }
       ],
@@ -5603,8 +5689,8 @@
       "stats": [
         {
           "type": "FLAT",
-          "max": 6,
-          "min": 3,
+          "max": 18,
+          "min": 9,
           "stat": "cast_speed"
         }
       ],
@@ -5689,8 +5775,8 @@
       "stats": [
         {
           "type": "FLAT",
-          "max": 6,
-          "min": 3,
+          "max": 8,
+          "min": 4,
           "stat": "energy"
         }
       ],
@@ -6027,8 +6113,8 @@
       "stats": [
         {
           "type": "FLAT",
-          "max": 30,
-          "min": 15,
+          "max": 45,
+          "min": 22.5,
           "stat": "attack_speed"
         }
       ],
@@ -6351,7 +6437,7 @@
     "reapers_scythe": {
       "type": "implicit",
       "eye_aura_req": "",
-      "guid": "necromancers_scythe",
+      "guid": "reapers_scythe",
       "one_of_a_kind": "",
       "only_one_per_item": true,
       "requirements": {
@@ -6679,8 +6765,8 @@
       "stats": [
         {
           "type": "FLAT",
-          "max": 30,
-          "min": 15,
+          "max": 45,
+          "min": 22.5,
           "stat": "attack_speed"
         }
       ],
@@ -6707,8 +6793,8 @@
       "stats": [
         {
           "type": "FLAT",
-          "max": 30,
-          "min": 15,
+          "max": 45,
+          "min": 22.5,
           "stat": "attack_speed"
         }
       ],
@@ -7243,8 +7329,8 @@
       "stats": [
         {
           "type": "FLAT",
-          "max": 7.5,
-          "min": 1.5,
+          "max": 11.25,
+          "min": 2.25,
           "stat": "attack_speed"
         }
       ],
@@ -7299,8 +7385,8 @@
       "stats": [
         {
           "type": "FLAT",
-          "max": 5,
-          "min": 1,
+          "max": 2.5,
+          "min": 0.5,
           "stat": "aura_effect"
         }
       ],
@@ -7411,8 +7497,8 @@
       "stats": [
         {
           "type": "FLAT",
-          "max": 5,
-          "min": 1,
+          "max": 15,
+          "min": 3,
           "stat": "cast_speed"
         }
       ],
@@ -7439,9 +7525,9 @@
       "stats": [
         {
           "type": "FLAT",
-          "max": 3,
-          "min": 0.6,
-          "stat": "cdr"
+          "max": 9,
+          "min": 1.8,
+          "stat": "skill_speed"
         }
       ],
       "weight": 1000
@@ -7615,6 +7701,34 @@
       ],
       "weight": 1000
     },
+    "jewel_dual_wield_dmg": {
+      "type": "jewel",
+      "eye_aura_req": "",
+      "guid": "jewel_dual_wield_dmg",
+      "one_of_a_kind": "",
+      "only_one_per_item": true,
+      "requirements": {
+        "tag_requirements": [
+          {
+            "type": "GearSlot",
+            "excluded": [],
+            "included": [
+              "any_jewel"
+            ],
+            "req_type": "INCLUDES_ANY"
+          }
+        ]
+      },
+      "stats": [
+        {
+          "type": "FLAT",
+          "max": 5,
+          "min": 1,
+          "stat": "dual_wield_damage"
+        }
+      ],
+      "weight": 1000
+    },
     "jewel_electrify_chance": {
       "type": "jewel",
       "eye_aura_req": "",
@@ -7700,8 +7814,8 @@
       "stats": [
         {
           "type": "PERCENT",
-          "max": 7.5,
-          "min": 1.5,
+          "max": 10,
+          "min": 2,
           "stat": "energy"
         }
       ],
@@ -7819,8 +7933,8 @@
       "stats": [
         {
           "type": "FLAT",
-          "max": 1.5,
-          "min": 0.3,
+          "max": 2,
+          "min": 0.4,
           "stat": "health_regen"
         }
       ],
@@ -8071,8 +8185,8 @@
       "stats": [
         {
           "type": "FLAT",
-          "max": 1.5,
-          "min": 0.3,
+          "max": 2,
+          "min": 0.4,
           "stat": "magic_shield_regen"
         }
       ],
@@ -8484,8 +8598,8 @@
         },
         {
           "type": "PERCENT",
-          "max": 10,
-          "min": 2,
+          "max": 12.5,
+          "min": 2.5,
           "stat": "energy"
         }
       ],
@@ -8510,8 +8624,8 @@
       "stats": [
         {
           "type": "FLAT",
-          "max": 10,
-          "min": 2,
+          "max": 5,
+          "min": 1,
           "stat": "aura_effect"
         }
       ],
@@ -8536,8 +8650,8 @@
       "stats": [
         {
           "type": "FLAT",
-          "max": 10,
-          "min": 2,
+          "max": 30,
+          "min": 6,
           "stat": "cast_speed"
         }
       ],
@@ -8562,9 +8676,35 @@
       "stats": [
         {
           "type": "FLAT",
+          "max": 18,
+          "min": 3.6,
+          "stat": "skill_speed"
+        }
+      ],
+      "weight": 1000
+    },
+    "jewel_corrupt_charge_recovery_rate": {
+      "type": "jewel_corruption",
+      "eye_aura_req": "",
+      "guid": "jewel_corrupt_charge_recovery_rate",
+      "one_of_a_kind": "",
+      "only_one_per_item": true,
+      "requirements": {
+        "tag_requirements": [
+          {
+            "type": "GearSlot",
+            "excluded": [],
+            "included": [],
+            "req_type": "INCLUDES_ANY"
+          }
+        ]
+      },
+      "stats": [
+        {
+          "type": "FLAT",
           "max": 6,
           "min": 1.2,
-          "stat": "cdr"
+          "stat": "charge_recovery_rate"
         }
       ],
       "weight": 1000
@@ -8788,8 +8928,8 @@
         },
         {
           "type": "PERCENT",
-          "max": 10,
-          "min": 2,
+          "max": 12.5,
+          "min": 2.5,
           "stat": "energy"
         }
       ],
@@ -8814,8 +8954,8 @@
       "stats": [
         {
           "type": "FLAT",
-          "max": 10,
-          "min": 2,
+          "max": 15,
+          "min": 3,
           "stat": "attack_speed"
         },
         {
@@ -8932,7 +9072,9 @@
             "excluded": [],
             "included": [
               "mage_weapon",
-              "tome"
+              "tome",
+              "ingenuity",
+              "finesse"
             ],
             "req_type": "INCLUDES_ANY"
           }
@@ -8946,7 +9088,7 @@
           "stat": "plus_lvl_chaos_spells"
         }
       ],
-      "weight": 125
+      "weight": 500
     },
     "archeologists": {
       "type": "prefix",
@@ -8960,7 +9102,8 @@
             "type": "GearSlot",
             "excluded": [],
             "included": [
-              "jewelry_family"
+              "jewelry_family",
+              "ingenuity"
             ],
             "req_type": "INCLUDES_ANY"
           }
@@ -8988,7 +9131,8 @@
             "type": "GearSlot",
             "excluded": [],
             "included": [
-              "jewelry_family"
+              "jewelry_family",
+              "ingenuity"
             ],
             "req_type": "INCLUDES_ANY"
           }
@@ -9000,6 +9144,35 @@
           "max": 10,
           "min": 2,
           "stat": "mana"
+        }
+      ],
+      "weight": 1000
+    },
+    "backstabbers": {
+      "type": "prefix",
+      "eye_aura_req": "",
+      "guid": "backstabbers",
+      "one_of_a_kind": "",
+      "only_one_per_item": true,
+      "requirements": {
+        "tag_requirements": [
+          {
+            "type": "GearSlot",
+            "excluded": [],
+            "included": [
+              "necklace",
+              "finesse"
+            ],
+            "req_type": "INCLUDES_ANY"
+          }
+        ]
+      },
+      "stats": [
+        {
+          "type": "FLAT",
+          "max": 30,
+          "min": 6,
+          "stat": "dual_wield_effectiveness"
         }
       ],
       "weight": 1000
@@ -9024,7 +9197,8 @@
               "hammer",
               "dagger",
               "bow",
-              "crossbow"
+              "crossbow",
+              "finesse"
             ],
             "req_type": "INCLUDES_ANY"
           }
@@ -9033,8 +9207,8 @@
       "stats": [
         {
           "type": "FLAT",
-          "max": 25,
-          "min": 5,
+          "max": 30,
+          "min": 6,
           "stat": "basic_attack_dmg"
         }
       ],
@@ -9053,7 +9227,8 @@
             "excluded": [],
             "included": [
               "sword",
-              "axe"
+              "axe",
+              "might"
             ],
             "req_type": "INCLUDES_ANY"
           }
@@ -9062,8 +9237,8 @@
       "stats": [
         {
           "type": "FLAT",
-          "max": 20,
-          "min": 4,
+          "max": 30,
+          "min": 6,
           "stat": "dmg_when_low_hp"
         }
       ],
@@ -9083,7 +9258,8 @@
             "included": [
               "tome",
               "pants",
-              "jewelry_family"
+              "jewelry_family",
+              "ingenuity"
             ],
             "req_type": "INCLUDES_ANY"
           }
@@ -9092,8 +9268,8 @@
       "stats": [
         {
           "type": "FLAT",
-          "max": 3,
-          "min": 0.6,
+          "max": 5,
+          "min": 1,
           "stat": "mana_regen"
         }
       ],
@@ -9111,7 +9287,8 @@
             "type": "GearSlot",
             "excluded": [],
             "included": [
-              "shield"
+              "shield",
+              "might"
             ],
             "req_type": "INCLUDES_ANY"
           }
@@ -9120,8 +9297,8 @@
       "stats": [
         {
           "type": "FLAT",
-          "max": 25,
-          "min": 5,
+          "max": 50,
+          "min": 10,
           "stat": "knockback_resist"
         }
       ],
@@ -9140,7 +9317,8 @@
             "excluded": [],
             "included": [
               "weapon_family",
-              "jewelry_family"
+              "jewelry_family",
+              "ingenuity"
             ],
             "req_type": "INCLUDES_ANY"
           }
@@ -9149,12 +9327,75 @@
       "stats": [
         {
           "type": "FLAT",
-          "max": 20,
-          "min": 4,
+          "max": 25,
+          "min": 5,
           "stat": "elemental_attack_damage"
         }
       ],
       "weight": 1000
+    },
+    "chaos_spell_flat_dmg": {
+      "type": "prefix",
+      "eye_aura_req": "",
+      "guid": "chaos_spell_flat_dmg",
+      "one_of_a_kind": "",
+      "only_one_per_item": true,
+      "requirements": {
+        "tag_requirements": [
+          {
+            "type": "GearSlot",
+            "excluded": [
+              "two_handed"
+            ],
+            "included": [
+              "mage_weapon",
+              "tome",
+              "ingenuity",
+              "finesse"
+            ],
+            "req_type": "INCLUDES_ANY"
+          }
+        ]
+      },
+      "stats": [
+        {
+          "type": "FLAT",
+          "max": 1.5,
+          "min": 0.3,
+          "stat": "flat_chaos_added_magic_damage"
+        }
+      ],
+      "weight": 500
+    },
+    "chaos_spell_flat_dmg_2h": {
+      "type": "prefix",
+      "eye_aura_req": "",
+      "guid": "chaos_spell_flat_dmg_2h",
+      "one_of_a_kind": "",
+      "only_one_per_item": true,
+      "requirements": {
+        "tag_requirements": [
+          {
+            "type": "GearSlot",
+            "excluded": [],
+            "included": [
+              "two_handed",
+              "ingenuity",
+              "finesse"
+            ],
+            "req_type": "INCLUDES_ANY"
+          }
+        ]
+      },
+      "stats": [
+        {
+          "type": "FLAT",
+          "max": 2.25,
+          "min": 0.45,
+          "stat": "flat_chaos_added_magic_damage"
+        }
+      ],
+      "weight": 500
     },
     "chaos_wep_dmg": {
       "type": "prefix",
@@ -9168,7 +9409,9 @@
             "type": "GearSlot",
             "excluded": [],
             "included": [
-              "weapon_family"
+              "weapon_family",
+              "ingenuity",
+              "finesse"
             ],
             "req_type": "INCLUDES_ANY"
           }
@@ -9177,12 +9420,75 @@
       "stats": [
         {
           "type": "FLAT",
-          "max": 15,
-          "min": 3,
+          "max": 25,
+          "min": 5,
           "stat": "all_chaos_damage"
         }
       ],
-      "weight": 1000
+      "weight": 500
+    },
+    "chaos_wep_flat_dmg": {
+      "type": "prefix",
+      "eye_aura_req": "",
+      "guid": "chaos_wep_flat_dmg",
+      "one_of_a_kind": "",
+      "only_one_per_item": true,
+      "requirements": {
+        "tag_requirements": [
+          {
+            "type": "GearSlot",
+            "excluded": [
+              "two_handed"
+            ],
+            "included": [
+              "weapon_family",
+              "totem",
+              "ingenuity",
+              "finesse"
+            ],
+            "req_type": "INCLUDES_ANY"
+          }
+        ]
+      },
+      "stats": [
+        {
+          "type": "FLAT",
+          "max": 1.5,
+          "min": 0.3,
+          "stat": "flat_chaos_added_attack_damage"
+        }
+      ],
+      "weight": 500
+    },
+    "chaos_wep_flat_dmg_2h": {
+      "type": "prefix",
+      "eye_aura_req": "",
+      "guid": "chaos_wep_flat_dmg_2h",
+      "one_of_a_kind": "",
+      "only_one_per_item": true,
+      "requirements": {
+        "tag_requirements": [
+          {
+            "type": "GearSlot",
+            "excluded": [],
+            "included": [
+              "two_handed",
+              "ingenuity",
+              "finesse"
+            ],
+            "req_type": "INCLUDES_ANY"
+          }
+        ]
+      },
+      "stats": [
+        {
+          "type": "FLAT",
+          "max": 2.25,
+          "min": 0.45,
+          "stat": "flat_chaos_added_attack_damage"
+        }
+      ],
+      "weight": 500
     },
     "crit_prefix": {
       "type": "prefix",
@@ -9196,7 +9502,8 @@
             "type": "GearSlot",
             "excluded": [],
             "included": [
-              "weapon_family"
+              "weapon_family",
+              "might"
             ],
             "req_type": "INCLUDES_ANY"
           }
@@ -9205,8 +9512,8 @@
       "stats": [
         {
           "type": "FLAT",
-          "max": 30,
-          "min": 6,
+          "max": 20,
+          "min": 4,
           "stat": "critical_damage"
         }
       ],
@@ -9224,7 +9531,9 @@
             "type": "GearSlot",
             "excluded": [],
             "included": [
-              "mage_weapon"
+              "mage_weapon",
+              "might",
+              "finesse"
             ],
             "req_type": "INCLUDES_ANY"
           }
@@ -9233,18 +9542,18 @@
       "stats": [
         {
           "type": "PERCENT",
-          "max": 20,
-          "min": 4,
+          "max": 22.5,
+          "min": 4.5,
           "stat": "critical_hit"
         },
         {
           "type": "FLAT",
-          "max": 20,
-          "min": 4,
+          "max": 15,
+          "min": 3,
           "stat": "critical_damage"
         }
       ],
-      "weight": 100
+      "weight": 1000
     },
     "efficient": {
       "type": "prefix",
@@ -9259,7 +9568,8 @@
             "excluded": [],
             "included": [
               "staff",
-              "sword"
+              "sword",
+              "ingenuity"
             ],
             "req_type": "INCLUDES_ANY"
           }
@@ -9268,8 +9578,8 @@
       "stats": [
         {
           "type": "FLAT",
-          "max": -10,
-          "min": -2,
+          "max": -15,
+          "min": -3,
           "stat": "mana_cost"
         }
       ],
@@ -9289,7 +9599,8 @@
             "included": [
               "totem",
               "pants",
-              "jewelry_family"
+              "jewelry_family",
+              "finesse"
             ],
             "req_type": "INCLUDES_ANY"
           }
@@ -9298,8 +9609,8 @@
       "stats": [
         {
           "type": "FLAT",
-          "max": 3,
-          "min": 0.6,
+          "max": 5,
+          "min": 1,
           "stat": "energy_regen"
         }
       ],
@@ -9317,7 +9628,8 @@
             "type": "GearSlot",
             "excluded": [],
             "included": [
-              "ring"
+              "ring",
+              "finesse"
             ],
             "req_type": "INCLUDES_ANY"
           }
@@ -9351,7 +9663,8 @@
               "sword",
               "axe",
               "hammer",
-              "gauntlet"
+              "gauntlet",
+              "finesse"
             ],
             "req_type": "INCLUDES_ANY"
           }
@@ -9415,7 +9728,8 @@
             "excluded": [],
             "included": [
               "mage_weapon",
-              "tome"
+              "tome",
+              "might"
             ],
             "req_type": "INCLUDES_ANY"
           }
@@ -9424,9 +9738,70 @@
       "stats": [
         {
           "type": "FLAT",
-          "max": 15,
-          "min": 3,
+          "max": 30,
+          "min": 6,
           "stat": "spell_fire_damage"
+        }
+      ],
+      "weight": 500
+    },
+    "fire_spell_flat_dmg": {
+      "type": "prefix",
+      "eye_aura_req": "",
+      "guid": "fire_spell_flat_dmg",
+      "one_of_a_kind": "",
+      "only_one_per_item": true,
+      "requirements": {
+        "tag_requirements": [
+          {
+            "type": "GearSlot",
+            "excluded": [
+              "two_handed"
+            ],
+            "included": [
+              "mage_weapon",
+              "tome",
+              "might"
+            ],
+            "req_type": "INCLUDES_ANY"
+          }
+        ]
+      },
+      "stats": [
+        {
+          "type": "FLAT",
+          "max": 2,
+          "min": 0.4,
+          "stat": "flat_fire_added_magic_damage"
+        }
+      ],
+      "weight": 500
+    },
+    "fire_spell_flat_dmg_2h": {
+      "type": "prefix",
+      "eye_aura_req": "",
+      "guid": "fire_spell_flat_dmg_2h",
+      "one_of_a_kind": "",
+      "only_one_per_item": true,
+      "requirements": {
+        "tag_requirements": [
+          {
+            "type": "GearSlot",
+            "excluded": [],
+            "included": [
+              "two_handed",
+              "might"
+            ],
+            "req_type": "INCLUDES_ANY"
+          }
+        ]
+      },
+      "stats": [
+        {
+          "type": "FLAT",
+          "max": 3,
+          "min": 0.6,
+          "stat": "flat_fire_added_magic_damage"
         }
       ],
       "weight": 500
@@ -9443,7 +9818,8 @@
             "type": "GearSlot",
             "excluded": [],
             "included": [
-              "weapon_family"
+              "weapon_family",
+              "might"
             ],
             "req_type": "INCLUDES_ANY"
           }
@@ -9452,12 +9828,73 @@
       "stats": [
         {
           "type": "FLAT",
-          "max": 15,
-          "min": 3,
+          "max": 25,
+          "min": 5,
           "stat": "all_fire_damage"
         }
       ],
-      "weight": 1000
+      "weight": 500
+    },
+    "fire_wep_flat_dmg": {
+      "type": "prefix",
+      "eye_aura_req": "",
+      "guid": "fire_wep_flat_dmg",
+      "one_of_a_kind": "",
+      "only_one_per_item": true,
+      "requirements": {
+        "tag_requirements": [
+          {
+            "type": "GearSlot",
+            "excluded": [
+              "two_handed"
+            ],
+            "included": [
+              "weapon_family",
+              "totem",
+              "might"
+            ],
+            "req_type": "INCLUDES_ANY"
+          }
+        ]
+      },
+      "stats": [
+        {
+          "type": "FLAT",
+          "max": 2,
+          "min": 0.4,
+          "stat": "flat_fire_added_attack_damage"
+        }
+      ],
+      "weight": 500
+    },
+    "fire_wep_flat_dmg_2h": {
+      "type": "prefix",
+      "eye_aura_req": "",
+      "guid": "fire_wep_flat_dmg_2h",
+      "one_of_a_kind": "",
+      "only_one_per_item": true,
+      "requirements": {
+        "tag_requirements": [
+          {
+            "type": "GearSlot",
+            "excluded": [],
+            "included": [
+              "two_handed",
+              "might"
+            ],
+            "req_type": "INCLUDES_ANY"
+          }
+        ]
+      },
+      "stats": [
+        {
+          "type": "FLAT",
+          "max": 3,
+          "min": 0.6,
+          "stat": "flat_fire_added_attack_damage"
+        }
+      ],
+      "weight": 500
     },
     "fletchers": {
       "type": "prefix",
@@ -9473,7 +9910,8 @@
             "included": [
               "bow",
               "crossbow",
-              "totem"
+              "totem",
+              "finesse"
             ],
             "req_type": "INCLUDES_ANY"
           }
@@ -9502,7 +9940,8 @@
             "excluded": [],
             "included": [
               "necklace",
-              "mage_weapon"
+              "mage_weapon",
+              "finesse"
             ],
             "req_type": "INCLUDES_ANY"
           }
@@ -9530,7 +9969,8 @@
             "type": "GearSlot",
             "excluded": [],
             "included": [
-              "boots"
+              "boots",
+              "finesse"
             ],
             "req_type": "INCLUDES_ANY"
           }
@@ -9559,7 +9999,8 @@
             "excluded": [],
             "included": [
               "armor_family",
-              "offhand_family"
+              "offhand_family",
+              "might"
             ],
             "req_type": "INCLUDES_ANY"
           }
@@ -9587,7 +10028,8 @@
             "type": "GearSlot",
             "excluded": [],
             "included": [
-              "armor_family"
+              "armor_family",
+              "ingenuity"
             ],
             "req_type": "INCLUDES_ANY"
           }
@@ -9599,6 +10041,36 @@
           "max": 15,
           "min": 3,
           "stat": "mana"
+        }
+      ],
+      "weight": 1000
+    },
+    "hardened": {
+      "type": "prefix",
+      "eye_aura_req": "",
+      "guid": "hardened",
+      "one_of_a_kind": "",
+      "only_one_per_item": true,
+      "requirements": {
+        "tag_requirements": [
+          {
+            "type": "GearSlot",
+            "excluded": [],
+            "included": [
+              "shield",
+              "jewelry_family",
+              "might"
+            ],
+            "req_type": "INCLUDES_ANY"
+          }
+        ]
+      },
+      "stats": [
+        {
+          "type": "PERCENT",
+          "max": 25,
+          "min": 5,
+          "stat": "block_recovery"
         }
       ],
       "weight": 1000
@@ -9617,7 +10089,8 @@
             "included": [
               "staff",
               "hammer",
-              "tome"
+              "tome",
+              "ingenuity"
             ],
             "req_type": "INCLUDES_ANY"
           }
@@ -9626,8 +10099,8 @@
       "stats": [
         {
           "type": "FLAT",
-          "max": 25,
-          "min": 5,
+          "max": 30,
+          "min": 6,
           "stat": "increase_healing"
         }
       ],
@@ -9647,7 +10120,8 @@
             "included": [
               "staff",
               "hammer",
-              "tome"
+              "tome",
+              "ingenuity"
             ],
             "req_type": "INCLUDES_ANY"
           }
@@ -9677,7 +10151,8 @@
             "included": [
               "shield",
               "pants",
-              "jewelry_family"
+              "jewelry_family",
+              "might"
             ],
             "req_type": "INCLUDES_ANY"
           }
@@ -9686,8 +10161,8 @@
       "stats": [
         {
           "type": "FLAT",
-          "max": 5,
-          "min": 1,
+          "max": 7.5,
+          "min": 1.5,
           "stat": "health_regen"
         }
       ],
@@ -9708,7 +10183,8 @@
               "dual_stat"
             ],
             "included": [
-              "armor_stat"
+              "armor_stat",
+              "might"
             ],
             "req_type": "INCLUDES_ANY"
           }
@@ -9717,14 +10193,14 @@
       "stats": [
         {
           "type": "PERCENT",
-          "max": 30,
-          "min": 6,
+          "max": 11.25,
+          "min": 2.25,
           "stat": "gear_defense"
         },
         {
           "type": "FLAT",
-          "max": 1.5,
-          "min": 0.3,
+          "max": 0.75,
+          "min": 0.15,
           "stat": "gear_defense"
         }
       ],
@@ -9744,7 +10220,8 @@
               "dual_stat"
             ],
             "included": [
-              "armor_stat_half"
+              "armor_stat_half",
+              "might"
             ],
             "req_type": "INCLUDES_ANY"
           }
@@ -9753,14 +10230,14 @@
       "stats": [
         {
           "type": "PERCENT",
-          "max": 30,
-          "min": 6,
+          "max": 11.25,
+          "min": 2.25,
           "stat": "gear_defense"
         },
         {
           "type": "FLAT",
-          "max": 0.75,
-          "min": 0.15,
+          "max": 0.375,
+          "min": 0.075,
           "stat": "gear_defense"
         }
       ],
@@ -9781,7 +10258,8 @@
               "dual_stat"
             ],
             "included": [
-              "dodge_stat"
+              "dodge_stat",
+              "finesse"
             ],
             "req_type": "INCLUDES_ANY"
           }
@@ -9790,14 +10268,14 @@
       "stats": [
         {
           "type": "PERCENT",
-          "max": 30,
-          "min": 6,
+          "max": 11.25,
+          "min": 2.25,
           "stat": "gear_defense"
         },
         {
           "type": "FLAT",
-          "max": 1.5,
-          "min": 0.3,
+          "max": 0.75,
+          "min": 0.15,
           "stat": "gear_defense"
         }
       ],
@@ -9817,7 +10295,8 @@
               "dual_stat"
             ],
             "included": [
-              "dodge_stat_half"
+              "dodge_stat_half",
+              "finesse"
             ],
             "req_type": "INCLUDES_ANY"
           }
@@ -9826,14 +10305,14 @@
       "stats": [
         {
           "type": "PERCENT",
-          "max": 30,
-          "min": 6,
+          "max": 11.25,
+          "min": 2.25,
           "stat": "gear_defense"
         },
         {
           "type": "FLAT",
-          "max": 0.75,
-          "min": 0.15,
+          "max": 0.375,
+          "min": 0.075,
           "stat": "gear_defense"
         }
       ],
@@ -9854,7 +10333,8 @@
               "dual_stat"
             ],
             "included": [
-              "magic_shield_stat"
+              "magic_shield_stat",
+              "ingenuity"
             ],
             "req_type": "INCLUDES_ANY"
           }
@@ -9863,14 +10343,14 @@
       "stats": [
         {
           "type": "PERCENT",
-          "max": 30,
-          "min": 6,
+          "max": 11.25,
+          "min": 2.25,
           "stat": "gear_defense"
         },
         {
           "type": "FLAT",
-          "max": 6,
-          "min": 1.2,
+          "max": 3,
+          "min": 0.6,
           "stat": "gear_defense"
         }
       ],
@@ -9890,7 +10370,8 @@
               "dual_stat"
             ],
             "included": [
-              "magic_shield_stat_half"
+              "magic_shield_stat_half",
+              "ingenuity"
             ],
             "req_type": "INCLUDES_ANY"
           }
@@ -9899,14 +10380,14 @@
       "stats": [
         {
           "type": "PERCENT",
-          "max": 30,
-          "min": 6,
+          "max": 11.25,
+          "min": 2.25,
           "stat": "gear_defense"
         },
         {
           "type": "FLAT",
-          "max": 3,
-          "min": 0.6,
+          "max": 1.5,
+          "min": 0.3,
           "stat": "gear_defense"
         }
       ],
@@ -9927,7 +10408,8 @@
               "dual_stat"
             ],
             "included": [
-              "armor_stat"
+              "armor_stat",
+              "might"
             ],
             "req_type": "INCLUDES_ANY"
           }
@@ -9936,8 +10418,8 @@
       "stats": [
         {
           "type": "FLAT",
-          "max": 3,
-          "min": 0.6,
+          "max": 1.5,
+          "min": 0.3,
           "stat": "gear_defense"
         }
       ],
@@ -9957,7 +10439,8 @@
               "dual_stat"
             ],
             "included": [
-              "armor_stat_half"
+              "armor_stat_half",
+              "might"
             ],
             "req_type": "INCLUDES_ANY"
           }
@@ -9966,8 +10449,8 @@
       "stats": [
         {
           "type": "FLAT",
-          "max": 1.5,
-          "min": 0.3,
+          "max": 0.75,
+          "min": 0.15,
           "stat": "gear_defense"
         }
       ],
@@ -9988,7 +10471,8 @@
               "dual_stat"
             ],
             "included": [
-              "dodge_stat"
+              "dodge_stat",
+              "finesse"
             ],
             "req_type": "INCLUDES_ANY"
           }
@@ -9997,8 +10481,8 @@
       "stats": [
         {
           "type": "FLAT",
-          "max": 3,
-          "min": 0.6,
+          "max": 1.5,
+          "min": 0.3,
           "stat": "gear_defense"
         }
       ],
@@ -10018,7 +10502,8 @@
               "dual_stat"
             ],
             "included": [
-              "dodge_stat_half"
+              "dodge_stat_half",
+              "finesse"
             ],
             "req_type": "INCLUDES_ANY"
           }
@@ -10027,8 +10512,8 @@
       "stats": [
         {
           "type": "FLAT",
-          "max": 1.5,
-          "min": 0.3,
+          "max": 0.75,
+          "min": 0.15,
           "stat": "gear_defense"
         }
       ],
@@ -10049,7 +10534,8 @@
               "dual_stat"
             ],
             "included": [
-              "magic_shield_stat"
+              "magic_shield_stat",
+              "ingenuity"
             ],
             "req_type": "INCLUDES_ANY"
           }
@@ -10058,8 +10544,8 @@
       "stats": [
         {
           "type": "FLAT",
-          "max": 12,
-          "min": 2.4,
+          "max": 6,
+          "min": 1.2,
           "stat": "gear_defense"
         }
       ],
@@ -10079,7 +10565,8 @@
               "dual_stat"
             ],
             "included": [
-              "magic_shield_stat_half"
+              "magic_shield_stat_half",
+              "ingenuity"
             ],
             "req_type": "INCLUDES_ANY"
           }
@@ -10088,8 +10575,8 @@
       "stats": [
         {
           "type": "FLAT",
-          "max": 6,
-          "min": 1.2,
+          "max": 3,
+          "min": 0.6,
           "stat": "gear_defense"
         }
       ],
@@ -10109,7 +10596,8 @@
               "dual_stat"
             ],
             "included": [
-              "armor_family"
+              "armor_family",
+              "might"
             ],
             "req_type": "INCLUDES_ANY"
           }
@@ -10118,8 +10606,8 @@
       "stats": [
         {
           "type": "PERCENT",
-          "max": 60,
-          "min": 12,
+          "max": 22.5,
+          "min": 4.5,
           "stat": "gear_defense"
         }
       ],
@@ -10137,7 +10625,8 @@
             "type": "GearSlot",
             "excluded": [],
             "included": [
-              "dodge_stat"
+              "dodge_stat",
+              "finesse"
             ],
             "req_type": "INCLUDES_ANY"
           }
@@ -10146,12 +10635,12 @@
       "stats": [
         {
           "type": "PERCENT",
-          "max": 60,
-          "min": 12,
+          "max": 22.5,
+          "min": 4.5,
           "stat": "gear_defense"
         }
       ],
-      "weight": 0
+      "weight": 1000
     },
     "item_perc_ms": {
       "type": "prefix",
@@ -10165,7 +10654,8 @@
             "type": "GearSlot",
             "excluded": [],
             "included": [
-              "dual_stat"
+              "dual_stat",
+              "ingenuity"
             ],
             "req_type": "INCLUDES_ANY"
           }
@@ -10174,8 +10664,8 @@
       "stats": [
         {
           "type": "PERCENT",
-          "max": 60,
-          "min": 12,
+          "max": 22.5,
+          "min": 4.5,
           "stat": "gear_defense"
         }
       ],
@@ -10194,7 +10684,8 @@
             "excluded": [],
             "included": [
               "mage_weapon",
-              "tome"
+              "tome",
+              "might"
             ],
             "req_type": "INCLUDES_ANY"
           }
@@ -10208,7 +10699,7 @@
           "stat": "plus_lvl_fire_spells"
         }
       ],
-      "weight": 125
+      "weight": 500
     },
     "lightning_spell_ele_dmg": {
       "type": "prefix",
@@ -10223,7 +10714,8 @@
             "excluded": [],
             "included": [
               "mage_weapon",
-              "tome"
+              "tome",
+              "ingenuity"
             ],
             "req_type": "INCLUDES_ANY"
           }
@@ -10232,9 +10724,160 @@
       "stats": [
         {
           "type": "FLAT",
-          "max": 15,
-          "min": 3,
+          "max": 30,
+          "min": 6,
           "stat": "spell_lightning_damage"
+        }
+      ],
+      "weight": 500
+    },
+    "lightning_spell_flat_dmg": {
+      "type": "prefix",
+      "eye_aura_req": "",
+      "guid": "lightning_spell_flat_dmg",
+      "one_of_a_kind": "",
+      "only_one_per_item": true,
+      "requirements": {
+        "tag_requirements": [
+          {
+            "type": "GearSlot",
+            "excluded": [
+              "two_handed"
+            ],
+            "included": [
+              "mage_weapon",
+              "tome",
+              "ingenuity"
+            ],
+            "req_type": "INCLUDES_ANY"
+          }
+        ]
+      },
+      "stats": [
+        {
+          "type": "FLAT",
+          "max": 2,
+          "min": 0.4,
+          "stat": "flat_lightning_added_magic_damage"
+        }
+      ],
+      "weight": 500
+    },
+    "lightning_spell_flat_dmg_2h": {
+      "type": "prefix",
+      "eye_aura_req": "",
+      "guid": "lightning_spell_flat_dmg_2h",
+      "one_of_a_kind": "",
+      "only_one_per_item": true,
+      "requirements": {
+        "tag_requirements": [
+          {
+            "type": "GearSlot",
+            "excluded": [],
+            "included": [
+              "two_handed",
+              "ingenuity"
+            ],
+            "req_type": "INCLUDES_ANY"
+          }
+        ]
+      },
+      "stats": [
+        {
+          "type": "FLAT",
+          "max": 3,
+          "min": 0.6,
+          "stat": "flat_lightning_added_magic_damage"
+        }
+      ],
+      "weight": 500
+    },
+    "lightning_wep_dmg": {
+      "type": "prefix",
+      "eye_aura_req": "",
+      "guid": "lightning_wep_dmg",
+      "one_of_a_kind": "",
+      "only_one_per_item": true,
+      "requirements": {
+        "tag_requirements": [
+          {
+            "type": "GearSlot",
+            "excluded": [],
+            "included": [
+              "weapon_family",
+              "ingenuity"
+            ],
+            "req_type": "INCLUDES_ANY"
+          }
+        ]
+      },
+      "stats": [
+        {
+          "type": "FLAT",
+          "max": 25,
+          "min": 5,
+          "stat": "all_lightning_damage"
+        }
+      ],
+      "weight": 500
+    },
+    "lightning_wep_flat_dmg": {
+      "type": "prefix",
+      "eye_aura_req": "",
+      "guid": "lightning_wep_flat_dmg",
+      "one_of_a_kind": "",
+      "only_one_per_item": true,
+      "requirements": {
+        "tag_requirements": [
+          {
+            "type": "GearSlot",
+            "excluded": [
+              "two_handed"
+            ],
+            "included": [
+              "weapon_family",
+              "totem",
+              "ingenuity"
+            ],
+            "req_type": "INCLUDES_ANY"
+          }
+        ]
+      },
+      "stats": [
+        {
+          "type": "FLAT",
+          "max": 2,
+          "min": 0.4,
+          "stat": "flat_lightning_added_attack_damage"
+        }
+      ],
+      "weight": 500
+    },
+    "lightning_wep_flat_dmg_2h": {
+      "type": "prefix",
+      "eye_aura_req": "",
+      "guid": "lightning_wep_flat_dmg_2h",
+      "one_of_a_kind": "",
+      "only_one_per_item": true,
+      "requirements": {
+        "tag_requirements": [
+          {
+            "type": "GearSlot",
+            "excluded": [],
+            "included": [
+              "two_handed",
+              "ingenuity"
+            ],
+            "req_type": "INCLUDES_ANY"
+          }
+        ]
+      },
+      "stats": [
+        {
+          "type": "FLAT",
+          "max": 3,
+          "min": 0.6,
+          "stat": "flat_lightning_added_attack_damage"
         }
       ],
       "weight": 500
@@ -10251,7 +10894,8 @@
             "type": "GearSlot",
             "excluded": [],
             "included": [
-              "ring"
+              "ring",
+              "ingenuity"
             ],
             "req_type": "INCLUDES_ANY"
           }
@@ -10279,7 +10923,8 @@
             "type": "GearSlot",
             "excluded": [],
             "included": [
-              "jewelry_family"
+              "jewelry_family",
+              "ingenuity"
             ],
             "req_type": "INCLUDES_ANY"
           }
@@ -10288,9 +10933,15 @@
       "stats": [
         {
           "type": "FLAT",
-          "max": 15,
-          "min": 3,
+          "max": 20,
+          "min": 4,
           "stat": "mana_on_kill"
+        },
+        {
+          "type": "FLAT",
+          "max": 20,
+          "min": 4,
+          "stat": "energy_on_kill"
         }
       ],
       "weight": 1000
@@ -10307,7 +10958,8 @@
             "type": "GearSlot",
             "excluded": [],
             "included": [
-              "ring"
+              "ring",
+              "ingenuity"
             ],
             "req_type": "INCLUDES_ANY"
           }
@@ -10335,7 +10987,10 @@
             "type": "GearSlot",
             "excluded": [],
             "included": [
-              "weapon_family"
+              "weapon_family",
+              "might",
+              "ingenuity",
+              "finesse"
             ],
             "req_type": "INCLUDES_ANY"
           }
@@ -10349,7 +11004,7 @@
           "stat": "plus_lvl_all_spells"
         }
       ],
-      "weight": 100
+      "weight": 250
     },
     "physical_wep_dmg": {
       "type": "prefix",
@@ -10365,7 +11020,8 @@
             "included": [
               "weapon_family",
               "shield",
-              "totem"
+              "totem",
+              "might"
             ],
             "req_type": "INCLUDES_ANY"
           }
@@ -10374,12 +11030,73 @@
       "stats": [
         {
           "type": "FLAT",
-          "max": 15,
-          "min": 3,
+          "max": 25,
+          "min": 5,
           "stat": "all_physical_damage"
         }
       ],
       "weight": 1000
+    },
+    "physical_wep_flat_dmg": {
+      "type": "prefix",
+      "eye_aura_req": "",
+      "guid": "physical_wep_flat_dmg",
+      "one_of_a_kind": "",
+      "only_one_per_item": true,
+      "requirements": {
+        "tag_requirements": [
+          {
+            "type": "GearSlot",
+            "excluded": [
+              "two_handed"
+            ],
+            "included": [
+              "weapon_family",
+              "totem",
+              "might"
+            ],
+            "req_type": "INCLUDES_ANY"
+          }
+        ]
+      },
+      "stats": [
+        {
+          "type": "FLAT",
+          "max": 1.5,
+          "min": 0.3,
+          "stat": "flat_physical_added_attack_damage"
+        }
+      ],
+      "weight": 500
+    },
+    "physical_wep_flat_dmg_2h": {
+      "type": "prefix",
+      "eye_aura_req": "",
+      "guid": "physical_wep_flat_dmg_2h",
+      "one_of_a_kind": "",
+      "only_one_per_item": true,
+      "requirements": {
+        "tag_requirements": [
+          {
+            "type": "GearSlot",
+            "excluded": [],
+            "included": [
+              "two_handed",
+              "might"
+            ],
+            "req_type": "INCLUDES_ANY"
+          }
+        ]
+      },
+      "stats": [
+        {
+          "type": "FLAT",
+          "max": 2.25,
+          "min": 0.45,
+          "stat": "flat_physical_added_attack_damage"
+        }
+      ],
+      "weight": 500
     },
     "precise": {
       "type": "prefix",
@@ -10393,7 +11110,8 @@
             "type": "GearSlot",
             "excluded": [],
             "included": [
-              "weapon_family"
+              "weapon_family",
+              "might"
             ],
             "req_type": "INCLUDES_ANY"
           }
@@ -10402,8 +11120,8 @@
       "stats": [
         {
           "type": "FLAT",
-          "max": 5,
-          "min": 1,
+          "max": 7.5,
+          "min": 1.5,
           "stat": "accuracy"
         }
       ],
@@ -10423,7 +11141,8 @@
             "included": [
               "tome",
               "cloth_pants",
-              "jewelry_family"
+              "jewelry_family",
+              "ingenuity"
             ],
             "req_type": "INCLUDES_ANY"
           }
@@ -10432,8 +11151,8 @@
       "stats": [
         {
           "type": "FLAT",
-          "max": 5,
-          "min": 1,
+          "max": 7.5,
+          "min": 1.5,
           "stat": "magic_shield_regen"
         }
       ],
@@ -10452,7 +11171,8 @@
             "excluded": [],
             "included": [
               "crossbow",
-              "bow"
+              "bow",
+              "finesse"
             ],
             "req_type": "INCLUDES_ANY"
           }
@@ -10461,8 +11181,8 @@
       "stats": [
         {
           "type": "FLAT",
-          "max": 20,
-          "min": 4,
+          "max": 30,
+          "min": 6,
           "stat": "faster_projectiles"
         }
       ],
@@ -10480,7 +11200,8 @@
             "type": "GearSlot",
             "excluded": [],
             "included": [
-              "armor_family"
+              "armor_family",
+              "finesse"
             ],
             "req_type": "INCLUDES_ANY"
           }
@@ -10489,8 +11210,8 @@
       "stats": [
         {
           "type": "PERCENT",
-          "max": 15,
-          "min": 3,
+          "max": 20,
+          "min": 4,
           "stat": "energy"
         }
       ],
@@ -10510,7 +11231,8 @@
             "included": [
               "mage_weapon",
               "jewelry_family",
-              "tome"
+              "tome",
+              "ingenuity"
             ],
             "req_type": "INCLUDES_ANY"
           }
@@ -10519,8 +11241,8 @@
       "stats": [
         {
           "type": "FLAT",
-          "max": 15,
-          "min": 3,
+          "max": 20,
+          "min": 4,
           "stat": "spell_damage"
         }
       ],
@@ -10538,7 +11260,8 @@
             "type": "GearSlot",
             "excluded": [],
             "included": [
-              "jewelry_family"
+              "jewelry_family",
+              "might"
             ],
             "req_type": "INCLUDES_ANY"
           }
@@ -10547,8 +11270,8 @@
       "stats": [
         {
           "type": "FLAT",
-          "max": 15,
-          "min": 3,
+          "max": 20,
+          "min": 4,
           "stat": "health_on_kill"
         }
       ],
@@ -10566,7 +11289,8 @@
             "type": "GearSlot",
             "excluded": [],
             "included": [
-              "armor_family"
+              "armor_family",
+              "might"
             ],
             "req_type": "INCLUDES_ANY"
           }
@@ -10575,20 +11299,14 @@
       "stats": [
         {
           "type": "PERCENT",
-          "max": 5,
-          "min": 1,
-          "stat": "health"
-        },
-        {
-          "type": "PERCENT",
-          "max": 5,
-          "min": 1,
+          "max": 10,
+          "min": 2,
           "stat": "mana"
         },
         {
           "type": "PERCENT",
-          "max": 5,
-          "min": 1,
+          "max": 10,
+          "min": 2,
           "stat": "energy"
         }
       ],
@@ -10607,7 +11325,8 @@
             "excluded": [],
             "included": [
               "mage_weapon",
-              "tome"
+              "tome",
+              "ingenuity"
             ],
             "req_type": "INCLUDES_ANY"
           }
@@ -10621,7 +11340,7 @@
           "stat": "plus_lvl_lightning_spells"
         }
       ],
-      "weight": 125
+      "weight": 500
     },
     "true_hit": {
       "type": "prefix",
@@ -10635,7 +11354,9 @@
             "type": "GearSlot",
             "excluded": [],
             "included": [
-              "weapon_family"
+              "weapon_family",
+              "might",
+              "finesse"
             ],
             "req_type": "INCLUDES_ANY"
           }
@@ -10644,9 +11365,15 @@
       "stats": [
         {
           "type": "FLAT",
-          "max": 5,
-          "min": 1,
+          "max": 0.5,
+          "min": 0.1,
           "stat": "critical_hit"
+        },
+        {
+          "type": "PERCENT",
+          "max": 15,
+          "min": 3,
+          "stat": "accuracy"
         }
       ],
       "weight": 1000
@@ -10663,7 +11390,8 @@
             "type": "GearSlot",
             "excluded": [],
             "included": [
-              "jewelry_family"
+              "jewelry_family",
+              "might"
             ],
             "req_type": "INCLUDES_ANY"
           }
@@ -10672,12 +11400,12 @@
       "stats": [
         {
           "type": "FLAT",
-          "max": 3,
-          "min": 0.6,
+          "max": 5,
+          "min": 1,
           "stat": "lifesteal"
         }
       ],
-      "weight": 100
+      "weight": 1000
     },
     "warlords": {
       "type": "prefix",
@@ -10694,7 +11422,8 @@
               "crossbow"
             ],
             "included": [
-              "weapon_family"
+              "weapon_family",
+              "finesse"
             ],
             "req_type": "INCLUDES_ANY"
           }
@@ -10703,14 +11432,14 @@
       "stats": [
         {
           "type": "PERCENT",
-          "max": 20,
-          "min": 4,
+          "max": 7.5,
+          "min": 1.5,
           "stat": "gear_weapon_damage"
         },
         {
           "type": "FLAT",
-          "max": 20,
-          "min": 4,
+          "max": 30,
+          "min": 6,
           "stat": "attack_speed"
         }
       ],
@@ -10728,7 +11457,8 @@
             "type": "GearSlot",
             "excluded": [],
             "included": [
-              "totem"
+              "totem",
+              "finesse"
             ],
             "req_type": "INCLUDES_ANY"
           }
@@ -10757,7 +11487,8 @@
             "excluded": [],
             "included": [
               "mage_weapon",
-              "tome"
+              "tome",
+              "finesse"
             ],
             "req_type": "INCLUDES_ANY"
           }
@@ -10766,9 +11497,70 @@
       "stats": [
         {
           "type": "FLAT",
-          "max": 15,
-          "min": 3,
+          "max": 30,
+          "min": 6,
           "stat": "spell_water_damage"
+        }
+      ],
+      "weight": 500
+    },
+    "water_spell_flat_dmg": {
+      "type": "prefix",
+      "eye_aura_req": "",
+      "guid": "water_spell_flat_dmg",
+      "one_of_a_kind": "",
+      "only_one_per_item": true,
+      "requirements": {
+        "tag_requirements": [
+          {
+            "type": "GearSlot",
+            "excluded": [
+              "two_handed"
+            ],
+            "included": [
+              "mage_weapon",
+              "tome",
+              "finesse"
+            ],
+            "req_type": "INCLUDES_ANY"
+          }
+        ]
+      },
+      "stats": [
+        {
+          "type": "FLAT",
+          "max": 2,
+          "min": 0.4,
+          "stat": "flat_water_added_magic_damage"
+        }
+      ],
+      "weight": 500
+    },
+    "water_spell_flat_dmg_2h": {
+      "type": "prefix",
+      "eye_aura_req": "",
+      "guid": "water_spell_flat_dmg_2h",
+      "one_of_a_kind": "",
+      "only_one_per_item": true,
+      "requirements": {
+        "tag_requirements": [
+          {
+            "type": "GearSlot",
+            "excluded": [],
+            "included": [
+              "two_handed",
+              "finesse"
+            ],
+            "req_type": "INCLUDES_ANY"
+          }
+        ]
+      },
+      "stats": [
+        {
+          "type": "FLAT",
+          "max": 3,
+          "min": 0.6,
+          "stat": "flat_water_added_magic_damage"
         }
       ],
       "weight": 500
@@ -10785,7 +11577,8 @@
             "type": "GearSlot",
             "excluded": [],
             "included": [
-              "weapon_family"
+              "weapon_family",
+              "finesse"
             ],
             "req_type": "INCLUDES_ANY"
           }
@@ -10794,12 +11587,73 @@
       "stats": [
         {
           "type": "FLAT",
-          "max": 15,
-          "min": 3,
+          "max": 25,
+          "min": 5,
           "stat": "all_water_damage"
         }
       ],
-      "weight": 1000
+      "weight": 500
+    },
+    "water_wep_flat_dmg": {
+      "type": "prefix",
+      "eye_aura_req": "",
+      "guid": "water_wep_flat_dmg",
+      "one_of_a_kind": "",
+      "only_one_per_item": true,
+      "requirements": {
+        "tag_requirements": [
+          {
+            "type": "GearSlot",
+            "excluded": [
+              "two_handed"
+            ],
+            "included": [
+              "weapon_family",
+              "totem",
+              "finesse"
+            ],
+            "req_type": "INCLUDES_ANY"
+          }
+        ]
+      },
+      "stats": [
+        {
+          "type": "FLAT",
+          "max": 2,
+          "min": 0.4,
+          "stat": "flat_water_added_attack_damage"
+        }
+      ],
+      "weight": 500
+    },
+    "water_wep_flat_dmg_2h": {
+      "type": "prefix",
+      "eye_aura_req": "",
+      "guid": "water_wep_flat_dmg_2h",
+      "one_of_a_kind": "",
+      "only_one_per_item": true,
+      "requirements": {
+        "tag_requirements": [
+          {
+            "type": "GearSlot",
+            "excluded": [],
+            "included": [
+              "two_handed",
+              "finesse"
+            ],
+            "req_type": "INCLUDES_ANY"
+          }
+        ]
+      },
+      "stats": [
+        {
+          "type": "FLAT",
+          "max": 3,
+          "min": 0.6,
+          "stat": "flat_water_added_attack_damage"
+        }
+      ],
+      "weight": 500
     },
     "weaponmasters": {
       "type": "prefix",
@@ -10819,7 +11673,8 @@
               "spear",
               "scythe",
               "gauntlet",
-              "shield"
+              "shield",
+              "might"
             ],
             "req_type": "INCLUDES_ANY"
           }
@@ -10847,7 +11702,10 @@
             "type": "GearSlot",
             "excluded": [],
             "included": [
-              "weapon_family"
+              "weapon_family",
+              "might",
+              "ingenuity",
+              "finesse"
             ],
             "req_type": "INCLUDES_ANY"
           }
@@ -10856,8 +11714,8 @@
       "stats": [
         {
           "type": "PERCENT",
-          "max": 30,
-          "min": 6,
+          "max": 11.25,
+          "min": 2.25,
           "stat": "gear_weapon_damage"
         },
         {
@@ -10883,7 +11741,10 @@
               "two_handed"
             ],
             "included": [
-              "weapon_family"
+              "weapon_family",
+              "might",
+              "ingenuity",
+              "finesse"
             ],
             "req_type": "INCLUDES_ANY"
           }
@@ -10892,8 +11753,8 @@
       "stats": [
         {
           "type": "FLAT",
-          "max": 2,
-          "min": 0.4,
+          "max": 1,
+          "min": 0.2,
           "stat": "gear_weapon_damage"
         }
       ],
@@ -10911,7 +11772,8 @@
             "type": "GearSlot",
             "excluded": [],
             "included": [
-              "two_handed"
+              "two_handed",
+              "might"
             ],
             "req_type": "INCLUDES_ANY"
           }
@@ -10920,8 +11782,8 @@
       "stats": [
         {
           "type": "FLAT",
-          "max": 3,
-          "min": 0.6,
+          "max": 1.5,
+          "min": 0.3,
           "stat": "gear_weapon_damage"
         }
       ],
@@ -10939,7 +11801,10 @@
             "type": "GearSlot",
             "excluded": [],
             "included": [
-              "weapon_family"
+              "weapon_family",
+              "might",
+              "ingenuity",
+              "finesse"
             ],
             "req_type": "INCLUDES_ANY"
           }
@@ -10948,8 +11813,8 @@
       "stats": [
         {
           "type": "PERCENT",
-          "max": 60,
-          "min": 12,
+          "max": 22.5,
+          "min": 4.5,
           "stat": "gear_weapon_damage"
         }
       ],
@@ -10968,7 +11833,8 @@
             "excluded": [],
             "included": [
               "mage_weapon",
-              "tome"
+              "tome",
+              "finesse"
             ],
             "req_type": "INCLUDES_ANY"
           }
@@ -10982,7 +11848,7 @@
           "stat": "plus_lvl_cold_spells"
         }
       ],
-      "weight": 125
+      "weight": 500
     }
   },
   "suffix": {
@@ -10998,7 +11864,9 @@
             "type": "GearSlot",
             "excluded": [],
             "included": [
-              "jewelry_family"
+              "jewelry_family",
+              "ingenuity",
+              "finesse"
             ],
             "req_type": "INCLUDES_ANY"
           }
@@ -11007,12 +11875,12 @@
       "stats": [
         {
           "type": "FLAT",
-          "max": 10,
-          "min": 2,
+          "max": 15,
+          "min": 3,
           "stat": "all_chaos_damage"
         }
       ],
-      "weight": 1000
+      "weight": 500
     },
     "chaos_res": {
       "type": "suffix",
@@ -11028,7 +11896,9 @@
             "included": [
               "jewelry_family",
               "armor_family",
-              "offhand_family"
+              "offhand_family",
+              "ingenuity",
+              "finesse"
             ],
             "req_type": "INCLUDES_ANY"
           }
@@ -11042,7 +11912,7 @@
           "stat": "chaos_resist"
         }
       ],
-      "weight": 3000
+      "weight": 1000
     },
     "fire_ele_dmg_jewelry": {
       "type": "suffix",
@@ -11056,7 +11926,8 @@
             "type": "GearSlot",
             "excluded": [],
             "included": [
-              "jewelry_family"
+              "jewelry_family",
+              "might"
             ],
             "req_type": "INCLUDES_ANY"
           }
@@ -11065,12 +11936,12 @@
       "stats": [
         {
           "type": "FLAT",
-          "max": 10,
-          "min": 2,
+          "max": 15,
+          "min": 3,
           "stat": "all_fire_damage"
         }
       ],
-      "weight": 1000
+      "weight": 500
     },
     "fire_res": {
       "type": "suffix",
@@ -11086,7 +11957,8 @@
             "included": [
               "jewelry_family",
               "armor_family",
-              "offhand_family"
+              "offhand_family",
+              "might"
             ],
             "req_type": "INCLUDES_ANY"
           }
@@ -11100,7 +11972,7 @@
           "stat": "fire_resist"
         }
       ],
-      "weight": 5000
+      "weight": 2000
     },
     "heal_suff": {
       "type": "suffix",
@@ -11116,7 +11988,8 @@
             "included": [
               "staff",
               "hammer",
-              "tome"
+              "tome",
+              "ingenuity"
             ],
             "req_type": "INCLUDES_ANY"
           }
@@ -11132,6 +12005,35 @@
       ],
       "weight": 1000
     },
+    "lightning_ele_dmg_jewelry": {
+      "type": "suffix",
+      "eye_aura_req": "",
+      "guid": "lightning_ele_dmg_jewelry",
+      "one_of_a_kind": "",
+      "only_one_per_item": true,
+      "requirements": {
+        "tag_requirements": [
+          {
+            "type": "GearSlot",
+            "excluded": [],
+            "included": [
+              "jewelry_family",
+              "ingenuity"
+            ],
+            "req_type": "INCLUDES_ANY"
+          }
+        ]
+      },
+      "stats": [
+        {
+          "type": "FLAT",
+          "max": 15,
+          "min": 3,
+          "stat": "all_lightning_damage"
+        }
+      ],
+      "weight": 500
+    },
     "lightning_res": {
       "type": "suffix",
       "eye_aura_req": "",
@@ -11146,7 +12048,8 @@
             "included": [
               "jewelry_family",
               "armor_family",
-              "offhand_family"
+              "offhand_family",
+              "ingenuity"
             ],
             "req_type": "INCLUDES_ANY"
           }
@@ -11160,7 +12063,7 @@
           "stat": "lightning_resist"
         }
       ],
-      "weight": 5000
+      "weight": 2000
     },
     "of_affluence": {
       "type": "suffix",
@@ -11174,7 +12077,8 @@
             "type": "GearSlot",
             "excluded": [],
             "included": [
-              "jewelry_family"
+              "jewelry_family",
+              "finesse"
             ],
             "req_type": "INCLUDES_ANY"
           }
@@ -11183,8 +12087,8 @@
       "stats": [
         {
           "type": "FLAT",
-          "max": 10,
-          "min": 2,
+          "max": 5,
+          "min": 1,
           "stat": "increased_quantity"
         }
       ],
@@ -11203,7 +12107,8 @@
             "excluded": [],
             "included": [
               "jewelry_family",
-              "tome"
+              "tome",
+              "ingenuity"
             ],
             "req_type": "INCLUDES_ANY"
           }
@@ -11217,7 +12122,7 @@
           "stat": "magic_shield_regen"
         }
       ],
-      "weight": 200
+      "weight": 1000
     },
     "of_blocking": {
       "type": "suffix",
@@ -11231,7 +12136,8 @@
             "type": "GearSlot",
             "excluded": [],
             "included": [
-              "shield"
+              "shield",
+              "might"
             ],
             "req_type": "INCLUDES_ANY"
           }
@@ -11240,8 +12146,8 @@
       "stats": [
         {
           "type": "PERCENT",
-          "max": 25,
-          "min": 5,
+          "max": 30,
+          "min": 6,
           "stat": "block_chance"
         }
       ],
@@ -11259,7 +12165,8 @@
             "type": "GearSlot",
             "excluded": [],
             "included": [
-              "weapon_family"
+              "weapon_family",
+              "might"
             ],
             "req_type": "INCLUDES_ANY"
           }
@@ -11287,7 +12194,8 @@
             "type": "GearSlot",
             "excluded": [],
             "included": [
-              "weapon_family"
+              "weapon_family",
+              "might"
             ],
             "req_type": "INCLUDES_ANY"
           }
@@ -11301,7 +12209,7 @@
           "stat": "burn_chance"
         }
       ],
-      "weight": 250
+      "weight": 500
     },
     "of_consumption": {
       "type": "suffix",
@@ -11315,7 +12223,8 @@
             "type": "GearSlot",
             "excluded": [],
             "included": [
-              "weapon_family"
+              "weapon_family",
+              "ingenuity"
             ],
             "req_type": "INCLUDES_ANY"
           }
@@ -11324,9 +12233,15 @@
       "stats": [
         {
           "type": "FLAT",
-          "max": 5,
-          "min": 1,
-          "stat": "mana_on_kill"
+          "max": 2,
+          "min": 0.4,
+          "stat": "mana_leech_cap"
+        },
+        {
+          "type": "FLAT",
+          "max": 2,
+          "min": 0.4,
+          "stat": "energy_leech_cap"
         }
       ],
       "weight": 1000
@@ -11343,7 +12258,8 @@
             "type": "GearSlot",
             "excluded": [],
             "included": [
-              "scythe"
+              "scythe",
+              "finesse"
             ],
             "req_type": "INCLUDES_ANY"
           }
@@ -11358,8 +12274,8 @@
         },
         {
           "type": "FLAT",
-          "max": 5,
-          "min": 1,
+          "max": 10,
+          "min": 2,
           "stat": "inc_leech"
         }
       ],
@@ -11378,7 +12294,8 @@
             "excluded": [],
             "included": [
               "scythe",
-              "dagger"
+              "dagger",
+              "ingenuity"
             ],
             "req_type": "INCLUDES_ANY"
           }
@@ -11387,8 +12304,8 @@
       "stats": [
         {
           "type": "FLAT",
-          "max": 15,
-          "min": 3,
+          "max": 25,
+          "min": 5,
           "stat": "ailment_damage"
         }
       ],
@@ -11407,7 +12324,8 @@
             "excluded": [],
             "included": [
               "necklace",
-              "mage_weapon"
+              "mage_weapon",
+              "might"
             ],
             "req_type": "INCLUDES_ANY"
           }
@@ -11439,7 +12357,8 @@
             ],
             "included": [
               "weapon_family",
-              "totem"
+              "totem",
+              "finesse"
             ],
             "req_type": "INCLUDES_ANY"
           }
@@ -11448,8 +12367,8 @@
       "stats": [
         {
           "type": "FLAT",
-          "max": 25,
-          "min": 5,
+          "max": 45,
+          "min": 9,
           "stat": "attack_speed"
         }
       ],
@@ -11467,7 +12386,8 @@
             "type": "GearSlot",
             "excluded": [],
             "included": [
-              "weapon_family"
+              "weapon_family",
+              "ingenuity"
             ],
             "req_type": "INCLUDES_ANY"
           }
@@ -11487,7 +12407,7 @@
           "stat": "electrify_proc_chance"
         }
       ],
-      "weight": 250
+      "weight": 500
     },
     "of_energy": {
       "type": "suffix",
@@ -11501,7 +12421,8 @@
             "type": "GearSlot",
             "excluded": [],
             "included": [
-              "jewelry_family"
+              "jewelry_family",
+              "finesse"
             ],
             "req_type": "INCLUDES_ANY"
           }
@@ -11510,8 +12431,8 @@
       "stats": [
         {
           "type": "FLAT",
-          "max": 5,
-          "min": 1,
+          "max": 7.5,
+          "min": 1.5,
           "stat": "energy"
         }
       ],
@@ -11531,7 +12452,8 @@
             "included": [
               "leather",
               "brigandine",
-              "vest"
+              "vest",
+              "finesse"
             ],
             "req_type": "INCLUDES_ANY"
           }
@@ -11540,8 +12462,8 @@
       "stats": [
         {
           "type": "FLAT",
-          "max": 3,
-          "min": 0.6,
+          "max": 5,
+          "min": 1,
           "stat": "dmg_reduction_chance"
         }
       ],
@@ -11561,7 +12483,8 @@
             "included": [
               "mage_weapon",
               "jewelry_family",
-              "tome"
+              "tome",
+              "ingenuity"
             ],
             "req_type": "INCLUDES_ANY"
           }
@@ -11570,8 +12493,8 @@
       "stats": [
         {
           "type": "FLAT",
-          "max": 5,
-          "min": 1,
+          "max": 30,
+          "min": 6,
           "stat": "cast_speed"
         }
       ],
@@ -11617,7 +12540,8 @@
             "type": "GearSlot",
             "excluded": [],
             "included": [
-              "gauntlet"
+              "gauntlet",
+              "might"
             ],
             "req_type": "INCLUDES_ANY"
           }
@@ -11632,8 +12556,8 @@
         },
         {
           "type": "FLAT",
-          "max": 10,
-          "min": 2,
+          "max": 22.5,
+          "min": 4.5,
           "stat": "attack_speed"
         }
       ],
@@ -11651,7 +12575,8 @@
             "type": "GearSlot",
             "excluded": [],
             "included": [
-              "weapon_family"
+              "weapon_family",
+              "might"
             ],
             "req_type": "INCLUDES_ANY"
           }
@@ -11660,9 +12585,44 @@
       "stats": [
         {
           "type": "FLAT",
-          "max": 5,
-          "min": 1,
-          "stat": "health_on_kill"
+          "max": 1.5,
+          "min": 0.3,
+          "stat": "health_leech_cap"
+        }
+      ],
+      "weight": 1000
+    },
+    "of_gutting": {
+      "type": "suffix",
+      "eye_aura_req": "",
+      "guid": "of_gutting",
+      "one_of_a_kind": "",
+      "only_one_per_item": true,
+      "requirements": {
+        "tag_requirements": [
+          {
+            "type": "GearSlot",
+            "excluded": [],
+            "included": [
+              "ring",
+              "finesse"
+            ],
+            "req_type": "INCLUDES_ANY"
+          }
+        ]
+      },
+      "stats": [
+        {
+          "type": "FLAT",
+          "max": 0.5,
+          "min": 0.5,
+          "stat": "critical_hit"
+        },
+        {
+          "type": "PERCENT",
+          "max": 10,
+          "min": 2,
+          "stat": "critical_hit"
         }
       ],
       "weight": 1000
@@ -11681,7 +12641,8 @@
             "included": [
               "plate",
               "chainmail",
-              "birgandine"
+              "brigandine",
+              "might"
             ],
             "req_type": "INCLUDES_ANY"
           }
@@ -11690,8 +12651,8 @@
       "stats": [
         {
           "type": "FLAT",
-          "max": 3,
-          "min": 0.6,
+          "max": 5,
+          "min": 1,
           "stat": "physical_resist"
         }
       ],
@@ -11709,7 +12670,8 @@
             "type": "GearSlot",
             "excluded": [],
             "included": [
-              "weapon_family"
+              "weapon_family",
+              "finesse"
             ],
             "req_type": "INCLUDES_ANY"
           }
@@ -11729,7 +12691,7 @@
           "stat": "freeze_proc_chance"
         }
       ],
-      "weight": 250
+      "weight": 500
     },
     "of_impatience": {
       "type": "suffix",
@@ -11743,7 +12705,8 @@
             "type": "GearSlot",
             "excluded": [],
             "included": [
-              "bow"
+              "bow",
+              "finesse"
             ],
             "req_type": "INCLUDES_ANY"
           }
@@ -11758,8 +12721,8 @@
         },
         {
           "type": "FLAT",
-          "max": 10,
-          "min": 2,
+          "max": 15,
+          "min": 3,
           "stat": "faster_projectiles"
         }
       ],
@@ -11806,7 +12769,8 @@
             "excluded": [],
             "included": [
               "mage_weapon",
-              "jewelry_family"
+              "jewelry_family",
+              "ingenuity"
             ],
             "req_type": "INCLUDES_ANY"
           }
@@ -11815,8 +12779,8 @@
       "stats": [
         {
           "type": "FLAT",
-          "max": 5,
-          "min": 1,
+          "max": 10,
+          "min": 2,
           "stat": "cdr"
         }
       ],
@@ -11834,7 +12798,8 @@
             "type": "GearSlot",
             "excluded": [],
             "included": [
-              "jewelry_family"
+              "jewelry_family",
+              "ingenuity"
             ],
             "req_type": "INCLUDES_ANY"
           }
@@ -11862,7 +12827,8 @@
             "type": "GearSlot",
             "excluded": [],
             "included": [
-              "weapon_family"
+              "weapon_family",
+              "might"
             ],
             "req_type": "INCLUDES_ANY"
           }
@@ -11890,7 +12856,9 @@
             "type": "GearSlot",
             "excluded": [],
             "included": [
-              "weapon_family"
+              "weapon_family",
+              "ingenuity",
+              "finesse"
             ],
             "req_type": "INCLUDES_ANY"
           }
@@ -11904,7 +12872,7 @@
           "stat": "poison_chance"
         }
       ],
-      "weight": 250
+      "weight": 500
     },
     "of_pragmatism": {
       "type": "suffix",
@@ -11919,7 +12887,8 @@
             "excluded": [],
             "included": [
               "hammer",
-              "spear"
+              "spear",
+              "might"
             ],
             "req_type": "INCLUDES_ANY"
           }
@@ -11928,8 +12897,8 @@
       "stats": [
         {
           "type": "FLAT",
-          "max": 15,
-          "min": 3,
+          "max": 25,
+          "min": 5,
           "stat": "non_crit_damage"
         }
       ],
@@ -11949,7 +12918,8 @@
             "included": [
               "jewelry_family",
               "offhand_family",
-              "weapon_family"
+              "weapon_family",
+              "might"
             ],
             "req_type": "INCLUDES_ANY"
           }
@@ -11977,7 +12947,8 @@
             "type": "GearSlot",
             "excluded": [],
             "included": [
-              "crossbow"
+              "crossbow",
+              "might"
             ],
             "req_type": "INCLUDES_ANY"
           }
@@ -11992,9 +12963,40 @@
         },
         {
           "type": "FLAT",
-          "max": 2.5,
-          "min": 1.5,
+          "max": 3.75,
+          "min": 0.75,
           "stat": "armor_penetration"
+        }
+      ],
+      "weight": 1000
+    },
+    "of_recharging": {
+      "type": "suffix",
+      "eye_aura_req": "",
+      "guid": "of_recharging",
+      "one_of_a_kind": "",
+      "only_one_per_item": true,
+      "requirements": {
+        "tag_requirements": [
+          {
+            "type": "GearSlot",
+            "excluded": [],
+            "included": [
+              "bow",
+              "crossbow",
+              "jewelry_family",
+              "finesse"
+            ],
+            "req_type": "INCLUDES_ANY"
+          }
+        ]
+      },
+      "stats": [
+        {
+          "type": "FLAT",
+          "max": 10,
+          "min": 2,
+          "stat": "charge_recovery_rate"
         }
       ],
       "weight": 1000
@@ -12012,7 +13014,8 @@
             "excluded": [],
             "included": [
               "bow",
-              "crossbow"
+              "crossbow",
+              "finesse"
             ],
             "req_type": "INCLUDES_ANY"
           }
@@ -12021,8 +13024,8 @@
       "stats": [
         {
           "type": "FLAT",
-          "max": 20,
-          "min": 4,
+          "max": 45,
+          "min": 9,
           "stat": "attack_speed"
         }
       ],
@@ -12041,7 +13044,8 @@
             "excluded": [],
             "included": [
               "hammer",
-              "gauntlet"
+              "gauntlet",
+              "ingenuity"
             ],
             "req_type": "INCLUDES_ANY"
           }
@@ -12050,8 +13054,8 @@
       "stats": [
         {
           "type": "FLAT",
-          "max": 20,
-          "min": 4,
+          "max": 30,
+          "min": 6,
           "stat": "dmg_to_undead"
         }
       ],
@@ -12070,7 +13074,8 @@
             "excluded": [],
             "included": [
               "mage_weapon",
-              "jewelry_family"
+              "jewelry_family",
+              "ingenuity"
             ],
             "req_type": "INCLUDES_ANY"
           }
@@ -12079,8 +13084,8 @@
       "stats": [
         {
           "type": "FLAT",
-          "max": 15,
-          "min": 3,
+          "max": 20,
+          "min": 4,
           "stat": "spell_damage"
         }
       ],
@@ -12100,7 +13105,8 @@
             "included": [
               "jewelry_family",
               "armor_family",
-              "tome"
+              "tome",
+              "ingenuity"
             ],
             "req_type": "INCLUDES_ANY"
           }
@@ -12114,7 +13120,36 @@
           "stat": "mana_regen"
         }
       ],
-      "weight": 200
+      "weight": 1000
+    },
+    "of_stabbing": {
+      "type": "suffix",
+      "eye_aura_req": "",
+      "guid": "of_stabbing",
+      "one_of_a_kind": "",
+      "only_one_per_item": true,
+      "requirements": {
+        "tag_requirements": [
+          {
+            "type": "GearSlot",
+            "excluded": [],
+            "included": [
+              "weapon_family",
+              "finesse"
+            ],
+            "req_type": "INCLUDES_ANY"
+          }
+        ]
+      },
+      "stats": [
+        {
+          "type": "FLAT",
+          "max": 1,
+          "min": 0.2,
+          "stat": "critical_hit"
+        }
+      ],
+      "weight": 1000
     },
     "of_sweeping": {
       "type": "suffix",
@@ -12128,7 +13163,8 @@
             "type": "GearSlot",
             "excluded": [],
             "included": [
-              "two_handed"
+              "two_handed",
+              "finesse"
             ],
             "req_type": "INCLUDES_ANY"
           }
@@ -12137,9 +13173,37 @@
       "stats": [
         {
           "type": "FLAT",
-          "max": 10,
-          "min": 2,
+          "max": 15,
+          "min": 3,
           "stat": "inc_aoe"
+        }
+      ],
+      "weight": 1000
+    },
+    "of_swiftness": {
+      "type": "suffix",
+      "eye_aura_req": "",
+      "guid": "of_swiftness",
+      "one_of_a_kind": "",
+      "only_one_per_item": true,
+      "requirements": {
+        "tag_requirements": [
+          {
+            "type": "GearSlot",
+            "excluded": [],
+            "included": [
+              "jewelry_family"
+            ],
+            "req_type": "INCLUDES_ANY"
+          }
+        ]
+      },
+      "stats": [
+        {
+          "type": "FLAT",
+          "max": 30,
+          "min": 6,
+          "stat": "attack_cast_speed"
         }
       ],
       "weight": 1000
@@ -12156,7 +13220,8 @@
             "type": "GearSlot",
             "excluded": [],
             "included": [
-              "spear"
+              "spear",
+              "finesse"
             ],
             "req_type": "INCLUDES_ANY"
           }
@@ -12171,8 +13236,8 @@
         },
         {
           "type": "FLAT",
-          "max": 5,
-          "min": 1,
+          "max": 7.5,
+          "min": 1.5,
           "stat": "inc_aoe"
         }
       ],
@@ -12190,7 +13255,8 @@
             "type": "GearSlot",
             "excluded": [],
             "included": [
-              "sword"
+              "sword",
+              "might"
             ],
             "req_type": "INCLUDES_ANY"
           }
@@ -12205,8 +13271,8 @@
         },
         {
           "type": "FLAT",
-          "max": 2.5,
-          "min": 0.5,
+          "max": 3.75,
+          "min": 0.75,
           "stat": "accuracy"
         }
       ],
@@ -12225,7 +13291,8 @@
             "excluded": [],
             "included": [
               "boots",
-              "totem"
+              "totem",
+              "finesse"
             ],
             "req_type": "INCLUDES_ANY"
           }
@@ -12234,8 +13301,8 @@
       "stats": [
         {
           "type": "FLAT",
-          "max": 50,
-          "min": 10,
+          "max": 75,
+          "min": 15,
           "stat": "roll_cooldown"
         }
       ],
@@ -12253,7 +13320,8 @@
             "type": "GearSlot",
             "excluded": [],
             "included": [
-              "hammer"
+              "hammer",
+              "ingenuity"
             ],
             "req_type": "INCLUDES_ANY"
           }
@@ -12268,8 +13336,8 @@
         },
         {
           "type": "FLAT",
-          "max": -5,
-          "min": -1,
+          "max": -7.5,
+          "min": -1.5,
           "stat": "mana_cost"
         }
       ],
@@ -12287,7 +13355,8 @@
             "type": "GearSlot",
             "excluded": [],
             "included": [
-              "staff"
+              "staff",
+              "ingenuity"
             ],
             "req_type": "INCLUDES_ANY"
           }
@@ -12302,8 +13371,8 @@
         },
         {
           "type": "FLAT",
-          "max": 5,
-          "min": 1,
+          "max": 7.5,
+          "min": 1.5,
           "stat": "all_elemental_damage"
         }
       ],
@@ -12321,7 +13390,8 @@
             "type": "GearSlot",
             "excluded": [],
             "included": [
-              "jewelry_family"
+              "jewelry_family",
+              "might"
             ],
             "req_type": "INCLUDES_ANY"
           }
@@ -12352,7 +13422,8 @@
               "jewelry_family",
               "cloth",
               "chainmail",
-              "vest"
+              "vest",
+              "ingenuity"
             ],
             "req_type": "INCLUDES_ANY"
           }
@@ -12380,7 +13451,8 @@
             "type": "GearSlot",
             "excluded": [],
             "included": [
-              "offhand_family"
+              "offhand_family",
+              "ingenuity"
             ],
             "req_type": "INCLUDES_ANY"
           }
@@ -12389,8 +13461,8 @@
       "stats": [
         {
           "type": "FLAT",
-          "max": 15,
-          "min": 3,
+          "max": 10,
+          "min": 2,
           "stat": "elemental_resist"
         }
       ],
@@ -12408,7 +13480,8 @@
             "type": "GearSlot",
             "excluded": [],
             "included": [
-              "dagger"
+              "dagger",
+              "finesse"
             ],
             "req_type": "INCLUDES_ANY"
           }
@@ -12422,9 +13495,9 @@
           "stat": "dagger_damage"
         },
         {
-          "type": "PERCENT",
-          "max": 10,
-          "min": 2,
+          "type": "FLAT",
+          "max": 2,
+          "min": 0.4,
           "stat": "critical_hit"
         }
       ],
@@ -12442,7 +13515,10 @@
             "type": "GearSlot",
             "excluded": [],
             "included": [
-              "jewelry_family"
+              "jewelry_family",
+              "might",
+              "ingenuity",
+              "finesse"
             ],
             "req_type": "INCLUDES_ANY"
           }
@@ -12456,7 +13532,7 @@
           "stat": "all_attributes"
         }
       ],
-      "weight": 50
+      "weight": 1000
     },
     "of_the_titan": {
       "type": "suffix",
@@ -12473,7 +13549,8 @@
               "jewelry_family",
               "plate",
               "chainmail",
-              "birgandine"
+              "brigandine",
+              "might"
             ],
             "req_type": "INCLUDES_ANY"
           }
@@ -12485,6 +13562,35 @@
           "max": 3,
           "min": 0.6,
           "stat": "strength"
+        }
+      ],
+      "weight": 1000
+    },
+    "of_the_traitor": {
+      "type": "suffix",
+      "eye_aura_req": "",
+      "guid": "of_the_traitor",
+      "one_of_a_kind": "",
+      "only_one_per_item": true,
+      "requirements": {
+        "tag_requirements": [
+          {
+            "type": "GearSlot",
+            "excluded": [],
+            "included": [
+              "jewelry_family",
+              "finesse"
+            ],
+            "req_type": "INCLUDES_ANY"
+          }
+        ]
+      },
+      "stats": [
+        {
+          "type": "FLAT",
+          "max": 30,
+          "min": 6,
+          "stat": "dual_wield_damage"
         }
       ],
       "weight": 1000
@@ -12503,7 +13609,8 @@
             "included": [
               "jewelry_family",
               "armor_family",
-              "shield"
+              "shield",
+              "might"
             ],
             "req_type": "INCLUDES_ANY"
           }
@@ -12517,7 +13624,7 @@
           "stat": "health_regen"
         }
       ],
-      "weight": 200
+      "weight": 1000
     },
     "of_the_wind": {
       "type": "suffix",
@@ -12534,7 +13641,8 @@
               "jewelry_family",
               "leather",
               "brigandine",
-              "vest"
+              "vest",
+              "finesse"
             ],
             "req_type": "INCLUDES_ANY"
           }
@@ -12562,7 +13670,8 @@
             "type": "GearSlot",
             "excluded": [],
             "included": [
-              "jewelry_family"
+              "jewelry_family",
+              "ingenuity"
             ],
             "req_type": "INCLUDES_ANY"
           }
@@ -12571,8 +13680,8 @@
       "stats": [
         {
           "type": "FLAT",
-          "max": 15,
-          "min": 3,
+          "max": 10,
+          "min": 2,
           "stat": "magic_find"
         }
       ],
@@ -12590,7 +13699,8 @@
             "type": "GearSlot",
             "excluded": [],
             "included": [
-              "axe"
+              "axe",
+              "might"
             ],
             "req_type": "INCLUDES_ANY"
           }
@@ -12624,7 +13734,8 @@
             "type": "GearSlot",
             "excluded": [],
             "included": [
-              "weapon_family"
+              "weapon_family",
+              "might"
             ],
             "req_type": "INCLUDES_ANY"
           }
@@ -12633,9 +13744,9 @@
       "stats": [
         {
           "type": "FLAT",
-          "max": 5,
-          "min": 1,
-          "stat": "lifesteal"
+          "max": 15,
+          "min": 3,
+          "stat": "inc_leech"
         }
       ],
       "weight": 1000
@@ -12654,7 +13765,8 @@
             "included": [
               "cloth",
               "chainmail",
-              "vest"
+              "vest",
+              "ingenuity"
             ],
             "req_type": "INCLUDES_ANY"
           }
@@ -12663,9 +13775,9 @@
       "stats": [
         {
           "type": "FLAT",
-          "max": 3,
-          "min": 0.6,
-          "stat": "dmg_taken_to_mana"
+          "max": 5,
+          "min": 1,
+          "stat": "mana_shield"
         }
       ],
       "weight": 1000
@@ -12682,7 +13794,8 @@
             "type": "GearSlot",
             "excluded": [],
             "included": [
-              "weapon_family"
+              "weapon_family",
+              "might"
             ],
             "req_type": "INCLUDES_ANY"
           }
@@ -12696,7 +13809,7 @@
           "stat": "bleed_chance"
         }
       ],
-      "weight": 250
+      "weight": 1000
     },
     "paragon_generosity": {
       "type": "suffix",
@@ -12710,7 +13823,8 @@
             "type": "GearSlot",
             "excluded": [],
             "included": [
-              "boots"
+              "boots",
+              "might"
             ],
             "req_type": "INCLUDES_ANY"
           }
@@ -12725,12 +13839,12 @@
         },
         {
           "type": "FLAT",
-          "max": 15,
-          "min": 3,
+          "max": 10,
+          "min": 2,
           "stat": "inc_effect_of_defensive_buff_given"
         }
       ],
-      "weight": 50
+      "weight": 250
     },
     "paragon_grace": {
       "type": "suffix",
@@ -12744,7 +13858,8 @@
             "type": "GearSlot",
             "excluded": [],
             "included": [
-              "boots"
+              "boots",
+              "finesse"
             ],
             "req_type": "INCLUDES_ANY"
           }
@@ -12764,7 +13879,7 @@
           "stat": "dodge"
         }
       ],
-      "weight": 50
+      "weight": 250
     },
     "paragon_heart": {
       "type": "suffix",
@@ -12778,7 +13893,8 @@
             "type": "GearSlot",
             "excluded": [],
             "included": [
-              "chest"
+              "chest",
+              "might"
             ],
             "req_type": "INCLUDES_ANY"
           }
@@ -12798,7 +13914,7 @@
           "stat": "armor"
         }
       ],
-      "weight": 50
+      "weight": 250
     },
     "paragon_virtue": {
       "type": "suffix",
@@ -12812,7 +13928,8 @@
             "type": "GearSlot",
             "excluded": [],
             "included": [
-              "necklace"
+              "necklace",
+              "ingenuity"
             ],
             "req_type": "INCLUDES_ANY"
           }
@@ -12832,7 +13949,36 @@
           "stat": "magic_find"
         }
       ],
-      "weight": 50
+      "weight": 250
+    },
+    "phys_dmg_jewelry": {
+      "type": "suffix",
+      "eye_aura_req": "",
+      "guid": "phys_dmg_jewelry",
+      "one_of_a_kind": "",
+      "only_one_per_item": true,
+      "requirements": {
+        "tag_requirements": [
+          {
+            "type": "GearSlot",
+            "excluded": [],
+            "included": [
+              "jewelry_family",
+              "might"
+            ],
+            "req_type": "INCLUDES_ANY"
+          }
+        ]
+      },
+      "stats": [
+        {
+          "type": "FLAT",
+          "max": 10,
+          "min": 2,
+          "stat": "all_physical_damage"
+        }
+      ],
+      "weight": 500
     },
     "phys_res": {
       "type": "suffix",
@@ -12846,7 +13992,8 @@
             "type": "GearSlot",
             "excluded": [],
             "included": [
-              "jewelry_family"
+              "jewelry_family",
+              "might"
             ],
             "req_type": "INCLUDES_ANY"
           }
@@ -12860,7 +14007,7 @@
           "stat": "physical_resist"
         }
       ],
-      "weight": 3000
+      "weight": 1000
     },
     "phys_res_offh": {
       "type": "suffix",
@@ -12874,7 +14021,8 @@
             "type": "GearSlot",
             "excluded": [],
             "included": [
-              "offhand_family"
+              "offhand_family",
+              "might"
             ],
             "req_type": "INCLUDES_ANY"
           }
@@ -12883,12 +14031,12 @@
       "stats": [
         {
           "type": "FLAT",
-          "max": 20,
-          "min": 4,
+          "max": 25,
+          "min": 5,
           "stat": "physical_resist"
         }
       ],
-      "weight": 3000
+      "weight": 1000
     },
     "strong_dex_armor_suf": {
       "type": "suffix",
@@ -12904,7 +14052,8 @@
             "included": [
               "leather",
               "brigandine",
-              "vest"
+              "vest",
+              "finesse"
             ],
             "req_type": "INCLUDES_ANY"
           }
@@ -12918,7 +14067,7 @@
           "stat": "dexterity"
         }
       ],
-      "weight": 500
+      "weight": 1000
     },
     "strong_int_armor_suf": {
       "type": "suffix",
@@ -12934,7 +14083,8 @@
             "included": [
               "cloth",
               "chainmail",
-              "vest"
+              "vest",
+              "ingenuity"
             ],
             "req_type": "INCLUDES_ANY"
           }
@@ -12948,7 +14098,7 @@
           "stat": "intelligence"
         }
       ],
-      "weight": 500
+      "weight": 1000
     },
     "strong_str_armor_suf": {
       "type": "suffix",
@@ -12964,7 +14114,8 @@
             "included": [
               "plate",
               "chainmail",
-              "birgandine"
+              "brigandine",
+              "might"
             ],
             "req_type": "INCLUDES_ANY"
           }
@@ -12978,7 +14129,7 @@
           "stat": "strength"
         }
       ],
-      "weight": 500
+      "weight": 1000
     },
     "water_ele_dmg_jewelry": {
       "type": "suffix",
@@ -12992,7 +14143,8 @@
             "type": "GearSlot",
             "excluded": [],
             "included": [
-              "jewelry_family"
+              "jewelry_family",
+              "finesse"
             ],
             "req_type": "INCLUDES_ANY"
           }
@@ -13001,12 +14153,12 @@
       "stats": [
         {
           "type": "FLAT",
-          "max": 10,
-          "min": 2,
+          "max": 15,
+          "min": 3,
           "stat": "all_water_damage"
         }
       ],
-      "weight": 1000
+      "weight": 500
     },
     "water_res": {
       "type": "suffix",
@@ -13022,7 +14174,8 @@
             "included": [
               "jewelry_family",
               "armor_family",
-              "offhand_family"
+              "offhand_family",
+              "finesse"
             ],
             "req_type": "INCLUDES_ANY"
           }
@@ -13036,7 +14189,7 @@
           "stat": "water_resist"
         }
       ],
-      "weight": 5000
+      "weight": 2000
     }
   },
   "tool": {
@@ -13128,14 +14281,1006 @@
       "weight": 500
     }
   },
+  "watcher_eye": {
+    "armor_eye": {
+      "type": "watcher_eye",
+      "eye_aura_req": "armor",
+      "guid": "armor_eye",
+      "one_of_a_kind": "",
+      "only_one_per_item": true,
+      "requirements": {
+        "tag_requirements": [
+          {
+            "type": "GearSlot",
+            "excluded": [],
+            "included": [],
+            "req_type": "INCLUDES_ANY"
+          }
+        ]
+      },
+      "stats": [
+        {
+          "type": "FLAT",
+          "max": 20,
+          "min": 10,
+          "stat": "heal_effect_on_self"
+        },
+        {
+          "type": "MORE",
+          "max": 10,
+          "min": 5,
+          "stat": "armor"
+        }
+      ],
+      "weight": 1000
+    },
+    "back_to_basics_eye": {
+      "type": "watcher_eye",
+      "eye_aura_req": "back_to_basics",
+      "guid": "back_to_basics_eye",
+      "one_of_a_kind": "",
+      "only_one_per_item": true,
+      "requirements": {
+        "tag_requirements": [
+          {
+            "type": "GearSlot",
+            "excluded": [],
+            "included": [],
+            "req_type": "INCLUDES_ANY"
+          }
+        ]
+      },
+      "stats": [
+        {
+          "type": "MORE",
+          "max": 20,
+          "min": 10,
+          "stat": "basic_attack_dmg"
+        },
+        {
+          "type": "FLAT",
+          "max": 5,
+          "min": 2.5,
+          "stat": "accuracy"
+        }
+      ],
+      "weight": 1000
+    },
+    "block_eye": {
+      "type": "watcher_eye",
+      "eye_aura_req": "block",
+      "guid": "block_eye",
+      "one_of_a_kind": "",
+      "only_one_per_item": true,
+      "requirements": {
+        "tag_requirements": [
+          {
+            "type": "GearSlot",
+            "excluded": [],
+            "included": [],
+            "req_type": "INCLUDES_ANY"
+          }
+        ]
+      },
+      "stats": [
+        {
+          "type": "FLAT",
+          "max": 2,
+          "min": 2,
+          "stat": "max_block_chance"
+        },
+        {
+          "type": "FLAT",
+          "max": 30,
+          "min": 15,
+          "stat": "block_recovery"
+        }
+      ],
+      "weight": 1000
+    },
+    "chaos_ailment_eye": {
+      "type": "watcher_eye",
+      "eye_aura_req": "chaos_ailment",
+      "guid": "chaos_ailment_eye",
+      "one_of_a_kind": "",
+      "only_one_per_item": true,
+      "requirements": {
+        "tag_requirements": [
+          {
+            "type": "GearSlot",
+            "excluded": [],
+            "included": [],
+            "req_type": "INCLUDES_ANY"
+          }
+        ]
+      },
+      "stats": [
+        {
+          "type": "FLAT",
+          "max": 2.9,
+          "min": 1,
+          "stat": "plus_lvl_chaos_spells"
+        },
+        {
+          "type": "FLAT",
+          "max": 20,
+          "min": 10,
+          "stat": "poison_damage"
+        }
+      ],
+      "weight": 1000
+    },
+    "chaos_damage_eye": {
+      "type": "watcher_eye",
+      "eye_aura_req": "chaos_damage",
+      "guid": "chaos_damage_eye",
+      "one_of_a_kind": "",
+      "only_one_per_item": true,
+      "requirements": {
+        "tag_requirements": [
+          {
+            "type": "GearSlot",
+            "excluded": [],
+            "included": [],
+            "req_type": "INCLUDES_ANY"
+          }
+        ]
+      },
+      "stats": [
+        {
+          "type": "FLAT",
+          "max": 2,
+          "min": 1,
+          "stat": "chaos_health_leech"
+        }
+      ],
+      "weight": 500
+    },
+    "chaos_damage_ms_eye": {
+      "type": "watcher_eye",
+      "eye_aura_req": "chaos_damage",
+      "guid": "chaos_damage_ms_eye",
+      "one_of_a_kind": "",
+      "only_one_per_item": true,
+      "requirements": {
+        "tag_requirements": [
+          {
+            "type": "GearSlot",
+            "excluded": [],
+            "included": [],
+            "req_type": "INCLUDES_ANY"
+          }
+        ]
+      },
+      "stats": [
+        {
+          "type": "FLAT",
+          "max": 2,
+          "min": 1,
+          "stat": "chaos_magic_shield_leech"
+        }
+      ],
+      "weight": 500
+    },
+    "chaos_res_eye": {
+      "type": "watcher_eye",
+      "eye_aura_req": "chaos_res",
+      "guid": "chaos_res_eye",
+      "one_of_a_kind": "",
+      "only_one_per_item": true,
+      "requirements": {
+        "tag_requirements": [
+          {
+            "type": "GearSlot",
+            "excluded": [],
+            "included": [],
+            "req_type": "INCLUDES_ANY"
+          }
+        ]
+      },
+      "stats": [
+        {
+          "type": "FLAT",
+          "max": 6,
+          "min": 3,
+          "stat": "chaos_dmg_reduction"
+        },
+        {
+          "type": "FLAT",
+          "max": 2,
+          "min": 1,
+          "stat": "max_chaos_resist"
+        }
+      ],
+      "weight": 1000
+    },
+    "cold_ailment_eye": {
+      "type": "watcher_eye",
+      "eye_aura_req": "cold_ailment",
+      "guid": "cold_ailment_eye",
+      "one_of_a_kind": "",
+      "only_one_per_item": true,
+      "requirements": {
+        "tag_requirements": [
+          {
+            "type": "GearSlot",
+            "excluded": [],
+            "included": [],
+            "req_type": "INCLUDES_ANY"
+          }
+        ]
+      },
+      "stats": [
+        {
+          "type": "FLAT",
+          "max": 2.9,
+          "min": 1,
+          "stat": "plus_lvl_cold_spells"
+        },
+        {
+          "type": "FLAT",
+          "max": 20,
+          "min": 10,
+          "stat": "freeze_damage"
+        }
+      ],
+      "weight": 1000
+    },
+    "cold_damage_eye": {
+      "type": "watcher_eye",
+      "eye_aura_req": "cold_damage",
+      "guid": "cold_damage_eye",
+      "one_of_a_kind": "",
+      "only_one_per_item": true,
+      "requirements": {
+        "tag_requirements": [
+          {
+            "type": "GearSlot",
+            "excluded": [],
+            "included": [],
+            "req_type": "INCLUDES_ANY"
+          }
+        ]
+      },
+      "stats": [
+        {
+          "type": "FLAT",
+          "max": 2,
+          "min": 1,
+          "stat": "water_health_leech"
+        }
+      ],
+      "weight": 500
+    },
+    "cold_damage_ms_eye": {
+      "type": "watcher_eye",
+      "eye_aura_req": "cold_damage",
+      "guid": "cold_damage_ms_eye",
+      "one_of_a_kind": "",
+      "only_one_per_item": true,
+      "requirements": {
+        "tag_requirements": [
+          {
+            "type": "GearSlot",
+            "excluded": [],
+            "included": [],
+            "req_type": "INCLUDES_ANY"
+          }
+        ]
+      },
+      "stats": [
+        {
+          "type": "FLAT",
+          "max": 2,
+          "min": 1,
+          "stat": "water_magic_shield_leech"
+        }
+      ],
+      "weight": 500
+    },
+    "cold_res_eye": {
+      "type": "watcher_eye",
+      "eye_aura_req": "cold_res",
+      "guid": "cold_res_eye",
+      "one_of_a_kind": "",
+      "only_one_per_item": true,
+      "requirements": {
+        "tag_requirements": [
+          {
+            "type": "GearSlot",
+            "excluded": [],
+            "included": [],
+            "req_type": "INCLUDES_ANY"
+          }
+        ]
+      },
+      "stats": [
+        {
+          "type": "FLAT",
+          "max": 6,
+          "min": 3,
+          "stat": "water_dmg_reduction"
+        },
+        {
+          "type": "FLAT",
+          "max": 2,
+          "min": 1,
+          "stat": "max_water_resist"
+        }
+      ],
+      "weight": 1000
+    },
+    "critical_damage_eye": {
+      "type": "watcher_eye",
+      "eye_aura_req": "critical_damage",
+      "guid": "critical_damage_eye",
+      "one_of_a_kind": "",
+      "only_one_per_item": true,
+      "requirements": {
+        "tag_requirements": [
+          {
+            "type": "GearSlot",
+            "excluded": [],
+            "included": [],
+            "req_type": "INCLUDES_ANY"
+          }
+        ]
+      },
+      "stats": [
+        {
+          "type": "FLAT",
+          "max": 6,
+          "min": 3,
+          "stat": "endurance_charge_on_crit"
+        },
+        {
+          "type": "FLAT",
+          "max": 6,
+          "min": 3,
+          "stat": "power_charge_on_crit"
+        },
+        {
+          "type": "FLAT",
+          "max": 6,
+          "min": 3,
+          "stat": "frenzy_charge_on_crit"
+        }
+      ],
+      "weight": 1000
+    },
+    "critical_hit_eye": {
+      "type": "watcher_eye",
+      "eye_aura_req": "critical_hit",
+      "guid": "critical_hit_eye",
+      "one_of_a_kind": "",
+      "only_one_per_item": true,
+      "requirements": {
+        "tag_requirements": [
+          {
+            "type": "GearSlot",
+            "excluded": [],
+            "included": [],
+            "req_type": "INCLUDES_ANY"
+          }
+        ]
+      },
+      "stats": [
+        {
+          "type": "MORE",
+          "max": 10,
+          "min": 5,
+          "stat": "chaining_spell_dmg"
+        }
+      ],
+      "weight": 1000
+    },
+    "dodge_eye": {
+      "type": "watcher_eye",
+      "eye_aura_req": "dodge",
+      "guid": "dodge_eye",
+      "one_of_a_kind": "",
+      "only_one_per_item": true,
+      "requirements": {
+        "tag_requirements": [
+          {
+            "type": "GearSlot",
+            "excluded": [],
+            "included": [],
+            "req_type": "INCLUDES_ANY"
+          }
+        ]
+      },
+      "stats": [
+        {
+          "type": "FLAT",
+          "max": 10,
+          "min": 5,
+          "stat": "spell_dodge_per_perc_of_dodge"
+        },
+        {
+          "type": "MORE",
+          "max": 10,
+          "min": 5,
+          "stat": "dodge"
+        }
+      ],
+      "weight": 1000
+    },
+    "ele_res_eye": {
+      "type": "watcher_eye",
+      "eye_aura_req": "ele_res",
+      "guid": "ele_res_eye",
+      "one_of_a_kind": "",
+      "only_one_per_item": true,
+      "requirements": {
+        "tag_requirements": [
+          {
+            "type": "GearSlot",
+            "excluded": [],
+            "included": [],
+            "req_type": "INCLUDES_ANY"
+          }
+        ]
+      },
+      "stats": [
+        {
+          "type": "FLAT",
+          "max": 2.9,
+          "min": 1,
+          "stat": "plus_lvl_all_spells"
+        },
+        {
+          "type": "FLAT",
+          "max": 10,
+          "min": 5,
+          "stat": "elemental_resist"
+        }
+      ],
+      "weight": 1000
+    },
+    "energy_reg_eye": {
+      "type": "watcher_eye",
+      "eye_aura_req": "energy_reg",
+      "guid": "energy_reg_eye",
+      "one_of_a_kind": "",
+      "only_one_per_item": true,
+      "requirements": {
+        "tag_requirements": [
+          {
+            "type": "GearSlot",
+            "excluded": [],
+            "included": [],
+            "req_type": "INCLUDES_ANY"
+          }
+        ]
+      },
+      "stats": [
+        {
+          "type": "PERCENT",
+          "max": 50,
+          "min": 25,
+          "stat": "energy_leech_cap"
+        },
+        {
+          "type": "MORE",
+          "max": 10,
+          "min": 5,
+          "stat": "energy_regen"
+        }
+      ],
+      "weight": 1000
+    },
+    "fire_ailment_eye": {
+      "type": "watcher_eye",
+      "eye_aura_req": "fire_ailment",
+      "guid": "fire_ailment_eye",
+      "one_of_a_kind": "",
+      "only_one_per_item": true,
+      "requirements": {
+        "tag_requirements": [
+          {
+            "type": "GearSlot",
+            "excluded": [],
+            "included": [],
+            "req_type": "INCLUDES_ANY"
+          }
+        ]
+      },
+      "stats": [
+        {
+          "type": "FLAT",
+          "max": 2.9,
+          "min": 1,
+          "stat": "plus_lvl_fire_spells"
+        },
+        {
+          "type": "FLAT",
+          "max": 20,
+          "min": 10,
+          "stat": "burn_damage"
+        }
+      ],
+      "weight": 1000
+    },
+    "fire_damage_eye": {
+      "type": "watcher_eye",
+      "eye_aura_req": "fire_damage",
+      "guid": "fire_damage_eye",
+      "one_of_a_kind": "",
+      "only_one_per_item": true,
+      "requirements": {
+        "tag_requirements": [
+          {
+            "type": "GearSlot",
+            "excluded": [],
+            "included": [],
+            "req_type": "INCLUDES_ANY"
+          }
+        ]
+      },
+      "stats": [
+        {
+          "type": "FLAT",
+          "max": 2,
+          "min": 1,
+          "stat": "fire_health_leech"
+        }
+      ],
+      "weight": 500
+    },
+    "fire_damage_ms_eye": {
+      "type": "watcher_eye",
+      "eye_aura_req": "fire_damage",
+      "guid": "fire_damage_ms_eye",
+      "one_of_a_kind": "",
+      "only_one_per_item": true,
+      "requirements": {
+        "tag_requirements": [
+          {
+            "type": "GearSlot",
+            "excluded": [],
+            "included": [],
+            "req_type": "INCLUDES_ANY"
+          }
+        ]
+      },
+      "stats": [
+        {
+          "type": "FLAT",
+          "max": 2,
+          "min": 1,
+          "stat": "fire_magic_shield_leech"
+        }
+      ],
+      "weight": 500
+    },
+    "fire_res_eye": {
+      "type": "watcher_eye",
+      "eye_aura_req": "fire_res",
+      "guid": "fire_res_eye",
+      "one_of_a_kind": "",
+      "only_one_per_item": true,
+      "requirements": {
+        "tag_requirements": [
+          {
+            "type": "GearSlot",
+            "excluded": [],
+            "included": [],
+            "req_type": "INCLUDES_ANY"
+          }
+        ]
+      },
+      "stats": [
+        {
+          "type": "FLAT",
+          "max": 6,
+          "min": 3,
+          "stat": "fire_dmg_reduction"
+        },
+        {
+          "type": "FLAT",
+          "max": 2,
+          "min": 1,
+          "stat": "max_fire_resist"
+        }
+      ],
+      "weight": 1000
+    },
+    "guardian_eye": {
+      "type": "watcher_eye",
+      "eye_aura_req": "guardian",
+      "guid": "guardian_eye",
+      "one_of_a_kind": "",
+      "only_one_per_item": true,
+      "requirements": {
+        "tag_requirements": [
+          {
+            "type": "GearSlot",
+            "excluded": [],
+            "included": [],
+            "req_type": "INCLUDES_ANY"
+          }
+        ]
+      },
+      "stats": [
+        {
+          "type": "FLAT",
+          "max": 18,
+          "min": 9,
+          "stat": "inc_effect_of_defensive_buff_given"
+        }
+      ],
+      "weight": 1000
+    },
+    "health_reg_eye": {
+      "type": "watcher_eye",
+      "eye_aura_req": "health_reg",
+      "guid": "health_reg_eye",
+      "one_of_a_kind": "",
+      "only_one_per_item": true,
+      "requirements": {
+        "tag_requirements": [
+          {
+            "type": "GearSlot",
+            "excluded": [],
+            "included": [],
+            "req_type": "INCLUDES_ANY"
+          }
+        ]
+      },
+      "stats": [
+        {
+          "type": "FLAT",
+          "max": 2,
+          "min": 1,
+          "stat": "health_per_sec"
+        },
+        {
+          "type": "MORE",
+          "max": 10,
+          "min": 5,
+          "stat": "health_regen"
+        }
+      ],
+      "weight": 1000
+    },
+    "lightning_ailment_eye": {
+      "type": "watcher_eye",
+      "eye_aura_req": "lightning_ailment",
+      "guid": "lightning_ailment_eye",
+      "one_of_a_kind": "",
+      "only_one_per_item": true,
+      "requirements": {
+        "tag_requirements": [
+          {
+            "type": "GearSlot",
+            "excluded": [],
+            "included": [],
+            "req_type": "INCLUDES_ANY"
+          }
+        ]
+      },
+      "stats": [
+        {
+          "type": "FLAT",
+          "max": 2.9,
+          "min": 1,
+          "stat": "plus_lvl_lightning_spells"
+        },
+        {
+          "type": "FLAT",
+          "max": 20,
+          "min": 10,
+          "stat": "electrify_damage"
+        }
+      ],
+      "weight": 1000
+    },
+    "lightning_damage_eye": {
+      "type": "watcher_eye",
+      "eye_aura_req": "lightning_damage",
+      "guid": "lightning_damage_eye",
+      "one_of_a_kind": "",
+      "only_one_per_item": true,
+      "requirements": {
+        "tag_requirements": [
+          {
+            "type": "GearSlot",
+            "excluded": [],
+            "included": [],
+            "req_type": "INCLUDES_ANY"
+          }
+        ]
+      },
+      "stats": [
+        {
+          "type": "FLAT",
+          "max": 2,
+          "min": 1,
+          "stat": "lightning_health_leech"
+        }
+      ],
+      "weight": 500
+    },
+    "lightning_damage_ms_eye": {
+      "type": "watcher_eye",
+      "eye_aura_req": "lightning_damage",
+      "guid": "lightning_damage_ms_eye",
+      "one_of_a_kind": "",
+      "only_one_per_item": true,
+      "requirements": {
+        "tag_requirements": [
+          {
+            "type": "GearSlot",
+            "excluded": [],
+            "included": [],
+            "req_type": "INCLUDES_ANY"
+          }
+        ]
+      },
+      "stats": [
+        {
+          "type": "FLAT",
+          "max": 2,
+          "min": 1,
+          "stat": "lightning_magic_shield_leech"
+        }
+      ],
+      "weight": 500
+    },
+    "light_res_eye": {
+      "type": "watcher_eye",
+      "eye_aura_req": "light_res",
+      "guid": "light_res_eye",
+      "one_of_a_kind": "",
+      "only_one_per_item": true,
+      "requirements": {
+        "tag_requirements": [
+          {
+            "type": "GearSlot",
+            "excluded": [],
+            "included": [],
+            "req_type": "INCLUDES_ANY"
+          }
+        ]
+      },
+      "stats": [
+        {
+          "type": "FLAT",
+          "max": 6,
+          "min": 3,
+          "stat": "lightning_dmg_reduction"
+        },
+        {
+          "type": "FLAT",
+          "max": 2,
+          "min": 1,
+          "stat": "max_lightning_resist"
+        }
+      ],
+      "weight": 1000
+    },
+    "magic_shield_eye": {
+      "type": "watcher_eye",
+      "eye_aura_req": "magic_shield",
+      "guid": "magic_shield_eye",
+      "one_of_a_kind": "",
+      "only_one_per_item": true,
+      "requirements": {
+        "tag_requirements": [
+          {
+            "type": "GearSlot",
+            "excluded": [],
+            "included": [],
+            "req_type": "INCLUDES_ANY"
+          }
+        ]
+      },
+      "stats": [
+        {
+          "type": "PERCENT",
+          "max": 50,
+          "min": 25,
+          "stat": "magic_shield_leech_cap"
+        },
+        {
+          "type": "MORE",
+          "max": 10,
+          "min": 5,
+          "stat": "magic_shield"
+        }
+      ],
+      "weight": 1000
+    },
+    "magic_shield_reg_eye": {
+      "type": "watcher_eye",
+      "eye_aura_req": "magic_shield_reg",
+      "guid": "magic_shield_reg_eye",
+      "one_of_a_kind": "",
+      "only_one_per_item": true,
+      "requirements": {
+        "tag_requirements": [
+          {
+            "type": "GearSlot",
+            "excluded": [],
+            "included": [],
+            "req_type": "INCLUDES_ANY"
+          }
+        ]
+      },
+      "stats": [
+        {
+          "type": "FLAT",
+          "max": 2,
+          "min": 1,
+          "stat": "magic_shield_per_sec"
+        },
+        {
+          "type": "MORE",
+          "max": 10,
+          "min": 5,
+          "stat": "magic_shield_regen"
+        }
+      ],
+      "weight": 1000
+    },
+    "mana_reg_eye": {
+      "type": "watcher_eye",
+      "eye_aura_req": "mana_reg",
+      "guid": "mana_reg_eye",
+      "one_of_a_kind": "",
+      "only_one_per_item": true,
+      "requirements": {
+        "tag_requirements": [
+          {
+            "type": "GearSlot",
+            "excluded": [],
+            "included": [],
+            "req_type": "INCLUDES_ANY"
+          }
+        ]
+      },
+      "stats": [
+        {
+          "type": "PERCENT",
+          "max": 50,
+          "min": 25,
+          "stat": "mana_leech_cap"
+        },
+        {
+          "type": "MORE",
+          "max": 10,
+          "min": 5,
+          "stat": "mana_regen"
+        }
+      ],
+      "weight": 1000
+    },
+    "physical_ailment_eye": {
+      "type": "watcher_eye",
+      "eye_aura_req": "physical_ailment",
+      "guid": "physical_ailment_eye",
+      "one_of_a_kind": "",
+      "only_one_per_item": true,
+      "requirements": {
+        "tag_requirements": [
+          {
+            "type": "GearSlot",
+            "excluded": [],
+            "included": [],
+            "req_type": "INCLUDES_ANY"
+          }
+        ]
+      },
+      "stats": [
+        {
+          "type": "FLAT",
+          "max": 2.9,
+          "min": 1,
+          "stat": "plus_lvl_physical_spells"
+        },
+        {
+          "type": "FLAT",
+          "max": 20,
+          "min": 10,
+          "stat": "bleed_damage"
+        }
+      ],
+      "weight": 1000
+    },
+    "physical_damage_eye": {
+      "type": "watcher_eye",
+      "eye_aura_req": "physical_damage",
+      "guid": "physical_damage_eye",
+      "one_of_a_kind": "",
+      "only_one_per_item": true,
+      "requirements": {
+        "tag_requirements": [
+          {
+            "type": "GearSlot",
+            "excluded": [],
+            "included": [],
+            "req_type": "INCLUDES_ANY"
+          }
+        ]
+      },
+      "stats": [
+        {
+          "type": "FLAT",
+          "max": 2,
+          "min": 1,
+          "stat": "physical_health_leech"
+        }
+      ],
+      "weight": 500
+    },
+    "physical_damage_ms_eye": {
+      "type": "watcher_eye",
+      "eye_aura_req": "physical_damage",
+      "guid": "physical_damage_ms_eye",
+      "one_of_a_kind": "",
+      "only_one_per_item": true,
+      "requirements": {
+        "tag_requirements": [
+          {
+            "type": "GearSlot",
+            "excluded": [],
+            "included": [],
+            "req_type": "INCLUDES_ANY"
+          }
+        ]
+      },
+      "stats": [
+        {
+          "type": "FLAT",
+          "max": 2,
+          "min": 1,
+          "stat": "physical_magic_shield_leech"
+        }
+      ],
+      "weight": 500
+    },
+    "summon_dmg_eye": {
+      "type": "watcher_eye",
+      "eye_aura_req": "summon_dmg",
+      "guid": "summon_dmg_eye",
+      "one_of_a_kind": "",
+      "only_one_per_item": true,
+      "requirements": {
+        "tag_requirements": [
+          {
+            "type": "GearSlot",
+            "excluded": [],
+            "included": [],
+            "req_type": "INCLUDES_ANY"
+          }
+        ]
+      },
+      "stats": [
+        {
+          "type": "MORE",
+          "max": 10,
+          "min": 5,
+          "stat": "summon_damage"
+        }
+      ],
+      "weight": 1000
+    }
+  },
   "base_gear_types": {
     "axe": {
       "base_stats": [
         {
           "type": "FLAT",
-          "max": 8,
-          "min": 4,
+          "max": 10.8,
+          "min": 5.4,
           "stat": "weapon_damage"
+        },
+        {
+          "type": "FLAT",
+          "max": 6,
+          "min": 3,
+          "stat": "resource_on_basic_hit"
         }
       ],
       "gear_slot": "axe",
@@ -13194,9 +15339,15 @@
       "base_stats": [
         {
           "type": "FLAT",
-          "max": 12,
-          "min": 6,
+          "max": 16.2,
+          "min": 8.1,
           "stat": "weapon_damage"
+        },
+        {
+          "type": "FLAT",
+          "max": 7.5,
+          "min": 3.75,
+          "stat": "resource_on_basic_hit"
         }
       ],
       "gear_slot": "bow",
@@ -13255,14 +15406,14 @@
       "base_stats": [
         {
           "type": "FLAT",
-          "max": 4.5,
-          "min": 2.25,
+          "max": 6.075,
+          "min": 3.0375,
           "stat": "armor"
         },
         {
           "type": "FLAT",
-          "max": 4.5,
-          "min": 2.25,
+          "max": 6.075,
+          "min": 3.0375,
           "stat": "dodge"
         },
         {
@@ -13337,14 +15488,14 @@
       "base_stats": [
         {
           "type": "FLAT",
-          "max": 9,
-          "min": 4.5,
+          "max": 12.15,
+          "min": 6.075,
           "stat": "armor"
         },
         {
           "type": "FLAT",
-          "max": 9,
-          "min": 4.5,
+          "max": 12.15,
+          "min": 6.075,
           "stat": "dodge"
         },
         {
@@ -13417,14 +15568,14 @@
       "base_stats": [
         {
           "type": "FLAT",
-          "max": 4.5,
-          "min": 2.25,
+          "max": 6.075,
+          "min": 3.0375,
           "stat": "armor"
         },
         {
           "type": "FLAT",
-          "max": 4.5,
-          "min": 2.25,
+          "max": 6.075,
+          "min": 3.0375,
           "stat": "dodge"
         },
         {
@@ -13499,14 +15650,14 @@
       "base_stats": [
         {
           "type": "FLAT",
-          "max": 9,
-          "min": 4.5,
+          "max": 12.15,
+          "min": 6.075,
           "stat": "armor"
         },
         {
           "type": "FLAT",
-          "max": 9,
-          "min": 4.5,
+          "max": 12.15,
+          "min": 6.075,
           "stat": "dodge"
         },
         {
@@ -13579,14 +15730,14 @@
       "base_stats": [
         {
           "type": "FLAT",
-          "max": 4.5,
-          "min": 2.25,
+          "max": 6.075,
+          "min": 3.0375,
           "stat": "armor"
         },
         {
           "type": "FLAT",
-          "max": 7.5,
-          "min": 3.75,
+          "max": 12.15,
+          "min": 6.075,
           "stat": "magic_shield"
         }
       ],
@@ -13655,14 +15806,14 @@
       "base_stats": [
         {
           "type": "FLAT",
-          "max": 9,
-          "min": 4.5,
+          "max": 12.15,
+          "min": 6.075,
           "stat": "armor"
         },
         {
           "type": "FLAT",
-          "max": 15,
-          "min": 7.5,
+          "max": 24.3,
+          "min": 12.15,
           "stat": "magic_shield"
         }
       ],
@@ -13729,14 +15880,14 @@
       "base_stats": [
         {
           "type": "FLAT",
-          "max": 4.5,
-          "min": 2.25,
+          "max": 6.075,
+          "min": 3.0375,
           "stat": "armor"
         },
         {
           "type": "FLAT",
-          "max": 7.5,
-          "min": 3.75,
+          "max": 12.15,
+          "min": 6.075,
           "stat": "magic_shield"
         }
       ],
@@ -13805,14 +15956,14 @@
       "base_stats": [
         {
           "type": "FLAT",
-          "max": 9,
-          "min": 4.5,
+          "max": 12.15,
+          "min": 6.075,
           "stat": "armor"
         },
         {
           "type": "FLAT",
-          "max": 15,
-          "min": 7.5,
+          "max": 24.3,
+          "min": 12.15,
           "stat": "magic_shield"
         }
       ],
@@ -13879,8 +16030,8 @@
       "base_stats": [
         {
           "type": "FLAT",
-          "max": 10,
-          "min": 5,
+          "max": 16.2,
+          "min": 8.1,
           "stat": "magic_shield"
         }
       ],
@@ -13943,8 +16094,8 @@
       "base_stats": [
         {
           "type": "FLAT",
-          "max": 20,
-          "min": 10,
+          "max": 32.4,
+          "min": 16.2,
           "stat": "magic_shield"
         }
       ],
@@ -14006,8 +16157,8 @@
       "base_stats": [
         {
           "type": "FLAT",
-          "max": 10,
-          "min": 5,
+          "max": 16.2,
+          "min": 8.1,
           "stat": "magic_shield"
         }
       ],
@@ -14070,8 +16221,8 @@
       "base_stats": [
         {
           "type": "FLAT",
-          "max": 20,
-          "min": 10,
+          "max": 32.4,
+          "min": 16.2,
           "stat": "magic_shield"
         }
       ],
@@ -14133,9 +16284,15 @@
       "base_stats": [
         {
           "type": "FLAT",
-          "max": 8,
-          "min": 4,
+          "max": 10.8,
+          "min": 5.4,
           "stat": "weapon_damage"
+        },
+        {
+          "type": "FLAT",
+          "max": 6,
+          "min": 3,
+          "stat": "resource_on_basic_hit"
         }
       ],
       "gear_slot": "crossbow",
@@ -14195,15 +16352,15 @@
       "base_stats": [
         {
           "type": "FLAT",
-          "max": 8,
-          "min": 4,
+          "max": 10.8,
+          "min": 5.4,
           "stat": "weapon_damage"
         },
         {
           "type": "FLAT",
           "max": 6,
           "min": 3,
-          "stat": "mana_on_basic_hit"
+          "stat": "resource_on_basic_hit"
         }
       ],
       "gear_slot": "dagger",
@@ -14319,9 +16476,15 @@
       "base_stats": [
         {
           "type": "FLAT",
-          "max": 8,
-          "min": 4,
+          "max": 10.8,
+          "min": 5.4,
           "stat": "weapon_damage"
+        },
+        {
+          "type": "FLAT",
+          "max": 6,
+          "min": 3,
+          "stat": "resource_on_basic_hit"
         }
       ],
       "gear_slot": "gauntlet",
@@ -14382,9 +16545,15 @@
       "base_stats": [
         {
           "type": "FLAT",
-          "max": 12,
-          "min": 6,
+          "max": 16.2,
+          "min": 8.1,
           "stat": "weapon_damage"
+        },
+        {
+          "type": "FLAT",
+          "max": 7.5,
+          "min": 3.75,
+          "stat": "resource_on_basic_hit"
         }
       ],
       "gear_slot": "greatsword",
@@ -14444,15 +16613,15 @@
       "base_stats": [
         {
           "type": "FLAT",
-          "max": 8,
-          "min": 4,
+          "max": 10.8,
+          "min": 5.4,
           "stat": "weapon_damage"
         },
         {
           "type": "FLAT",
           "max": 6,
           "min": 3,
-          "stat": "mana_on_basic_hit"
+          "stat": "resource_on_basic_hit"
         }
       ],
       "gear_slot": "hammer",
@@ -14538,8 +16707,8 @@
       "base_stats": [
         {
           "type": "FLAT",
-          "max": 6,
-          "min": 3,
+          "max": 8.1,
+          "min": 4.05,
           "stat": "dodge"
         },
         {
@@ -14608,8 +16777,8 @@
       "base_stats": [
         {
           "type": "FLAT",
-          "max": 12,
-          "min": 6,
+          "max": 16.2,
+          "min": 8.1,
           "stat": "dodge"
         },
         {
@@ -14677,8 +16846,8 @@
       "base_stats": [
         {
           "type": "FLAT",
-          "max": 6,
-          "min": 3,
+          "max": 8.1,
+          "min": 4.05,
           "stat": "dodge"
         },
         {
@@ -14747,8 +16916,8 @@
       "base_stats": [
         {
           "type": "FLAT",
-          "max": 12,
-          "min": 6,
+          "max": 16.2,
+          "min": 8.1,
           "stat": "dodge"
         },
         {
@@ -14851,8 +17020,8 @@
       "base_stats": [
         {
           "type": "FLAT",
-          "max": 6,
-          "min": 3,
+          "max": 8.1,
+          "min": 4.05,
           "stat": "armor"
         },
         {
@@ -14921,8 +17090,8 @@
       "base_stats": [
         {
           "type": "FLAT",
-          "max": 12,
-          "min": 6,
+          "max": 16.2,
+          "min": 8.1,
           "stat": "armor"
         },
         {
@@ -14990,8 +17159,8 @@
       "base_stats": [
         {
           "type": "FLAT",
-          "max": 6,
-          "min": 3,
+          "max": 8.1,
+          "min": 4.05,
           "stat": "armor"
         },
         {
@@ -15060,8 +17229,8 @@
       "base_stats": [
         {
           "type": "FLAT",
-          "max": 12,
-          "min": 6,
+          "max": 16.2,
+          "min": 8.1,
           "stat": "armor"
         },
         {
@@ -15164,15 +17333,15 @@
       "base_stats": [
         {
           "type": "FLAT",
-          "max": 12,
-          "min": 6,
+          "max": 16.2,
+          "min": 8.1,
           "stat": "weapon_damage"
         },
         {
           "type": "FLAT",
           "max": 7.5,
           "min": 3.75,
-          "stat": "mana_on_basic_hit"
+          "stat": "resource_on_basic_hit"
         }
       ],
       "gear_slot": "scythe",
@@ -15235,14 +17404,14 @@
       "base_stats": [
         {
           "type": "FLAT",
-          "max": 10,
-          "min": 5,
+          "max": 13.5,
+          "min": 6.75,
           "stat": "armor"
         },
         {
           "type": "FLAT",
-          "max": 10,
-          "min": 5,
+          "max": 20,
+          "min": 10,
           "stat": "block_chance"
         }
       ],
@@ -15302,9 +17471,15 @@
       "base_stats": [
         {
           "type": "FLAT",
-          "max": 12,
-          "min": 6,
+          "max": 16.2,
+          "min": 8.1,
           "stat": "weapon_damage"
+        },
+        {
+          "type": "FLAT",
+          "max": 7.5,
+          "min": 3.75,
+          "stat": "resource_on_basic_hit"
         }
       ],
       "gear_slot": "spear",
@@ -15366,21 +17541,21 @@
       "base_stats": [
         {
           "type": "FLAT",
-          "max": 8,
-          "min": 4,
+          "max": 10.8,
+          "min": 5.4,
           "stat": "weapon_damage"
         },
         {
           "type": "FLAT",
-          "max": 1,
-          "min": 1,
+          "max": 20,
+          "min": 20,
           "stat": "learn_bolt"
         },
         {
           "type": "FLAT",
-          "max": 4,
-          "min": 2,
-          "stat": "mana_on_bolt_hit"
+          "max": 6,
+          "min": 3,
+          "stat": "resource_on_basic_hit"
         }
       ],
       "gear_slot": "staff",
@@ -15440,9 +17615,15 @@
       "base_stats": [
         {
           "type": "FLAT",
-          "max": 8,
-          "min": 4,
+          "max": 10.8,
+          "min": 5.4,
           "stat": "weapon_damage"
+        },
+        {
+          "type": "FLAT",
+          "max": 6,
+          "min": 3,
+          "stat": "resource_on_basic_hit"
         }
       ],
       "gear_slot": "sword",
@@ -15501,14 +17682,14 @@
       "base_stats": [
         {
           "type": "FLAT",
-          "max": 20,
-          "min": 10,
+          "max": 27,
+          "min": 13.5,
           "stat": "magic_shield"
         },
         {
           "type": "FLAT",
-          "max": 8,
-          "min": 4,
+          "max": 16,
+          "min": 8,
           "stat": "physical_resist"
         }
       ],
@@ -15568,15 +17749,15 @@
       "base_stats": [
         {
           "type": "FLAT",
-          "max": 10,
-          "min": 5,
+          "max": 13.5,
+          "min": 6.75,
           "stat": "dodge"
         },
         {
           "type": "FLAT",
-          "max": 8,
-          "min": 4,
-          "stat": "elemental_resist"
+          "max": 20,
+          "min": 10,
+          "stat": "spell_dodge_per_perc_of_dodge"
         }
       ],
       "gear_slot": "totem",
@@ -15635,8 +17816,8 @@
       "base_stats": [
         {
           "type": "FLAT",
-          "max": 6,
-          "min": 2,
+          "max": 8.1,
+          "min": 2.7,
           "stat": "weapon_damage"
         }
       ],
@@ -15672,14 +17853,14 @@
       "base_stats": [
         {
           "type": "FLAT",
-          "max": 7.5,
-          "min": 3.75,
+          "max": 12.15,
+          "min": 6.075,
           "stat": "magic_shield"
         },
         {
           "type": "FLAT",
-          "max": 4.5,
-          "min": 2.25,
+          "max": 6.075,
+          "min": 3.0375,
           "stat": "dodge"
         }
       ],
@@ -15748,14 +17929,14 @@
       "base_stats": [
         {
           "type": "FLAT",
-          "max": 15,
-          "min": 7.5,
+          "max": 24.3,
+          "min": 12.15,
           "stat": "magic_shield"
         },
         {
           "type": "FLAT",
-          "max": 9,
-          "min": 4.5,
+          "max": 12.15,
+          "min": 6.075,
           "stat": "dodge"
         }
       ],
@@ -15822,14 +18003,14 @@
       "base_stats": [
         {
           "type": "FLAT",
-          "max": 7.5,
-          "min": 3.75,
+          "max": 12.15,
+          "min": 6.075,
           "stat": "magic_shield"
         },
         {
           "type": "FLAT",
-          "max": 4.5,
-          "min": 2.25,
+          "max": 6.075,
+          "min": 3.0375,
           "stat": "dodge"
         }
       ],
@@ -15898,14 +18079,14 @@
       "base_stats": [
         {
           "type": "FLAT",
-          "max": 15,
-          "min": 7.5,
+          "max": 24.3,
+          "min": 12.15,
           "stat": "magic_shield"
         },
         {
           "type": "FLAT",
-          "max": 9,
-          "min": 4.5,
+          "max": 12.15,
+          "min": 6.075,
           "stat": "dodge"
         }
       ],
@@ -17804,6 +19985,34 @@
       ],
       "weight": 1000
     },
+    "spite": {
+      "affix_types": [
+        "chaos_stat"
+      ],
+      "id": "spite",
+      "lvl_req": 0.5,
+      "mods": [
+        {
+          "type": "FLAT",
+          "max": 25,
+          "min": 5,
+          "stat": "roll_cooldown"
+        },
+        {
+          "type": "FLAT",
+          "max": 15,
+          "min": 3,
+          "stat": "resource_regen"
+        },
+        {
+          "type": "FLAT",
+          "max": 3,
+          "min": 0.6,
+          "stat": "critical_hit"
+        }
+      ],
+      "weight": 1000
+    },
     "storms": {
       "affix_types": [
         "chaos_stat"
@@ -17889,8 +20098,8 @@
         },
         {
           "type": "FLAT",
-          "max": 25,
-          "min": 5,
+          "max": 37.5,
+          "min": 7.5,
           "stat": "attack_speed"
         }
       ],
@@ -17903,9 +20112,15 @@
       "stats": [
         {
           "type": "PERCENT",
-          "max": 50,
-          "min": 10,
+          "max": 30,
+          "min": 6,
           "stat": "block_chance"
+        },
+        {
+          "type": "FLAT",
+          "max": 25,
+          "min": 6,
+          "stat": "block_recovery"
         }
       ],
       "style": "INT"
@@ -18175,8 +20390,8 @@
       "stats": [
         {
           "type": "FLAT",
-          "max": 10,
-          "min": 2,
+          "max": 7.5,
+          "min": 1.5,
           "stat": "health_regen"
         }
       ],
@@ -18257,8 +20472,8 @@
       "stats": [
         {
           "type": "FLAT",
-          "max": 10,
-          "min": 2,
+          "max": 7.5,
+          "min": 1.5,
           "stat": "magic_shield_regen"
         }
       ],
@@ -18319,12 +20534,1321 @@
       "stats": [
         {
           "type": "MORE",
-          "max": 40,
-          "min": 8,
+          "max": 20,
+          "min": 4,
           "stat": "summon_damage"
         }
       ],
       "style": "INT"
+    }
+  },
+  "map_affix": {
+    "accurate": {
+      "affected": "Mobs",
+      "id": "accurate",
+      "map_resist": "Physical",
+      "map_resist_bonus_needed": 0,
+      "prophecy_type": "",
+      "req": "",
+      "stats": [
+        {
+          "type": "MORE",
+          "max": 30,
+          "min": 15,
+          "stat": "accuracy"
+        }
+      ],
+      "weight": 1000
+    },
+    "all_ele_res": {
+      "affected": "Mobs",
+      "id": "all_ele_res",
+      "map_resist": "Physical",
+      "map_resist_bonus_needed": 0,
+      "prophecy_type": "",
+      "req": "",
+      "stats": [
+        {
+          "type": "FLAT",
+          "max": 30,
+          "min": 15,
+          "stat": "elemental_resist"
+        }
+      ],
+      "weight": 1000
+    },
+    "armor": {
+      "affected": "Mobs",
+      "id": "armor",
+      "map_resist": "Physical",
+      "map_resist_bonus_needed": 0,
+      "prophecy_type": "",
+      "req": "",
+      "stats": [
+        {
+          "type": "MORE",
+          "max": 40,
+          "min": 20,
+          "stat": "armor"
+        }
+      ],
+      "weight": 1000
+    },
+    "bonus_exp": {
+      "affected": "Players",
+      "id": "bonus_exp",
+      "map_resist": "Physical",
+      "map_resist_bonus_needed": 0,
+      "prophecy_type": "",
+      "req": "",
+      "stats": [
+        {
+          "type": "FLAT",
+          "max": 50,
+          "min": 50,
+          "stat": "bonus_exp"
+        }
+      ],
+      "weight": 0
+    },
+    "chaos_atk": {
+      "affected": "Mobs",
+      "id": "chaos_atk",
+      "map_resist": "Shadow",
+      "map_resist_bonus_needed": 0,
+      "prophecy_type": "",
+      "req": "",
+      "stats": [
+        {
+          "type": "FLAT",
+          "max": 60,
+          "min": 30,
+          "stat": "phys_to_chaos"
+        },
+        {
+          "type": "FLAT",
+          "max": 30,
+          "min": 30,
+          "stat": "all_chaos_damage"
+        },
+        {
+          "type": "FLAT",
+          "max": 30,
+          "min": 15,
+          "stat": "poison_chance"
+        }
+      ],
+      "weight": 1000
+    },
+    "chaos_minus_dmg": {
+      "affected": "Players",
+      "id": "chaos_minus_dmg",
+      "map_resist": "Physical",
+      "map_resist_bonus_needed": 0,
+      "prophecy_type": "",
+      "req": "",
+      "stats": [
+        {
+          "type": "MORE",
+          "max": -30,
+          "min": -15,
+          "stat": "all_chaos_damage"
+        }
+      ],
+      "weight": 1000
+    },
+    "chaos_minus_res": {
+      "affected": "Players",
+      "id": "chaos_minus_res",
+      "map_resist": "Shadow",
+      "map_resist_bonus_needed": 0,
+      "prophecy_type": "",
+      "req": "",
+      "stats": [
+        {
+          "type": "FLAT",
+          "max": -4,
+          "min": -2,
+          "stat": "max_chaos_resist"
+        },
+        {
+          "type": "FLAT",
+          "max": -40,
+          "min": -20,
+          "stat": "chaos_resist"
+        }
+      ],
+      "weight": 1000
+    },
+    "chaos_pene": {
+      "affected": "Mobs",
+      "id": "chaos_pene",
+      "map_resist": "Shadow",
+      "map_resist_bonus_needed": 0,
+      "prophecy_type": "",
+      "req": "",
+      "stats": [
+        {
+          "type": "FLAT",
+          "max": 20,
+          "min": 10,
+          "stat": "chaos_penetration"
+        }
+      ],
+      "weight": 0
+    },
+    "chaos_res": {
+      "affected": "Mobs",
+      "id": "chaos_res",
+      "map_resist": "Physical",
+      "map_resist_bonus_needed": 0,
+      "prophecy_type": "",
+      "req": "",
+      "stats": [
+        {
+          "type": "FLAT",
+          "max": 60,
+          "min": 30,
+          "stat": "chaos_resist"
+        }
+      ],
+      "weight": 1000
+    },
+    "crit": {
+      "affected": "Mobs",
+      "id": "crit",
+      "map_resist": "Physical",
+      "map_resist_bonus_needed": 0,
+      "prophecy_type": "",
+      "req": "",
+      "stats": [
+        {
+          "type": "FLAT",
+          "max": 15,
+          "min": 10,
+          "stat": "critical_hit"
+        },
+        {
+          "type": "FLAT",
+          "max": 10,
+          "min": 5,
+          "stat": "critical_damage"
+        }
+      ],
+      "weight": 1000
+    },
+    "crit_dmg": {
+      "affected": "Players",
+      "id": "crit_dmg",
+      "map_resist": "Physical",
+      "map_resist_bonus_needed": 0,
+      "prophecy_type": "",
+      "req": "",
+      "stats": [
+        {
+          "type": "MORE",
+          "max": -20,
+          "min": -10,
+          "stat": "critical_hit"
+        },
+        {
+          "type": "MORE",
+          "max": -30,
+          "min": -15,
+          "stat": "critical_damage"
+        }
+      ],
+      "weight": 1000
+    },
+    "dodge": {
+      "affected": "Mobs",
+      "id": "dodge",
+      "map_resist": "Physical",
+      "map_resist_bonus_needed": 0,
+      "prophecy_type": "",
+      "req": "",
+      "stats": [
+        {
+          "type": "MORE",
+          "max": 30,
+          "min": 15,
+          "stat": "dodge"
+        },
+        {
+          "type": "MORE",
+          "max": 30,
+          "min": 15,
+          "stat": "spell_dodge"
+        }
+      ],
+      "weight": 1000
+    },
+    "elemental_pene": {
+      "affected": "Mobs",
+      "id": "elemental_pene",
+      "map_resist": "Elemental",
+      "map_resist_bonus_needed": 0,
+      "prophecy_type": "",
+      "req": "",
+      "stats": [
+        {
+          "type": "FLAT",
+          "max": 20,
+          "min": 10,
+          "stat": "elemental_penetration"
+        }
+      ],
+      "weight": 1000
+    },
+    "ele_weakness": {
+      "affected": "Players",
+      "id": "ele_weakness",
+      "map_resist": "Elemental",
+      "map_resist_bonus_needed": 0,
+      "prophecy_type": "",
+      "req": "",
+      "stats": [
+        {
+          "type": "FLAT",
+          "max": -2,
+          "min": -1,
+          "stat": "max_elemental_resist"
+        },
+        {
+          "type": "FLAT",
+          "max": -10,
+          "min": -5,
+          "stat": "elemental_resist"
+        }
+      ],
+      "weight": 1000
+    },
+    "extra_mob_drops": {
+      "affected": "Mobs",
+      "id": "extra_mob_drops",
+      "map_resist": "Physical",
+      "map_resist_bonus_needed": 0,
+      "prophecy_type": "",
+      "req": "",
+      "stats": [
+        {
+          "type": "FLAT",
+          "max": 50,
+          "min": 50,
+          "stat": "extra_mob_drops"
+        }
+      ],
+      "weight": 0
+    },
+    "fire_atk": {
+      "affected": "Mobs",
+      "id": "fire_atk",
+      "map_resist": "Fire",
+      "map_resist_bonus_needed": 0,
+      "prophecy_type": "",
+      "req": "",
+      "stats": [
+        {
+          "type": "FLAT",
+          "max": 60,
+          "min": 30,
+          "stat": "phys_to_fire"
+        },
+        {
+          "type": "FLAT",
+          "max": 30,
+          "min": 30,
+          "stat": "all_fire_damage"
+        },
+        {
+          "type": "FLAT",
+          "max": 30,
+          "min": 15,
+          "stat": "burn_chance"
+        }
+      ],
+      "weight": 1000
+    },
+    "fire_minus_dmg": {
+      "affected": "Players",
+      "id": "fire_minus_dmg",
+      "map_resist": "Physical",
+      "map_resist_bonus_needed": 0,
+      "prophecy_type": "",
+      "req": "",
+      "stats": [
+        {
+          "type": "MORE",
+          "max": -30,
+          "min": -15,
+          "stat": "all_fire_damage"
+        }
+      ],
+      "weight": 1000
+    },
+    "fire_minus_res": {
+      "affected": "Players",
+      "id": "fire_minus_res",
+      "map_resist": "Fire",
+      "map_resist_bonus_needed": 0,
+      "prophecy_type": "",
+      "req": "",
+      "stats": [
+        {
+          "type": "FLAT",
+          "max": -4,
+          "min": -2,
+          "stat": "max_fire_resist"
+        },
+        {
+          "type": "FLAT",
+          "max": -40,
+          "min": -20,
+          "stat": "fire_resist"
+        }
+      ],
+      "weight": 1000
+    },
+    "fire_res": {
+      "affected": "Mobs",
+      "id": "fire_res",
+      "map_resist": "Physical",
+      "map_resist_bonus_needed": 0,
+      "prophecy_type": "",
+      "req": "",
+      "stats": [
+        {
+          "type": "FLAT",
+          "max": 60,
+          "min": 30,
+          "stat": "fire_resist"
+        }
+      ],
+      "weight": 1000
+    },
+    "health": {
+      "affected": "Mobs",
+      "id": "health",
+      "map_resist": "Physical",
+      "map_resist_bonus_needed": 0,
+      "prophecy_type": "",
+      "req": "",
+      "stats": [
+        {
+          "type": "MORE",
+          "max": 30,
+          "min": 15,
+          "stat": "health"
+        }
+      ],
+      "weight": 1000
+    },
+    "lifesteal": {
+      "affected": "Mobs",
+      "id": "lifesteal",
+      "map_resist": "Physical",
+      "map_resist_bonus_needed": 0,
+      "prophecy_type": "",
+      "req": "",
+      "stats": [
+        {
+          "type": "FLAT",
+          "max": 30,
+          "min": 15,
+          "stat": "lifesteal"
+        }
+      ],
+      "weight": 1000
+    },
+    "lightning_atk": {
+      "affected": "Mobs",
+      "id": "lightning_atk",
+      "map_resist": "Nature",
+      "map_resist_bonus_needed": 0,
+      "prophecy_type": "",
+      "req": "",
+      "stats": [
+        {
+          "type": "FLAT",
+          "max": 60,
+          "min": 30,
+          "stat": "phys_to_lightning"
+        },
+        {
+          "type": "FLAT",
+          "max": 30,
+          "min": 30,
+          "stat": "all_lightning_damage"
+        },
+        {
+          "type": "FLAT",
+          "max": 30,
+          "min": 15,
+          "stat": "electrify_chance"
+        },
+        {
+          "type": "FLAT",
+          "max": 20,
+          "min": 10,
+          "stat": "electrify_proc_chance"
+        }
+      ],
+      "weight": 1000
+    },
+    "lightning_minus_dmg": {
+      "affected": "Players",
+      "id": "lightning_minus_dmg",
+      "map_resist": "Physical",
+      "map_resist_bonus_needed": 0,
+      "prophecy_type": "",
+      "req": "",
+      "stats": [
+        {
+          "type": "MORE",
+          "max": -30,
+          "min": -15,
+          "stat": "all_lightning_damage"
+        }
+      ],
+      "weight": 1000
+    },
+    "lightning_minus_res": {
+      "affected": "Players",
+      "id": "lightning_minus_res",
+      "map_resist": "Nature",
+      "map_resist_bonus_needed": 0,
+      "prophecy_type": "",
+      "req": "",
+      "stats": [
+        {
+          "type": "FLAT",
+          "max": -4,
+          "min": -2,
+          "stat": "max_lightning_resist"
+        },
+        {
+          "type": "FLAT",
+          "max": -40,
+          "min": -20,
+          "stat": "lightning_resist"
+        }
+      ],
+      "weight": 1000
+    },
+    "lightning_res": {
+      "affected": "Mobs",
+      "id": "lightning_res",
+      "map_resist": "Physical",
+      "map_resist_bonus_needed": 0,
+      "prophecy_type": "",
+      "req": "",
+      "stats": [
+        {
+          "type": "FLAT",
+          "max": 60,
+          "min": 30,
+          "stat": "lightning_resist"
+        }
+      ],
+      "weight": 1000
+    },
+    "minus_armor": {
+      "affected": "Players",
+      "id": "minus_armor",
+      "map_resist": "Physical",
+      "map_resist_bonus_needed": 0,
+      "prophecy_type": "",
+      "req": "",
+      "stats": [
+        {
+          "type": "MORE",
+          "max": -20,
+          "min": -10,
+          "stat": "armor"
+        }
+      ],
+      "weight": 1000
+    },
+    "minus_dodge": {
+      "affected": "Players",
+      "id": "minus_dodge",
+      "map_resist": "Physical",
+      "map_resist_bonus_needed": 0,
+      "prophecy_type": "",
+      "req": "",
+      "stats": [
+        {
+          "type": "MORE",
+          "max": -20,
+          "min": -10,
+          "stat": "dodge"
+        }
+      ],
+      "weight": 1000
+    },
+    "minus_ene_reg": {
+      "affected": "Players",
+      "id": "minus_ene_reg",
+      "map_resist": "Physical",
+      "map_resist_bonus_needed": 0,
+      "prophecy_type": "",
+      "req": "",
+      "stats": [
+        {
+          "type": "MORE",
+          "max": -20,
+          "min": -10,
+          "stat": "energy_regen"
+        }
+      ],
+      "weight": 1000
+    },
+    "minus_hp_reg": {
+      "affected": "Players",
+      "id": "minus_hp_reg",
+      "map_resist": "Physical",
+      "map_resist_bonus_needed": 0,
+      "prophecy_type": "",
+      "req": "",
+      "stats": [
+        {
+          "type": "MORE",
+          "max": -20,
+          "min": -10,
+          "stat": "health_regen"
+        }
+      ],
+      "weight": 1000
+    },
+    "minus_mana_reg": {
+      "affected": "Players",
+      "id": "minus_mana_reg",
+      "map_resist": "Physical",
+      "map_resist_bonus_needed": 0,
+      "prophecy_type": "",
+      "req": "",
+      "stats": [
+        {
+          "type": "MORE",
+          "max": -20,
+          "min": -10,
+          "stat": "mana_regen"
+        }
+      ],
+      "weight": 1000
+    },
+    "minus_ms_reg": {
+      "affected": "Players",
+      "id": "minus_ms_reg",
+      "map_resist": "Physical",
+      "map_resist_bonus_needed": 0,
+      "prophecy_type": "",
+      "req": "",
+      "stats": [
+        {
+          "type": "MORE",
+          "max": -20,
+          "min": -10,
+          "stat": "magic_shield_regen"
+        }
+      ],
+      "weight": 1000
+    },
+    "movespeed": {
+      "affected": "Mobs",
+      "id": "movespeed",
+      "map_resist": "Physical",
+      "map_resist_bonus_needed": 0,
+      "prophecy_type": "",
+      "req": "",
+      "stats": [
+        {
+          "type": "FLAT",
+          "max": 50,
+          "min": 25,
+          "stat": "knockback_resist"
+        },
+        {
+          "type": "FLAT",
+          "max": 20,
+          "min": 10,
+          "stat": "move_speed"
+        }
+      ],
+      "weight": 1000
+    },
+    "ms": {
+      "affected": "Players",
+      "id": "ms",
+      "map_resist": "Physical",
+      "map_resist_bonus_needed": 0,
+      "prophecy_type": "",
+      "req": "",
+      "stats": [
+        {
+          "type": "MORE",
+          "max": -20,
+          "min": -10,
+          "stat": "magic_shield_regen"
+        }
+      ],
+      "weight": 1000
+    },
+    "penetrating": {
+      "affected": "Mobs",
+      "id": "penetrating",
+      "map_resist": "Physical",
+      "map_resist_bonus_needed": 0,
+      "prophecy_type": "",
+      "req": "",
+      "stats": [
+        {
+          "type": "MORE",
+          "max": 30,
+          "min": 15,
+          "stat": "armor_penetration"
+        }
+      ],
+      "weight": 1000
+    },
+    "prophecy_ailment": {
+      "affected": "Players",
+      "id": "prophecy_ailment",
+      "map_resist": "Physical",
+      "map_resist_bonus_needed": 0,
+      "prophecy_type": "damage_done",
+      "req": "prophecy",
+      "stats": [
+        {
+          "type": "MORE",
+          "max": -30,
+          "min": -30,
+          "stat": "ailment_damage"
+        }
+      ],
+      "weight": 1000
+    },
+    "prophecy_ailment_chance": {
+      "affected": "Players",
+      "id": "prophecy_ailment_chance",
+      "map_resist": "Physical",
+      "map_resist_bonus_needed": 0,
+      "prophecy_type": "damage_done",
+      "req": "prophecy",
+      "stats": [
+        {
+          "type": "MORE",
+          "max": -30,
+          "min": -30,
+          "stat": "bleed_chance"
+        },
+        {
+          "type": "MORE",
+          "max": -30,
+          "min": -30,
+          "stat": "burn_chance"
+        },
+        {
+          "type": "MORE",
+          "max": -30,
+          "min": -30,
+          "stat": "freeze_chance"
+        },
+        {
+          "type": "MORE",
+          "max": -30,
+          "min": -30,
+          "stat": "electrify_chance"
+        },
+        {
+          "type": "MORE",
+          "max": -30,
+          "min": -30,
+          "stat": "poison_chance"
+        }
+      ],
+      "weight": 1000
+    },
+    "prophecy_always_critchaos": {
+      "affected": "Players",
+      "id": "prophecy_always_critchaos",
+      "map_resist": "Physical",
+      "map_resist_bonus_needed": 0,
+      "prophecy_type": "damage_taken",
+      "req": "prophecy",
+      "stats": [
+        {
+          "type": "FLAT",
+          "max": 1,
+          "min": 1,
+          "stat": "chaos_vuln_crit"
+        }
+      ],
+      "weight": 1000
+    },
+    "prophecy_always_critfire": {
+      "affected": "Players",
+      "id": "prophecy_always_critfire",
+      "map_resist": "Physical",
+      "map_resist_bonus_needed": 0,
+      "prophecy_type": "damage_taken",
+      "req": "prophecy",
+      "stats": [
+        {
+          "type": "FLAT",
+          "max": 1,
+          "min": 1,
+          "stat": "fire_vuln_crit"
+        }
+      ],
+      "weight": 1000
+    },
+    "prophecy_always_critlightning": {
+      "affected": "Players",
+      "id": "prophecy_always_critlightning",
+      "map_resist": "Physical",
+      "map_resist_bonus_needed": 0,
+      "prophecy_type": "damage_taken",
+      "req": "prophecy",
+      "stats": [
+        {
+          "type": "FLAT",
+          "max": 1,
+          "min": 1,
+          "stat": "lightning_vuln_crit"
+        }
+      ],
+      "weight": 1000
+    },
+    "prophecy_always_critphysical": {
+      "affected": "Players",
+      "id": "prophecy_always_critphysical",
+      "map_resist": "Physical",
+      "map_resist_bonus_needed": 0,
+      "prophecy_type": "damage_taken",
+      "req": "prophecy",
+      "stats": [
+        {
+          "type": "FLAT",
+          "max": 1,
+          "min": 1,
+          "stat": "physical_vuln_crit"
+        }
+      ],
+      "weight": 1000
+    },
+    "prophecy_always_critwater": {
+      "affected": "Players",
+      "id": "prophecy_always_critwater",
+      "map_resist": "Physical",
+      "map_resist_bonus_needed": 0,
+      "prophecy_type": "damage_taken",
+      "req": "prophecy",
+      "stats": [
+        {
+          "type": "FLAT",
+          "max": 1,
+          "min": 1,
+          "stat": "water_vuln_crit"
+        }
+      ],
+      "weight": 1000
+    },
+    "prophecy_armor": {
+      "affected": "Players",
+      "id": "prophecy_armor",
+      "map_resist": "Physical",
+      "map_resist_bonus_needed": 0,
+      "prophecy_type": "damage_taken",
+      "req": "prophecy",
+      "stats": [
+        {
+          "type": "MORE",
+          "max": -30,
+          "min": -30,
+          "stat": "armor"
+        }
+      ],
+      "weight": 1000
+    },
+    "prophecy_crit": {
+      "affected": "Players",
+      "id": "prophecy_crit",
+      "map_resist": "Physical",
+      "map_resist_bonus_needed": 0,
+      "prophecy_type": "less_crit",
+      "req": "prophecy",
+      "stats": [
+        {
+          "type": "MORE",
+          "max": -30,
+          "min": -30,
+          "stat": "critical_hit"
+        }
+      ],
+      "weight": 1000
+    },
+    "prophecy_crit_dmg": {
+      "affected": "Players",
+      "id": "prophecy_crit_dmg",
+      "map_resist": "Physical",
+      "map_resist_bonus_needed": 0,
+      "prophecy_type": "less_crit",
+      "req": "prophecy",
+      "stats": [
+        {
+          "type": "MORE",
+          "max": -30,
+          "min": -30,
+          "stat": "critical_damage"
+        }
+      ],
+      "weight": 1000
+    },
+    "prophecy_dodge": {
+      "affected": "Players",
+      "id": "prophecy_dodge",
+      "map_resist": "Physical",
+      "map_resist_bonus_needed": 0,
+      "prophecy_type": "damage_taken",
+      "req": "prophecy",
+      "stats": [
+        {
+          "type": "MORE",
+          "max": -30,
+          "min": -30,
+          "stat": "dodge"
+        }
+      ],
+      "weight": 1000
+    },
+    "prophecy_ele_dmgchaos": {
+      "affected": "Players",
+      "id": "prophecy_ele_dmgchaos",
+      "map_resist": "Physical",
+      "map_resist_bonus_needed": 0,
+      "prophecy_type": "damage_done",
+      "req": "prophecy",
+      "stats": [
+        {
+          "type": "MORE",
+          "max": -30,
+          "min": -30,
+          "stat": "all_chaos_damage"
+        }
+      ],
+      "weight": 1000
+    },
+    "prophecy_ele_dmgfire": {
+      "affected": "Players",
+      "id": "prophecy_ele_dmgfire",
+      "map_resist": "Physical",
+      "map_resist_bonus_needed": 0,
+      "prophecy_type": "damage_done",
+      "req": "prophecy",
+      "stats": [
+        {
+          "type": "MORE",
+          "max": -30,
+          "min": -30,
+          "stat": "all_fire_damage"
+        }
+      ],
+      "weight": 1000
+    },
+    "prophecy_ele_dmglightning": {
+      "affected": "Players",
+      "id": "prophecy_ele_dmglightning",
+      "map_resist": "Physical",
+      "map_resist_bonus_needed": 0,
+      "prophecy_type": "damage_done",
+      "req": "prophecy",
+      "stats": [
+        {
+          "type": "MORE",
+          "max": -30,
+          "min": -30,
+          "stat": "all_lightning_damage"
+        }
+      ],
+      "weight": 1000
+    },
+    "prophecy_ele_dmgphysical": {
+      "affected": "Players",
+      "id": "prophecy_ele_dmgphysical",
+      "map_resist": "Physical",
+      "map_resist_bonus_needed": 0,
+      "prophecy_type": "damage_done",
+      "req": "prophecy",
+      "stats": [
+        {
+          "type": "MORE",
+          "max": -30,
+          "min": -30,
+          "stat": "all_physical_damage"
+        }
+      ],
+      "weight": 1000
+    },
+    "prophecy_ele_dmgwater": {
+      "affected": "Players",
+      "id": "prophecy_ele_dmgwater",
+      "map_resist": "Physical",
+      "map_resist_bonus_needed": 0,
+      "prophecy_type": "damage_done",
+      "req": "prophecy",
+      "stats": [
+        {
+          "type": "MORE",
+          "max": -30,
+          "min": -30,
+          "stat": "all_water_damage"
+        }
+      ],
+      "weight": 1000
+    },
+    "prophecy_ene": {
+      "affected": "Players",
+      "id": "prophecy_ene",
+      "map_resist": "Physical",
+      "map_resist_bonus_needed": 0,
+      "prophecy_type": "less_resource",
+      "req": "prophecy",
+      "stats": [
+        {
+          "type": "MORE",
+          "max": -20,
+          "min": -20,
+          "stat": "energy"
+        },
+        {
+          "type": "MORE",
+          "max": -20,
+          "min": -20,
+          "stat": "energy_regen"
+        }
+      ],
+      "weight": 1000
+    },
+    "prophecy_hp": {
+      "affected": "Players",
+      "id": "prophecy_hp",
+      "map_resist": "Physical",
+      "map_resist_bonus_needed": 0,
+      "prophecy_type": "damage_taken",
+      "req": "prophecy",
+      "stats": [
+        {
+          "type": "MORE",
+          "max": -20,
+          "min": -20,
+          "stat": "health"
+        },
+        {
+          "type": "MORE",
+          "max": -20,
+          "min": -20,
+          "stat": "health_regen"
+        }
+      ],
+      "weight": 1000
+    },
+    "prophecy_mana": {
+      "affected": "Players",
+      "id": "prophecy_mana",
+      "map_resist": "Physical",
+      "map_resist_bonus_needed": 0,
+      "prophecy_type": "less_resource",
+      "req": "prophecy",
+      "stats": [
+        {
+          "type": "MORE",
+          "max": -20,
+          "min": -20,
+          "stat": "mana"
+        },
+        {
+          "type": "MORE",
+          "max": -20,
+          "min": -20,
+          "stat": "mana_regen"
+        }
+      ],
+      "weight": 1000
+    },
+    "prophecy_max_ele_reschaos": {
+      "affected": "Players",
+      "id": "prophecy_max_ele_reschaos",
+      "map_resist": "Physical",
+      "map_resist_bonus_needed": 0,
+      "prophecy_type": "damage_taken",
+      "req": "prophecy",
+      "stats": [
+        {
+          "type": "FLAT",
+          "max": -10,
+          "min": -10,
+          "stat": "max_chaos_resist"
+        }
+      ],
+      "weight": 1000
+    },
+    "prophecy_max_ele_resfire": {
+      "affected": "Players",
+      "id": "prophecy_max_ele_resfire",
+      "map_resist": "Physical",
+      "map_resist_bonus_needed": 0,
+      "prophecy_type": "damage_taken",
+      "req": "prophecy",
+      "stats": [
+        {
+          "type": "FLAT",
+          "max": -10,
+          "min": -10,
+          "stat": "max_fire_resist"
+        }
+      ],
+      "weight": 1000
+    },
+    "prophecy_max_ele_reslightning": {
+      "affected": "Players",
+      "id": "prophecy_max_ele_reslightning",
+      "map_resist": "Physical",
+      "map_resist_bonus_needed": 0,
+      "prophecy_type": "damage_taken",
+      "req": "prophecy",
+      "stats": [
+        {
+          "type": "FLAT",
+          "max": -10,
+          "min": -10,
+          "stat": "max_lightning_resist"
+        }
+      ],
+      "weight": 1000
+    },
+    "prophecy_max_ele_resphysical": {
+      "affected": "Players",
+      "id": "prophecy_max_ele_resphysical",
+      "map_resist": "Physical",
+      "map_resist_bonus_needed": 0,
+      "prophecy_type": "damage_taken",
+      "req": "prophecy",
+      "stats": [
+        {
+          "type": "FLAT",
+          "max": 20,
+          "min": 20,
+          "stat": "dmg_received"
+        }
+      ],
+      "weight": 1000
+    },
+    "prophecy_max_ele_reswater": {
+      "affected": "Players",
+      "id": "prophecy_max_ele_reswater",
+      "map_resist": "Physical",
+      "map_resist_bonus_needed": 0,
+      "prophecy_type": "damage_taken",
+      "req": "prophecy",
+      "stats": [
+        {
+          "type": "FLAT",
+          "max": -10,
+          "min": -10,
+          "stat": "max_water_resist"
+        }
+      ],
+      "weight": 1000
+    },
+    "prophecy_ms": {
+      "affected": "Players",
+      "id": "prophecy_ms",
+      "map_resist": "Physical",
+      "map_resist_bonus_needed": 0,
+      "prophecy_type": "damage_taken",
+      "req": "prophecy",
+      "stats": [
+        {
+          "type": "MORE",
+          "max": -20,
+          "min": -20,
+          "stat": "magic_shield"
+        },
+        {
+          "type": "MORE",
+          "max": -20,
+          "min": -20,
+          "stat": "magic_shield_regen"
+        }
+      ],
+      "weight": 1000
+    },
+    "prophecy_total_dmg": {
+      "affected": "Players",
+      "id": "prophecy_total_dmg",
+      "map_resist": "Physical",
+      "map_resist_bonus_needed": 0,
+      "prophecy_type": "damage_done",
+      "req": "prophecy",
+      "stats": [
+        {
+          "type": "MORE",
+          "max": -25,
+          "min": -25,
+          "stat": "total_damage"
+        }
+      ],
+      "weight": 1000
+    },
+    "reduced_aoe": {
+      "affected": "Players",
+      "id": "reduced_aoe",
+      "map_resist": "Physical",
+      "map_resist_bonus_needed": 0,
+      "prophecy_type": "",
+      "req": "",
+      "stats": [
+        {
+          "type": "FLAT",
+          "max": -30,
+          "min": -15,
+          "stat": "inc_aoe"
+        }
+      ],
+      "weight": 1000
+    },
+    "reduced_leech": {
+      "affected": "Players",
+      "id": "reduced_leech",
+      "map_resist": "Physical",
+      "map_resist_bonus_needed": 0,
+      "prophecy_type": "",
+      "req": "",
+      "stats": [
+        {
+          "type": "MORE",
+          "max": -30,
+          "min": -15,
+          "stat": "inc_leech"
+        }
+      ],
+      "weight": 500
+    },
+    "slower_projectiles": {
+      "affected": "Players",
+      "id": "slower_projectiles",
+      "map_resist": "Physical",
+      "map_resist_bonus_needed": 0,
+      "prophecy_type": "",
+      "req": "",
+      "stats": [
+        {
+          "type": "FLAT",
+          "max": -30,
+          "min": -15,
+          "stat": "faster_projectiles"
+        },
+        {
+          "type": "MORE",
+          "max": -20,
+          "min": -10,
+          "stat": "projectile_damage"
+        }
+      ],
+      "weight": 1000
+    },
+    "water_atk": {
+      "affected": "Mobs",
+      "id": "water_atk",
+      "map_resist": "Cold",
+      "map_resist_bonus_needed": 0,
+      "prophecy_type": "",
+      "req": "",
+      "stats": [
+        {
+          "type": "FLAT",
+          "max": 60,
+          "min": 30,
+          "stat": "phys_to_water"
+        },
+        {
+          "type": "FLAT",
+          "max": 30,
+          "min": 30,
+          "stat": "all_water_damage"
+        },
+        {
+          "type": "FLAT",
+          "max": 30,
+          "min": 15,
+          "stat": "freeze_chance"
+        },
+        {
+          "type": "FLAT",
+          "max": 20,
+          "min": 10,
+          "stat": "freeze_proc_chance"
+        }
+      ],
+      "weight": 1000
+    },
+    "water_minus_dmg": {
+      "affected": "Players",
+      "id": "water_minus_dmg",
+      "map_resist": "Physical",
+      "map_resist_bonus_needed": 0,
+      "prophecy_type": "",
+      "req": "",
+      "stats": [
+        {
+          "type": "MORE",
+          "max": -30,
+          "min": -15,
+          "stat": "all_water_damage"
+        }
+      ],
+      "weight": 1000
+    },
+    "water_minus_res": {
+      "affected": "Players",
+      "id": "water_minus_res",
+      "map_resist": "Cold",
+      "map_resist_bonus_needed": 0,
+      "prophecy_type": "",
+      "req": "",
+      "stats": [
+        {
+          "type": "FLAT",
+          "max": -4,
+          "min": -2,
+          "stat": "max_water_resist"
+        },
+        {
+          "type": "FLAT",
+          "max": -40,
+          "min": -20,
+          "stat": "water_resist"
+        }
+      ],
+      "weight": 1000
+    },
+    "water_res": {
+      "affected": "Mobs",
+      "id": "water_res",
+      "map_resist": "Physical",
+      "map_resist_bonus_needed": 0,
+      "prophecy_type": "",
+      "req": "",
+      "stats": [
+        {
+          "type": "FLAT",
+          "max": 60,
+          "min": 30,
+          "stat": "water_resist"
+        }
+      ],
+      "weight": 1000
     }
   },
   "mobAffixes": {
@@ -18973,10 +22497,18 @@
       "is_elite": false,
       "is_special": true,
       "loot_multi": 10.5,
-      "max_slow_from_chill": 25,
+      "max_slow_from_chill": 3,
       "min_lvl": 1,
       "name": "Boss",
       "spells": [],
+      "stats": [
+        {
+          "type": "FLAT",
+          "max": -30,
+          "min": -30,
+          "stat": "inc_effect_of_negative_buff_on_you"
+        }
+      ],
       "stat_multi": 3.5,
       "text_format": "RED",
       "weight": 0
@@ -18991,10 +22523,11 @@
       "is_elite": false,
       "is_special": false,
       "loot_multi": 1,
-      "max_slow_from_chill": 100,
+      "max_slow_from_chill": 5,
       "min_lvl": 0,
       "name": "Common",
       "spells": [],
+      "stats": [],
       "stat_multi": 1,
       "text_format": "GRAY",
       "weight": 1024
@@ -19009,10 +22542,11 @@
       "is_elite": true,
       "is_special": false,
       "loot_multi": 2.75,
-      "max_slow_from_chill": 50,
+      "max_slow_from_chill": 5,
       "min_lvl": 10,
       "name": "Epic",
       "spells": [],
+      "stats": [],
       "stat_multi": 1.9,
       "text_format": "LIGHT_PURPLE",
       "weight": 16
@@ -19027,10 +22561,18 @@
       "is_elite": true,
       "is_special": false,
       "loot_multi": 4.75,
-      "max_slow_from_chill": 25,
+      "max_slow_from_chill": 4,
       "min_lvl": 25,
       "name": "Legendary",
       "spells": [],
+      "stats": [
+        {
+          "type": "FLAT",
+          "max": -15,
+          "min": -15,
+          "stat": "inc_effect_of_negative_buff_on_you"
+        }
+      ],
       "stat_multi": 2.4,
       "text_format": "GOLD",
       "weight": 4
@@ -19045,13 +22587,49 @@
       "is_elite": true,
       "is_special": false,
       "loot_multi": 8.75,
-      "max_slow_from_chill": 25,
+      "max_slow_from_chill": 4,
       "min_lvl": 50,
       "name": "Mythic",
       "spells": [],
+      "stats": [
+        {
+          "type": "FLAT",
+          "max": -15,
+          "min": -15,
+          "stat": "inc_effect_of_negative_buff_on_you"
+        }
+      ],
       "stat_multi": 3,
       "text_format": "DARK_PURPLE",
       "weight": 1
+    },
+    "pinnacle": {
+      "affixes": 1,
+      "dmg_multi": 2.1,
+      "exp_multi": 20,
+      "extra_hp_multi": 12,
+      "force_custom_hp": 300,
+      "id": "pinnacle",
+      "is_elite": false,
+      "is_special": true,
+      "loot_multi": 20,
+      "max_slow_from_chill": 1,
+      "min_lvl": 1,
+      "name": "Pinnacle",
+      "spells": [
+        "boss_cc_resist"
+      ],
+      "stats": [
+        {
+          "type": "FLAT",
+          "max": -60,
+          "min": -60,
+          "stat": "inc_effect_of_negative_buff_on_you"
+        }
+      ],
+      "stat_multi": 5,
+      "text_format": "DARK_RED",
+      "weight": 0
     },
     "rare": {
       "affixes": 1,
@@ -19063,10 +22641,11 @@
       "is_elite": true,
       "is_special": false,
       "loot_multi": 1.75,
-      "max_slow_from_chill": 50,
+      "max_slow_from_chill": 5,
       "min_lvl": 0,
       "name": "Rare",
       "spells": [],
+      "stats": [],
       "stat_multi": 1.5,
       "text_format": "AQUA",
       "weight": 64
@@ -19081,17 +22660,18 @@
       "is_elite": false,
       "is_special": true,
       "loot_multi": 1.5,
-      "max_slow_from_chill": 100,
+      "max_slow_from_chill": 4,
       "min_lvl": 0,
       "name": "Summon",
       "spells": [],
+      "stats": [],
       "stat_multi": 1.75,
       "text_format": "YELLOW",
       "weight": 0
     },
     "uber": {
       "affixes": 1,
-      "dmg_multi": 2.05,
+      "dmg_multi": 2,
       "exp_multi": 15.5,
       "extra_hp_multi": 8,
       "force_custom_hp": 250,
@@ -19099,11 +22679,19 @@
       "is_elite": false,
       "is_special": true,
       "loot_multi": 15.5,
-      "max_slow_from_chill": 25,
+      "max_slow_from_chill": 2,
       "min_lvl": 1,
       "name": "Uber",
       "spells": [
         "boss_cc_resist"
+      ],
+      "stats": [
+        {
+          "type": "FLAT",
+          "max": -45,
+          "min": -45,
+          "stat": "inc_effect_of_negative_buff_on_you"
+        }
       ],
       "stat_multi": 4,
       "text_format": "RED",
@@ -19119,10 +22707,11 @@
       "is_elite": false,
       "is_special": false,
       "loot_multi": 1.25,
-      "max_slow_from_chill": 100,
+      "max_slow_from_chill": 5,
       "min_lvl": 0,
       "name": "Uncommon",
       "spells": [],
+      "stats": [],
       "stat_multi": 1.2,
       "text_format": "GREEN",
       "weight": 256

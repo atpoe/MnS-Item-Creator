@@ -11,7 +11,8 @@
         "excluded": [],
         "included": [
           "armor_family",
-		  "offhand_family"
+		  "offhand_family",
+		  "might"
         ],
         "req_type": "INCLUDES_ANY"
       }

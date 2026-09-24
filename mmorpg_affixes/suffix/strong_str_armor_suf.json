@@ -12,7 +12,8 @@
         "included": [
           "plate",
           "chainmail",
-          "birgandine"
+          "brigandine",
+		  "might"
         ],
         "req_type": "INCLUDES_ANY"
       }
@@ -26,5 +27,5 @@
       "stat": "strength"
     }
   ],
-  "weight": 500
+  "weight": 1000
 }

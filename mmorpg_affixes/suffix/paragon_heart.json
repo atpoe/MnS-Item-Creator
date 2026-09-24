@@ -10,7 +10,8 @@
         "type": "GearSlot",
         "excluded": [],
         "included": [
-          "chest"
+          "chest",
+		  "might"
         ],
         "req_type": "INCLUDES_ANY"
       }
@@ -30,5 +31,5 @@
       "stat": "armor"
     }
   ],
-  "weight": 50
+  "weight": 250
 }

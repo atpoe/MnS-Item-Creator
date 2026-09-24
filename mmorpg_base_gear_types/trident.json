@@ -2,8 +2,8 @@
   "base_stats": [
     {
       "type": "FLAT",
-      "max": 6.0,
-      "min": 2.0,
+      "max": 8.1,
+      "min": 2.7,
       "stat": "weapon_damage"
     }
   ],

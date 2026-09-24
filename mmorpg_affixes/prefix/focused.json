@@ -11,7 +11,8 @@
         "excluded": [],
         "included": [
           "necklace",
-          "mage_weapon"
+          "mage_weapon",
+		  "finesse"
         ],
         "req_type": "INCLUDES_ANY"
       }

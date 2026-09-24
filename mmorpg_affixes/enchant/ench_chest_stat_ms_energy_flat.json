@@ -26,8 +26,8 @@
     },
     {
       "type": "FLAT",
-      "max": 4.5,
-      "min": 1.5,
+      "max": 6.0,
+      "min": 2.0,
       "stat": "energy"
     }
   ],

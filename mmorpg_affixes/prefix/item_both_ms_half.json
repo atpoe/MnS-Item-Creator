@@ -12,7 +12,8 @@
 		  "dual_stat"
 		],
         "included": [
-          "magic_shield_stat_half"
+          "magic_shield_stat_half",
+		  "ingenuity"
         ],
         "req_type": "INCLUDES_ANY"
       }
@@ -21,14 +22,14 @@
   "stats": [
     {
       "type": "PERCENT",
-      "max": 30.0,
-      "min": 6.0,
+      "max": 11.25,
+      "min": 2.25,
       "stat": "gear_defense"
     },
     {
       "type": "FLAT",
-      "max": 3.0,
-      "min": 0.6,
+      "max": 1.5,
+      "min": 0.3,
       "stat": "gear_defense"
     }
   ],

@@ -1,0 +1,33 @@
+{
+  "type": "prefix",
+  "eye_aura_req": "",
+  "guid": "chaos_spell_flat_dmg",
+  "one_of_a_kind": "",
+  "only_one_per_item": true,
+  "requirements": {
+    "tag_requirements": [
+      {
+        "type": "GearSlot",
+        "excluded": [
+          "two_handed"
+        ],
+        "included": [
+          "mage_weapon",
+          "tome",
+		  "ingenuity",
+		  "finesse"
+        ],
+        "req_type": "INCLUDES_ANY"
+      }
+    ]
+  },
+  "stats": [
+    {
+      "type": "FLAT",
+      "max": 1.5,
+      "min": 0.3,
+      "stat": "flat_chaos_added_magic_damage"
+    }
+  ],
+  "weight": 500
+}

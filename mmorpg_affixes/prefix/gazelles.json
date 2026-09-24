@@ -10,7 +10,8 @@
         "type": "GearSlot",
         "excluded": [],
         "included": [
-          "boots"
+          "boots",
+		  "finesse"
         ],
         "req_type": "INCLUDES_ANY"
       }

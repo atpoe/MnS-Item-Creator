@@ -10,7 +10,8 @@
         "type": "GearSlot",
         "excluded": [],
         "included": [
-          "weapon_family"
+          "weapon_family",
+		  "might"
         ],
         "req_type": "INCLUDES_ANY"
       }
@@ -19,8 +20,8 @@
   "stats": [
     {
       "type": "FLAT",
-      "max": 30.0,
-      "min": 6.0,
+      "max": 20.0,
+      "min": 4.0,
       "stat": "critical_damage"
     }
   ],

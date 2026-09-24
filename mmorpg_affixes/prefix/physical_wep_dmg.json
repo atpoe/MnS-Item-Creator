@@ -12,7 +12,8 @@
         "included": [
           "weapon_family",
 		  "shield",
-		  "totem"
+		  "totem",
+		  "might"
         ],
         "req_type": "INCLUDES_ANY"
       }
@@ -21,8 +22,8 @@
   "stats": [
     {
       "type": "FLAT",
-      "max": 15.0,
-      "min": 3.0,
+      "max": 25.0,
+      "min": 5.0,
       "stat": "all_physical_damage"
     }
   ],

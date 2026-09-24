@@ -11,7 +11,8 @@
         "excluded": [],
         "included": [
           "jewelry_family",
-          "tome"
+          "tome",
+		  "ingenuity"
         ],
         "req_type": "INCLUDES_ANY"
       }
@@ -25,5 +26,5 @@
       "stat": "magic_shield_regen"
     }
   ],
-  "weight": 200
+  "weight": 1000
 }

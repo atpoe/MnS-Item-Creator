@@ -2,10 +2,16 @@
   "base_stats": [
     {
       "type": "FLAT",
-      "max": 8.0,
-      "min": 4.0,
+      "max": 10.8,
+      "min": 5.4,
       "stat": "weapon_damage"
-    }
+    },
+	{
+	  "type": "FLAT",
+	  "max": 6.0,
+	  "min": 3.0,
+	  "stat": "resource_on_basic_hit"
+	}
   ],
   "gear_slot": "gauntlet",
   "guid": "gauntlet",

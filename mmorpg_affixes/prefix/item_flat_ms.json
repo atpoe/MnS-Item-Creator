@@ -13,7 +13,8 @@
 		  "dual_stat"
         ],
         "included": [
-          "magic_shield_stat"
+          "magic_shield_stat",
+		  "ingenuity"
         ],
         "req_type": "INCLUDES_ANY"
       }
@@ -22,8 +23,8 @@
   "stats": [
     {
       "type": "FLAT",
-      "max": 12.0,
-      "min": 2.4,
+      "max": 6.0,
+      "min": 1.2,
       "stat": "gear_defense"
     }
   ],

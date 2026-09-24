@@ -10,7 +10,10 @@
         "type": "GearSlot",
         "excluded": [],
         "included": [
-          "weapon_family"
+          "weapon_family",
+		  "might",
+		  "ingenuity",
+		  "finesse"
         ],
         "req_type": "INCLUDES_ANY"
       }
@@ -24,5 +27,5 @@
       "stat": "plus_lvl_all_spells"
     }
   ],
-  "weight": 100
+  "weight": 250
 }

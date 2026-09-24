@@ -12,7 +12,8 @@
         "included": [
           "totem",
 		  "pants",
-		  "jewelry_family"
+		  "jewelry_family",
+		  "finesse"
         ],
         "req_type": "INCLUDES_ANY"
       }
@@ -21,8 +22,8 @@
   "stats": [
     {
       "type": "FLAT",
-      "max": 3.0,
-      "min": 0.6,
+      "max": 5.0,
+      "min": 1.0,
       "stat": "energy_regen"
     }
   ],

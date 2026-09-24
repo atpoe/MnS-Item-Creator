@@ -10,7 +10,8 @@
         "type": "GearSlot",
         "excluded": [],
         "included": [
-          "boots"
+          "boots",
+		  "finesse"
         ],
         "req_type": "INCLUDES_ANY"
       }
@@ -30,5 +31,5 @@
       "stat": "dodge"
     }
   ],
-  "weight": 50
+  "weight": 250
 }

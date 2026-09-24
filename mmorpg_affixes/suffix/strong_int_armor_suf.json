@@ -12,7 +12,8 @@
         "included": [
           "cloth",
           "chainmail",
-          "vest"
+          "vest",
+		  "ingenuity"
         ],
         "req_type": "INCLUDES_ANY"
       }
@@ -26,5 +27,5 @@
       "stat": "intelligence"
     }
   ],
-  "weight": 500
+  "weight": 1000
 }

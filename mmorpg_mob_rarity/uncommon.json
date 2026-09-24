@@ -8,10 +8,11 @@
   "is_elite": false,
   "is_special": false,
   "loot_multi": 1.25,
-  "max_slow_from_chill": 100,
+  "max_slow_from_chill": 5,
   "min_lvl": 0,
   "name": "Uncommon",
   "spells": [],
+  "stats": [],
   "stat_multi": 1.2,
   "text_format": "GREEN",
   "weight": 256

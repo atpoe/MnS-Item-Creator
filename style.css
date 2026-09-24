@@ -397,22 +397,46 @@ input:hover, select:hover, textarea:hover {
     color: white;
 }
 
-/* Spirit Card - Green Gradient */
-.item-type-card:nth-child(7) {
-    background: linear-gradient(135deg, #069e02 0%, #076305 100%);
-    color: white;
-}
-
 .item-type-card:nth-child(6):hover {
     transform: translateY(-8px);
     box-shadow: 0 15px 35px rgba(155, 89, 182, 0.4);
     border-color: #9b59b6;
 }
 
+/* Map Card - Teal Gradient */
+.item-type-card:nth-child(7) {
+    background: linear-gradient(135deg, #0f766e 0%, #115e59 100%);
+    color: white;
+}
+
 .item-type-card:nth-child(7):hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(15, 118, 110, 0.4);
+    border-color: #0f766e;
+}
+
+/* Gateway Card - Green Gradient */
+.item-type-card:nth-child(8) {
+    background: linear-gradient(135deg, #069e02 0%, #076305 100%);
+    color: white;
+}
+
+.item-type-card:nth-child(8):hover {
     transform: translateY(-8px);
     box-shadow: 0 15px 35px rgba(6, 158, 2, 0.4);
     border-color: #069e02;
+}
+
+/* Spell Card - Indigo Gradient */
+.item-type-card:nth-child(9) {
+    background: linear-gradient(135deg, #4f46e5 0%, #312e81 100%);
+    color: white;
+}
+
+.item-type-card:nth-child(9):hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(79, 70, 229, 0.4);
+    border-color: #4f46e5;
 }
 
 /* Item Type Card Icon */
@@ -833,4 +857,91 @@ input[type="color"]::-webkit-color-swatch {
 input[type="color"]::-moz-color-swatch {
     border: none;
     border-radius: 4px;
+}
+
+.stat-search-hint {
+    color: var(--text-secondary);
+    margin-bottom: 12px;
+}
+
+.stat-search-input {
+    width: 100%;
+}
+
+.stat-search-results {
+    margin-top: 15px;
+    max-height: 360px;
+    overflow-y: auto;
+    display: grid;
+    gap: 12px;
+}
+
+.stat-search-empty {
+    padding: 12px;
+    color: var(--text-secondary);
+    background: var(--bg-card);
+    border-radius: 8px;
+}
+
+.stat-search-group {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    padding: 12px;
+}
+
+.stat-search-group h4 {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    color: var(--text-primary);
+}
+
+.stat-search-group h4 span {
+    color: var(--status-success);
+    font-size: 0.9em;
+}
+
+.stat-search-result {
+    width: 100%;
+    text-align: left;
+    background: var(--input-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 10px 12px;
+    margin-bottom: 8px;
+    cursor: pointer;
+    color: var(--text-primary);
+}
+
+.stat-search-result:hover {
+    border-color: #3182ce;
+    transform: translateY(-1px);
+}
+
+.stat-search-result strong,
+.stat-search-result span {
+    display: block;
+}
+
+.stat-search-result span {
+    margin-top: 4px;
+    font-size: 12px;
+    color: var(--text-muted);
+}
+
+.uuid-row {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.uuid-row input {
+    flex: 1;
+}
+
+.uuid-btn {
+    width: auto;
+    min-width: 130px;
+    margin: 0;
 }

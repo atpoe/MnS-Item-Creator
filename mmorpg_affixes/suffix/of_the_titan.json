@@ -13,7 +13,8 @@
           "jewelry_family",
           "plate",
           "chainmail",
-          "birgandine"
+          "brigandine",
+		  "might"
         ],
         "req_type": "INCLUDES_ANY"
       }

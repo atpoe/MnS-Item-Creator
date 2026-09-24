@@ -10,7 +10,8 @@
         "type": "GearSlot",
         "excluded": [],
         "included": [
-          "boots"
+          "boots",
+		  "might"
         ],
         "req_type": "INCLUDES_ANY"
       }
@@ -25,10 +26,10 @@
     },
     {
       "type": "FLAT",
-      "max": 15.0,
-      "min": 3.0,
+      "max": 10.0,
+      "min": 2.0,
       "stat": "inc_effect_of_defensive_buff_given"
     }
   ],
-  "weight": 50
+  "weight": 250
 }

@@ -19,8 +19,8 @@
   "stats": [
     {
       "type": "FLAT",
-      "max": 6.0,
-      "min": 3.0,
+      "max": 18.0,
+      "min": 9.0,
       "stat": "cast_speed"
     }
   ],

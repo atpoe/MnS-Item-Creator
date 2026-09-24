@@ -65,6 +65,14 @@
                     <div>Tools</div>
                 </div>
                 <div class="stat-item">
+                    <strong id="watcherEyeCount">0</strong>
+                    <div>Watcher Eyes</div>
+                </div>
+                <div class="stat-item">
+                    <strong id="mapAffixCount">0</strong>
+                    <div>Map Affixes</div>
+                </div>
+                <div class="stat-item">
                     <strong id="gearTypeCount">0</strong>
                     <div>Gear Types</div>
                 </div>
@@ -81,6 +89,14 @@
                     <div>Auras</div>
                 </div>
             </div>
+        </div>
+
+        <!-- Stat Search -->
+        <div class="section stat-search-section">
+            <h3>🔎 Search Affixes by Stat</h3>
+            <p class="stat-search-hint">Type a stat like <strong>health</strong>, <strong>strength</strong>, or <strong>crit</strong> to find matching affixes.</p>
+            <input type="text" id="statSearch" class="stat-search-input" placeholder="Search stats (health, strength, crit, armor...)" autocomplete="off">
+            <div id="statSearchResults" class="stat-search-results"></div>
         </div>
 
         <!-- Import Existing NBT Section -->
@@ -121,6 +137,18 @@ Or for tools:
   ],
   "lvl": 67,
   "xp": 760
+}
+
+Or for maps:
+{
+  "lvl": 50,
+  "tier": 3,
+  "rar": "mythic",
+  "affixes": [
+    { "id": "health", "p": 100 },
+    { "id": "armor", "p": 80 }
+  ],
+  "uuid": "00000000-0000-0000-0000-000000000000"
 }'></textarea>
             <div class="import-buttons">
                 <button class="import-btn" onclick="loadFromJson()">📥 Load & Edit Item</button>
@@ -161,6 +189,11 @@ Or for tools:
                     <img src="omen.png" alt="Omen" class="icon">
                     <h3>Omen</h3>
                     <p>Create omens with unique properties and affix effects</p>
+                </div>
+                <div class="item-type-card" onclick="selectItemType('map')">
+                    <span class="icon">🗺️</span>
+                    <h3>Adventure Map</h3>
+                    <p>Create maps with affixes, tier, rarity, and level</p>
                 </div>
                 <div class="item-type-card" onclick="goToGatewayCreator()">
                     <img src="gate_peal.png" alt="Gateway" class="icon">
@@ -463,6 +496,56 @@ Or for tools:
                 </div>
             </div>
 
+            <!-- Map Sections -->
+            <div id="mapSections" style="display: none;">
+                <div class="section">
+                    <h3>🗺️ Map Properties</h3>
+                    <div class="grid-3">
+                        <div class="form-group">
+                            <label>Rarity:</label>
+                            <select id="mapRar">
+                                <option value="common">Common</option>
+                                <option value="uncommon">Uncommon</option>
+                                <option value="rare">Rare</option>
+                                <option value="epic">Epic</option>
+                                <option value="legendary">Legendary</option>
+                                <option value="mythic" selected>Mythic</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Level:</label>
+                            <input type="number" id="mapLvl" value="1" min="1" max="100">
+                        </div>
+                        <div class="form-group">
+                            <label>Tier:</label>
+                            <input type="number" id="mapTier" value="0" min="0" max="20">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>UUID:</label>
+                        <div class="uuid-row">
+                            <input type="text" id="mapUuid" placeholder="Generated automatically">
+                            <button type="button" class="add-btn uuid-btn" onclick="regenerateMapUuid()">↻ New UUID</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h3>🗺️ Map Affixes</h3>
+                    <div class="form-group">
+                        <label>Filter by target:</label>
+                        <select id="mapAffixFilter" onchange="populateMapAffixDropdowns()">
+                            <option value="all">All Affixes</option>
+                            <option value="Mobs">Mobs</option>
+                            <option value="Players">Players</option>
+                            <option value="prophecy">Prophecy</option>
+                        </select>
+                    </div>
+                    <div id="mapAffixList" class="affix-list"></div>
+                    <button class="add-btn" onclick="addMapAffix()">+ Add Map Affix</button>
+                </div>
+            </div>
+
             <!-- Generate Button -->
             <button class="generate-btn" onclick="generateNBT()">🎯 Generate NBT Data</button>
 
@@ -516,7 +599,6 @@ Or for tools:
         }
     });
 </script>
-</body>
 <script src="script.js"></script>
 </body>
 </html>

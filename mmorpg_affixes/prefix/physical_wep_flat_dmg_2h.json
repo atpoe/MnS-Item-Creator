@@ -1,0 +1,29 @@
+{
+  "type": "prefix",
+  "eye_aura_req": "",
+  "guid": "physical_wep_flat_dmg_2h",
+  "one_of_a_kind": "",
+  "only_one_per_item": true,
+  "requirements": {
+    "tag_requirements": [
+      {
+        "type": "GearSlot",
+        "excluded": [],
+        "included": [
+          "two_handed",
+          "might"
+        ],
+        "req_type": "INCLUDES_ANY"
+      }
+    ]
+  },
+  "stats": [
+    {
+      "type": "FLAT",
+      "max": 2.25,
+      "min": 0.45,
+      "stat": "flat_physical_added_attack_damage"
+    }
+  ],
+  "weight": 500
+}

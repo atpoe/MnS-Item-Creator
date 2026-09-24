@@ -12,7 +12,8 @@
           "dual_stat"
         ],
         "included": [
-          "armor_family"
+          "armor_family",
+		  "might"
         ],
         "req_type": "INCLUDES_ANY"
       }
@@ -21,8 +22,8 @@
   "stats": [
     {
       "type": "PERCENT",
-      "max": 60.0,
-      "min": 12.0,
+      "max": 22.5,
+      "min": 4.5,
       "stat": "gear_defense"
     }
   ],

@@ -12,7 +12,8 @@
         "included": [
           "leather",
           "brigandine",
-          "vest"
+          "vest",
+		  "finesse"
         ],
         "req_type": "INCLUDES_ANY"
       }
@@ -21,8 +22,8 @@
   "stats": [
     {
       "type": "FLAT",
-      "max": 3.0,
-      "min": 0.6,
+      "max": 5.0,
+      "min": 1.0,
       "stat": "dmg_reduction_chance"
     }
   ],

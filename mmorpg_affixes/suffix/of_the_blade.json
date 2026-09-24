@@ -10,7 +10,8 @@
         "type": "GearSlot",
         "excluded": [],
         "included": [
-          "sword"
+          "sword",
+		  "might"
         ],
         "req_type": "INCLUDES_ANY"
       }
@@ -25,8 +26,8 @@
     },
     {
       "type": "FLAT",
-      "max": 2.5,
-      "min": 0.5,
+      "max": 3.75,
+      "min": 0.75,
       "stat": "accuracy"
     }
   ],

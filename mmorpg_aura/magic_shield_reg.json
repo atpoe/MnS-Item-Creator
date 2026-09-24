@@ -5,8 +5,8 @@
   "stats": [
     {
       "type": "FLAT",
-      "max": 10.0,
-      "min": 2.0,
+      "max": 7.5,
+      "min": 1.5,
       "stat": "magic_shield_regen"
     }
   ],

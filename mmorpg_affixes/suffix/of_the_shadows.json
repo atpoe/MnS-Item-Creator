@@ -10,7 +10,8 @@
         "type": "GearSlot",
         "excluded": [],
         "included": [
-          "dagger"
+          "dagger",
+		  "finesse"
         ],
         "req_type": "INCLUDES_ANY"
       }
@@ -24,9 +25,9 @@
       "stat": "dagger_damage"
     },
     {
-      "type": "PERCENT",
-      "max": 10.0,
-      "min": 2.0,
+      "type": "FLAT",
+      "max": 2.0,
+      "min": 0.4,
       "stat": "critical_hit"
     }
   ],

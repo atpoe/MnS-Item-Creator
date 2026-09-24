@@ -12,7 +12,8 @@
         "included": [
           "staff",
 		  "hammer",
-		  "tome"
+		  "tome",
+		  "ingenuity"
         ],
         "req_type": "INCLUDES_ANY"
       }
@@ -21,8 +22,8 @@
   "stats": [
     {
       "type": "FLAT",
-      "max": 25.0,
-      "min": 5.0,
+      "max": 30.0,
+      "min": 6.0,
       "stat": "increase_healing"
     }
   ],

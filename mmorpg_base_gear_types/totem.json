@@ -2,15 +2,15 @@
   "base_stats": [
     {
       "type": "FLAT",
-      "max": 10.0,
-      "min": 5.0,
+      "max": 13.5,
+      "min": 6.75,
       "stat": "dodge"
     },
     {
       "type": "FLAT",
-      "max": 8.0,
-      "min": 4.0,
-      "stat": "elemental_resist"
+      "max": 20.0,
+      "min": 10.0,
+      "stat": "spell_dodge_per_perc_of_dodge"
     }
   ],
   "gear_slot": "totem",

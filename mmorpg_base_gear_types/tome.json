@@ -2,14 +2,14 @@
   "base_stats": [
     {
       "type": "FLAT",
-      "max": 20.0,
-      "min": 10.0,
+      "max": 27.0,
+      "min": 13.5,
       "stat": "magic_shield"
     },
     {
       "type": "FLAT",
-      "max": 8.0,
-      "min": 4.0,
+      "max": 16.0,
+      "min": 8.0,
       "stat": "physical_resist"
     }
   ],

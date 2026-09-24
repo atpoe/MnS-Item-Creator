@@ -12,7 +12,8 @@
         "included": [
           "bow",
           "crossbow",
-		  "totem"
+		  "totem",
+		  "finesse"
         ],
         "req_type": "INCLUDES_ANY"
       }

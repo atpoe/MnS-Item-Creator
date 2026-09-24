@@ -19,8 +19,8 @@
   "stats": [
     {
       "type": "FLAT",
-      "max": 1.5,
-      "min": 0.3,
+      "max": 2.0,
+      "min": 0.4,
       "stat": "health_regen"
     }
   ],

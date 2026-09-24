@@ -10,7 +10,8 @@
         "type": "GearSlot",
         "excluded": [],
         "included": [
-          "axe"
+          "axe",
+		  "might"
         ],
         "req_type": "INCLUDES_ANY"
       }

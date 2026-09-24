@@ -12,7 +12,8 @@
         "included": [
           "jewelry_family",
           "armor_family",
-          "tome"
+          "tome",
+		  "ingenuity"
         ],
         "req_type": "INCLUDES_ANY"
       }
@@ -26,5 +27,5 @@
       "stat": "mana_regen"
     }
   ],
-  "weight": 200
+  "weight": 1000
 }

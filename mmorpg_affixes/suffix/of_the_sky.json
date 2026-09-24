@@ -10,7 +10,10 @@
         "type": "GearSlot",
         "excluded": [],
         "included": [
-          "jewelry_family"
+          "jewelry_family",
+		  "might",
+		  "ingenuity",
+		  "finesse"
         ],
         "req_type": "INCLUDES_ANY"
       }
@@ -24,5 +27,5 @@
       "stat": "all_attributes"
     }
   ],
-  "weight": 50
+  "weight": 1000
 }

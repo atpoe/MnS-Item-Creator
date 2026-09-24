@@ -11,7 +11,8 @@
         "excluded": [],
         "included": [
           "mage_weapon",
-		  "tome"
+		  "tome",
+		  "might"
         ],
         "req_type": "INCLUDES_ANY"
       }
@@ -25,5 +26,5 @@
       "stat": "plus_lvl_fire_spells"
     }
   ],
-  "weight": 125
+  "weight": 500
 }

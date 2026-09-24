@@ -1,6 +1,6 @@
 {
   "affixes": 1,
-  "dmg_multi": 2.05,
+  "dmg_multi": 2.00,
   "exp_multi": 15.5,
   "extra_hp_multi": 8.0,
   "force_custom_hp": 250,
@@ -8,11 +8,19 @@
   "is_elite": false,
   "is_special": true,
   "loot_multi": 15.5,
-  "max_slow_from_chill": 25,
+  "max_slow_from_chill": 2,
   "min_lvl": 1,
   "name": "Uber",
   "spells": [
     "boss_cc_resist"
+  ],
+  "stats": [
+    {
+      "type": "FLAT",
+      "max": -45.0,
+      "min": -45.0,
+      "stat": "inc_effect_of_negative_buff_on_you"
+    }
   ],
   "stat_multi": 4.0,
   "text_format": "RED",

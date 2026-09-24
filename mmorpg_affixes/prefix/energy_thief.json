@@ -16,7 +16,8 @@
           "sword",
 		  "axe",
 		  "hammer",
-		  "gauntlet"
+		  "gauntlet",
+		  "finesse"
         ],
         "req_type": "INCLUDES_ANY"
       }

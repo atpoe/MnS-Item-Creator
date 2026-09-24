@@ -10,7 +10,8 @@
         "type": "GearSlot",
         "excluded": [],
         "included": [
-          "weapon_family"
+          "weapon_family",
+		  "might"
         ],
         "req_type": "INCLUDES_ANY"
       }
@@ -19,9 +20,9 @@
   "stats": [
     {
       "type": "FLAT",
-      "max": 5.0,
-      "min": 1.0,
-      "stat": "health_on_kill"
+      "max": 1.5,
+      "min": 0.3,
+      "stat": "health_leech_cap"
     }
   ],
   "weight": 1000

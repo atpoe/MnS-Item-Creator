@@ -13,7 +13,8 @@
 		  "dual_stat"
         ],
         "included": [
-          "dodge_stat"
+          "dodge_stat",
+		  "finesse"
         ],
         "req_type": "INCLUDES_ANY"
       }
@@ -22,14 +23,14 @@
   "stats": [
     {
       "type": "PERCENT",
-      "max": 30.0,
-      "min": 6.0,
+      "max": 11.25,
+      "min": 2.25,
       "stat": "gear_defense"
     },
     {
       "type": "FLAT",
-      "max": 1.5,
-      "min": 0.3,
+      "max": 0.75,
+      "min": 0.15,
       "stat": "gear_defense"
     }
   ],

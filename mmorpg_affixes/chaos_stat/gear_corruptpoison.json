@@ -25,9 +25,9 @@
       "stat": "poison_chance"
     },
 	{
-      "type": "MORE",
-      "max": 5.0,
-      "min": 5.0,
+      "type": "FLAT",
+      "max": 10.0,
+      "min": 10.0,
       "stat": "poison_damage"
     }
   ],

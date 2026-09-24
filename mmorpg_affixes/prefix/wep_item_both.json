@@ -10,7 +10,10 @@
         "type": "GearSlot",
         "excluded": [],
         "included": [
-          "weapon_family"
+          "weapon_family",
+		  "might",
+		  "ingenuity",
+		  "finesse"
         ],
         "req_type": "INCLUDES_ANY"
       }
@@ -19,8 +22,8 @@
   "stats": [
     {
       "type": "PERCENT",
-      "max": 30.0,
-      "min": 6.0,
+      "max": 11.25,
+      "min": 2.25,
       "stat": "gear_weapon_damage"
     },
     {

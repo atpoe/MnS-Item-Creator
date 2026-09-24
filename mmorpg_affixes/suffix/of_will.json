@@ -12,7 +12,8 @@
         "included": [
           "cloth",
           "chainmail",
-          "vest"
+          "vest",
+		  "ingenuity"
         ],
         "req_type": "INCLUDES_ANY"
       }
@@ -21,9 +22,9 @@
   "stats": [
     {
       "type": "FLAT",
-      "max": 3.0,
-      "min": 0.6,
-      "stat": "dmg_taken_to_mana"
+      "max": 5.0,
+      "min": 1.0,
+      "stat": "mana_shield"
     }
   ],
   "weight": 1000

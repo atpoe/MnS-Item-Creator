@@ -8,10 +8,11 @@
   "is_elite": false,
   "is_special": true,
   "loot_multi": 1.5,
-  "max_slow_from_chill": 100,
+  "max_slow_from_chill": 4,
   "min_lvl": 0,
   "name": "Summon",
   "spells": [],
+  "stats": [],
   "stat_multi": 1.75,
   "text_format": "YELLOW",
   "weight": 0

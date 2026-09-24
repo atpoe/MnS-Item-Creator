@@ -10,7 +10,8 @@
         "type": "GearSlot",
         "excluded": [],
         "included": [
-          "necklace"
+          "necklace",
+		  "ingenuity"
         ],
         "req_type": "INCLUDES_ANY"
       }
@@ -30,5 +31,5 @@
       "stat": "magic_find"
     }
   ],
-  "weight": 50
+  "weight": 250
 }

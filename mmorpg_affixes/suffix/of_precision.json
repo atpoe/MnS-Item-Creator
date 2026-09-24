@@ -12,7 +12,8 @@
         "included": [
           "jewelry_family",
           "offhand_family",
-          "weapon_family"
+          "weapon_family",
+		  "might"
         ],
         "req_type": "INCLUDES_ANY"
       }

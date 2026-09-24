@@ -11,7 +11,8 @@
         "excluded": [],
         "included": [
           "scythe",
-          "dagger"
+          "dagger",
+		  "ingenuity"
         ],
         "req_type": "INCLUDES_ANY"
       }
@@ -20,8 +21,8 @@
   "stats": [
     {
       "type": "FLAT",
-      "max": 15.0,
-      "min": 3.0,
+      "max": 25.0,
+      "min": 5.0,
       "stat": "ailment_damage"
     }
   ],

@@ -22,7 +22,7 @@
       "stat": "plus_lvl_physical_spells"
     },
     {
-      "type": "MORE",
+      "type": "FLAT",
       "max": 20.0,
       "min": 10.0,
       "stat": "bleed_damage"

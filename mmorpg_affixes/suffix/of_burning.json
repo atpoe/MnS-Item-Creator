@@ -10,7 +10,8 @@
         "type": "GearSlot",
         "excluded": [],
         "included": [
-          "weapon_family"
+          "weapon_family",
+		  "might"
         ],
         "req_type": "INCLUDES_ANY"
       }
@@ -24,5 +25,5 @@
       "stat": "burn_chance"
     }
   ],
-  "weight": 250
+  "weight": 500
 }

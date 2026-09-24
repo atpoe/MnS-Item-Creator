@@ -10,7 +10,8 @@
         "type": "GearSlot",
         "excluded": [],
         "included": [
-          "bow"
+          "bow",
+		  "finesse"
         ],
         "req_type": "INCLUDES_ANY"
       }
@@ -25,8 +26,8 @@
     },
     {
       "type": "FLAT",
-      "max": 10.0,
-      "min": 2.0,
+      "max": 15.0,
+      "min": 3.0,
       "stat": "faster_projectiles"
     }
   ],

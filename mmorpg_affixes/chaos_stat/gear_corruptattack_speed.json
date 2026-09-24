@@ -19,8 +19,8 @@
   "stats": [
     {
       "type": "FLAT",
-      "max": 20.0,
-      "min": 20.0,
+      "max": 30.0,
+      "min": 30.0,
       "stat": "attack_speed"
     }
   ],

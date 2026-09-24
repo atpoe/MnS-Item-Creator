@@ -23,8 +23,8 @@
     },
     {
       "type": "PERCENT",
-      "max": 10.0,
-      "min": 2.0,
+      "max": 12.5,
+      "min": 2.5,
       "stat": "energy"
     }
   ],

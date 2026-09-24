@@ -14,7 +14,8 @@
 		],
         "included": [
           "weapon_family",
-		  "totem"
+		  "totem",
+		  "finesse"
         ],
         "req_type": "INCLUDES_ANY"
       }
@@ -23,8 +24,8 @@
   "stats": [
     {
       "type": "FLAT",
-      "max": 25.0,
-      "min": 5.0,
+      "max": 45.0,
+      "min": 9.0,
       "stat": "attack_speed"
     }
   ],

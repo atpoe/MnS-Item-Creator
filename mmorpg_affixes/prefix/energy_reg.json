@@ -10,7 +10,8 @@
         "type": "GearSlot",
         "excluded": [],
         "included": [
-          "ring"
+          "ring",
+		  "finesse"
         ],
         "req_type": "INCLUDES_ANY"
       }

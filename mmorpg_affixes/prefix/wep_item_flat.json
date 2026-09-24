@@ -12,7 +12,10 @@
           "two_handed"
         ],
         "included": [
-          "weapon_family"
+          "weapon_family",
+		  "might",
+		  "ingenuity",
+		  "finesse"
         ],
         "req_type": "INCLUDES_ANY"
       }
@@ -21,8 +24,8 @@
   "stats": [
     {
       "type": "FLAT",
-      "max": 2.0,
-      "min": 0.4,
+      "max": 1.0,
+      "min": 0.2,
       "stat": "gear_weapon_damage"
     }
   ],

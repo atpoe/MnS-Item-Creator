@@ -20,9 +20,9 @@
   "stats": [
     {
       "type": "FLAT",
-      "max": 5.0,
-      "min": 5.0,
-      "stat": "cdr"
+      "max": 15.0,
+      "min": 15.0,
+      "stat": "skill_speed"
     }
   ],
   "weight": 1000

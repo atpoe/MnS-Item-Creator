@@ -8,10 +8,11 @@
   "is_elite": false,
   "is_special": false,
   "loot_multi": 1.0,
-  "max_slow_from_chill": 100,
+  "max_slow_from_chill": 5,
   "min_lvl": 0,
   "name": "Common",
   "spells": [],
+  "stats": [],
   "stat_multi": 1.0,
   "text_format": "GRAY",
   "weight": 1024

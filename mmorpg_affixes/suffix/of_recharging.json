@@ -1,0 +1,31 @@
+{
+  "type": "suffix",
+  "eye_aura_req": "",
+  "guid": "of_recharging",
+  "one_of_a_kind": "",
+  "only_one_per_item": true,
+  "requirements": {
+    "tag_requirements": [
+      {
+        "type": "GearSlot",
+        "excluded": [],
+        "included": [
+          "bow",
+          "crossbow",
+          "jewelry_family",
+          "finesse"
+        ],
+        "req_type": "INCLUDES_ANY"
+      }
+    ]
+  },
+  "stats": [
+    {
+      "type": "FLAT",
+      "max": 10.0,
+      "min": 2.0,
+      "stat": "charge_recovery_rate"
+    }
+  ],
+  "weight": 1000
+}

@@ -8,10 +8,11 @@
   "is_elite": true,
   "is_special": false,
   "loot_multi": 1.75,
-  "max_slow_from_chill": 50,
+  "max_slow_from_chill": 5,
   "min_lvl": 0,
   "name": "Rare",
   "spells": [],
+  "stats": [],
   "stat_multi": 1.5,
   "text_format": "AQUA",
   "weight": 64

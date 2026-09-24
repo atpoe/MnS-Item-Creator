@@ -10,7 +10,8 @@
         "type": "GearSlot",
         "excluded": [],
         "included": [
-          "hammer"
+          "hammer",
+		  "ingenuity"
         ],
         "req_type": "INCLUDES_ANY"
       }
@@ -25,8 +26,8 @@
     },
     {
       "type": "FLAT",
-      "max": -5.0,
-      "min": -1.0,
+      "max": -7.5,
+      "min": -1.5,
       "stat": "mana_cost"
     }
   ],

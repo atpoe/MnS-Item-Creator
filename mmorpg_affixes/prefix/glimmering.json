@@ -10,7 +10,8 @@
         "type": "GearSlot",
         "excluded": [],
         "included": [
-          "armor_family"
+          "armor_family",
+		  "ingenuity"
         ],
         "req_type": "INCLUDES_ANY"
       }

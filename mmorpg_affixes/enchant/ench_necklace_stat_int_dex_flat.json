@@ -20,14 +20,14 @@
   "stats": [
     {
       "type": "FLAT",
-      "max": 6.0,
-      "min": 2.0,
+      "max": 3.0,
+      "min": 1.0,
       "stat": "intelligence"
     },
     {
       "type": "FLAT",
-      "max": 6.0,
-      "min": 2.0,
+      "max": 3.0,
+      "min": 1.0,
       "stat": "dexterity"
     }
   ],

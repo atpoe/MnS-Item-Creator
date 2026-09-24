@@ -12,7 +12,9 @@
         "included": [
           "jewelry_family",
           "armor_family",
-          "offhand_family"
+          "offhand_family",
+		  "ingenuity",
+		  "finesse"
         ],
         "req_type": "INCLUDES_ANY"
       }
@@ -26,5 +28,5 @@
       "stat": "chaos_resist"
     }
   ],
-  "weight": 3000
+  "weight": 1000
 }

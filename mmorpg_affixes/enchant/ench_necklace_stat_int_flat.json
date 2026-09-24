@@ -20,8 +20,8 @@
   "stats": [
     {
       "type": "FLAT",
-      "max": 9.0,
-      "min": 3.0,
+      "max": 4.5,
+      "min": 1.5,
       "stat": "intelligence"
     }
   ],

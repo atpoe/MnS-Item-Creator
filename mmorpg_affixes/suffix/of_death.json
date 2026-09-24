@@ -10,7 +10,8 @@
         "type": "GearSlot",
         "excluded": [],
         "included": [
-          "scythe"
+          "scythe",
+		  "finesse"
         ],
         "req_type": "INCLUDES_ANY"
       }
@@ -25,8 +26,8 @@
     },
     {
       "type": "FLAT",
-      "max": 5.0,
-      "min": 1.0,
+      "max": 10.0,
+      "min": 2.0,
       "stat": "inc_leech"
     }
   ],

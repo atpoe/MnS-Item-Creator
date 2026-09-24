@@ -20,8 +20,8 @@
   "stats": [
     {
       "type": "FLAT",
-      "max": 1.5,
-      "min": 0.5,
+      "max": 3.0,
+      "min": 1.0,
       "stat": "armor_penetration"
     }
   ],

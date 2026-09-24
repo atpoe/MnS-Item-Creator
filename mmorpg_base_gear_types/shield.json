@@ -2,14 +2,14 @@
   "base_stats": [
     {
       "type": "FLAT",
-      "max": 10.0,
-      "min": 5.0,
+      "max": 13.5,
+      "min": 6.75,
       "stat": "armor"
     },
     {
       "type": "FLAT",
-      "max": 10.0,
-      "min": 5.0,
+      "max": 20.0,
+      "min": 10.0,
       "stat": "block_chance"
     }
   ],

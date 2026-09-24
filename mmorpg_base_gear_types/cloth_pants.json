@@ -2,8 +2,8 @@
   "base_stats": [
     {
       "type": "FLAT",
-      "max": 20.0,
-      "min": 10.0,
+      "max": 32.4,
+      "min": 16.2,
       "stat": "magic_shield"
     }
   ],

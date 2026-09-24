@@ -16,7 +16,8 @@
 		  "spear",
 		  "scythe",
 		  "gauntlet",
-		  "shield"
+		  "shield",
+		  "might"
         ],
         "req_type": "INCLUDES_ANY"
       }
